@@ -1,0 +1,65 @@
+<style>
+    .option3{
+        margin-right: 0px!important;
+    }
+    
+   
+
+    
+</style>
+<ul class="list-select" style="float: left;
+width: 366px;
+padding: 0px!important;
+margin: 0px!important;">
+
+<?php
+$validate = '';
+$options = $this->getFieldOptions();
+foreach($this->getFieldOptions() as $i=>$option){
+	$checked = false;
+	if($option["checked"]){
+		$checked = 'checked';
+	}
+	if($this->getField()->getRequired() && $i==(count($options)-1)){
+               
+		$validate = "validate-one-required-by-name";
+		if($this->getField()->getData('validate_regex')){
+			$validate.= ' validate-field-'.$this->getField()->getId();
+		}
+	}
+	if(!empty($option["value"])){
+		$label = $option["label"];
+		if($option["image_src"]){
+			$label = "<img src='{$option['image_src']}'/>";
+		}
+        
+?>
+   
+<div class="<?php echo (count($this->getFieldOptions())>2)?"option3":"option2"; ?>" style="<?php echo($label=='Yes')?"width: 67px;":"width: 40px;";?>margin-bottom: 0px;margin-top:-15px;">
+	<input style='visibility:hidden;float:left; height:0px;margin-top:0px;' type='radio' name='<?php echo $this->getFieldName()?>' id='<?php echo $this->getFieldId().$i?>' value="<?php echo htmlspecialchars($option["value"])?>" class='radio <?php echo $validate?>' <?php echo $checked?> <?php if($this->getField()->getDisabled()){?> disabled <?php } ?>/>
+<!--        <label for='<?php echo $this->getFieldId().$i?>' class='num<?php echo $option["value"];?> <?php echo ($option["value"]=='Yes')?"yes-no-a":"yes-no-b"; ?><?php echo $this->getFieldClass()?>' style='visibility:hidden;<?php echo $this->getFieldStyle()?>'><?php echo (count($this->getFieldOptions())==2)?$label:""; ?></label>-->
+<!--	<label for='<?php echo $this->getFieldId().$i?>' class=' <?php echo $this->getFieldClass()?>' style='<?php echo $this->getFieldStyle()?>'><?php echo $label?></label>-->
+        <label for='<?php echo $this->getFieldId().$i?>' class='num<?php echo $option["value"];?> <?php echo ($option["value"]=='Yes')?"yes-no-a":"yes-no-b"; ?><?php echo $this->getFieldClass()?>' style='<?php echo $this->getFieldStyle()?>'><?php echo (count($this->getFieldOptions())==2)?$label:""; ?></label>
+        
+    <?php 
+        $tooltip = $this->getField()->getTooltip($option["value"]);
+        if($tooltip){
+            echo $this->getLayout()->createBlock(
+                'core/template',
+                'field' . $this->getField()->getId() .'_option'. $i . '_tooltip',
+                array(
+                    'title' => $label,
+                    'tooltip' => $tooltip,
+                    'template' => 'webforms/scripts/tooltip.phtml',
+                )
+            )->toHtml();
+        }
+    ?>
+</div>
+
+<?php
+	}
+}
+
+?>
+</ul>

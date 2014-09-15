@@ -1,0 +1,65 @@
+<?php $show_coupon = Mage::registry('show_coupon'); ?>
+<style>
+.skip {
+float: left;
+width: 217px;
+margin: 7px 23px 14px 220px;
+}
+</style>
+<div id="cart-coupon" style="margin-left:100px;" class="modal-example-content-md">
+  <div class="modal-example-header modal-example-header-white">
+  </div>
+    <br/>
+  <div class="modal-example-body modal-example-body-md" >
+    
+    <div class="coupon-block">
+      <div class="form">
+        <form id="co-discountcode-form" action="">
+          <div class="row" style="margin-bottom: 3px;">
+              <input type="hidden" name="discountcode_status" value="<?php echo $show_coupon; ?>"/>
+	    <p style="margin-left: 156px;">Enter your Coupon Code to enjoy our current promotion</p>
+            <p style="margin-left: 192px;"><input type="text" name="coupon_code" value="" placeholder="Enter Coupon Code" class="input input-text required-entry" ></p>
+          </div>
+          <div class="row">
+            <div class="buttons-set" id="discountcode-buttons-container">
+                <button type="button"  onclick="discountcode.save()" class="submit-btn" style="margin-left: 221px;
+width: 214px;"><span><span><?php echo $this->__('Submit') ?></span></span></button>
+                
+            </div>	
+          </div> 
+            <hr/>
+        </form>
+      </div>
+    </div>
+	
+	<div class="coupon-skip">
+	
+    <div class="skip">
+	<div class="title dark" style="width: 111px; text-align: center; margin-left: 53px;"><span>OR</span></div>
+	<ul>
+        <li><a href="javascript:;" onclick="discountcode.save(true)" >I don't have one, skip this step</a></li>
+        <li><div id="cart-coupon" style="margin-left:32px;width:300px;" >
+<span id="discountcode-please-wait"  style="display:none;">
+                        <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->__('Loading next step...') ?>" title="<?php echo $this->__('Loading next step...') ?>" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
+</span>
+</div></li>
+        </ul>
+	
+    </div>
+	 <div class="buttons-set" id="discountcode-buttons-container">
+  	<!--<a href="javascript:;" onclick="discountcode.save(true)"  style="margin-left: 235px; margin-left: 291px;">I don't have one, skip this step</a>-->
+	</div>
+                <span id="shipping-method-please-wait"  style="display: none;">
+                    <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->__('Loading next step...') ?>" title="<?php echo $this->__('Loading next step...') ?>" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
+                </span>
+                
+	 </div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var discountcode = new Discountcode('co-discountcode-form','<?php echo $this->getUrl('checkoutdiscountcode/index/submit')?>');
+//]]>
+</script>

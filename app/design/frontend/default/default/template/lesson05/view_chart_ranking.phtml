@@ -1,0 +1,59 @@
+
+<div class="chart_hori" style="width: 612px !important; padding-left: 15px;padding-top: 21px;">
+	<div class="bar_wrapper">
+		
+		<?php $flag_efficacy_exists = FALSE; ?>
+		<?php $counter = 0; ?>
+		<?php $ranking_data = $this->ranking_data;?>
+                
+                <?php   
+                    $color_set = $this->color_set; 
+                    $arr = array();
+                    $color_set = str_replace("'", "", $color_set);
+                    $arr = explode(',',$color_set);
+                ?>
+		<?php if($ranking_data) :?>
+			<?php 
+				// print "<pre>";
+				// print_r($ranking_data);
+			?>	
+			<?php foreach($ranking_data as $rank ) :?>
+				<?php //if($rank->name != 'rating') :?>
+                                        <?php   $color = $arr[$counter]; ?>
+					<?php  $flag_efficacy_exists = TRUE; ?>
+					<?php  $counter ++; ?>
+			
+					<?php  //$rating_sum = $this->num_entries * 5; // 5 stars ?>
+                                    
+					<?php  $rating_percent = number_format((($rank['sum'] / $rank['total']) * 100), 2, '.', '');
+							//round((($rank['sum'] / $rank['total']) * 100)); 
+					?>
+			  
+					<div class="bar_row">
+						<span class="rank" style="width : 183px!important;"><?php echo substr(strtoupper($rank['label']),0,26); echo (strlen($rank['label'])>=26)?"...":""; ?></span>
+                                                 <?php if ($counter == 1) { ?><img src="../../images/no-1.png" alt="" ><?php } ?>
+						<div class="bar_outer">
+							<div class="bar b1" style="background-color:<?php echo($color!="")?$color.';':"#9FD6D1"; ?>width: <?php echo $rating_percent; ?>%"></div>
+							<span class="label" ><?php //echo ucfirst($rank['name']); ?></span>
+							<span class="indicator"><?php echo $rating_percent; ?>%</span>
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+				
+				<?php //endif; ?>
+			<?php endforeach; ?>
+			
+		<?php endif; ?>	
+			
+		
+		<?php if(!$ranking_data) :?>
+		
+			<div style="text-align: center; color: #9FD6D1;">
+				No records yet.
+			</div>
+		
+		<?php endif; ?>
+		
+	</div>
+</div>
+	

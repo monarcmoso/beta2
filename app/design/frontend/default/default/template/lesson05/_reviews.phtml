@@ -1,0 +1,154 @@
+<?php
+$default_color_set = "'#9FD6D1', '#FFEA84','#FEC9C1','#C3EAA9','#FD8C86'";
+$customer_review = $this->getData();
+$attributeValue = $this->getAttr();
+$eff = $this->getEfficacy(); 
+//print_r($eff);
+$_inCust = $customer_review['data'];
+foreach($_inCust as $_id => $_customerInfo){
+$_reviewData = array();
+$_customerReview = array();
+foreach($_customerInfo as $_key => $_reviews){
+	$_reviewData[] = array(label=>$eff[$_key],'score'=>$_reviews,'total'=> '');
+}
+// get customer information here
+$reviewee = Mage::getModel("customer/customer"); 
+$reviewee->load($_id);
+$gender = $reviewee->getGender();
+$full_name  = strtok($reviewee->getFullName(), " ");
+$imflink = '/media/customer'.$reviewee->getMedmaAvatar();
+
+//get webform data
+$_indiResult = Mage::getModel("voice/action")->reviewData($attributeValue,$_id);
+$_userUploadImage = array();
+$_userDate = array();
+$_pop_upImage = array();
+$review_comment = '';
+foreach($_indiResult as $_indiUserResult){
+	if($_indiUserResult['field_code'] == 'review_image'){
+		if(!empty($_indiUserResult['result_value'])){
+			//kung di sya empty get the whole url
+			//$_userUploadImage[] = $_indiUserResult['image_result_id']."/".$_indiUserResult['image_field_id']."/".$_indiUserResult['key']."/".$_indiUserResult['result_value'];
+			$_file_id = $_indiUserResult['image_result_id']."/".$_indiUserResult['image_field_id']."/".$_indiUserResult['key'];
+			$_userDate[] = $_indiUserResult['date'];
+			$_resultsModel = Mage::getModel('webforms/results');
+			$_userUploadImage[] = $_resultsModel->getThumbnail($_file_id, $_indiUserResult['result_value'], '293');
+			$_pop_upImage[] = $_resultsModel->getThumbnail($_file_id, $_indiUserResult['result_value'], '368','368');
+		}
+	}
+	if($_indiUserResult['field_code'] == 'review_comment'){
+		$review_comment = $_indiUserResult['result_value'];
+	}
+}
+// print "<pre>";
+ //print_r($_userUploadImage);
+if(!empty($_userUploadImage)):
+?>
+	<div class="review-block-lg">
+        <div class="review-info review-block-lg-info blue-light"> <img width="30px" height="30px" src="<?php echo ($reviewee->getMedmaAvatar()) ? $imflink : "/skin/frontend/default/samplestore/images/profile.png"; ?>" alt="">
+            <h3><?php echo ucfirst($full_name); ?>’s Review</h3>
+        </div>
+        <div class="review-block-inner review-block-lg-inner">
+        	<div style="position:relative; float:left; overflow:hidden; height:194px;"><img src="<?php echo $_userUploadImage[0]; ?>" alt=""></div>
+            <div class="right review-right">
+                <h4><?php echo $this->formatDate($_userDate[0]) ?></h4>
+                <p><?php echo substr($review_comment, 0, 90); ?> </p>
+            </div>
+            <div class="clearfix gap"></div>
+            <div class="title"><span>Efficacy rating</span></div>
+            <div class="clearfix"></div>
+
+            <div class="bar-graph"> <?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('ranking_data', $_reviewData)->setData('color_set', $default_color_set)->setTemplate('lesson05/view_user_chart_ranking.phtml')->toHtml(); ?> </div>
+            <div class="clearfix"></div>
+            <div class="right"><a href="#pop_<?=$_id?>" class="blue-border btn" title="Custom effect">See Review</a></div>
+        </div>
+    </div>
+    
+	<!--     popup info start-->
+    <div id="pop_<?=$_id?>" style="display: none; padding-top:30px;" class="modal-example-content">
+        <div class="modal-example-header">
+            <button type="button" class="close review_close">Close <span>&times;</span></button>
+            <h2><span><?php echo $brand; ?></span> <?php echo $product_name; ?></h2>
+        </div>
+        <div class="modal-example-body">
+            <div class="modal-left">
+            	<?php if(count($_pop_upImage) > 1):?>
+			 	<div id="slider-wrapper">
+					<div class="inner-wrapper">
+						<?php foreach($_pop_upImage as $askey=> $resKeyImage):
+							$askey = ($askey+1);
+						?>
+							<input checked type="radio" name="slide" class="control" id="Slide<?php echo $askey; ?>"/>
+							<label for="Slide<?php echo $askey; ?>" id="s<?php echo $askey; ?>"></label>
+                		<?php endforeach;?>
+						<div class="overflow-wrapper">
+						<?php foreach($_pop_upImage as $_userImages):?>
+							<div class="slide"><img src="<?php echo $_userImages; ?>" alt=""></div>
+                		<?php endforeach;?>
+						</div>
+					</div>
+				</div>
+				<?php else: ?>
+					<img src="<?php echo $_pop_upImage[0]; ?>" alt="">
+				<?php endif; ?>
+            </div>
+            <div class="modal-right">
+                <div class="thumbnail"> <img  <?php if(!$imflink) echo 'height="368px" width="368px"';?>src="<?php echo ($reviewee->getMedmaAvatar()) ? $imflink : "/skin/frontend/default/samplestore/images/profile.png" ?>" alt="">
+                    <div class="thumbnail-info">Starter</div>
+                    <h2><?php echo $full_name; ?></h2>
+                    <!-- <h3>written 16 Review(s)</h3> -->
+                </div>
+                <div class="clearfix"></div>
+                <div class="title"><span>Efficacy rating</span></div>
+                <div class="clearfix"></div>
+                <div class="bar-graph">
+
+         <?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('ranking_data', $_reviewData)->setData('color_set', $default_color_set)->setTemplate('lesson05/view_user_chart_ranking.phtml')->toHtml(); ?></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="space-15">
+                <p><?php echo $review_comment; ?> </p>
+                <div class="clearfix"></div>
+                <span class="post-date">Posted on <?php echo $this->formatDate($_userDate[0]) ?></span> <!-- <span class="post-by">Also written on <a href="#">http://rebeccaklq.blogspot.sg/</a></span> <span class="verified"><a href="#" data-tooltip="This User has Redeemed and used this Sample">Verified</a></span> --> </div>
+        </div>
+    </div>
+<?php else: ?>
+	<div id="pop_<?=$_id?>" style="display: none;" class="modal-example-content">
+        <div class="modal-example-header">
+            <button type="button" class="close review_close">Close <span>&times;</span></button>
+            <h2><span><?php echo $brand; ?></span> <?php echo $product_name; ?></h2>
+        </div>
+        <div class="modal-example-body">
+			<div class="modal-right full">
+				<div class="thumbnail"> <img src="<?php echo $this->getSkinUrl('images/profile.png'); ?>" alt="">
+					<h2><?php echo $full_name; ?></h2>
+					<!-- <h3>written 16 Review(s)</h3> -->
+				</div>
+				<div class="clearfix"></div>
+				<div class="title"><span>Efficacy rating</span></div>
+				<div class="clearfix"></div>
+				<div class="center-graph">
+					<?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('ranking_data', $_reviewData)->setData('color_set', $default_color_set)->setTemplate('lesson05/view_user_chart_ranking.phtml')->toHtml(); ?></div>
+				</div>
+       			<div class="space-15">
+       				<div class="clearfix"></div>
+       				<div class="clearfix"></div>
+                	<p style="padding: 20px 40px 0px 40px; width: 90%;"><?php echo $review_comment; ?> </p>
+                	<div class="clearfix"></div>
+                	<span class="post-date" style="padding: 0px 40px; width: 90%;">Posted on <?php echo $this->formatDate($_userDate[0]) ?></span> <!-- <span class="post-by">Also written on <a href="#">http://rebeccaklq.blogspot.sg/</a></span> <span class="verified"><a href="#" data-tooltip="This User has Redeemed and used this Sample">Verified</a></span> --> 
+                </div>
+			</div>
+		</div>
+<?php endif; ?>
+	<?php
+	
+} //end foreach($_inCust as $_id => $_customerInfo)
+?>
+<div class="clearfix"></div>
+<div class="pagination bottom-spacer">
+<ul>
+	<li><a href="#">1</a></li>
+	<li><a href="#">></a></li>
+	<li><a href="#">Last</a></li>
+</ul>
+</div>

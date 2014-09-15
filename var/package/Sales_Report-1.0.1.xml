@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Sales_Report</name>
+    <version>1.0.1</version>
+    <stability>stable</stability>
+    <license>Open Software License (OSL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Area Wise Sales Report extension allows admin to add Pin Codes and Areas from admin interface and get the report of total sale in particular area.</summary>
+    <description>This extension allows admin to manage (Add/Update/Delete) Pin code and Areas from admin interface and depending on that information admin can have detailed report of the total sell in particular areas with a filter of Date (From - To date).</description>
+    <notes>Spaces issue in Postcode is resolved.</notes>
+    <authors><author><name>Manthan</name><user>manthanext</user><email>manthan18121989@gmail.com</email></author></authors>
+    <date>2013-12-30</date>
+    <time>17:11:54</time>
+    <contents><target name="magelocal"><dir name="Sitegurus"><dir name="Pincode"><dir name="Block"><dir name="Adminhtml"><dir name="Pincode"><dir name="Edit"><file name="Form.php" hash="315e488ed8862b2470a70abfab746adc"/><dir name="Tab"><file name="Form.php" hash="7f7f18b14e3dbed57ab8be5e76e1f93d"/></dir><file name="Tabs.php" hash="a25cd23c11d2bb10916c55de1cd7dee3"/></dir><file name="Edit.php" hash="f801ebe2b94882f92e89608a36911a6a"/><file name="Grid.php" hash="dc2c1d81f216ad8eb4e540d1ff5fbdd6"/></dir><file name="Pincode.php" hash="a04b25b745be2f898d8b6abc258fcb59"/></dir><file name="Pincode.php" hash="3b7e393170fc4aaadf3a02946385eaa0"/></dir><dir name="Helper"><file name="Data.php" hash="e5ee846f31970a8bc322210bae4ceb09"/></dir><dir name="Model"><dir name="Mysql4"><dir name="Pincode"><file name="Collection.php" hash="3f3ab1a36a7867f69ea0ef8a9861d573"/></dir><file name="Pincode.php" hash="df7f84310351d169d2a57bf87f281f9b"/></dir><file name="Pincode.php" hash="910ef76739e2ab23bf6e201a99df7abb"/><file name="Status.php" hash="ab5df1a5f08b8fab1eaaf13a93639057"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="PincodeController.php" hash="0d19d85e5848f54e259274a0e5f29804"/></dir><file name="IndexController.php" hash="2062fb83647d1b55a0c2f1440f0d3520"/></dir><dir name="etc"><file name="config.xml" hash="1afd3c22dc6f762725456ec615633a23"/></dir><dir name="sql"><dir name="pincode_setup"><file name="mysql4-install-0.1.0.php" hash="d97a69e6ccebb9bbf2bf620a6206755f"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="pincode.xml" hash="334c1c090c1232a0c49337d3220aa3b3"/></dir><dir name="template"><dir name="pincode"><file name="sales_report.phtml" hash="d4d4ddcff4f96644f46ac23b8ec9e406"/><file name="sales_report_bkp.phtml" hash="01a11687c17b8504180cc43133994242"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Sitegurus_Pincode.xml" hash="b73cfbed670632fc7423c15294d1d5c9"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.0.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

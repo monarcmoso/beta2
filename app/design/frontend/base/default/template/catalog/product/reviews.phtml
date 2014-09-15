@@ -1,0 +1,265 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?><style>
+    .review-block-inner a._link{
+        text-align: left;
+        line-height:normal!important;
+    }  
+    .review-block-inner {
+        height: 195px;
+    }
+</style>
+
+
+<?php
+//sort($ids, Mage::helper('function')->sortFunction());
+//
+//
+//$product_ids = array();
+$ctr = 0;
+ $strt = $this->getData('start');
+
+ $end = $this->getData('end');
+
+
+
+// var_dump($product_ids);
+//if ($product_ids) {
+//    $_productCollection = Mage::getModel('catalog/product')->getCollection()->addAttributeToSelect('*')
+//            ->addAttributeToFilter('entity_id', array('in' => $product_ids));
+//} else {
+//    $_productCollection = $this->getLoadedProductCollection();
+//}
+ $_productCollection = Mage::getModel('catalog/product')->getCollection();
+ $_productCollection->addAttributeToSelect('*'); 
+          $arr[] =  array(1952,1950,953, 1839 ,1798,1951,1840,1753,1785,68,1788,1914,2145
+              ,1808,1786,1970,1790,1946,1789,1787,1947,1832,1974,1975,1964,1888 ,2043,2094 ,2146,1969,1761,
+              2095,2096 ,1935,1934,1933, 2040 , 1932, 2039 , 2038, 1719,1874,2001,1999, 2000,1864,1804,1805 , 1801,1963, 1994 ,2063,1993,1836 , 1835,1759 , 1913, 1803,
+              1833,1758 , 1948 , 1872 , 1873, 1757 ,1890 ,1865 , 1897 ,1891 , 1721 , 2025 , 1806 , 1830 , 2024 , 2020 ,1841 , 2036 ,
+              2011 ,2034 ,2009,2007 ,2023 ,2005 ,2037 , 2035 ,2010 , 2022 ,2021 , 2031,1923 , 1945 ,1829 , 2082 , 1828 , 1866, 2069,1905 ,2074, 2072,1862,1850);
+          
+             $_productCollection->addAttributeToFilter('entity_id', $arr);
+     
+       $_productCollection->setOrder('launched_date','DESC');
+    $_helper = $this->helper('catalog/output');
+?> 
+<?php if (!$_productCollection->count()): ?>
+    <p class="note-msg"><?php echo $this->__('There are no reviews matching the selection.') ?></p>
+<?php else: ?>
+
+    <?php 
+    $_columnCount = $this->getColumnCount(); 
+    $i = 0;
+    $brand = "";
+    $color = "";
+    $a = 0;
+
+  
+foreach ($_productCollection as $_product):
+      if( $_product->getId()!='168'):
+        $days = 5;
+        $end_datetime = $_product->getResource()->getAttribute('expiry_date')->getFrontend()->getValue($_product);
+        $current_date = date('Y-m-d');
+        $current_date1 = time() + $days * 24 * 60 * 60;
+        $current_date1 = date('Y-m-d', $current_date1);
+        $expired = FALSE;
+        if ($end_datetime) {
+            $end_datetime = date('Y-m-d', strtotime($end_datetime));
+
+            if (strtotime($end_datetime) >= strtotime($current_date1)) :
+                $expired = FALSE;
+            else:
+                $expired = TRUE;
+            endif;
+        }
+
+        $start_datetime = $_product->getResource()->getAttribute('launched_date')->getFrontend()->getValue($_product);
+        $launch = FALSE;
+        if ($start_datetime) {
+            $start_datetime = date('Y-m-d', strtotime($start_datetime));
+            if (strtotime($current_date) >= strtotime($start_datetime)) :
+                $launch = FALSE;
+            else:
+                $launch = TRUE;
+            endif;
+        }
+        $free_delivery_bool = $_product->getResource()->getAttribute('free_delivery')->getFrontend()->getValue($_product);
+        $categoryIds = $_product->getCategoryIds();
+
+        $c = 1;
+
+        foreach ($categoryIds as $catId) {
+
+
+            $_category = Mage::getModel('catalog/category')->load($catId);
+
+
+            if ($_category->getLevel() == '3' && $_category->getParentCategory()->getId() == '44') {
+                $brand = $_category->getName();
+            }
+            if ($_category->getLevel() == '3' && $_category->getParentCategory()->getId() == '18' && $_category->getId() != '43') {
+                $categoryname = $_category->getName();
+                //get category color
+                $color = $_category->getResource()->getAttribute('color')->getFrontend()->getValue($_category);
+            }
+
+
+            $c++;
+        }
+
+        foreach ($categoryIds as $catId) {
+            $_category = Mage::getModel('catalog/category')->load($catId);
+            if ($_category->getId() != "43" && $_category->getParentCategory()->getId() == '18') {
+                $categoryname = $_category->getName();
+                $color = $_category->getResource()->getAttribute('color')->getFrontend()->getValue($_category);
+            }
+        }
+        ?>
+        <?php // get review result top efficacy ?>
+    <?php $cmsstatic = $_product->getResource()->getAttribute('custom_review_set')->getFrontend()->getValue($_product); ?>
+            <?php
+          
+            if ($cmsstatic != 'No' && $cmsstatic != '') {
+                $read = Mage::getSingleton('core/resource')->getConnection('core_read');
+                $arr = array();
+                $webform_id = 0;
+
+                $sql3 = "SELECT * FROM webforms WHERE code='" . $cmsstatic . "' limit 1";
+
+                $arr = $read->fetchAll($sql3);
+
+                if (!empty($arr)) {
+
+                    foreach ($arr as $key) {
+                        $webform_id = $key['id'];
+                    }
+                    
+                    //get reviews from webform results by webform id.
+                    if ($webform_id > 0) { 
+                        $read = Mage::getSingleton('core/resource')->getConnection('core_read');
+                        $sql5 = "select webforms_results.id,webforms_results.customer_id,webforms_results.created_time from webforms_results
+                                            where webforms_results.webform_id=" . $webform_id . " and webforms_results.approved=1
+                                            group by  webforms_results.customer_id order by webforms_results.created_time desc  ";
+                        $result = $read->fetchAll($sql5);
+
+                        foreach ($result as $res) {
+                            $customer_id = $res['customer_id'];
+                            $customerData = Mage::getModel('customer/customer')->load($customer_id)->getData();
+
+                            // $customer->load($customer_id);
+                         
+                            $image = $customerData['medma_avatar']; // attribute code value = image name 
+                            $img_path = Mage::getBaseUrl() . 'media/customer/';
+                            if($image)
+                            $prof_pic = $img_path . $image;
+                            else $prof_pic = "";
+                            $full_name = $customerData['full_name'];
+
+                            $customer_id = $res['customer_id'];
+                            
+                         
+
+                        // $sql6 = "select webforms_results_values.*,webforms_fields.type from webforms_results_values join webforms_fields on webforms_fields.id=webforms_results_values.field_id where webforms_results_values.result_id=" . $res['id'] . " and webforms_fields.type='textarea' limit 1";
+                            $sql6 = " select webforms_results.`created_time`,webforms_results_values.*,webforms_fields.type from webforms_results_values join webforms_fields on webforms_fields.id=webforms_results_values.field_id join webforms_results on webforms_results.id=webforms_results_values.`result_id` where webforms_results_values.result_id=". $res['id'] ." and webforms_fields.type='textarea' order by webforms_results.created_time desc";
+                            $result2 = $read->fetchAll($sql6);
+                            foreach ($result2 as $res2) {
+                                
+                                
+                                $date_reviewed = $res['created_time'];
+                                $timestamp_review = strtotime($date_reviewed);
+                                $review = $res2['value'];
+                                $sql7 = "select webforms_results_values.*,webforms_fields.type from webforms_results_values join webforms_fields on webforms_fields.id=webforms_results_values.field_id where webforms_results_values.result_id=" . $res2['result_id'] . " and webforms_fields.type='image' limit 1";
+                                    
+                                $result_img = $read->fetchAll($sql7);
+                                foreach ($result_img as $resimg) {
+                                     $filename = $resimg['value'];
+                                  
+                                   $review_img = Mage::getBaseUrl() . 'media/webforms/' . $resimg['result_id'] . "/" . $resimg['field_id'] . "/" . $resimg['key'] . "/" . $filename;
+                                 
+                                }   
+                                $review_img = "";
+                                $fname = "";
+                                  
+                                    $valid_images = array();
+                                    
+                                    foreach(glob("./media/webforms/" . $resimg['result_id'] . "/" . $resimg['field_id'] . "/" . $resimg['key'] . "/thumb/*.*") as $fname){
+                                        if(strpos($fname,'/thumb/200x')){
+                                           $valid_images[$fname] =  filemtime($fname);
+                                        }
+                                    }
+                                   
+                                    arsort($valid_images);
+
+                             
+                              
+                                     $review_img = key($valid_images);
+                                ?>
+                             <?php if (($expired) || ($launch) || !$_product->isSaleable()): ?>
+                            <?php else: ?>
+                                <?php if( $customer_id!=102 && (($customer_id=4  && $_product->getId()==1951) || ($_product->getId()==1914 && $customer_id=4))): ?>
+				<?php $a++; ?>
+                                    <div class="review-block">
+                                    <div class="review-info blue-light" style="background-color:<?php echo $color; ?>"><img src="<?php echo ($prof_pic) ? $prof_pic : $this->getSkinUrl('images/profile.png'); ?>" alt=""> <!--<img src="images/girl-xs.jpg" alt="" />-->
+                                            <h3> <?php echo ucfirst($full_name); ?>'s Review</h3>
+                                        </div>
+                                      
+                                        <div class="review-block-inner"><div style="background:url('<?php echo $review_img; ?>');width:185px;height:193px;float:left;background-position: center; background-repeat: no-repeat;"></div>
+                                            
+                                            <div class="right">
+                                                <h2 class="blue-light-text" style="margin: 0px; text-align: center;"><?php echo $brand; ?></h2>
+                                                <h3 class="blue-light-text"><a style="margin: 0px; line-height: 15px; margin-bottom: 15px;" href="<?php echo $_product->getProductUrl(); ?>"><?php echo ucfirst(substr($_helper->productAttribute($_product, $_product->getName(), 'name'), 0, 20)); ?><?php echo(strlen($_helper->productAttribute($_product, $_product->getName(), 'name'))>20)?"...":"";?></a></h3>
+                                                <h4 style="margin: 0px;color:#000;font-weight:bold;"><strong><?php echo date('d-M-Y',$timestamp_review); ?></strong></h4>
+                                                <p style="height: 80px;"><?php echo substr($review, 0,70)."..."; ?></p>
+                                
+
+                                                <a class="blue-border" href="<?php echo str_replace("free/","",$_product->getProductUrl()) ?>">See Review</a></div>
+                                        </div>
+                                    </div>
+                                        
+                            <?php endif; ?>
+
+    
+                            <?php endif; ?>
+                                <?php
+
+                            }
+
+                        }
+                    }
+                }
+            }
+            ?>  
+        <?php
+        $brand = "";
+        $categoryname = "";
+        $efficacy_name = "";
+        $color = "";
+        $review_img = "";
+       ?>
+<?php endif; ?>
+    <?php endforeach; ?>
+
+<?php endif; ?> 

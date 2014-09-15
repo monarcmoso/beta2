@@ -1,0 +1,151 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * @see Mage_Paypal_Block_Express_Review_Details
+ */
+?>
+<style>
+input[type='checkbox'] { visibility:hidden; }
+.please-wait {
+	float: right;
+	width: 201px;
+	margin-top: 50px;
+	margin-right: -150px;
+}
+.align-left {
+	text-align: justify !important;
+	float: left;
+	width: 100%;
+}
+</style>
+<?php
+    $points_todeduct = 0;
+    $paid_checkout = false;
+    foreach ($this->getItems() as $item) {
+        $productId = $item->getProductId();
+        $_product = Mage::getModel('catalog/product')->load($productId);
+        $free_delivery_bool = $_product->getResource()->getAttribute('free_delivery')->getFrontend()->getValue($_product);
+        if($free_delivery_bool != 'Yes') $paid_checkout = TRUE;
+        else $points_todeduct++;
+    }
+
+?>
+<?php
+        $lastOrderId = Mage::getSingleton('checkout/session')->getLastOrderId();
+        $order = Mage::getSingleton('sales/order'); 
+        $order->load($lastOrderId);
+        $_totalData =$order->getData(); 
+        $couponcode_name = $_totalData['coupon_code'];
+        $base_discount =    $_totalData['base_discount_amount'];
+
+?>
+<?php $count = $this->helper('checkout/cart')->getSummaryCount(); ?>
+<?php if($count>1) $count = $count - 1; ?>
+<input type="text" name="points_todeduct" value="<?php echo $points_todeduct; ?>"/>    
+<table id="details-table" class="data-table" style="display: none;">
+    <?php if ($this->helper('tax')->displayCartBothPrices()): $colspan = $rowspan = 2; else: $colspan = $rowspan = 1; endif; ?>
+    <col />
+    <col width="1" />
+    <col width="1" />
+    <col width="1" />
+    <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+    <col width="1" />
+    <col width="1" />
+    <?php endif; ?>
+    <thead>
+        <tr>
+            <th rowspan="<?php echo $rowspan ?>"><?php echo $this->__('Product Name') ?></th>
+            <th colspan="<?php echo $colspan ?>" class="a-center"><?php echo $this->__('Price') ?></th>
+            <th rowspan="<?php echo $rowspan ?>" class="a-center"><?php echo $this->__('Qty') ?></th>
+            <th colspan="<?php echo $colspan ?>" class="a-center"><?php echo $this->__('Subtotal') ?></th>
+        </tr>
+        <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+            <tr>
+                <th class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                <th><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                <th class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                <th><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+            </tr>
+        <?php endif; ?>
+    </thead>
+<?php echo $this->getChildHtml('totals'); ?>
+    <tbody>
+        <?php foreach($this->getItems() as $_item): ?>
+            <?php echo $this->getItemHtml($_item) ?>
+        <?php endforeach ?>
+    </tbody>
+</table>
+   
+      <table class="notify3 no-border">
+        <thead>
+        <th colspan="col">&nbsp;</th>
+          <th colspan="col">BRAND</th>
+          <th colspan="col">Item(S) description</th>
+          <th colspan="col">Quantity</th>
+          <th colspan="col">Type/Costs</th>
+            </thead>
+        <tfoot>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>Total</td>
+            <td><?php  if($count==0)
+                            {
+                                echo $this->__('(0 ITEMS)',$count);
+                            }
+                            if($count==1)
+                            {
+                                echo $this->__('(1 ITEM)',$count);
+                            }
+                            if($count>1)
+                            {
+                                echo $this->__('(%s ITEMS)',$count);
+                            }
+                    ?></td>
+            <td>S$<?php echo (!$paid_checkout)?"0.00":"5.99"; ?></td>
+          </tr>
+          
+        </tfoot>
+        
+        <tbody>
+              <?php foreach($this->getItems() as $_item): ?>
+            <?php echo $this->getItemHtml($_item)?>
+        <?php endforeach ?>
+           <?php if($couponcode_name):?>  
+          <tr>
+            <td></td>
+            <td>&nbsp;</td>
+            <td><b>Coupon Code Discount (<?php echo $couponcode_name; ?>)</b></td>
+            <td>&nbsp;</td>
+            <td><b><?php echo $base_discount; ?></b></td>
+          </tr>  
+          <?php endif; ?>  
+        </tbody>
+        
+      </table>
+    
+<script type="text/javascript">decorateTable('details-table');</script>

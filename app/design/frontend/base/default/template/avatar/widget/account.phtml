@@ -1,0 +1,39 @@
+<?php 
+/**
+ * Medma Avatar Module.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Team
+ * that is bundled with this package of Medma Infomatix Pvt. Ltd.
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * Medma Support does not guarantee correct work of this package
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * =================================================================
+ */
+?>
+<?php if(Mage::helper('avatar')->isShowUploadWidget()):?>
+
+<script type="text/javascript">
+var avatarTemplate = '<div class="fieldset">'
+                            +'<h2 class="legend"><?php echo $this->getData('title')?></h2>'
+                            +'<ul class="form-list">'
+                            +'<li class="wide">'
+                            +'<div class="input-box">'
+                            +'<input type="file" name="avatar-file" id="upload-avatar" title="<?php echo $this->__('Customer Avatar') ?>"/>'
+                            +'</div>'
+                            +'</li>'    
+                            +'</ul>' 
+                            +'</div>';
+
+    $j = jQuery.noConflict();
+    $j('#form-validate').attr('enctype', 'multipart/form-data');
+    if($j('#form-validate > .fieldset:nth-child(2)')){
+        $j('#form-validate > .fieldset:nth-child(2)').after(avatarTemplate);
+    }
+    
+</script>
+<?php endif?>

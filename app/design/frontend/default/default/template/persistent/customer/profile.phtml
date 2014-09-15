@@ -1,0 +1,7 @@
+<?php 
+echo $this->getLayout()->createBlock('webforms/webforms', 'my_webform_block', array
+(
+    'webform_id' => 12,
+    'template' => 'webforms/default.phtml',
+))->toHtml();
+?>

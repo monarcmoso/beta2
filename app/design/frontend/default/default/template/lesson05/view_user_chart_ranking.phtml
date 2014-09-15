@@ -1,0 +1,51 @@
+<style>
+     .chart_verti, .chart_hori{
+        height: 100%;
+        width:420px;
+    }
+    .chart_hori .rank{
+        width: 160px!important;
+        text-align: left!important;
+    }
+</style>
+<div class="chart_hori">
+	<div class="bar_wrapper" >
+		
+		<?php $flag_efficacy_exists = FALSE; ?>
+		<?php $counter = 0; ?>
+		<?php $ranking_data = $this->ranking_data;?>
+                  <?php //print "<pre>"; print_r($ranking_data); ?>
+                <?php   
+                    $color_set = $this->color_set; 
+                    $arr = array();
+                    $color_set = str_replace("'", "", $color_set);
+                    $arr = explode(',',$color_set);
+                ?>
+		<?php if($ranking_data) :?>
+			<?php foreach($ranking_data as $key => $rank ) :?>
+					<?php  $rating_percent = number_format((($rank['score'] / 5) * 100), 2, '.', '');?>
+					<div class="bar_row">
+						<span class="rank"><?php echo str_replace("(AND THIS SUPER WHOPPER LONG TEXT SHOULD BE CUT OFF)", "", strtoupper($rank['label'])); ?></span>
+						<div class="bar_outer" style="width: 221px!important">
+							<div class="bar b1" style="background-color:<?php echo($arr[$key]!="")?$arr[$key].';':"#9FD6D1"; ?>width: <?php echo $rating_percent; ?>%"></div>
+							<span class="label" ><?php //echo ucfirst($rank['name']); ?></span>
+							<span class="indicator"><?php echo $rating_percent; ?>%</span>
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+			<?php endforeach; ?>
+			
+		<?php endif; ?>	
+			
+		
+		<!-- <?php if((! $flag_efficacy_exists) || (! $ranking_data)) :?>
+		
+			<div style="text-align: center; color: #9FD6D1;">
+				No records yet.
+			</div>
+		
+		<?php endif; ?> -->
+		
+	</div>
+</div>
+	

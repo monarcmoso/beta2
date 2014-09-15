@@ -1,0 +1,311 @@
+<?php if($this->getSrc() == 'shipping'):?>
+<script>
+jQuery(document).ready(function($){
+	$('#shipping_popup').trigger('click');
+});
+</script>
+<?php endif;?> 
+<?php $info = $this->getAddress();
+$customer = Mage::getModel("customer/customer")->load(Mage::getSingleton('customer/session')->getId());
+?>
+<div class="title title2">
+	<span>SETTINGS</span>
+</div>
+<div class="clearfix"></div>
+<div class="p-small gap">
+<p>Send us some of your details so we can send you your samples!</p>
+<div>
+<div class="profile-wrap">
+	<div class="profile-block profile-divide">
+		<h4 class="edit-pic">Password<a class="edit_pop" title="Custom effect" href="#modal-5" data-custombox="1404897487">Edit</a></h4>
+		<h5>Change new Password</h5>
+	</div>
+	<div class="profile-block profile-divide">
+		<h4 class="edit-pic">Mobile No. <a class="edit_pop" title="Custom effect" href="#modal-6" data-custombox="1404897457">Edit</a></h4>
+		<!-- <h5>9876 5432 (Verified <i class="fa fa-check"></i>)</h5> -->
+		<h5><?php if($info['telephone'] == '')echo "-"; else echo $info['telephone'];?></h5>
+	</div>
+	<div class="profile-block profile-divide">
+		<h4 class="edit-pic">Email <a href="#modal-7" class="edit_pop" title="Custom effect">Edit</a></h4>
+		<h5><?php if($customer->getEmail() == '')echo '-'; else echo $customer->getEmail();?></h5>
+	</div>
+	<div class="profile-block profile-divide">
+		<h4 class="edit-pic">Country <a href="#modal-8" class="edit_pop" title="Custom effect">Edit</a></h4>
+		<h5><?php 
+			$countryId = strtoupper($info['country_id']);
+			if($countryId == 'SG'){?><img src="<?=$this->getSkinUrl('images/flag.jpg');?>" alt=""><?php } 
+			else if($countryId == 'MY'){?><img src="<?=$this->getSkinUrl('images/flag-my.jpg');?>" alt=""><?php } ?> 
+			<?php
+			$collection = Mage::getModel('directory/country')->getCollection();   
+		    foreach ($collection as $country)
+		    {
+				if($countryId ==  $country->getId()){
+					echo $country->getName();	
+				}
+		    }?>
+		</h5>
+	</div>
+	<div class="profile-block profile-divide">
+		<h4 class="edit-pic">Shipping Address <a href="#modal-9" class="edit_pop" id="shipping_popup" title="Custom effect">Edit</a></h4>
+		<h5><?php if(!empty($info['street']))echo $info['street']; else echo "-"?></h5>
+	</div>
+	<div class="profile-block profile-divide">
+		<h4 class="edit-pic">Newsletter Subscription <a href="#modal-10" class="edit_pop" title="Custom effect">Edit</a></h4>
+		<h5>Receive up to date new product <br>information and special offers <br>from The Sample Store.</h5>
+	</div>
+</div>
+
+<div id="modal-5" style="display: none;" class="modal-example-content modal-example-content-md">
+  <div class="modal-example-header modal-example-header-white">
+    <button type="button" class="close close-white" >Close <span>&times;</span></button>
+  </div>
+  <div class="message"></div>
+  <div class="modal-example-body modal-example-body-md">
+    <div class="title title2 move-20"><span>Change Password</span></div>
+    <div id="error_msg"></div>
+    <div class="login-block">
+      <div class="form">
+        <form method="post" action="" id="frmPassword" name="frmPassword">
+          <div class="row">
+            <input type="password" placeholder="Current Password" name="current_password" id="current_password">
+          </div>
+          <div class="row">
+            <input type="password" placeholder="New Password" name="new_password" id="new_password">
+          </div>
+          <div class="row">
+            <input type="password" placeholder="ReType New Password" name="confirm_password" id="confirm_password">
+          </div>
+          <div class="row">
+          	<!-- <input type="submit" class="confirm" value="Confirm" id="confirm"> -->
+          	<input type="submit" value="Confirm" id="updatePassword" class="submit-btn">
+            <!-- <input type="submit" class="confirm" value="Confirm" id="confirm" class="submit-btn"> -->
+          </div>
+        </form>
+      </div>
+    </div>
+	<div id="popup">
+		<img class="sms" src="<?=$this->getSkinUrl('images/ajax_loader_pass.gif');?>">
+	</div>
+  </div>
+</div>
+
+<div id="modal-6" style="display: none;" class="modal-example-content modal-example-content-md">
+	<div class="modal-example-header modal-example-header-white">
+		<button type="button" class="close close-white" >Close <span>&times;</span></button>
+ 	</div>
+	<div class="modal-example-body modal-example-body-md" id="change_mobile_form">
+		<div class="title title2 move-20"><span>Change Mobile Number</span></div>
+		<div id="error_msg"></div>
+		<div class="login-block">
+			<div class="form" id="mobile">
+				<form method="post" id="frmMobile" name="frmMobile">
+				<div class="row"><input type="text" placeholder="New Mobile No." name="mobile_num" id="mobile_num"><!-- <input type="email" value="" placeholder="Enter SMS PIN"> --></div>
+				<div class="row">
+					<div class="p-small"><p></p></div>
+				</div>
+				<div class="row"><input type="submit" value="Confirm" id="updateMobile" class="submit-btn"><!-- <input type="submit" value="Confirm" class="submit-btn"> --></div>
+				</form>
+			</div>
+			<div class="form" id="otp">
+				<form method="post" id="frmOtp" name="frmOtp">
+				<div class="row"><input type="text" placeholder="OTP Key" name="otp_key" id="otp_key"><!-- <input type="email" value="" placeholder="Enter SMS PIN"> --></div>
+				<div class="row">
+					<div class="p-small"><p></p></div>
+				</div>
+				<div class="row">
+					<!-- <input type="hidden" id="hiddenMobile" name="hiddenMobile" value="">	 -->
+					<input type="submit" value="Verify" id="verifyOtp" class="submit-btn"><!-- <input type="submit" value="Confirm" class="submit-btn"> -->
+				</div>
+				</form>
+			</div>
+		</div>
+		<div id="popup">
+			<img class="sms" src="<?=$this->getSkinUrl('images/ajax_loader_pass.gif');?>">
+		</div>
+	</div>
+</div>
+
+<div id="modal-7" style="display: none;" class="modal-example-content modal-example-content-md">
+	<div class="modal-example-header modal-example-header-white">
+		<button type="button" class="close close-white" >Close <span>&times;</span></button>
+	</div>
+<div class="modal-example-body modal-example-body-md">
+	<div class="title title2 move-20"><span>Change Email</span></div>
+	<div id="error_msg"></div>
+	<div class="login-block">
+		<div class="form">
+			<form method="post" id="frmEmail" name="frmEmail">
+			<div class="row">
+				<input type="text" placeholder="New Email" name="email_address" id="email_address">
+				<!-- <p class="error text-align-right">Incomplete field</p> -->
+			</div>
+			<div class="row">
+				<input type="password" placeholder="Password" name="user_password" id="user_password">
+			</div>
+			<div class="row">
+				<div class="p-small"><p>Your current email address is <strong><?=$customer->getEmail();?>.</strong> 
+				You can change your email address above. 
+				Your current password is required for security reasons.</p></div>
+			</div>
+			<div class="row"><input type="submit" value="Confirm" id="updateEmail" class="submit-btn"><!-- <input type="submit" value="Confirm" class="submit-btn"> --></div>
+			</form>
+		</div>
+	</div>
+	<div id="popup">
+		<img class="sms" src="<?=$this->getSkinUrl('images/ajax_loader_pass.gif');?>">
+	</div>	
+</div>
+</div>
+
+<div id="modal-8" style="display: none;" class="modal-example-content modal-example-content-md">
+	<div class="message"></div>
+	<div class="modal-example-header modal-example-header-white">
+		<button type="button" class="close close-white" >Close <span>&times;</span></button>
+	</div>
+	<div class="modal-example-body modal-example-body-md">
+		<div class="title title2 move-20"><span>Change country</span></div>
+		<div id="error_msg"></div>
+		<div class="clearfix"></div>
+		<form method="post" id="frmCountry" name="frmCountry">
+		<div class="login-block">
+			<div class="row">
+				<label class="width-55">Country</label>
+				<label class="medium"><input type="radio" name="country_value" value="SG"><img src="<?=$this->getSkinUrl('images/flag.jpg');?>" alt=""></label>
+				<label class="medium"><input type="radio" name="country_value" value="MY"> <img src="<?=$this->getSkinUrl('images/flag-my.jpg');?>" alt=""></label>
+				<label class="medium"><input type="radio" id="others"> Others</label>
+			</div>
+			<div class="row">
+				<div id="country_dropdown" style="display:none;">
+					<?php $_countries = Mage::getResourceModel('directory/country_collection')->loadData()->toOptionArray(false) ?>
+					<?php if (count($_countries) > 0): ?>
+					    <select name="country" id="country">
+					        <option value="">Select Country</option>
+					        <?php foreach($_countries as $_country): ?>
+					            <option value="<?php echo $_country['value'] ?>">
+					                <?php echo $_country['label'] ?>
+					            </option>
+					        <?php endforeach; ?>
+					    </select>
+					<?php endif; ?>
+				</div>
+			</div>
+			<div class="row">
+				<input type="submit" value="Confirm" id="updateCountry" class="submit-btn"><!-- <input type="submit" value="Confirm" class="submit-btn"> -->
+			</div>
+		</div>
+		</form>
+		<div id="popup">
+			<img class="sms" src="<?=$this->getSkinUrl('images/ajax_loader_pass.gif');?>">
+		</div>			
+	</div>
+</div>
+
+<div id="modal-9" style="display: none;" class="modal-example-content modal-example-content-md">
+	<div class="modal-example-header modal-example-header-white">
+    	<button type="button" class="close close-white" >Close <span>&times;</span></button>
+  	</div>
+  	<div class="modal-example-body modal-example-body-md">
+    	<div class="title title2 move-20"><span>Shipping Address</span></div>
+    	<div id="error_msg"></div>
+	    <div class="login-block">
+			<div class="form">
+		        <form method="post" id="frmShipping" name="frmShipping">
+				<!-- <div class="row">
+		        	<div class="p-small"><p>Confirm to add the new shipping address</p></div>
+		        </div> -->
+		        <div class="row">
+					<input type="text" placeholder="Zip Code" name="postal" id="postal">
+				</div>
+				<div class="row">
+					<input type="text" placeholder="Shipping Address" name="shipping_address" id="shipping_address">
+					<input type="hidden" name="src" id="src" value="<?php echo $this->getSrc(); ?>">
+				</div>
+				<div class="row">
+		        	<div class="p-small"><p>Confirm that your shipping address is correct.</p></div>
+		        </div>
+				<div class="row">
+					<input type="submit" value="Confirm" id="updateShipping" class="submit-btn">
+					<!-- <input type="submit" value="Confirm" class="submit-btn"> -->
+				</div>
+		        </form>
+	      </div>
+	    </div>
+		<div id="popup">
+			<img class="sms" src="<?=$this->getSkinUrl('images/ajax_loader_pass.gif');?>">
+		</div>	
+  	</div>
+</div>
+<?php $_newsLetter = $this->getNewsletter();?>
+<?php 
+	$userNewsLetter = $this->getUserNewsletter();
+	unset($userNewsLetter[0]);
+	$_newsletter = array();
+	foreach($userNewsLetter as $key => $letter){
+		$key -= 1;
+		$_newsletter[] = array('result_id'=>$letter['result_id'],'code'=>$letter['code'],'value'=>$letter['value'],'label'=>$_newsLetter[$key]['value']);
+	}
+	// print "<pre>";
+	// print_r($_newsletter);
+	?>
+<div id="modal-10" style="display: none;" class="modal-example-content modal-example-content-md">
+  	<div class="modal-example-header modal-example-header-white">
+    	<button type="button" class="close close-white" >Close <span>&times;</span></button>
+ 	 </div>
+  	<div class="modal-example-body modal-example-body-md">
+	<div class="title title2 move-20"><span>Newsletter subscription</span></div>
+	<div id="error_msg"></div>
+	<div class="login-block form-mid">
+  		<div class="form">
+		<form method="post" id="frmShipping" name="frmShipping">
+			<?php //$newsLetter = $this->getNewsletter();?>
+			<?php //$userNewsLetter = $this->getUserNewsletter(); ?>
+			<!-- <?php for($i= 0; $i<count($this->getNewsletter()); $i++):?>
+				<?php //echo $newsLetter[$i]['value'];?>
+				<?php 
+				//echo $userNewsLetter[$i]['code'];
+				?>
+				<div class="row">
+					<input type="checkbox" name="<?php if($newsLetter[$i]['code'] == 'special_offers')echo 'special_offers'; else if($newsLetter[$i]['code'] == 'new_product_information') echo 'new_product_info'; ?>" 
+						id="<?php if($newsLetter[$i]['code'] == 'special_offers')echo 'special_offers'; else if($newsLetter[$i]['code'] == 'new_product_information') echo 'new_product_info'; ?>" value="1"
+						<?php if($userNewsLetter !== false){
+							//check if the user have check the news letter
+							if($userNewsLetter[$i]['code'] == 'terms_and_condition'){}
+							if($userNewsLetter[$i]['code'] == 'special_offers' && $userNewsLetter[1]['value'] != ''){echo "special_offers";}
+							//else if($userNewsLetter[$i]['code'] == 'new_product_information' && $userNewsLetter[2]['value'] != ''){echo "bakla";}
+							//elseif($userNewsLetter[$i]['code'] == 'new_product_information') echo "checked";
+							
+						}?>>
+					<label class="small">
+						<?php echo $userNewsLetter[2]['value'];?>
+						<?=$newsLetter[$i]['value']?>
+					</label>
+				</div>
+			<?php endfor;?> -->
+			<?php foreach($_newsletter as $newsletter):?>
+				<div class="row">
+					<input type="checkbox" name="<?php if($newsletter['code'] == 'special_offers')echo 'special_offers'; else if($newsletter['code'] == 'new_product_information') echo 'new_product_info'; ?>" 
+						id="<?php if($newsletter['code'] == 'special_offers')echo 'special_offers'; else if($newsletter['code'] == 'new_product_information') echo 'new_product_info'; ?>" value="1"
+						<?php if($newsletter['value'] != '') echo "checked";?>>
+					<label class="small">
+						<?=$newsletter['label']?>
+					</label>
+				</div>
+			<?php endforeach;?>
+			<div class="row">
+				<input type="hidden" id="result_id" name="result_id" value="<?=$_newsletter[0]['result_id']?>">
+				<input type="button" class="submit-btn" value="Confirm" id="updateNewsletter">
+			</div>
+		</form>
+  		</div>
+	</div>
+	<div id="popup">
+		<img class="sms" src="<?=$this->getSkinUrl('images/ajax_loader_pass.gif');?>">
+	</div>
+  	</div>
+</div>
+<div id="popup"><img src="<?=$this->getSkinUrl('images/ajax-loader.gif');?>"></div>
+<script src="<?= $this->getJsUrl('singpost/method/easytabs.js');?>"></script> 
+<script src="<?= $this->getJsUrl('singpost/method/jquery.custombox.js');?>"></script> 
+<script src="<?= $this->getJsUrl('singpost/method/jquery-filestyle.min.js');?>"></script> 
+<script src="<?= $this->getJsUrl('singpost/method/unslider.min.js');?>"></script>
+<script src="<?= $this->getJsUrl('singpost/method/main.js');?>"></script> 

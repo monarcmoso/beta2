@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Magestore_Lesson05>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Magestore_Lesson05>
+    </modules>
+</config> 

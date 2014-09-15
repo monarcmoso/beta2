@@ -1,0 +1,16 @@
+.silverBrand{width:100%;float:left}
+.silverBrandUl{text-align: center;}
+.silverBrandUl li{float:left; width:130px; padding:5px 10px; margin-bottom:10px;}
+.silverBrandUl li .cat_img {width:100%; height:140px; padding-bottom:5px;}
+.silverBrandUl li .cat_img img{display:block; margin:0 auto;}
+.col2-left-layout .silverBrandUl li, .col2-right-layout .silverBrandUl li{width:151px;}
+.col2-left-layout .silverBrandUl li .cat_img, .col2-right-layout .silverBrandUl li .cat_img {height:150px;}
+.col3-layout .silverBrandUl li{width:138px;}
+.col3-layout .silverBrandUl li .cat_img {height:138px;}
+/*.silverBrandListLogo{height: 115px;padding: 2px 1px 3px 2px;width: 115px;}*/
+.silverBrandListLogo{max-height:100%;max-width:100%;}
+.silverBrandViewLogo{max-height:100%;max-width:100%;}
+.silverBrandViewPage{width:100%;float:left}
+.silverBrandViewDes{/*width:45%;*/float:left;text-align:justify}
+.silverBrandViewImage{/*width:50%*/;float:left;width:100%}
+

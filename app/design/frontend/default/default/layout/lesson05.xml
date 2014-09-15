@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <lesson05_index_index>
+        <reference name="content">
+            <block type="lesson05/lesson05" name="lesson05" template="lesson05/seeders.phtml" />
+            
+        </reference>
+    </lesson05_index_index>
+    <lesson05_index_seeders>
+        <reference name="content">
+            <block type="lesson05/lesson05" name="lesson05" template="lesson05/seeders.phtml" />
+            
+        </reference>
+    </lesson05_index_seeders>
+
+</layout> 

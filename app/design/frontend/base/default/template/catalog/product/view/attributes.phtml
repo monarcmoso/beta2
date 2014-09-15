@@ -1,0 +1,177 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product additional attributes template
+ *
+ * @see Mage_Catalog_Block_Product_View_Attributes
+ */
+?>
+<?php
+    $_helper = $this->helper('catalog/output');
+    $_product = $this->getProduct();
+            
+             $categoryIds = $_product->getCategoryIds();
+         
+            $c = 1;
+            $brand = "";
+            $color = "";
+            $categoryname = "";
+            $product_name = $_helper->productAttribute($_product, $_product->getName(), 'name');
+            $product_id = $_product->getId();
+            if(count($categoryIds)){
+                $firstCategoryId = $categoryIds[0];
+                $_category = Mage::getModel('catalog/category')->load($firstCategoryId);
+
+            if($_customAttribute = $_category->getCustomAttribute()):
+                $colorFieldset = $_helper->categoryAttribute($_category, $_customAttribute, 'custom_attribute');
+            endif; 
+
+                foreach ($categoryIds as $catId) {
+                    $_category = Mage::getModel('catalog/category')->load($catId);
+                    if ($_category->getLevel() == '3' && $_category->getParentCategory()->getId()=='44'){
+                        $brand =  $_category->getName(); 
+                          $_imgHtml   = '';
+ 
+	
+                            if ($_imgUrl = $_category->getImage()) {
+                                    $_thumbnailImgageName	=	$_category->getImage();
+                                    $_thumbnailImgageUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'catalog/category/'.$_thumbnailImgageName;
+                                $_imgHtml = '<img class="brands-logo" src="'.$_thumbnailImgageUrl.'" alt="'.$this->htmlEscape($_category->getName()).'" title="'.$this->htmlEscape($_category->getName()).'" />';
+                                $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'thumbnail');
+                            }
+                    } 
+                    if ($_category->getLevel() == '3' && $_category->getParentCategory()->getId()=='18'&& $_category->getId()!='43'){
+                        $categoryname = $_category->getName();
+                        
+                        //get category color
+                        $color =  $_category->getResource()->getAttribute('color')->getFrontend()->getValue($_category);
+                    }
+                    if ($_category->getLevel() == '4' && $_category->getId()!='43'){
+                        $subcategoryname = $_category->getName();
+                        //get category color
+                        
+                    }
+                    $c++; 
+
+                }
+            }
+    
+            
+?>
+          <div class="tab-column1">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td><strong>Ingredients</strong></td>
+                  <td><?php if ($_product->getResource()->getAttribute('ingredients')->getFrontend()->getValue($_product)):?>
+                       <?php echo $_product->getResource()->getAttribute('ingredients')->getFrontend()->getValue($_product); ?>
+                      <?php else: ?>
+                            --
+                    <?php endif;?></td>
+                </tr>
+                <tr>
+                  <td><strong>Where to Buy</strong></td>
+                  <td><?php if ($_product->getResource()->getAttribute('where_to_buy')->getFrontend()->getValue($_product)):?>
+                       <?php echo $_product->getResource()->getAttribute('where_to_buy')->getFrontend()->getValue($_product); ?>
+                      <?php else: ?>
+                            --
+                    <?php endif;?></td>
+                </tr>
+                <tr>
+                  <td><strong>Retail Price</strong></td>
+                  <td><?php if ($_product->getResource()->getAttribute('retail_price')->getFrontend()->getValue($_product)):?>
+                       <?php echo $_product->getResource()->getAttribute('retail_price')->getFrontend()->getValue($_product); ?>
+                      <?php else: ?>
+                            --
+                    <?php endif;?></td>
+                </tr>
+                <tr>
+                  <td><strong>Category</strong></td>
+                  <td><?php echo ucfirst(strtolower($categoryname));?></td>
+                </tr>
+                <tr>
+                  <td><strong>Sub Category</strong></td>
+                  <td><?php echo ucfirst(strtolower($subcategoryname)); ?></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-column1">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td><strong>Suitable for</strong></td>
+                  <td><?php if ($_product->getResource()->getAttribute('suitable_for')->getFrontend()->getValue($_product)):?>
+                       <?php echo $_product->getResource()->getAttribute('suitable_for')->getFrontend()->getValue($_product); ?>
+                      <?php else: ?>
+                            --
+                    <?php endif;?></td>
+                </tr>
+                <tr>
+                  <td><strong>Targeted Gender</strong></td>
+                  <td><?php if ($_product->getResource()->getAttribute('targeted_gender')->getFrontend()->getValue($_product)):?>
+                       <?php echo ($_product->getResource()->getAttribute('targeted_gender')->getFrontend()->getValue($_product)=="No")?"--":$_product->getResource()->getAttribute('targeted_gender')->getFrontend()->getValue($_product); ?>
+                      <?php else: ?>
+                            --
+                    <?php endif;?></td>
+                </tr>
+                <tr>
+                  <td><strong>Targeted Age</strong></td>
+                  <td><?php if ($_product->getResource()->getAttribute('targeted_age')->getFrontend()->getValue($_product)):?>
+                       <?php echo $_product->getResource()->getAttribute('targeted_age')->getFrontend()->getValue($_product); ?>
+                      <?php else: ?>
+                            --
+                    <?php endif;?></td>
+                </tr>
+                <tr>
+                  <td><strong>Website</strong></td>
+                  <td><?php if ($_product->getResource()->getAttribute('website')->getFrontend()->getValue($_product)):?>
+                       <?php echo $_product->getResource()->getAttribute('website')->getFrontend()->getValue($_product); ?>
+                     <?php else: ?>
+                            --
+                    <?php endif;?></td>
+                </tr>
+                <tr>
+                  <td><strong>Sample Set Includes</strong></td>
+                  <td><?php if ($_product->getResource()->getAttribute('sample_set_nculdes')->getFrontend()->getValue($_product)):?>
+                       <?php echo ($_product->getResource()->getAttribute('sample_set_nculdes')->getFrontend()->getValue($_product)=="No")?"--":$_product->getResource()->getAttribute('sample_set_nculdes')->getFrontend()->getValue($_product); ?>
+                     <?php else: ?>
+                            --
+                    <?php endif;?></td>
+                </tr>
+                <tr>
+                  <td><strong>Sample Size</strong></td>
+                  <td><?php if ($_product->getResource()->getAttribute('product_size')->getFrontend()->getValue($_product)):?>
+                       <?php echo ($_product->getResource()->getAttribute('product_size')->getFrontend()->getValue($_product)=="No")?"--":$_product->getResource()->getAttribute('product_size')->getFrontend()->getValue($_product); ?>
+                      <?php else: ?>
+                            --
+                    <?php endif;?></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        

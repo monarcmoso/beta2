@@ -1,0 +1,13 @@
+<ol>
+<?php foreach ($this->getItems() as $_item):?>
+    <li>
+        <?php if ($_item->getIsCurrent()): /*?>
+        <span class="mmd-multinav-category-current" style="display:none;"><?php //echo $_item->getLabel() ?></span>*/?>
+        <div class="clear"></div>
+        <?php  else: ?>
+        <a <?php /*id="cat-<?php echo $_item->getCategoryId()?>"*/?> href="<?php echo $this->htmlEscape($_item->getUrl()) ?>" class="<?php /*mmd-multinav-category*/?> mmd-multinav-pad<?php echo $_item->getLevel()?>"><?php echo $_item->getLabel() ?></a> 
+        <?php if($_item->getCount()): ?>  (<?php echo $_item->getCount() ?>) <?php endif ?>
+        <?php endif ?>
+    </li>
+<?php endforeach ?>
+</ol>

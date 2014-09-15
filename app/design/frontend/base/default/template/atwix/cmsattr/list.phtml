@@ -1,0 +1,24 @@
+<?php $_items = $this->getItems() ?>
+<div class="block">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Red Products') ?></span></strong>
+    </div>
+    <div class="block-content">
+        <ol class="mini-products-list">
+        <?php foreach ($_items as $_item): ?>
+            <li class="item">
+                <div class="product">
+                    <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(50) ?>" width="50" height="50" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
+                    <div class="product-details">
+                        <p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></p>
+                        <?php echo $this->getPriceHtml($_item, true) ?>
+                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                        <a href="<?php echo $this->getAddToWishlistUrl($_item) ?>" class="link-wishlist"><?php echo $this->__('Add to Interest') ?></a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach; ?>
+        </ol>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<?php 
+echo $this->getLayout()->createBlock('webforms/webforms', 'my_webform_block', array
+(
+    'webform_id' => 17,
+    'template' => 'singpost/webforms/default.phtml',
+))->toHtml();
+//echo $this->getLayout()->createBlock('cms/block')->setBlockId('profile_settings_results')->toHtml();
+?>

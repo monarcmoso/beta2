@@ -1,0 +1,26 @@
+
+<div id="credit-data">
+
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend">Credit Tab</h4>
+        </div>
+        <div id="group_fields4" class="fieldset fieldset-wide">
+        <div class="hor-scroll">
+        
+        <input type="hidden" value="<?php echo $this->selectedGroup()?>" name="credit_group" id="selected_group">  
+        <table class="form-list credit-table" cellspacing="0">
+        <tbody>
+            
+        <tr>
+           <td class="label"><label for="_accountcredit_limit"><?php echo $this->__('Credit limit')?></label></td>
+                <td class="value">
+                      <input type="text" class=" input-text credit-limit" value="<?php echo $this->getCreditData()?>" name="account[credit_limit]" id="_accountcredit_limit">  
+                 </td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+        </div>
+    </div>
+</div>

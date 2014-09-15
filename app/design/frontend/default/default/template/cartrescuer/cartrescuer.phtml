@@ -1,0 +1,36 @@
+<?php if(Mage::helper('cartrescuer')->isEnable()) { ?>
+			<?php $actionName = Mage::app()->getRequest()->getActionName(); ?>
+
+		<script type="text/javascript">
+		  var cartrescuer_websitecode = "<?php echo Mage::helper('cartrescuer')->getStoreWebsiteCode();?>";
+		  var cartrescuer_websitedomain = "<?php echo Mage::helper('cartrescuer')->getStoreWebsiteDomain();?>";
+		  <?php if(Mage::helper('cartrescuer')->getLoginUsernameKey()){	 ?>
+  		  var cartrescuer_loginusernamekey = "<?php echo Mage::helper('cartrescuer')->getLoginUsernameKey();?>";
+		  <?php }else{ ?>
+		  var cartrescuer_loginusernamekey = "login[username]";
+		  <?php } ?>
+		  
+		</script>
+		<script type="text/javascript" src="https://tracker-cdn.cartrescuer.com/js/tracking.js"></script>
+		<?php if($actionName == 'login' || (Mage::app()->getRequest()->getControllerName() == 'onepage' && !Mage::getSingleton('customer/session')->getCustomer()->getId())){ ?>
+		<!-- Start CartRescuer signup -->
+		<script type="text/javascript"
+		src="https://tracker-cdn.cartrescuer.com/js/signup.js"></script>
+		<!-- End CartRescuer signup -->
+		<?php } ?>
+
+		<?php if(Mage::app()->getRequest()->getControllerName() == 'onepage'){ ?>
+		
+		<script type="text/javascript" src="https://tracker-cdn.cartrescuer.com/js/shop.js"></script>
+		
+		<?php } ?>
+		
+
+		<?php if($actionName == 'success'){ ?>
+		<!-- Start CartRescuer confirm -->
+		<script type="text/javascript"
+		src="https://tracker-cdn.cartrescuer.com/js/confirm.js"></script>
+		<!-- End CartRescuer confirm -->
+			<?php } ?>
+
+<?php } ?>

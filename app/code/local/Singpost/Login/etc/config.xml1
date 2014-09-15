@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Singpost_Login>
+            <version>0.1.0</version>
+        </Singpost_Login>
+    </modules>
+    <frontend>
+        <routers>
+            <login>
+                <use>standard</use>
+                <args>
+                    <module>Singpost_Login</module>
+                    <frontName>login</frontName>
+                </args>
+            </login>
+        </routers>
+        <layout>
+            <updates>
+                <!-- <flag>
+                    <file>persistent.xml</file>
+                </flag> -->
+               <login>
+                    <file>persistent.xml</file>
+                </login>
+            </updates>
+        </layout>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                        <Singpost_Login before="Mage_Customer">Singpost_Login</Singpost_Login>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+    </frontend>
+    <global>
+    <models>
+        <singpost_login>
+            <class>Singpost_Login_Model</class>
+            <resourceModel>singpost_login_mysql4</resourceModel>
+        </singpost_login>
+        <singpost_login_mysql4>
+            <class>Singpost_Login_Model_Mysql4</class>
+            <entities>
+                <profile>
+                    <table>webforms_results</table>
+                </profile>
+            </entities>
+        </singpost_login_mysql4>
+        <!--<singpost_login>
+            <rewrite>
+                <product>MageDev_Catalog_Model_Product</product>
+            </rewrite>
+        </singpost_login>   -->     
+    </models>
+     <blocks>
+		<singpost_login>
+			<class>Singpost_Login_Block</class>
+		</singpost_login>
+	 </blocks>
+	 <!-- <template>
+		<email>
+		<customer_quote_email_exist_user_quote_template translate="label" module="singpost_login">
+			<label>Existing User Quote Template</label>
+			<file>quote/exist_user.html</file>
+			<type>html</type>
+		</customer_quote_email_exist_user_quote_template>
+		</email>
+	   </template> -->
+    </global>
+</config>

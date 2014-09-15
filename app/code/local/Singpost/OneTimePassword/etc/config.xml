@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Singpost_OneTimePassword>
+            <version>0.1.0</version>
+        </Singpost_OneTimePassword>
+    </modules>
+    <frontend>
+        <routers>
+            <onetimepassword>
+                <use>standard</use>
+                <args>
+                    <module>Singpost_OneTimePassword</module>
+                    <frontName>onetimepassword</frontName>
+                </args>
+            </onetimepassword>
+        </routers>
+        <!-- <layout>
+            <updates>
+                <profile>
+                    <file>singpostprofile.xml</file>
+                </profile>
+            </updates>
+        </layout> -->
+    </frontend>
+    <global>
+        <models>
+            <onetimepassword>
+                <class>Singpost_OneTimePassword_Model</class>
+                <resourceModel>singpost_onetimepassword_mysql4</resourceModel>
+            </onetimepassword>
+            
+            <onetimepassword_mysql4>
+                <class>Singpost_OneTimePassword_Model_Mysql4</class>
+                <entities>
+                    <action>
+                        <table>smsotp</table>
+                    </action>
+                </entities>
+            </onetimepassword_mysql4>
+        </models>
+        <resources>
+            <onetimepassword_setup>
+                <setup>
+                    <module>Singpost_Smsotp</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </onetimepassword_setup>
+            <onetimepassword_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </onetimepassword_write>
+            <onetimepassword_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </onetimepassword_read>
+        </resources>
+        <blocks>
+        	<!-- <adminhtml>
+				<rewrite>
+					<customer_edit>Singpost_Profile_Block_Adminhtml_Customer_Edit</customer_edit>
+				</rewrite>
+			</adminhtml> -->
+            <onetimepassword>
+                <class>Singpost_Smsotp_Block</class>
+            </onetimepassword>
+        </blocks>
+        <helpers>
+            <onetimepassword>
+                <class>Singpost_Smsotp_Helper</class>
+            </onetimepassword>
+        </helpers>
+    </global>
+</config>

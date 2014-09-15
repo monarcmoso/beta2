@@ -1,0 +1,149 @@
+<?xml version = "1.0" ?>
+<config>
+	<modules>
+		<A4on_Mybrand>
+			<version>0.1.1</version>
+		</A4on_Mybrand>
+	</modules>
+	<frontend>
+		<routers>
+			<mybrand>
+				<use>standard</use>
+				<args>
+					<module>A4on_Mybrand</module>
+					<frontName>mybrand</frontName>
+				</args>
+			</mybrand>
+		</routers>
+		<layout>
+		   <updates>
+				<mybrand>
+					<file>mybrand.xml</file>
+				</mybrand>
+		   </updates>
+		</layout>
+	</frontend>
+	<admin>
+     <routers>
+         <mybrand>
+            <use>admin</use>
+            <args>
+               <module>A4on_Mybrand</module>
+               <frontName>mybrandadmin</frontName>
+            </args>
+         </mybrand>
+		 
+		 <myproduct>
+            <use>admin</use>
+            <args>
+               <module>A4on_Mybrand</module>
+               <frontName>myproductadmin</frontName>
+            </args>
+         </myproduct>
+     </routers>
+	</admin>
+	
+	<adminhtml>
+		<layout>
+		  <updates>
+			   <mybrand>
+				  <file>mybrand.xml</file>
+			   </mybrand>
+			   
+			   <myproduct>
+				  <file>myproduct.xml</file>
+			   </myproduct>
+		  </updates>
+		</layout>
+		<menu>
+		  <mybrand translate="title" module="adminhtml">
+			 <title>My Brand</title>
+			 <sort_order>100</sort_order>
+			 <children>
+				 <set_time>
+					   <title>Brands Settings</title>
+					   <action>mybrandadmin/adminhtml_index</action>
+				 </set_time>
+				 <set_time1>
+					   <title>Product Settings</title>
+					   <action>myproductadmin/adminhtml_index</action>
+				 </set_time1>
+			 </children>
+		  </mybrand>
+		</menu>
+	</adminhtml>
+	
+	<global>
+		<blocks>
+			<mybrand>
+				  <class>A4on_Mybrand_Block</class>
+			</mybrand>
+			<myproduct>
+				  <class>A4on_Mybrand_Block</class>
+			</myproduct>
+		</blocks>
+		
+		<models>
+			<mybrand>
+				 <class>A4on_Mybrand_Model</class>
+				 <resourceModel>mybrand_mysql4</resourceModel>
+			</mybrand>
+			<mybrand_mysql4>
+				 <class>A4on_Mybrand_Model_Mysql4</class>
+				 <entities>
+					 <mybrand>
+					   <table>mybrands</table>
+					 </mybrand>
+				  </entities>
+			</mybrand_mysql4>
+			
+			<myproduct>
+				 <class>A4on_Mybrand_Model</class>
+				 <resourceModel>myproduct_mysql4</resourceModel>
+			</myproduct>
+			<myproduct_mysql4>
+				 <class>A4on_Mybrand_Model_Mysql4</class>
+				 <entities>
+					 <myproduct>
+					   <table>my_products</table>
+					 </myproduct>
+				  </entities>
+			</myproduct_mysql4>
+			
+		</models>
+		<resources>
+			<mybrand_myproduct_setup>
+				<setup>
+					<module>A4on_Mybrand</module>
+					<class>Mage_Catalog_Model_Resource_Eav_Mysql4_Setup</class>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</mybrand_myproduct_setup>
+			<mybrand_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</mybrand_write>
+		   
+		    <mybrand_read>
+			  <connection>
+				 <use>core_read</use>
+			  </connection>
+		    </mybrand_read>
+		   
+			<myproduct_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</myproduct_write>
+		   
+		   <myproduct_read>
+			  <connection>
+				 <use>core_read</use>
+			  </connection>
+		   </myproduct_read>
+		</resources>
+	</global>
+</config>

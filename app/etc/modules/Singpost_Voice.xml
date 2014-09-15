@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <!-- <Singpost_Smsotp> -->
+        <Singpost_Voice> 
+            <active>true</active>
+            <codePool>local</codePool>
+        </Singpost_Voice>
+    </modules>
+</config> 

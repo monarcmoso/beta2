@@ -1,0 +1,206 @@
+	
+<?php $user = $this->getUserData();?>
+<div class="title title2">
+	<span>profile</span>
+</div>
+<div class="clearfix"></div>
+<div class="p-small gap">
+<p>Sample Store is made better by the reviews that shoppers like you provide.<br> 
+	So share some of your details to guide shoppers like you in choosing the ideal sample.</p>
+<div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml();?>
+<div class="profile-pic">
+	<a class="edit_pop" <?php if(!$user['medma_avatar']) echo 'style="display:block"'?> title="Custom effect" href="#modal-8">Edit Photo</a>
+	<img class="img-circle" alt="" style="width:78px; height:78px" src="<?php if ($user['medma_avatar']) echo "/media/customer/".$user['medma_avatar']; else echo $this->getSkinUrl('images/profile.png'); ?>">
+</div>
+
+<h4 class="edit-pic"><?=$user['full_name'];?><a class="edit_pop" title="Custom effect" href="#modal-5" data-custombox="1404827966">Edit</a></h4>
+<div class="clearfix"></div>
+<div class="profile-wrap">
+	<div class="profile-block profile-block1">
+		<h4 class="edit-pic">Date of birth<a class="edit_pop" title="Custom effect" href="#modal-6">Edit</a></h4>
+		<h5><?php $dt = new DateTime($user['dob']);echo $dt->format('d-m-Y');?></h5>
+	</div>
+		<div class="profile-block profile-block2">
+		<h4 class="edit-pic">Gender<a class="edit_pop" title="Custom effect" href="#modal-7">Edit</a></h4>
+		<h5><?php if($user['gender'] == 123)echo "Male"; else echo "Female";?></h5>
+	</div>
+</div>
+<div class="title">
+	<span>preference</span>
+</div>
+<div class="profile-wrap">
+	<?php foreach($this->getAccoutProfile() as $key => $profile):?>
+		<?php $key += 1;
+		$div = (($key % 2) == 0) ? "profile-block2" : "profile-block1";
+		?>
+		<div class="profile-block <?=$div;?>">
+			<h4 class="edit-pic"><?=$profile['result_label'];?></h4>
+			<h5><?=nl2br($profile['value']);?></h5>
+		</div>
+	<?php endforeach;?>
+</div>
+<div class="profile-wrap">
+	<!-- <input class="center" type="submit" value="Edit" id="profile_edit"> -->
+	<?php 
+		$customer_id = Mage::getSingleton('customer/session')->getId();
+		$profileModel = Mage::getModel("singpost_login/profile");
+		$data = $profileModel->getProfile($customer_id);
+		if($data[0]['count'] == 0){?>
+			<p>Your preference is empty. Fill up your profile now so we can recommend products to you in the future.</p>
+			<div class="next" style="width:150px;"><a href="/profile/settings/">Edit my preference now</a></div>
+			<?php	
+		}else{?>
+			<div class="next"><a href="/profile/settings/edit">Edit</a></div>
+			<?php
+		}?>
+</div>
+<div id="modal-6" style="display: none;" class="modal-example-content modal-example-content-md">
+  <div class="modal-example-header modal-example-header-white">
+    <button type="button" class="close close-white" >Close <span>&times;</span></button>
+  </div>
+  <div class="modal-example-body modal-example-body-md">
+    <div class="title title2 move-20"><span>Edit Date of birth</span></div>
+    <div id="error_msg"></div>
+    <div id="success_msg"></div>
+    <div class="login-block">
+      <div class="form">
+        <form method="post" action="#" id="frmdob">
+          <div class="row">
+            <label class="last">Date of Birth:</label>
+            <div class="dob2">
+              <input class="input-xs-sm" type="text" name="dd" id="dd" value="" placeholder="dd">
+              <input class="input-xs-sm" type="text" name="mm" id="mm" value="" placeholder="mm">
+              <input class="input-md-sm" type="text" name="yy" id="yy" value="" placeholder="yyyy">
+              <input type="hidden" name="dob" id="dob">
+            </div>
+          </div>
+          <div class="row">
+          	<div class="next"><a href="#" id="dob" rel="<?=$user['gender'];?>" class="buttone_save">Save</a></div>
+            <!-- <input type="submit" value="Save" class="submit-btn"> -->
+          </div>
+        </form>
+      </div>
+    </div>
+	<div id="popup">
+		<img class="sms" src="<?=$this->getSkinUrl('images/ajax_loader_pass.gif');?>">
+	</div>
+  </div>
+</div>
+
+<div id="modal-5" style="display: none;" class="modal-example-content modal-example-content-md">
+  <div class="modal-example-header modal-example-header-white">
+    <button type="button" class="close close-white" >Close <span>&times;</span></button>
+  </div>
+  <div class="modal-example-body modal-example-body-md">
+    <div class="title title2 move-20"><span>Edit Name</span></div>
+    <div id="error_msg"></div>
+    <div class="login-block">
+      <div class="form">
+        <form method="post" action="#">
+          <div class="row">
+            <input type="text"  name="fullname" id="fullname" value="<?=$user['full_name'];?>">
+          </div>
+          <div class="row">
+          	<div class="next"><a href="#" id="full_name" rel="<?=$user['full_name'];?>" class="buttone_save">Save</a></div>
+            <!-- <input type="submit" value="Save" class="submit-btn"> -->
+          </div>
+        </form>
+      </div>
+    </div>
+	<div id="popup">
+		<img class="sms" src="<?=$this->getSkinUrl('images/ajax_loader_pass.gif');?>">
+	</div>
+  </div>
+</div>
+
+<div id="modal-7" style="display: none;" class="modal-example-content modal-example-content-md">
+  <div class="modal-example-header modal-example-header-white">
+    <button type="button" class="close close-white" >Close <span>&times;</span></button>
+  </div>
+  <div class="modal-example-body modal-example-body-md">
+    <div class="title title2 move-20"><span>Edit Gender</span></div>
+    <div id="error_msg"></div>
+    <div class="login-block">
+      <div class="form">
+        <form method="post" action="#" id="frmGender">
+          <div class="row">
+            <label class="last normal">Gender:</label>
+            <div class="dob2">
+              <label class="medium aligned">
+                <input type="radio" name="gender" value="123">
+                Male</label>
+              <label class="medium">
+                <input type="radio" name="gender" value="124">
+                Female</label>
+            </div>
+          </div>
+          <div class="row">
+          	<div class="next"><a href="#" id="gender" rel="<?=$user['gender'];?>" class="buttone_save">Save</a></div>
+            <!-- <input type="submit" value="Save" class="submit-btn"> -->
+          </div>
+        </form>
+      </div>
+    </div>
+	<div id="popup">
+		<img class="sms" src="<?=$this->getSkinUrl('images/ajax_loader_pass.gif');?>">
+	</div>
+  </div>
+</div>
+
+<div id="modal-8" style="display: none;" class="modal-example-content modal-example-content-md">
+  <div class="modal-example-header modal-example-header-white">
+    <button type="button" class="close close-white" >Close <span>&times;</span></button>
+  </div>
+  <div class="modal-example-body modal-example-body-md">
+    <div class="title title2 move-20"><span>Upload profile photo</span></div>
+    <div id="error_msg"></div>
+    <div class="clearfix"></div>
+    <form action="/avatar/customer/upload/" method="post" enctype="multipart/form-data" >
+      <div class="login-block">
+        <div class="form">
+          <div class="row"> <img style="width:78px; height:78px;" src="<?php if ($user['medma_avatar'])echo "/media/customer/".$user['medma_avatar']; else echo $this->getSkinUrl('images/user-md.png');?>" alt="" class="img-circle border-radius">
+           <input type="file" class="jfilestyle" name="avatar-file" data-input="false">
+            <!-- <input type="file" class="jfilestyle" data-input="false"> -->
+          </div>
+        </div>
+      </div>
+      <div class="login-block-md">
+        <div class="row">
+          <p>Note: The image should be less than 20mb in size.</p>
+        </div>
+        <div class="row auto">
+          <a href="#" class="import" onclick="return fbProfile();"><img src="<?=$this->getSkinUrl('images/import-facebook.png');?>" alt=""></a>
+          <!-- <a href="#" class="upload">Upload</a> -->
+          	<button type ="submit" name="submit" title="upload" class="upload"><?php echo $this->__('Upload') ?></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div id="popup"><img src="<?=$this->getSkinUrl('images/ajax-loader.gif');?>"></div>
+<script language="JavaScript" type="text/javascript">
+/*<![CDATA[*/
+
+function profile(){
+	  document.location.href="<?php echo $this->getUrl('facebookfree/customer/getProfilePicture')?>?referer=<?php echo Mage::helper('core')->urlEncode($this->helper('core/url')->getCurrentUrl())?>";
+	}
+function fbProfile(){
+    FB.login(function(response) {
+       if (response.status == 'connected') {
+            profile();
+        } else {
+            // user is not logged in
+            window.location.reload();
+        }
+    }, {scope:'email,publish_stream'});
+    return false;
+}
+/*]]>*/
+</script>
+<script src="<?= $this->getJsUrl('singpost/method/easytabs.js');?>"></script> 
+<script src="<?= $this->getJsUrl('singpost/method/jquery.custombox.js');?>"></script> 
+<script src="<?= $this->getJsUrl('singpost/method/jquery-filestyle.min.js');?>"></script> 
+<script src="<?= $this->getJsUrl('singpost/method/unslider.min.js');?>"></script>
+<script src="<?= $this->getJsUrl('singpost/method/main.js');?>"></script> 
+<!-- <script src="<?= $this->getJsUrl('singpost/account.js');?>"></script>  -->

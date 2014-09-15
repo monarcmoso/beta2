@@ -1,0 +1,32 @@
+<?php 
+    $max = $this->_filter->getMaxPriceInt(); 
+    list($from,$to) = explode(',', $this->_filter->getActiveState()); 
+    $from = min($from, $max);
+    $to   = min($to, $max);
+    
+    if ($from<0.01 && $to<0.01){
+        $to = sprintf('%.02f', $max);
+    }
+    $width = 170;
+    
+    $firstOffset = $from*$width/$max;
+    $secondOffset = $to*$width/$max;
+    
+    // due to rounding values might change
+    //$from = $firstOffset*$max/$width;
+   // $to   = $secondOffset*$max/$width;
+    
+?>
+<ol>
+    <li>
+<div id="mmd-multinav-price-slider" class="mmd-multinav-slider">
+    <div class="handle selected" style="left:<?php echo $firstOffset?>px"></div>
+    <div class="handle" style="left:<?php echo $secondOffset?>px"></div>
+  </div>
+<?php echo $this->__('Range:')?> 
+<?php echo $this->getSymbol()?><span id="mmd-multinav-range-from"><?php echo $from?></span>-<?php echo $this->getSymbol()?><span id="mmd-multinav-range-to"><?php echo $to?></span>
+<script type="text/javascript">
+    adj_slider = adj_nav_create_slider(<?php echo $width.', '.$firstOffset.', '.$secondOffset.', '.$max?>);
+</script>
+    </li>
+</ol>

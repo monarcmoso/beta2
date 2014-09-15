@@ -1,0 +1,25 @@
+<?php 
+//get customer email
+$customer_id = Mage::getSingleton('customer/session')->getId();	
+$customer = Mage::getModel("customer/customer"); 
+$customer->load($customer_id);
+?>
+<div class="contact-content">
+	<div class="title title2">
+		<span>Thankyou!</span>
+	</div>
+    <div class="align-center">
+      <p>
+      	
+      </p>
+      <p>Thank you for joining Sample Store.<br>
+        An activation email is sent to <span><?=$customer->getEmail()?></span><br>
+        Kindly keep a look out in your Spam/Junk folder too.</p>
+    </div>
+    <div class="border"></div>
+    <div class="clearfix"></div>
+    <div class="welcome_banner">
+    	<!-- <img class="center-image" src="<?=$this->getSkinUrl('images/image1.jpg');?>" alt=""> </div> -->
+    	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('registration_welcome')->toHtml(); ?>
+    </div>
+</div>

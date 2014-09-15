@@ -1,0 +1,82 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+
+?>
+
+ <?php /* $setup = new Mage_Eav_Model_Entity_Setup('core_setup');
+
+$setup->addAttribute('catalog_category', 'sliderimage', array(
+    'group'         => 'General',
+    'input'         => 'image',
+    'type'          => 'varchar',
+    'label'         => 'Slider Image',
+    'backend'       => 'catalog/category_attribute_backend_image',
+    'visible'       => 1,
+    'required'        => 0,
+    'user_defined' => 1,
+    'global'        => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL,
+)); */
+?>   
+
+<header>
+    <div class="container">
+        <?php if ($this->getIsHomePage()):?>
+        <h1 class="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+        <?php else:?>
+        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+        <?php endif?>
+		<div class="header-content">
+			 <div class="header-top">
+				<?php echo $this->getChildHtml('topSearch') ?>
+			 </div>
+			 <div class="clearfix"></div>   
+			<!--            <p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getAdditionalHtml() ?></p>
+			            <?php echo $this->getChildHtml('store_language') ?>
+			               <div class="clearfix"></div>-->
+			<?php echo $this->getChildHtml('topContainer'); ?>
+			<div class="header-bottom">
+				<nav>
+					<?php echo $this->getChildHtml('topMenu') ?>
+					<?php echo $this->getChildHtml('topLinks') ?>
+				</nav>   
+			</div> 
+		</div>
+   </div>
+    <?php
+   		$customer_id = Mage::getSingleton('customer/session')->getId();
+		$model =  Mage::getModel("profile/dashboard");
+		$fbLoginCount = $model->countUserFbLogin($customer_id);
+		if($fbLoginCount > 0){
+			//echo $model->getPdpaCount($customer_id);
+			if($model->getPdpaCount($customer_id) == 0){
+				echo $this->getLayout()->createBlock('profile/profile')->setTemplate('singpost/facebookprofiler.phtml')->toHtml();
+			}
+		}
+    ?>
+</header>

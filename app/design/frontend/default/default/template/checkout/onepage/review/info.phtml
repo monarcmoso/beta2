@@ -1,0 +1,252 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php $info = $this->getPaymentInfo(); ?>
+<?php $count = $this->helper('checkout/cart')->getSummaryCount(); 
+if($count >1 ) $count = $count -1; ?>
+<?php $customerId = Mage::getSingleton('customer/session')->getCustomer();?>    
+<?php $customer_data = $customerId->getData(); ?> 
+<?php $customer = Mage::getModel('customer/customer')->load($customerId->getId()); ?>
+
+<?php $data = array();?>
+<?php $i=0; foreach ($customer->getAddresses() as $address):?>
+<?php $data = $address->toArray();?>
+<?php $postal_code =  $data['postcode']; ?>
+<?php $shipping_address = $data['street']; ?>
+<?php $full_name = $data['firstname']; ?>
+ <?php $i++; endforeach; ?> 
+<?php
+
+    $summaryForCustomer =  Mage::getModel('points/summary')->loadByCustomer(
+                Mage::getSingleton('customer/session')->getCustomer()
+            );
+ 
+    $paid_checkout = false;
+    $ctr = 0;
+    foreach ($this->getItems() as $item) {
+        $productId = $item->getProductId();
+        if($productId!='168'):
+            $_product = Mage::getModel('catalog/product')->load($productId);
+            $free_delivery_bool = $_product->getResource()->getAttribute('free_delivery')->getFrontend()->getValue($_product);
+            if($free_delivery_bool != 'Yes') $paid_checkout = TRUE;
+            else $ctr++;
+        endif;
+    }
+    $points_todeduct  =  $ctr;
+?>
+<style>
+    #opc-review .buttons-set{
+        border: 0px solid #fff;
+    }
+    </style>
+<?php echo $this->getChildHtml('items_before'); ?>
+    <div class="step-title">
+        <h2> Step 4 of 4</h2>
+    </div> 
+    <br/>
+<div id="checkout-review-table-wrapper" style="display:none;">
+    <table class="data-table" id="checkout-review-table">
+        <?php if ($this->helper('tax')->displayCartBothPrices()): $colspan = $rowspan = 2; else: $colspan = $rowspan = 1; endif; ?>
+        <col />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+        <col width="1" />
+        <col width="1" />
+        <?php endif; ?>
+        <thead>
+            <tr>
+                <th rowspan="<?php echo $rowspan ?>"><?php echo $this->__('Product Name') ?></th>
+                <th colspan="<?php echo $colspan ?>" class="a-center"><?php echo $this->__('Price') ?></th>
+                <th rowspan="<?php echo $rowspan ?>" class="a-center"><?php echo $this->__('Qty') ?></th>
+                <th colspan="<?php echo $colspan ?>" class="a-center"><?php echo $this->__('Subtotal') ?></th>
+            </tr>
+            <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+                <tr>
+                    <th class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                    <th><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                    <th class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                    <th><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                </tr>
+            <?php endif; ?>
+        </thead>
+        <?php echo $this->getChildHtml('totals'); ?>
+        <tbody>
+        
+        <?php foreach($this->getItems() as $_item): ?>
+            <?php echo $this->getItemHtml($_item)?>
+        <?php endforeach ?>
+        </tbody>
+    </table>
+</div>
+   <?php 
+        $paid_checkout = false;
+        foreach ($this->getItems() as $item) {
+            $productId = $item->getProductId();
+            $_product = Mage::getModel('catalog/product')->load($productId);
+            $free_delivery_bool = $_product->getResource()->getAttribute('free_delivery')->getFrontend()->getValue($_product);
+            if($free_delivery_bool != 'Yes') $paid_checkout = TRUE;
+        }
+        
+        $lastOrderId = Mage::getSingleton('checkout/session')->getLastOrderId();
+        $order = Mage::getSingleton('sales/order'); 
+        $order->load($lastOrderId);
+        $_totalData =$order->getData(); 
+     
+        $couponcode_name = $_totalData['coupon_code'];
+        $base_discount =    $_totalData['base_discount_amount'];
+        
+     
+        
+        $quoteId = Mage::getSingleton('checkout/session')->getQuoteId();
+        $quote = Mage::getModel("sales/quote")->load($quoteId); 
+        $_totalData =$quote->getData(); 
+     
+        $time = explode(" ",$_totalData['created_at']);
+        $datearr = explode("-",$time[0]);
+        $month = strpos($datearr[1], "0");
+        $mnthnub = ($month == 0) ? substr($datearr[1],1):$datearr[1];
+        $monthName = date("F", mktime(0, 0, 0, $mnthnub, 10));
+        $etime = date("g:i:s", strtotime($time[1]));
+        $fineldate = $datearr[2]." ".$monthName." ".$datearr[0]." ".$etime;
+
+   
+    ?>
+<div class="sub_info" style="margin-bottom:20px;">Take one final look at your items before you wheel them into check out. </div>
+<div class="title title2"><span>Checking out</span></div>
+    
+    <div class="clearfix"></div>
+    <h3>Shipping info</h3>
+    <div class="clearfix"></div>
+    <div class="table-wrap no-wrap">
+      <table class="notify">
+        <thead>
+          <tr>
+            <th scope="col"><?php echo $this->__('Order Date') ?>
+              </td>
+            <th scope="col"><?php echo $this->__('Recipient Name') ?>
+              </td>
+            <th scope="col"><?php echo $this->__('Shipping Address') ?>
+              </td>
+            <th scope="col"><?php echo $this->__('Remarks') ?>
+              </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="width:20%;"><?php echo $fineldate; ?></td>
+            <td style="width:20%;"><?php echo $full_name; ?></td>
+            <td style="width:30%"><?php echo $shipping_address." <br/><i> Postal Code: ". $postal_code; ?></li></td>
+            <td style="width:30%"><p class="error align-left error-lg">Only the shipping address stated here will be use to 
+                deliver this order. Shipping Address inserted in the 
+                Paypal form is for reference only. </p></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="clearfix"></div>
+    <div class="title title2"><span>My Order(s)</span></div>
+    <div class="clearfix"></div>
+    <div class="table-wrap no-wrap">
+      <table class="notify3 no-border">
+        <thead>
+        <th colspan="col">&nbsp;</th>
+          <th colspan="col">BRAND</th>
+          <th colspan="col">Item(S) description</th>
+          <th colspan="col">Quantity</th>
+          <th colspan="col">TYPE / COSTS</th>
+            
+        <tfoot>
+          <?php if($couponcode_name):?>  
+          <tr>
+            <td><?php echo $couponcode_name; ?></td>
+            <td>&nbsp;</td>
+            <td><b>Coupon Code Discount</b></td>
+            <td>&nbsp;</td>
+            <td><b><?php echo $base_discount; ?></b></td>
+          </tr>  
+          <?php endif; ?>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>Total</td>
+            <td><?php  if($count==0)
+                            {
+                                echo $this->__('(0 ITEMS)',$count);
+                            }
+                            if($count==1)
+                            {
+                                echo $this->__('(1 ITEM)',$count);
+                            }
+                            if($count>1)
+                            {
+                                echo $this->__('(%s ITEMS)',$count);
+                            }
+                    ?></td>
+            <td>S$<?php echo (!$paid_checkout)?"0.00":"5.00"; ?></td>
+          </tr>
+        </tfoot>
+        </thead>
+             
+        <tbody>
+              <?php foreach($this->getItems() as $_item): ?>
+            <?php echo $this->getItemHtml($_item)?>
+        <?php endforeach ?>
+            <input type="hidden" name="points_to_deduct" value="<?php echo $points_todeduct; ?>">
+            <input type="hidden" name="points_of_users" value="<?php echo $summaryForCustomer->getPoints(); ?>"> 
+        </tbody>
+      </table>
+      <h6>Inclusive of service, material, packing and delivery fee</h6>
+      <div class="clearfix"></div>
+      <ul class="remove-refresh">
+        <li class="cancel"><a href="<?php echo $this->getUrl('checkout/cart?cancel_checkout=1') ?>">Cancel Order</a></li>
+      </ul>
+      <ul>
+        <li><?php echo $this->getChildHtml('button') ?></li>
+      </ul>
+    </div>
+<?php echo $this->getChildHtml('items_after'); ?>
+<script type="text/javascript">
+//<![CDATA[
+    decorateTable('checkout-review-table');
+    truncateOptions();
+//]]>
+</script>
+<div id="checkout-review-submit">
+    <?php echo $this->getChildHtml('agreements') ?>
+    <div class="buttons-set" id="review-buttons-container">
+       
+        <span class="please-wait" id="review-please-wait" style="display:none;">
+            <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->__('Submitting order information...') ?>" title="<?php echo $this->__('Submitting order information...') ?>" class="v-middle" /> <?php echo $this->__('Submitting order information...') ?>
+        </span>
+    </div>
+    <script type="text/javascript">
+    //<![CDATA[
+        review = new Review('<?php echo $this->getUrl('checkout/onepage/saveOrder', array('form_key' => Mage::getSingleton('core/session')->getFormKey())) ?>', '<?php echo $this->getUrl('checkout/onepage/success') ?>', $('checkout-agreements'));
+    //]]>
+    </script>
+</div>

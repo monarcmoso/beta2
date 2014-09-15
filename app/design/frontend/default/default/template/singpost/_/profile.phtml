@@ -1,0 +1,56 @@
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	$(document).on('click','#forever',function(){
+	 $.ajax({
+        url: '/customer/notification/close',
+        type: "POST",
+        data: { val: "1"},
+        success: function(data) {
+        	if(data > 0) $.fn.custombox('close');	
+        	else alert("Cannot process your request. Please contact the Sample Store Administrator");
+        }//end else
+	 });
+	});
+});
+</script>
+<!-- <a href="#notif" id="fancy" style="display:none;">#</a>
+<div id="notif">	
+	<div class="get_started"><a class="forever" href="#">Get Started</a></div>	
+</div> -->
+
+<?php 
+//use for the popup instead of loading in ajax
+$dashboard = $this->getDashboard();
+?>
+<?php //echo $dashboard['content'];?>
+<div class="title title2"><span>Dashboard</span></div>
+	<?=$this->getLayout()->createBlock('cms/block')->setBlockId('dashboard')->toHtml();?>
+    <div class="clearfix space-30"></div>
+    <div class="title"><span>What’s new</span></div>
+    <div class="dashboard-block transparent-bg">
+      <p>One fixed cost. Any samples you like.<br>
+        You may redeem up to 4 samples each time, at a fixed handling fee of <span>S$5.99</span>. <br>
+        Please note that the usual checkout limits apply, and points will be deducted for each free sample redeemed. </p>
+    </div>
+    <div class="clearfix"></div>
+    <ul class="photo-list photo-list2">
+      <li><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('dashboard_banner_1')->toHtml(); ?></li>
+      <li><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('dashboard_banner_2')->toHtml(); ?></a></li>
+      <li><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('dashboard_banner_3')->toHtml(); ?></a></li>
+      <li><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('dashboard_banner_4')->toHtml(); ?></a></li>
+    </ul>
+</div>
+<?php
+if(!$this->getPopup() > 0){
+	//do the process of the popup?>
+	<a href="#modal-8" class="various" style="display:none;" id="home" title="Custom effect">Pop me out</a>
+	<div id="modal-8" style="display: none;" class="modal-example-content modal-example-content-md">
+		<div class="modal-example-header modal-example-header-white">
+	    <!-- <button type="button" class="close close-white" onclick="$.fn.custombox('close');">Close <span>&times;</span></button> -->
+	</div>
+		<div class="modal-example-body modal-example-body-md">
+			<?=$this->getLayout()->createBlock('cms/block')->setBlockId('pop_up')->toHtml();?>
+	  </div>
+	</div>
+	<?php	
+}?>

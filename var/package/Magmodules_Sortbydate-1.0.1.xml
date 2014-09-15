@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+    <name>Magmodules_Sortbydate</name>
+    <version>1.0.1</version>
+    <stability>stable</stability>
+    <license>OSL 3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Sort category products by date</summary>
+    <description>Sort category products by date</description>
+    <notes>1.0.1 - Added uninstall file&#xD;
+1.0.0.0 - First stable release</notes>
+    <authors><author><name>Magmodules</name><user>auto-converted</user><email>info@magmodules.eu</email></author></authors>
+    <date>2013-03-02</date>
+    <time>16:56:45</time>
+    <contents><target name="magelocal"><dir name="Magmodules"><dir name="Sortbydate"><dir name="etc"><file name="config.xml" hash="1b22f829bb37ae6b5556d250ce9459a2"/></dir><dir name="sql"><dir name="sortbydate_setup"><file name="mysql4-install-0.1.0.php" hash="201336150a707715cc1d9fb122457405"/></dir></dir><file name="uninstall-sortbydate.php" hash="2bb5d93eae09cdb23c12bb6fbb9c4d21"/></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Magmodules_Sortbydate.xml" hash="468544b2c4df08e194b19fb0ac0fdc33"/></dir></target><target name="magelocale"><dir name="en_US"><file name="Magmodules_Sortbydate.csv" hash="e8f715350d801c7ac81d679493a0d60b"/></dir><dir name="nl_NL"><file name="Magmodules_Sortbydate.csv" hash="c8a334694909e36b5875a9f26ebc2bc6"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

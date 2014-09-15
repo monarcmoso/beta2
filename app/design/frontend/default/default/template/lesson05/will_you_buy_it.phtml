@@ -1,0 +1,49 @@
+<?php 
+	$buyIt = $this->getBuyit();
+	$counts = array_count_values($buyIt);
+	$yes =  ($counts['yes'] / 2) * 100;
+	$no =  ($counts['no'] / 2) * 100;
+?>
+<?php echo $this->colorFieldset;?>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Yes', <?php echo $yes; ?>],
+          ['No', <?php echo $no; ?>]
+        ]);
+
+        // Set chart options
+        var options = {
+                       'width':270,
+                       'height':300,colors: [<?php echo $this->color_set;?>],fontSize:['11','15'],
+                       legend: {position: 'bottom', textStyle: {color: '#58595B', fontSize: 12}},
+                       pieSliceTextStyle:{color: '#8B7A5E'},
+                       pieHole: 0.5,
+                       chartArea:{ width:'500'}
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div" style="width:100px;"></div>

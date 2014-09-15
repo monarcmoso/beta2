@@ -1,0 +1,46 @@
+<?php 
+$sales = Mage::getModel("sales/order")->getCollection()
+       ->addAttributeToSelect('*')
+       ->addFieldToFilter('customer_id', Mage::getSingleton('customer/session')->getId());
+?>
+<div class="title title2">
+<span><?php echo $this->__('Coupon Status') ?></span>
+</div>
+<div class="table-wrap">
+	<table class="notify">
+		<thead>
+			<tr>
+				<th scope="col">Redeemed On</th>
+				<th scope="col">Coupon Code</th>
+				<th scope="col">Gift</th>
+				<th scope="col">Qty</th>
+				<th scope="col">Type</th>
+				<th scope="col">Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php if(!count($sales) > 0):?>
+			<tr>
+				<td rowspan="6">No records yet.</td>
+			</tr>				
+			<?php endif;?>
+			<?php foreach ($sales as $order):?>
+			<?php if($order->getCouponCode() != ''): ?>
+			<tr>
+				<td><?php echo $this->formatDate($order->getCreatedAt());?></td>
+				<td><?php echo $order->getCouponCode();?></td>
+				<td><?php echo $order->getDiscountDescription();?></td>
+				<td>-</td>
+				<td>-</td>
+				<td><?php echo ucfirst($order->getStatus());?></td>
+			</tr>		
+			<?php endif; ?>
+			<!-- <?php if(!count($order->getCouponCode()) > 0):?>
+			<tr>
+				<td rowspan="6">You dont have any coupon code!</td>
+			</tr>
+			<?php endif; ?> -->
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+</div>

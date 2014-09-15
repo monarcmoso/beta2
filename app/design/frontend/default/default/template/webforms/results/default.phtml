@@ -1,0 +1,661 @@
+<?php
+/**
+ * @author        Vladimir Popov
+ * @copyright    Copyright (c) 2014 Vladimir Popov
+ */
+$_items_overview = $this->getResultsCollection();
+$_items_blogger = $this->getResultsCollection();
+$_items_comments = $this->getResultsCollection();
+$_baseurl = Mage::getBaseUrl() . "media/";
+(int) $yesctr = 0;
+(int) $noctr = 0;
+$ages = array();
+?>
+
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php
+$_products = $this->getProductCollection();
+$default_color_set = "'#9FD6D1', '#FFEA84','#FEC9C1','#C3EAA9','#FD8C86'";
+$colorFieldset = Mage::registry('colorFieldset');
+$brand = Mage::registry('brand');
+$product_id = Mage::registry('product_id');
+$product_name = Mage::registry('product_name');
+
+
+?>
+<?php
+//$attr = Mage::getResourceModel('catalog/product')->getAttribute('custom_review_set');
+$product_id = Mage::registry('current_product')->getId();
+$attributeValue = Mage::getModel('catalog/product')
+            ->load($product_id)
+            ->getAttributeText('custom_review_set');
+$_product_id_value = Mage::getModel('catalog/product')
+           ->load($product_id)
+          ->getAttributeInt('product_id');
+
+ $_productCollection = Mage::getModel('catalog/product')->getCollection();
+            $_productCollection->addAttributeToSelect('*'); 
+             $_productCollection->addAttributeToFilter('entity_id', $product_id);
+          
+foreach($_productCollection as $_product) {
+   
+    $product_id_attribute = $_product->getResource()->getAttribute('ss_product_id')->getFrontend()->getValue($_product);
+}
+// $sql = "SELECT 
+	// a.name,a.code, 
+	// b.id as field_id,b.name as field_set,b.code as field_code, b.result_label as field_label,
+	// c.value as result_value,
+	// d.customer_id,d.created_time as date 
+	// FROM 
+	// webforms a
+	// LEFT JOIN webforms_fields b ON a.id = b.webform_id
+	// LEFT JOIN webforms_results_values c ON b.id = c.field_id
+	// LEFT JOIN webforms_results d ON d.id = c.result_id
+	// WHERE a.code = '{$attributeValue}' ORDER BY d.created_time ASC";
+//$arr = Mage::getSingleton('core/resource') ->getConnection('core_read')->fetchAll($sql);
+$arr = Mage::getModel("voice/action")->_getAllReviews($attributeValue);
+$filtered = array();
+$filtered_user = array();
+$buyIt = array();
+foreach($arr as $temp){
+	$filtered_user[] = array('field_id'=>$temp['field_id'],'customer_id'=>$temp['customer_id'],'result_value'=>$temp['result_value'],'date'=>$temp['date']);
+	if(is_numeric($temp['result_value'])){
+		$filtered[] = array('field_id'=>$temp['field_id'],'customer_id'=>$temp['customer_id'],'result_value'=>$temp['result_value']);
+	}
+	//$buy = strtolower(str_replace(' ', '_', $temp['field_set']));
+	$buy = $temp['field_code'];
+	if($buy == 'will_you_buy_it'){
+		$buyIt[] = strtolower($temp['result_value']);
+	}
+}
+
+$_result = array();
+foreach ($filtered as $data) {
+  $id = $data['customer_id'];
+  if (isset($_result[$id])) {
+     $_result[$id][] = $data;
+  } else {
+     $_result[$id] = array($data);
+  }
+}
+
+$customers = array();
+$items = array();
+foreach($_result as $key => $res){
+	foreach($res as  $r){
+		$customers[$key][] = $r['result_value'];
+	}
+	for($i = 0; $i< count($res); $i++){
+		$items[$i][] = $res[$i]['result_value'];
+	}
+}
+
+$customer_total = array();
+$question_num = '';
+foreach($customers as $customer){
+	$question_num = count($customer);
+	$customer_total[] = array_sum($customer);
+}
+
+$range_gap = ($question_num*5)/5;
+$bad = $range_gap;
+$ok = $range_gap + $range_gap;
+$good = $range_gap + $ok;
+$v_good = $good + $range_gap;
+$excellent = $v_good + $range_gap;
+
+$bad_score = array();
+$ok_score = array();
+$good_score = array();
+$vgood_score = array();
+$excellent_score = array();
+foreach($customer_total as $total_points){
+	if($total_points <= $bad){
+		$bad_score[] =+ 1;
+	}
+	else if($total_points <= $ok){
+		$ok_score[] =+ 1;
+	}
+	else if($total_points <= $good){
+		$good_score[] =+ 1;
+	}
+	else if($total_points <= $v_good){
+		$vgood_score[] =+ 1;
+	}
+	else if($total_points <= $excellent){
+		$excellent_score[] =+ 1;
+	}
+}
+$overall_ratings_total = array_sum($bad_score) + array_sum($ok_score) + array_sum($vgood_score) + array_sum($good_score) + array_sum($excellent_score);
+$bad_percentage = (array_sum($bad_score)  / $overall_ratings_total) * 100;
+$ok_percentage = (array_sum($ok_score)  / $overall_ratings_total) * 100;
+$good_percentage = (array_sum($good_score)  / $overall_ratings_total) * 100;
+$vgood_percentage = (array_sum($vgood_score)  / $overall_ratings_total) * 100;
+$ex_percentage = (array_sum($excellent_score)  / $overall_ratings_total) * 100;
+$sum = array();
+foreach($items as $key => $item){
+	//pagkuha ng per question
+	$sum[] = array_sum($item);
+}
+$total = array_sum($sum);
+$efficacy = array();
+$eff_questions = array();
+foreach (Mage::registry('fields_to_fieldsets') as $fieldset) {
+	foreach ($fieldset['fields'] as $field) {
+		if(strtolower($field->getResultLabel()) == 'review'){}
+		else if($field->getResultLabel() == '') {}
+		else{
+			$eff_questions[] = $field->getResultLabel();
+		}
+	}
+}
+foreach($sum as $key => $eff)
+{
+	$efficacy[] = array(label=>$eff_questions[$key],'sum'=>$eff,'total'=>$total);
+}
+?>
+<style>
+    .fancybox{
+        position: absolute;
+        left: 300px;
+        top: 100px;
+        background: #fff;
+        margin: 0 auto;
+        padding-right: 20px;
+        padding-left: 20px;
+        opacity: 1.7;
+        z-index: 999999;
+        height:auto!important
+    }
+    #dimScreen
+    {
+        position:absolute;
+        padding:0;
+        margin:0;
+        top:0px;
+        left:0px;
+        width: 100%;
+        height: 2100px;
+        background:#ccc;
+        opacity: 0.7;
+        z-index: 999999;
+    }
+
+</style>  
+
+
+<div id="tab-wrapper2">
+    <ul class="tabs">
+        <li class="active"><a href="#overview">overview</a></li>
+        <li id="reviewClick"><a href="#blogger">Review</a></li>
+        <li><a href="#comments">comments</a></li>
+        <li><a href="#old_review">Old Reviews</a></li>
+    </ul>
+    <!--tabs ends-->
+    <div class="main_content remove-space">
+        <div id="overview">
+            <div class="tab-column2">
+            <div class="title"><span>Overall Rating</span></div>
+            <?php if ($ex_percentage == 0 && $vgood_percentage == 0 && $good_percentage == 0 && $ok_percentage == 0 && $bad_percentage == 0): ?>   
+                <div style="text-align: center; color: #9FD6D1; padding-top:19px;">No records yet.</div>
+            <?php else: ?>
+			<?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('excellent_num_users', $ex_percentage)->setData('verygood_num_users', $vgood_percentage)->setData('good_num_users', $good_percentage)->setData('ok_num_users', $ok_percentage)->setData('bad_num_users', $bad_percentage)->setData('color_set', $default_color_set)->setTemplate('lesson05/overall_rating.phtml')->toHtml(); ?> 
+			<?php endif; ?>
+        </div>
+        <div class="tab-column3">
+            <div class="title"><span>Efficacy rating</span></div>
+			<?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('ranking_data', $efficacy)->setData('color_set', $default_color_set)->setTemplate('lesson05/view_chart_ranking.phtml')->toHtml(); ?>
+            <!--<div class="right"><a href="#" class="more-reviews">More Reviews</a></div>-->
+        </div>
+        <div class="clearfix"></div>
+        <div class="tab-column2">
+            <div class="title"><span>Will you buy it?</span></div>
+            <?php if (empty($buyIt)): ?>
+                <div style="text-align: center; color: #9FD6D1;padding-top: 30px;">No records yet.</div>
+            <?php else: ?>
+		 	<?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('buyit', $buyIt)->setData('color_set', $default_color_set)->setTemplate('lesson05/will_you_buy_it.phtml')->toHtml(); ?>  
+			<?php endif; ?>
+        </div>
+            <?php
+            $cmsPage = "";
+            $ranking_data = array();
+            $excellent = 0;
+            $verygood = 0;
+            $good = 0;
+            $ok = 0;
+            $bad = 0;
+            $ranking_now = 0;
+            $excellent_num_users = 0;
+            $verygood_num_users = 0;
+            $good_num_users = 0;
+            $ok_num_users = 0;
+            $bad_num_users = 0;
+            $num_users = 1;
+           
+            foreach ($_items_overview as $result) {
+                $customer_id = $result->getData('customer_id');
+                $customerData = Mage::getModel('customer/customer')->load($customer_id)->getData();
+                $ages[] = $customerData['dob'];
+                $connection = Mage::getSingleton('core/resource')->getConnection('core_write');
+                $read = Mage::getSingleton('core/resource')->getConnection('core_read');
+
+                $webform_id = $this->getWebform()->getId();
+
+                $i = 0;
+                $ranking_data = array();
+                $efficacy_count = count($ranking_data);
+            } // foreach results    
+
+            $no_of_efficacies = $efficacy_count;
+            $ages = array();
+            foreach ($_items_overview as $result) {
+                $customer_id = $result->getData('customer_id');
+                $customerData = Mage::getModel('customer/customer')->load($customer_id)->getData();
+
+                $ages[] = $customerData['dob'];
+                $connection = Mage::getSingleton('core/resource')->getConnection('core_write');
+                $read = Mage::getSingleton('core/resource')->getConnection('core_read');
+                $i = 0;
+                $ranking_data = array();
+                ?>
+
+                <?php
+            } // foreach results
+            ?>
+            <?php
+            $age_line1 = count(Mage::helper("lesson05")->getUserAge(1, 18, $ages));
+            $age_line2 = count(Mage::helper("lesson05")->getUserAge(19, 24, $ages));
+            $age_line3 = count(Mage::helper("lesson05")->getUserAge(25, 29, $ages));
+            $age_line4 = count(Mage::helper("lesson05")->getUserAge(30, 34, $ages));
+            $age_line5 = count(Mage::helper("lesson05")->getUserAge(35, 100, $ages));
+            $age_line_sum = $age_line1 + $age_line2 + $age_line3 + $age_line4 + $age_line5;
+
+            if ($age_line_sum > 0) {
+                $age_line1_percent = floor((($age_line1 / $age_line_sum) * 100));
+                $age_line2_percent = floor((($age_line2 / $age_line_sum) * 100));
+                $age_line3_percent = floor((($age_line3 / $age_line_sum) * 100));
+                $age_line4_percent = floor((($age_line4 / $age_line_sum) * 100));
+                $age_line5_percent = floor((($age_line5 / $age_line_sum) * 100));
+            } else {
+                $age_line1_percent = 0;
+                $age_line2_percent = 0;
+                $age_line3_percent = 0;
+                $age_line4_percent = 0;
+                $age_line5_percent = 0;
+            }
+            ?>
+            <?php $this->getChild('rating')->setData('age_line1_percent', $age_line1_percent)->setData('age_line2_percent', $age_line2_percent)->setData('age_line3_percent', $age_line3_percent)->setData('age_line4_percent', $age_line4_percent)->setData('age_line5_percent', $age_line5_percent)->setData('yesctr', $yesctr)->setData('noctr', $noctr)->setData('colors', $default_color_set); ?>
+
+            <?php
+            $no_of_efficacies = count($ranking_data);
+            ?>
+			<?php //Mage::helper("lesson05")->aasort($ranking_data, "rating"); ?>
+
+            <div class="tab-column2 special">
+			<div class="title"><span>Age Group</span></div>
+			<?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('age_line1_percent', $age_line1_percent)->setData('age_line2_percent', $age_line2_percent)->setData('age_line3_percent', $age_line3_percent)->setData('age_line4_percent', $age_line4_percent)->setData('age_line5_percent', $age_line5_percent)->setData('color_set', $default_color_set)->setTemplate('lesson05/view_chart_age.phtml')->toHtml(); ?></div>
+
+            <div class="tab-column2 special">
+                <div class="offers">
+                    <div class="title"><span>Reviews</span></div>
+                    <h2><?php echo count($_items_overview); ?> </h2>
+                    <div class="title"><span>Redemptions</span></div>
+					<?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('product_id', $product_id)->setTemplate('lesson05/redemption_item.phtml')->toHtml(); ?></div>
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="review-block-wrap">
+                <!-- <?php
+                $m = 0;
+                $a = 0;
+                $customer_ids = array();
+                $review_ids = array();
+                    $itemperpg = 8;
+                    if(!isset($_GET['p']) || $_GET['p']==1 || $_GET['p']==""){
+                        $pg = 1;
+                        $start = 1;
+                        $end = $itemperpg;
+                    }
+                    else{ 
+                        $pg = $_GET['p'];   
+                        if($_GET['p']==1) $pg = 1;
+                        $start = (($pg-1) * $itemperpg)+1;
+                        $end = $pg * $itemperpg;
+                    }?> -->
+				<?php 
+				$_total = array();
+				$_customer_total;
+				$_inCust = array();
+				$counter = 0;
+				// print_r($customers);
+				// exit;
+				foreach($customers as $_a => $_customer){
+					$_total = array_sum($_customer);
+					$_isaPa = array(); 
+					foreach($_customer as $_key => $_cus){
+						$_isaPa[] = array(label=>$eff_questions[$_key],'score'=>$_cus,'total'=>$_total);
+					}
+					$_inCust[$_a] = $_isaPa;
+					$counter++;
+					if($counter == 4){
+						break;
+					}
+				}
+				//ipasok na dito yung forms
+				// print "<pre>";
+				// print_r($_inCust);
+				foreach($_inCust as $_id => $_customerInfo){
+				// get customer information here
+				$reviewee = Mage::getModel("customer/customer"); 
+				$reviewee->load($_id);
+				$gender = $reviewee->getGender();
+				$full_name  = strtok($reviewee->getFullName(), " ");
+				$imflink = '/media/customer'.$reviewee->getMedmaAvatar();
+				
+				//get webform data
+				$_indiResult = Mage::getModel("voice/action")->reviewData($attributeValue,$_id);
+				$_userUploadImage = array();
+				$_userDate = array();
+				$_pop_upImage = array();
+				$review_comment = '';
+				foreach($_indiResult as $_indiUserResult){
+					if($_indiUserResult['field_code'] == 'review_image'){
+						if(!empty($_indiUserResult['result_value'])){
+							//kung di sya empty get the whole url
+							//$_userUploadImage[] = $_indiUserResult['image_result_id']."/".$_indiUserResult['image_field_id']."/".$_indiUserResult['key']."/".$_indiUserResult['result_value'];
+							$_file_id = $_indiUserResult['image_result_id']."/".$_indiUserResult['image_field_id']."/".$_indiUserResult['key'];
+							$_userDate[] = $_indiUserResult['date'];
+							$_resultsModel = Mage::getModel('webforms/results');
+							$_userUploadImage[] = $_resultsModel->getThumbnail($_file_id, $_indiUserResult['result_value'], '293');
+							$_pop_upImage[] = $_resultsModel->getThumbnail($_file_id, $_indiUserResult['result_value'], '368','368');
+						}
+					}
+					if($_indiUserResult['field_code'] == 'review_comment'){
+						$review_comment = $_indiUserResult['result_value'];
+					}
+				}
+				// print "<pre>";
+				 //print_r($_userUploadImage);
+				if(!empty($_userUploadImage)):
+				?>
+					<div class="review-block-lg">
+	                    <div class="review-info review-block-lg-info blue-light"> <img width="30px" height="30px" src="<?php echo ($reviewee->getMedmaAvatar()) ? $imflink : "/skin/frontend/default/samplestore/images/profile.png"; ?>" alt="">
+	                        <h3><?php echo ucfirst($full_name); ?>’s Review</h3>
+	                    </div>
+	                    <div class="review-block-inner review-block-lg-inner">
+	                    	<div style="position:relative; float:left; overflow:hidden; height:194px;"><img src="<?php echo $_userUploadImage[0]; ?>" alt=""></div>
+	                        <div class="right review-right">
+	                            <h4><?php echo $this->formatDate($_userDate[0]) ?></h4>
+	                            <p><?php echo substr($review_comment, 0, 90); ?> </p>
+	                        </div>
+	                        <div class="clearfix gap"></div>
+	                        <div class="title"><span>Efficacy rating</span></div>
+	                        <div class="clearfix"></div>
+	
+	                        <div class="bar-graph"> <?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('ranking_data', $_customerInfo)->setData('color_set', $default_color_set)->setTemplate('lesson05/view_user_chart_ranking.phtml')->toHtml(); ?> </div>
+	                        <div class="clearfix"></div>
+	                        <div class="right"><a href="#pop_<?=$_id?>" class="blue-border btn" title="Custom effect">See Review</a></div>
+	                    </div>
+	                </div>
+	                
+					<!--     popup info start-->
+	                <div id="pop_<?=$_id?>" style="display: none; padding-top:30px;" class="modal-example-content">
+	                    <div class="modal-example-header">
+	                        <button type="button" class="close review_close">Close <span>&times;</span></button>
+	                        <h2><span><?php echo $brand; ?></span> <?php echo $product_name; ?></h2>
+	                    </div>
+	                    <div class="modal-example-body">
+	                        <div class="modal-left">
+	                        	<?php if(count($_pop_upImage) > 1):?>
+							 	<div id="slider-wrapper">
+									<div class="inner-wrapper">
+										<?php foreach($_pop_upImage as $askey=> $resKeyImage):
+											$askey = ($askey+1);
+										?>
+											<input checked type="radio" name="slide" class="control" id="Slide<?php echo $askey; ?>"/>
+											<label for="Slide<?php echo $askey; ?>" id="s<?php echo $askey; ?>"></label>
+		                        		<?php endforeach;?>
+										<div class="overflow-wrapper">
+										<?php foreach($_pop_upImage as $_userImages):?>
+											<div class="slide"><img src="<?php echo $_userImages; ?>" alt=""></div>
+		                        		<?php endforeach;?>
+										</div>
+									</div>
+								</div>
+								<?php else: ?>
+									<img src="<?php echo $_pop_upImage[0]; ?>" alt="">
+								<?php endif; ?>
+	                        </div>
+	                        <div class="modal-right">
+	                            <div class="thumbnail"> <img  <?php if(!$imflink) echo 'height="368px" width="368px"';?>src="<?php echo ($reviewee->getMedmaAvatar()) ? $imflink : "/skin/frontend/default/samplestore/images/profile.png" ?>" alt="">
+	                                <!-- <div class="thumbnail-info">Starter</div> -->
+	                                <h2><?php echo $full_name; ?></h2>
+	                                <!-- <h3>written 16 Review(s)</h3> -->
+	                            </div>
+	                            <div class="clearfix"></div>
+	                            <div class="title"><span>Efficacy rating</span></div>
+	                            <div class="clearfix"></div>
+	                            <div class="bar-graph">
+	
+	                     <?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('ranking_data', $_customerInfo)->setData('color_set', $default_color_set)->setTemplate('lesson05/view_user_chart_ranking.phtml')->toHtml(); ?></div>
+	                        </div>
+	                        <div class="clearfix"></div>
+	                        <div class="space-15">
+	                            <p><?php echo $review_comment; ?> </p>
+	                            <div class="clearfix"></div>
+	                            <span class="post-date">Posted on <?php echo $this->formatDate($_userDate[0]) ?></span> <!-- <span class="post-by">Also written on <a href="#">http://rebeccaklq.blogspot.sg/</a></span> <span class="verified"><a href="#" data-tooltip="This User has Redeemed and used this Sample">Verified</a></span> --> </div>
+	                    </div>
+	                </div>
+	            <?php else: ?>
+					<div id="pop_<?=$_id?>" style="display: none;" class="modal-example-content">
+	                    <div class="modal-example-header">
+	                        <button type="button" class="close review_close">Close <span>&times;</span></button>
+	                        <h2><span><?php echo $brand; ?></span> <?php echo $product_name; ?></h2>
+	                    </div>
+	                    <div class="modal-example-body">
+							<div class="modal-right full">
+								<div class="thumbnail"> <img src="<?php echo $this->getSkinUrl('images/profile.png'); ?>" alt="">
+									<h2><?php echo $full_name; ?></h2>
+									<!-- <h3>written 16 Review(s)</h3> -->
+								</div>
+								<div class="clearfix"></div>
+								<div class="title"><span>Efficacy rating</span></div>
+								<div class="clearfix"></div>
+								<div class="center-graph">
+									<?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('ranking_data', $_customerInfo)->setData('color_set', $default_color_set)->setTemplate('lesson05/view_user_chart_ranking.phtml')->toHtml(); ?></div>
+								</div>
+                       			<div class="space-15">
+                       				<div class="clearfix"></div>
+                       				<div class="clearfix"></div>
+	                            	<p style="padding: 20px 40px 0px 40px; width: 90%;"><?php echo $review_comment; ?> </p>
+	                            	<div class="clearfix"></div>
+	                            	<span class="post-date" style="padding: 0px 40px; width: 90%;">Posted on <?php echo $this->formatDate($_userDate[0]) ?></span> <!-- <span class="post-by">Also written on <a href="#">http://rebeccaklq.blogspot.sg/</a></span> <span class="verified"><a href="#" data-tooltip="This User has Redeemed and used this Sample">Verified</a></span> --> 
+	                            </div>
+							</div>
+	 					</div>
+				<?php endif; ?>
+					<?php
+					
+				} //end foreach($_inCust as $_id => $_customerInfo)?>
+            </div><!--<div class="review-block-wrap">-->        
+        </div>   
+        <!-- <?php if ($m > 0): ?>
+        	<style>a{text-decoration: none; color:#000;}</style>
+        <?php endif; ?> -->
+        <!--review-block-wrap ends--> 
+    </div>
+    <div id="blogger"><!--blogger-->
+    <div class="review-block-wrap" id="tabReview">
+    	<!-- <h2>Sorry! This feature is not yet available.</h2> -->
+    	<?php 
+    		// $_reviewArray = array();
+    		// $_reviewUsers = Mage::getModel("voice/action")->_reviews($attributeValue,$offset = 0, $limit = 8);
+			// foreach($_reviewUsers as $_Userreview){
+				// $_reviewCustomerId = $_Userreview['customer_id'];
+				// $_reviewArray[$_reviewCustomerId] = $customers[$_reviewCustomerId];
+			//}?>
+			<?php //echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('attr', $attributeValue)->setData('efficacy',$eff_questions)->setData('data', $_reviewArray)->setTemplate('lesson05/reviews.phtml')->toHtml(); ?>
+    	<!-- <a href="#test" id="paging">Next</a> -->
+    </div>
+	
+        <!--review-block-wrap ends--> 
+    </div>
+    <div id="old_review">
+        <div class="review-block-wrap" id="tabReview">
+            <h2></h2>
+            <?php if($product_id_attribute!=0):?>
+     <iframe src="https://www.samplestore.com/product/magento_reviews/<?php echo $product_id_attribute;?>/0/pomegranate-antioxidant-eye-gel" width="1000"
+        frameborder="0" scrolling="no" id="iframe" height="2900"></iframe>
+            <?php endif; ?>
+                    
+        </div>
+    </div>
+    <div id="comments">
+        <div class="review-block-wrap">   
+        	<?php
+			foreach($_inCust as $_userIdComment => $_customerComment):
+				$comReviewee = Mage::getModel("customer/customer"); 
+				$comReviewee->load($_userIdComment);
+				$Comment_full_name  = strtok($comReviewee->getFullName(), " ");
+				$medmaProfile = '/media/customer'.$comReviewee->getMedmaAvatar();
+				$_commentCustomer = "SELECT 
+					a.name,a.code, 
+					b.id as field_id,b.name as field_set,b.code as field_code, b.result_label as field_label,
+					c.value as result_value,c.result_id as image_result_id, c.field_id as image_field_id, c.key,
+					d.customer_id,d.created_time as date 
+					FROM 
+					webforms a
+					LEFT JOIN webforms_fields b ON a.id = b.webform_id
+					LEFT JOIN webforms_results_values c ON b.id = c.field_id
+					LEFT JOIN webforms_results d ON d.id = c.result_id
+					WHERE a.code = '{$attributeValue}' AND d.customer_id = {$_userIdComment} AND b.code = 'review_comment'";
+				$_comments = Mage::getSingleton('core/resource') ->getConnection('core_read')->fetchAll($_commentCustomer);
+			// print "<pre>";
+			// print_r($_comments);
+			//exit;
+			if(!empty($_comments[0]['result_value'])):
+			?>
+        	<div class="review-block-lg">
+                <div class="review-info review-block-lg-info blue-light"> <img width="30px" height="30px" src="<?php echo ($comReviewee->getMedmaAvatar()) ? $medmaProfile : $this->getSkinUrl('images/profile.png'); ?>" alt="">
+                    <h3><?php echo $Comment_full_name; ?>'s Review</h3>
+                </div>
+                <div class="review-block-inner review-block-lg-inner grey">
+                    <blockquote>
+                    	<?php
+                    		if(strlen($_comments[0]['result_value']) < 260){
+                    			echo $_comments[0]['result_value'];
+                    		}else{
+                    			echo substr($_comments[0]['result_value'], 0, strpos($_comments[0]['result_value'], ' ', 260))."...";
+                    		} 
+                    	?>
+                    </blockquote>
+                    <div class="clearfix"></div>
+                    <div class="left">
+                        <h3><?php $date = strtotime($_comments[0]['date']); echo date("d-M-Y", $date); ?></h3>
+                        <!-- <h4>written 22 Review(s)</h4> -->
+                    </div>
+                    <div class="right"><a href="#pop_<?php echo $_userIdComment; ?>" class="blue-border btn" title="Custom effect">View more</a></div>
+                </div>
+			</div>  
+			<?php endif;?>
+			<?php endforeach;?>  
+        </div><!--product-list ends--> 
+    </div><!--review-block-wrap ends--> 
+</div>
+<script src="<?= $this->getJsUrl('singpost/review.js');?>"></script> 
+<style>
+/*.modal-example-header{
+	margin-top:73px !important;
+}*/
+#slider-wrapper{
+	width: 368px;
+	height: 368px;
+	margin: 0px auto;
+	position: relative;
+	margin-bottom: 0px;
+	/*background: rgba(0,0,0,0.5);*/
+	overflow: hidden;
+}
+	
+#s1{
+	padding: 6px;
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	left: 50%;
+	bottom: 25px;
+	margin-left: -36px;
+	border-radius: 20px;
+	opacity: 0.3;
+	cursor: pointer;
+	z-index: 999;
+}
+			
+#s2{
+	padding: 6px;
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	left: 50%;
+	bottom: 25px;
+	margin-left: -12px;
+	border-radius: 20px;
+	opacity: 0.3;
+	cursor: pointer;
+	z-index: 999;
+}
+			
+#s3{
+	padding: 6px;
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	left: 50%;
+	bottom: 25px;
+	margin-left: 12px;
+	border-radius: 20px;
+	opacity: 0.3;
+	cursor: pointer;
+	z-index: 999;
+}
+
+#s1:hover, #s2:hover, #s3:hover{ opacity: 1;}
+			
+.inner-wrapper{
+	width: 368px;
+	height: 90%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-bottom: 0px;
+	overflow: hidden !important;
+}
+.control{ display: none;}
+			
+#Slide1:checked ~ .overflow-wrapper{ margin-left: 0%; }
+#Slide2:checked ~ .overflow-wrapper{ margin-left: -100%; }
+#Slide3:checked ~ .overflow-wrapper{ margin-left: -200%; }
+
+#Slide1:checked + #s1 { opacity: 1; }
+#Slide2:checked + #s2 { opacity: 1; }
+#Slide3:checked + #s3 { opacity: 1; }
+			
+.overflow-wrapper{
+	width: 400%;
+	height: 100%;
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}		
+.slide img{
+	width: 25%;
+	float: left;
+}
+</style>
+<!--<script src="<?php echo Mage::getBaseUrl(); ?>js/jquery/jquery-filestyle.min.js"></script>
+<script src="<?php echo Mage::getBaseUrl(); ?>js/jquery/main.js"></script> -->
+<?php $id = $_REQUEST['id']; ?>
+<div id="popup"><img src="<?=Mage::getBaseUrl();?>skin/frontend/default/samplestore/images/ajax-loader.gif"></div>
+<input type="hidden" id="attrVal" value="<?php echo $attributeValue;?>">

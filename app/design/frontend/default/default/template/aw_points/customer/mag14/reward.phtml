@@ -1,0 +1,90 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Points
+ * @version    1.7.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?>
+<style>
+.main
+{
+	background:#FFF !important;
+	border:none !important;
+}
+.page-title
+{
+	float:left;
+	width:100%;
+	text-align:center;
+	border:none !important;
+}
+.aw-points-referral
+{
+	float:left;
+	background:none !important;
+	border:none !important;
+	width:100%;
+	padding:0px 0px !important;
+	text-align:center;
+	margin: 0px 0px 20px 0px !important;
+	font:18px arial,helvetica;
+}
+.aw-points-referral span
+{
+	color:#FFF;
+	padding:0px 4px;
+	background:#000;
+}
+table#points-history-table
+{
+	border:none !important;
+	background:none !important;
+}
+table#points-history-table tr th,tr td
+{
+	border-top:none !important;
+	border-right:none !important;
+	border-left:none !important;
+	background:#FFF !important;
+	border-bottom: 1px solid #CCC !important;
+	padding-top:10px !important;
+	padding-bottom:10px !important;
+}
+
+</style>
+<?php 
+$customer = Mage::getSingleton('customer/session')->getCustomer();
+$points = Mage::getModel('points/summary')->loadByCustomer($customer)->getData();
+?>
+<div class="title title2">
+<span><?php echo $this->getTitle() ?> (<?php echo $points['points'];?>)</span>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php echo $this->getChildHtml('') ?>
+
+<!-- <div class="buttons-set">
+    <p class="back-link">
+        <a href="<?php echo $this->getBackUrl() ?>">
+            <small>&laquo; </small>  <?php echo $this->__('Back') ?>
+        </a>
+    </p>
+</div> -->

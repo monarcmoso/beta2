@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+ 
+    <modules>
+        <Mycode_Function>
+            <version>1.0.0</version>
+        </Mycode_Function>
+    </modules>
+ 
+    <global>
+ 
+        <helpers>
+            <function>
+                <class>Mycode_Function_Helper</class>
+            </function>
+        </helpers> 
+ 
+    </global>
+ 
+</config>

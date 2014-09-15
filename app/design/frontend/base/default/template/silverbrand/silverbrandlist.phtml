@@ -1,0 +1,335 @@
+
+<?php
+  $productIds = array();
+    $category_ids  = array();
+        $postData = Mage::app()->getRequest()->getPost('filter_cat');
+            foreach($postData as $posdata){
+             array_push($category_ids, $posdata);
+            }
+?>
+<?php $getStatus = Mage::getStoreConfig('silverbrand/silverbrand/enable'); ?>
+<?php $getshopByBrandId = Mage::getStoreConfig('silverbrand/silverbrand/categoryId'); ?>
+<?php $currentCategoryId = Mage::getModel('catalog/layer')->getCurrentCategory()->getId(); ?>
+<!--Check Shop By Brand is Enable or Disable and if Check Category Is Same as Admin Define-->
+<?php if (($getStatus == 1) && ($getshopByBrandId == $currentCategoryId)): ?>
+    <?php
+    $currentCategoryId = Mage::getModel('catalog/layer')->getCurrentCategory()->getId();
+    $store_cat = Mage::app()->getStore()->getRootCategoryId();
+    ?>
+    <?php
+    //get the current category
+    $_cat = new Mage_Catalog_Block_Navigation();
+    $currentCategoryId = $_cat->getCurrentCategory();
+
+    //get the children of the current category
+    $subCats = Mage::getModel('catalog/category')->load($currentCategoryId->getId())->getChildren();
+
+    //get sub category ids
+    $subCatIds = explode(',', $subCats);
+      
+    ?>
+    <?php if (count($subCatIds) >= 1): ?>
+        <!--Get Category of Brands-->
+        <div class="brands-wrap">
+            <ul >
+                <?php foreach ($subCatIds as $subCatId): ?>
+                    <?php $subCat = Mage::getModel('catalog/category')->load($subCatId); ?>
+                    <?php // echo  $subCat->getImageUrl(); echo "bbbbb";; ?>
+                    <?php if ($subCat->getIsActive()): ?>
+                        <li>
+                            <?php
+                            
+                                                     $_thumbnailImgageName = $sliderimage = $subCat->getResource()->getAttribute('sliderimage')->getFrontend()->getValue($subCat);
+                                                     $_thumbnailImgageUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'catalog/category/'.$_thumbnailImgageName;
+                                                     $_imgHtml = '<img class="silverBrandViewLogo" src="'.$_thumbnailImgageUrl.'" />';
+//                                                    $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'thumbnail');
+                                                
+                            //display category image
+                            if ($subCat->getImageUrl()):
+                                ?>
+                            
+                                    <a href="<?php echo $subCat->getUrl(); ?>"><?php echo $_imgHtml; ?></a>	
+                              
+<!--                                <div class="catname">
+                                    <a href="<?php echo $subCat->getUrl(); ?>"><?php echo $subCat->getName(); ?></a>
+                                </div>-->
+                            <?php else: ?>
+                                <div class="cat_img">
+                                    <a href="<?php echo $subCat->getUrl(); ?>"><img  src="<?php echo $this->getSkinUrl('') ?>images/silverbrand/noImage.gif" /></a>	
+                                </div>
+                                <div class="catname">
+                                    <a href="<?php echo $subCat->getUrl(); ?>"><?php echo $subCat->getName(); ?></a>
+                                </div>
+                            <?php endif; ?>
+                        </li>
+                    <?php else: ?>
+                        <p class="note-msg" style="clear:both;"><?php echo $this->__('There are no brands matching the selection.') ?></p>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    <?php else: ?>
+        <p class="note-msg" style="clear:both;"><?php echo $this->__('There are no brands matching the selection.') ?></p>
+    <?php endif; ?>	
+<?php else: ?>
+
+    <?php
+    $_productCollection = $this->getLoadedProductCollection();
+
+    $_layer = Mage::getSingleton('catalog/layer');
+    $category = $_layer->getCurrentCategory();
+    $_currentCategoryId = $category->getId();
+
+    if ($_currentCategoryId == 43):
+        $stockCollection = Mage::getModel('cataloginventory/stock_item')->getCollection()->addFieldToFilter('qty', 0);
+
+        $productIds = array();
+
+        foreach ($stockCollection as $item) {
+            $productIds[] = $item->getOrigData('product_id');
+        }
+        $products = array();
+
+    endif;
+    $_helper = $this->helper('catalog/output');
+    ?> 
+
+    <?php if (!$_productCollection->count()): ?>
+
+        <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+    <?php else: ?>
+        <div class="product-list">
+            <?php if ($this->getMode() != 'grid'): ?>
+               
+            <?php else: ?>
+
+                <?php $_collectionSize = $_productCollection->count() ?>
+                <?php $_columnCount = 8 //$this->getColumnCount(); ?>
+                <?php
+                $i = 0;
+                $brand = "";
+                $color = "";
+                $a=0;
+                $itemperpg = 8;
+                if(!isset($_GET['p']) || $_GET['p']==1 || $_GET['p']==""){
+                    $pg = 1;
+                    $start = 1;
+                    $end = $itemperpg;
+                }
+                else{ 
+                    $pg = $_GET['p'];   
+                    if($_GET['p']==1) $pg = 1;
+                    $start = (($pg-1) * $itemperpg)+1;
+                    $end = $pg * $itemperpg;
+                }
+                foreach ($_productCollection as $_product):
+                    $free_delivery_bool = $_product->getResource()->getAttribute('free_delivery')->getFrontend()->getValue($_product);
+                    $categoryIds = $_product->getCategoryIds();
+                    $c = 1;
+                    foreach ($categoryIds as $catId) {
+                        $_category = Mage::getModel('catalog/category')->load($catId);
+                        if ($_category->getLevel() == '3' && $_category->getParentCategory()->getId() == '44') {
+                            $brand = $_category->getName();
+                        }
+                        if ($_category->getLevel() == '3' && $_category->getParentCategory()->getId() == '18' && $_category->getId() != '43') {
+                            $categoryname = $_category->getName();
+                            //get category color
+                            $color = $_category->getResource()->getAttribute('color')->getFrontend()->getValue($_category);
+                        }
+
+
+                        $c++;
+                    }
+
+                    foreach ($categoryIds as $catId) {
+                        $_category = Mage::getModel('catalog/category')->load($catId);
+                        if ($_category->getId() != "43" && $_category->getId() == $category->getId() && $_category->getParentCategory()->getId() == '18') {
+                            $categoryname = $_category->getName();
+                            $color = $_category->getResource()->getAttribute('color')->getFrontend()->getValue($_category);
+                        }
+                    }
+                    $days =  Mage::registry('before_expiry');
+                    $end_datetime = $_product->getResource()->getAttribute('expiry_date')->getFrontend()->getValue($_product);
+                    $current_date = date('Y-m-d');
+                    $current_date1 = time() + $days * 24 * 60 * 60;
+                    $current_date1 = date('Y-m-d', $current_date1);
+
+
+                    $expired = FALSE;
+                    if ($end_datetime) {
+                        $end_datetime = date('Y-m-d', strtotime($end_datetime));
+
+                        if (strtotime($end_datetime) >= strtotime($current_date1)) :
+                            $expired = FALSE;
+                        else:
+                            $expired = TRUE;
+                        endif;
+                    }
+                    ?>    
+                    <?php
+                    $start_datetime = $_product->getResource()->getAttribute('launched_date')->getFrontend()->getValue($_product);
+                    $launch = FALSE;
+                    if ($start_datetime) {
+                        $start_datetime = date('Y-m-d', strtotime($start_datetime));
+                        if (strtotime($current_date) >= strtotime($start_datetime)) :
+                            $launch = FALSE;
+                        else:
+                            $launch = TRUE;
+                        endif;
+                    }
+                    ?> <?php // get review result top efficacy ?>
+                    <?php  $cmsstatic = $_product->getResource()->getAttribute('review_result_set')->getFrontend()->getValue($_product); ?>
+                    <?php
+                    if ($cmsstatic != 'No' && $cmsstatic != '') {
+                        $read = Mage::getSingleton('core/resource')->getConnection('core_read');
+
+                        $webform_id = 0;
+                        $sql3 = "SELECT webforms.* FROM webforms WHERE code='".$cmsstatic."'";
+                        $arr = $read->fetchAll($sql3);
+
+                        foreach($arr as $key ){
+                            $webform_id =  $key['id'];
+                        } 
+                        $highest = 0;
+                        $efficay_field_id = 0;
+                        $sql4 = "select field_id,count(*),sum(value) as sum_val from webforms_results_values where field_id in (select id from webforms_fields where webforms_fields.type='select/radio' and webform_id='" . $webform_id . "') group by field_id";
+                        $result = $read->fetchAll($sql4);
+                        foreach ($result as $res) {
+                            $item = $res['sum_val'];
+                            $field_id = $res['field_id'];
+
+                            if ($item > $highest) {
+                                $highest = $item;
+                                $efficay_field_id = $field_id;
+                            }
+                        }
+                        $sql4 = "select result_label from webforms_fields where id =" . $efficay_field_id . "";
+                        $top_efficacy = $read->fetchAll($sql4);
+                        foreach ($top_efficacy as $tp) {
+                            $efficacy_name = $tp['result_label'];
+                        }
+                    }
+                    ?>
+                    <?php if (!$expired && !$launch && $_currentCategoryId == "43") $ctr++; ?>
+                    <?php if (($_currentCategoryId == "43" && !$_product->isSaleable()) || ($_currentCategoryId == "43" && $expired) || ($_currentCategoryId == "43" && $launch)): ?>      
+                      <div class="product-column"> <?php echo($free_delivery_bool == 'Yes') ? '<span class="free">Free</span>': ""; ?> <a href="<?php echo $_product->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(184); ?>" alt=""></a>
+                                        <div class="info blue-dark" style="background-color:<?php echo $color; ?>"> <span class="new"><img src="../../images/no-1.png" alt=""></span>
+                                            <h3><?php echo ($efficacy_name!="" && $efficacy_name!=null)?$efficacy_name:"New"; ?></h3>
+                                        </div>
+                                        <div class="product-description">
+                                            <div class="product-height">
+                                            <h3 class="red-text" style="color:<?php echo $color; ?>!important;"><?php echo $categoryname; ?></h3>
+                                            <h4><?php echo $brand; ?></h4>
+                                            <p><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></p>
+                                            </div>
+                                            <?php if ($_product->isSaleable()): ?>
+                                                    <div class="redeem"><a href="javascript:;" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')" title="<?php echo $this->__('Redeem') ?>"> <?php echo $this->__('Redeem') ?></a></div>
+                                                <?php else: ?>
+                                                    
+                                                    <input type="hidden" id="param_<?php echo $_product->getId(); ?>" value="<?php echo $this->helper('wishlist')->getFormProductData($_product) ?>">
+                                                <input type="hidden" id="ctr_<?php echo $_product->getId(); ?>" value="<?php echo $wishlistcount; ?>">
+                                                <div class="request"><a  class="request_btn" id="<?php echo $_product->getId(); ?>" href="#" ><span id='counter<?php echo $_product->getId();?>'><?php echo $this->__('Request'); ?><?php echo " (".$wishlistcount.")";?></span></a></div>
+                                                <?php endif; ?>
+
+                                        </div>
+                                    </div>
+                        <?php endif ?> 
+                    <?php if ($_currentCategoryId != "43" && $_currentCategoryId != "13"): ?>
+                        <?php if (($expired) || ($launch) || !$_product->isSaleable()): ?>
+                        <?php else: ?>
+                        <?php $productIds[] = $_product->getId();?>
+                        <?php  $a++; //for pagination counter purpose ?>
+                             
+                        <?php if($a>=$start && $a<=$end): ?>
+                            <?php $ctr++; ?>
+                            <div class="product-column"> <?php echo($free_delivery_bool == 'Yes') ? '<span class="free">Free</span>': ""; ?> <a href="<?php echo $_product->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(184); ?>" alt=""></a>
+                                        <div class="info blue-dark" style="background-color:<?php echo $color; ?>"> <span class="new"><img src="../../images/no-1.png" alt=""></span>
+                                            <h3><?php echo ($efficacy_name!="" && $efficacy_name!=null)?$efficacy_name:"New"; ?></h3>
+                                        </div>
+                                <div class="product-description">
+                                    <div class="product-height">
+                                    <h3 class="red-text" style="color:<?php echo $color; ?>!important;"><?php echo $categoryname; ?></h3>
+                                    <h4><?php echo $brand; ?></h4>
+                                    <p><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></p>
+                                    </div>
+                                    <?php if ($_product->isSaleable()): ?>
+                                            <div class="redeem"><a href="javascript:;" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')" title="<?php echo $this->__('Redeem') ?>"> <?php echo $this->__('Redeem') ?></a></div>
+                                        <?php else: ?>
+                                            <button type="button" title="<?php echo $this->__('Request') ?>" class="button btn-cart"  style="border:1px solid #ccc; background:#ccc;" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" ><?php echo $this->__('Request') ?></a></span></button>
+                                        <?php endif; ?>
+
+                                </div>
+                            </div>
+                        <?php endif; ?>  
+                        <?php endif; ?>
+                    <?php endif; ?> 
+                    <?php if ($_currentCategoryId == "13" && $free_delivery_bool == "Yes"): ?>
+                        <?php if (($expired) || ($launch) || !$_product->isSaleable()): ?>
+                        <?php else: ?>
+                       
+                        <?php $ctr++; ?>
+                             <?php $a++; //for pagination counter purpose ?>   
+                             <?php if($a>=$start && $a<=$end):?> 
+                               
+                                    <div class="product-column"> <?php echo($free_delivery_bool == 'Yes') ? '<span class="free">Free</span>': ""; ?><a href="<?php echo $_product->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(184); ?>" alt=""></a>
+                                    <div class="info blue-dark"> <span class="new"><img src="../../images/no-1.png" alt=""></span>
+                                        <h3><?php echo ($efficacy_name!="" && $efficacy_name!=null)?$efficacy_name:"New"; ?></h3>
+                                    </div>
+                                    <div class="product-description">
+                                        <div class="product-height">
+                                        <h3 class="red-text" style="color:<?php echo $color; ?>!important;"><?php echo $categoryname; ?></h3>
+                                        <h4><?php echo $brand; ?></h4>
+                                        <p><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></p>
+                                        </div>
+                                         <?php if ($_product->isSaleable()): ?>
+                                                <div class="redeem"><a href="javascript:;" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')" title="<?php echo $this->__('Redeem') ?>"> <?php echo $this->__('Redeem') ?></a></div>
+                                            <?php else: ?>
+                                                <button type="button" title="<?php echo $this->__('Request') ?>" class="button btn-cart"  style="border:1px solid #ccc; background:#ccc;" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" ><?php echo $this->__('Request') ?></a></span></button>
+                                            <?php endif; ?>
+                                        
+                                    </div>
+                                    </div>
+                                  <?php endif; ?>       
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <?php
+                    $brand = "";
+                    $categoryname = "";
+                    $efficacy_name = "";
+                    $color = "";
+                    ?>
+                <?php endforeach ?>
+                <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+            <?php endif; ?>
+
+        </div>
+
+       <?php if ($ctr > 0): ?>
+    
+        <style>
+            a{
+                text-decoration: none;
+                color:#000;
+            }
+         
+        </style>
+            <div class="toolbar-bottom" style="<?php echo(strpos($_SERVER['REQUEST_URI'],'catalogsearch')==true)?"display:none;":"display:block;"; ?>">
+              
+        
+                <?php $productCollection = Mage::getModel('catalog/product')
+                    ->getCollection()
+                    ->addAttributeToFilter('entity_id', array('in' => $productIds));
+                ?>
+                
+                    <?php if($this->getPagerHtml($productCollection)):?> 
+                        <div class="pagination">
+                            <?php echo $this->getPagerHtml($productCollection);?>
+                        </div>
+                    <?php endif;?>
+              
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
+
+<?php endif; ?>	

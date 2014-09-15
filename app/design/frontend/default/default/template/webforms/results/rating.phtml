@@ -1,0 +1,118 @@
+<?php $collection = $this->getSummaryRatings();?>
+
+<?php  
+    
+        $cmsPage = "";
+        $ranking_data = array();
+        $excellent=0;$verygood=0;$good=0;
+        $ok=0;
+        $bad=0;
+        $ranking_now=0;
+        $excellent_num_users=0;
+        $verygood_num_users=0;
+        $good_num_users=0;
+        $ok_num_users=0;
+        $bad_num_users=0;
+        $num_users=1;
+        $no_of_efficacies = count($collection);
+   
+        
+?>
+<?php if(!empty($collection)): ?>
+<div class="webforms-rating-summary" style="display:none;">
+    <table class="ratings-table">
+        <col width="1" />
+        <col />
+        <tbody>
+        <?php foreach ($collection as $_rating): ?>
+            <?php 
+            echo $_rating['field_id'];
+            echo "<br/>";
+            $field = Mage::getModel('webforms/fields')->setStoreId(Mage::app()->getStore()->getId())->load($_rating['field_id']);
+            $value = $_rating['sum'] / $_rating['count'];
+            $width = ceil(100 * $value / $field->getStarsCount()) . '%';
+            ?>
+        
+            <?php if($value && $field->getResultLabel()!="" && $field->getResultLabel()!='Reasonable Price'): ?>
+        
+            <?php if($field->getResultLabel())?>
+                <tr>
+                    <th><?php echo $this->__($this->escapeHtml($field->getResultLabel())) ;    ?></th>
+                    
+                    <?php 
+                               
+                                $ranking_data[] = array('name'=>$field->getResultLabel(),'rating'=>round($value)); 
+                                $cmsPage .= "['".$field->getResultLabel()."',".round($value)."],"; 
+                               
+                                
+                                $total_efficacies = $no_of_efficacies ;
+                                $rantings = $value;
+                                $ranking_now = $rantings/$total_efficacies;
+                                    
+                                if($ranking_now>=0.9  ){ 
+                                    $excellent =+ $ranking_now;
+                                    $excellent_num_users += $num_users;
+                                }
+                                if($ranking_now>=0.7 && $ranking_now<0.9){
+                                    $verygood =+ $ranking_now; 
+                                    $verygood_num_users += $num_users;
+                                }
+                                if($ranking_now>=0.6 && $ranking_now<0.7){
+                                    $good =+ $ranking_now; 
+                                    $good_num_users += $num_users;
+                                }
+                                if($ranking_now>=0.5 && $ranking_now<0.6){
+                                    $ok =+ $ranking_now; 
+                                    $ok_num_users += $num_users;
+                                }
+                                if($ranking_now<0.5){
+                                    $bad =+ $ranking_now; 
+                                    $bad_num_users =+ $num_users;
+                                }
+                    ?>
+                   
+                    <td>
+                        <div class="rating-box" style="display:none;">
+                            <div class="rating" style="width:<?php echo $width;?>"></div>
+                        </div>
+                    </td>
+                </tr>
+            <?php endif; ?>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<div style="clear:both;"></div>
+<?php endif; ?>
+<?php  Mage::helper("lesson05")->aasort($ranking_data,"rating");?>
+<?php if(!empty($ranking_data)):?>
+
+    
+<?php endif;?>
+
+ <div class="tab-column2">
+<div class="title"><span>Overall Rating</span></div>
+<?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('excellent_num_users',$excellent_num_users)->setData('verygood_num_users',$verygood_num_users)->setData('good_num_users',$good_num_users)->setData('ok_num_users',$ok_num_users)->setData('bad_num_users',$bad_num_users)->setData('color_set',$this->colors)->setTemplate('lesson05/overall_rating.phtml')->toHtml(); ?> 
+ </div>
+<div class="tab-column3">
+<div class="title"><span>Efficacy rating</span></div>
+<?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('ranking_data',$ranking_data)->setData('color_set',$this->colors)->setData('num_entries',$no_of_efficacies)->setTemplate('lesson05/view_chart_ranking.phtml')->toHtml(); ?>
+<div class="right"><a href="#" class="more-reviews">More Reviews</a></div>
+</div>
+<div class="clearfix"></div>
+<div class="tab-column2">
+<div class="title"><span>Will you buy it?</span></div>
+<?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('yesctr',$this->yesctr)->setData('noctr',$this->noctr)->setData('color_set',$this->colors)->setTemplate('lesson05/will_you_buy_it.phtml')->toHtml();?>  
+</div>
+<div class="tab-column2 special">
+<div class="title"><span>Age Group</span></div>
+
+<?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('age_line1_percent',$this->age_line1_percent)->setData('age_line2_percent',$this->age_line2_percent)->setData('age_line3_percent',$this->age_line3_percent)->setData('age_line4_percent',$this->age_line4_percent)->setData('age_line5_percent',$this->age_line5_percent)->setData('color_set',$this->colors)->setTemplate('lesson05/view_chart_age.phtml')->toHtml();   ?></div>
+<div class="tab-column2 special">
+<div class="offers">
+    <div class="title"><span>Reviews</span></div>
+    <h2>1166 </h2>
+    <div class="title"><span>Redeemtions</span></div>
+    <h2 class="blue-light-text">1551</h2>
+</div>
+</div>

@@ -1,0 +1,116 @@
+<?php
+
+	$collection = Mage::getModel('mybrand/mybrand')->getCollection()->setOrder('brand_id','asc');
+				 
+	foreach($collection as $data)
+	{
+		$data->getData('brand_name') ;
+	}
+?>
+
+	<?php 
+		$productNameArray = array();	
+		$host = $_SERVER[HTTP_HOST];
+		$uri = $_SERVER[REQUEST_URI];
+		$uriArray = explode('/',$uri);
+		$url2 = '/'.$uriArray[1];
+	?>
+	
+	<script type="text/javascript" language="javascript">
+	
+	function addnew()
+	{
+		str = '<form action = "http://<?php echo $host.$url2 ;?>/mybrand/index/newbrand" method = "post" enctype="multipart/form-data">';
+		str += '<table style = "width :50%">';
+		str += '<tr>';
+		str += '<td style = "width :20%"><strong>Brand Name</strong></td><td style = "width :20%"><strong>Brand Image</strong></td>';
+		str += '</tr>';
+		str += '<tr>';
+		str += '<td style = "width :20%"><input type = "text" name = "brand" required = "true"/></td>';
+		str += '<td style = "width :20%"><input type = "file" name = "image" required = "true"/></td>';
+		str += '</tr>';
+		str += '<tr>';
+		str += '<td><input type = "submit" value = "Save"></td>';
+		str += '<td><a href = "">Back</a></td>';
+		str += '</tr>';
+		str += '</table>';
+		str += '</form>';
+		
+		document.getElementById('mybrands').innerHTML=str;
+	
+	}
+	</script>
+	
+	
+	<table>
+		<tr>
+			<td>
+				<button onclick = "addnew();">ADD NEW RECORD</button>
+			</td>
+		</tr>
+	</table>
+	
+	<div class = "mybrands" id = "mybrands" style="margin-top: 20px;">
+	
+		<table>
+			<tr style = "height :25px">
+				<td style = "min-width: 75px;max-width: 75px;">
+					<strong>Brand ID</strong>
+				</td>
+				<td style = "min-width: 200px;max-width: 200px;">
+					<strong>Brand Name</strong>
+				</td>
+				<td style = "min-width: 250px;max-width: 250px;">
+					<strong>Brand Image</strong>
+				</td>
+				<td style = "min-width: 150px;max-width: 150px;">
+					<strong>Current Image</strong>
+				</td>
+				<td style = "min-width: 100px;max-width: 100px;">
+				<strong>Action</strong>
+				</td>
+				<td style = "min-width: 100px;max-width: 100px;">
+				<strong>Action</strong>
+				</td>
+			</tr>
+		</table>
+		<?php
+		
+		$i = 1;
+		
+		$collection = Mage::getModel('mybrand/mybrand')->getCollection()->setOrder('brand_id','asc');
+				 
+		foreach($collection as $data)
+		{ 
+		
+		?>
+		
+			<form action = "http://<?php echo $host.$url2 ;?>/mybrand/index/savebrand" method = "post" enctype="multipart/form-data">
+				<table>
+					<tr style = "height :30px">
+						<td style = "width :75px;">
+							<span style = "position: relative;top: 4px;"><?php echo $data->getData('brand_id') ; ?></span>
+							<input type = "hidden" name = "id" value = "<?php echo $data->getData('brand_id') ; ?>" style="padding: 2px;"/>
+						</td>
+						<td style = "width :200px">
+							<input type = "text" value = "<?php echo $data->getData('brand_name') ; ?>" name = "brand" style="padding: 2px;" required = "true"/>
+						</td>
+						
+						<td style = "width :250px">
+							<input type = "file" name = "image" required = "true"/>
+						</td>
+						<td style = "width :150px">
+						<img src = "http://<?php echo $host ;?>/upload/mybrand/brands/<?php echo $data->getData('brand_image_file'); ?>" style = "width : 100px; height: 30px;">
+						</td>
+						<td style = "width :100px">
+							<input type = "submit" value = "Save" style="width: 75px;cursor: pointer;"/>
+						</td>
+						<td style = "width :100px">
+							<a href= "http://<?php echo $host.$url2 ;?>/mybrand/index/deletebrand?id=<?php echo $data->getData('brand_id') ; ?>">Delete</a>
+						</td>
+					</tr>
+				</table>
+			</form>
+			
+		<?php $i++ ; } ?>
+	</div>

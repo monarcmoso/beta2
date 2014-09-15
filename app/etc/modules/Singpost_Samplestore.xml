@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Singpost_Samplestoreadmin>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Singpost_Samplestoreadmin>
+    </modules>
+</config>

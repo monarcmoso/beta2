@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Singpost_Profile>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Singpost_Profile>
+    </modules>
+</config> 

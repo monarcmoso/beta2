@@ -1,0 +1,168 @@
+<script type="text/javascript" src="<?=$this->getJsUrl('jquery/jquery-1.9.0.min.js'); ?>"></script>
+<script type="text/javascript" src="<?=$this->getJsUrl('jquery/validate/jquery.validate.js'); ?>"></script>
+<script type="text/javascript">
+jQuery.noConflict();
+jQuery(document).ready(function($){
+	$("#frmRegistration").submit(function(e) {
+		e.preventDefault();
+	}).validate({
+    //$("#frmRegistration").validate({
+    	errorLabelContainer : "#error_msg2",
+		rules: 
+		{
+			full_name: {required: true},
+			email: {required: true,email:true},
+			password:{required: true,minlength:8,maxlength:120},
+			confirmation:{required: true,equalTo: "#password"},
+			month:{required: true,maxlength:2,minlength:2,number: true,max: 12,min: 01},
+			day:{required: true,maxlength:2,minlength:2,number: true,max: 31,min: 01,},
+			year:{required: true,maxlength:4,minlength:4,max: 2004,min: 1900,number: true},
+			gender:{required: true}
+		},	
+		messages:{
+			full_name: "Please specify your name",
+			email:{
+				required:"Please specify your email",
+				email: "We need your email address for your login details."
+			},
+			password:{
+				required:"Please specify your password",
+				minlength: "Minimum of 8 characters for password",
+				maxlength: "You have exceeded on maxmimun characters for password"
+			},
+			confirmation:{
+				required:"Please confirm your password",
+				equalTo:"Password doesnt match"
+			},
+			month:{
+				required:"Please specify your birth month",
+				maxlength:"Maximum of 2 characters for birth month",
+				minlength:"Maximum of 2 characters for birth month",
+				number:"Please enter numbers only",
+				max:"Please define your birth month from 01  - 12 only",
+				min:"Please define your birth month from 01  - 12 only"
+			},
+			day:{
+				required:"Please specify your birth day",
+				maxlength:"Maximum of 2 characters for birth day",
+				minlength:"Maximum of 2 characters for birth day",
+				number:"Please enter numbers only",
+				max:"Please define your birth month from 01  - 31 only",
+				min:"Please define your birth month from 01  - 31 only"
+			},
+			year:{
+				required:"Please specify your birth year",
+				maxlength:"Maximum of 4 characters for birth year",
+				minlength:"Maximum of 4 characters for birth year",
+				number:"Please enter numbers only",
+				min:"Please define your birth year from 1900  - 2004 only",
+				max:"Please define your birth year from 1900  - 2004 only"
+			},
+			gender:"Please specify your gender"
+		},submitHandler: function(){CreatAccount();},
+	});// $("#frmPassword").validate({
+		
+	$(document).on('click','.button',function(event){
+		var others = ($('input[name=others]:checked').is(':checked')) ? 1 : 0;
+		var country_value = ($('input[name=country_value]').is(':checked') ) ? 1 : 0;
+		if(others > 0){
+			$("#country").rules("add", {
+				required: true,
+				messages: {
+					required: "Please specify your country"
+				}
+			});
+			$("input[name=country_value]").rules("remove", "required");
+		}
+		else{
+			$("input[name=country_value]").rules("add", {
+				required: true,
+				messages: {
+					required: "Please specify your country"
+				}
+			});
+		}
+	});
+	
+	jQuery.validator.addMethod("tcrequired", jQuery.validator.methods.required,"Terms and Condition is required");
+	jQuery.validator.addClassRules('validate-one-required-by-name', {
+        tcrequired: true
+    });
+	function CreatAccount()
+	{
+		//mixpanel.track_forms("#frmRegistration", "Created Account");
+		mixpanel.track('Created Account');
+		var referral = $("#referral").val();
+		if(referral != ''){
+			//mixpanel.track_forms("#frmRegistration", referral);
+			mixpanel.track(referral);	
+		}
+		// mixpanel.identify(email_address);
+		// mixpanel.people.set({
+    	// "$email": email_address
+		// });
+		var month = $("#month").val();
+		var day = $("#day").val();
+		var year = $("#year").val();
+		//date of birth yy-mm-dd
+		//$("#dob").val(month+'-'+day+'-'+year);
+		$("#dob").val(day+'-'+month+'-'+year);
+		var date = day+'/'+month+'/'+year;
+		if(isValidDate(date) == false){
+			$("#error_msg2").text("You have entered an invalid date format").show();	
+			return false;	
+		}
+		
+		$("#popup").show();
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: '<?=Mage::getBaseUrl();?>webformscrf/index/create/',
+			data: $("#frmRegistration").serialize(),
+			success: function(data)
+           {
+               $("#popup").hide();
+               if(data.success == true){
+               	//do the page redirection
+               	//window.location.replace(data.redirect_url);
+               	window.location.replace("/profile/index/welcome");
+               }
+               else{
+               	//do the error message here
+               	//replace the \n by br
+               	var errors = data.errors.replace(/\n/, '<br/>');
+               	$("#error_msg2").text(errors).fadeIn();
+               }
+           }
+         });
+	}
+	
+		//country js
+	$('#country').prop('disabled', false);
+	$("#others input:radio").click(function(){
+		//uncheck the dummy and orig
+		$("input[name=country_value]").prop('checked', false);
+		//show dropdown and the dummy
+		$("#country").show();
+		$("input[name=country_value]").removeClass("error");
+	});
+	
+	$("input[name=country_value]").click(function(){
+		//hide the dummy and display the original
+		//uncheck the others and hide the dropdown
+		var val = $(this).val();
+		$("#others input:radio").prop('checked', false);
+		$("#country").css({ display: "none" });
+		//$('#country').val(val);
+		$('#country').val(val);
+		$("input[name=country_id]").val(val);
+		$("#country").hide();
+		$('input[name=country_value]').removeClass('error');
+	});
+	function isValidDate(s) {
+	  var bits = s.split('/');
+	  var d = new Date(bits[2], bits[1] - 1, bits[0]);
+	  return d && (d.getMonth() + 1) == bits[1] && d.getDate() == Number(bits[0]);
+	} 
+})		
+</script>

@@ -1,0 +1,71 @@
+<script type="text/javascript">
+    /*
+     * to preview image before actual upload  
+     */
+
+    $j = jQuery.noConflict();
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $j('#preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+</script>
+<!-- <div id="content-div">
+	<div id="profile">
+		<div class="preference">
+			<h3>PROFILE</h3>
+			<div class="avatar_img">
+				<?php if ($this->getAvatar()): ?> 
+		            <img id="preview" src="<?php if ($this->getAvatar()) { echo $this->getAvatarPath();}?>" width="<?php echo $this->getWidth() ?>" height="<?php echo $this->getHeight() ?>"/>
+				<?php else:?>
+					<img id="preview" src="/media/facebookfree/default/fb_539ea946646c7.jpg" height="<?php echo $this->getHeight() ?>"/>
+				<?php endif ?>
+			</div>
+		</div>
+	</div>
+</div> -->
+<!-- <form action="<?php echo $this->getUploadUrl() ?>" method="post" enctype="multipart/form-data" >
+    <div class="fieldset">  
+        <h2 class="legend"><?php echo $this->__('Upload Avatar') ?></h2>
+        <ul class="form-list">
+            <li> 
+                <input type="file" name="avatar-file" id="file" onChange="readURL(this);"><br>
+            </li>
+            <li>
+                <button type ="submit" name="submit" title="upload" class="button">
+                    <span><span><?php echo $this->__('Upload') ?></span></span>
+                </button>
+            </li>    
+        </ul>
+    </div>
+</form> -->
+
+<div id="avatar">
+	<div class="clearfix">
+		<h3>&#151;&#151;&#151;&#151; UPLOAD PROFILE PHOTO &#151;&#151;&#151;&#151;</h3>
+	</div>
+	<div class="clearfix">
+		<form action="" method="post" enctype="multipart/form-data" >
+		    <div class="fieldset">  
+		        <h2 class="legend"><?php echo $this->__('Upload Avatar') ?></h2>
+		        <ul class="form-list">
+		            <li> 
+		                <input type="file" name="avatar-file" id="file" onChange="readURL(this);"><br>
+		            </li>
+		            <li>
+		                <button type ="submit" name="submit" title="upload" class="button">
+		                    <span><span><?php echo $this->__('Upload') ?></span></span>
+		                </button>
+		            </li>    
+		        </ul>
+		    </div>
+		</form>
+	</div>
+</div>

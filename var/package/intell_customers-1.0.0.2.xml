@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>intell_customers</name>
+    <version>1.0.0.2</version>
+    <stability>stable</stability>
+    <license>OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension will redirect customers to your desired url.</summary>
+    <description>This extension allows you to set redirection URL for customers after login. You can persistently set the URL by selecting &#x201C;Always Redirect&#x201D; to &#x201C;Yes&#x201D;. If set to &#x201C;No&#x201D;, customers will be redirected to set URL if it is direct login, else the redirection will function normally e.g if customer is on Checkout page and clicks on Login, he will stay on Checkout page if &#x201C;Always Redirect&#x201D; is &#x201C;No&#x201D;. If this option is set to &#x201C;Yes&#x201D;, the user will be redirected to set page from Checkout page.</description>
+    <notes>This is stable version</notes>
+    <authors><author><name>Amatya Trivedi</name><user>amatya</user><email>amatya@intelligrape.com</email></author></authors>
+    <date>2012-10-17</date>
+    <time>17:48:26</time>
+    <contents><target name="magelocal"><dir name="Intell"><dir name="Customer"><dir name="Helper"><file name="Data.php" hash="3460d09c280451e9ebb600027b8c4d45"/></dir><dir name="controllers"><file name="AccountController.php" hash="bc9e00e3a51351a1e4b08cb8cb8b952c"/></dir><dir name="etc"><file name="config.xml" hash="dbd42c0c046bda42167199fe737f5114"/><file name="system.xml" hash="962e9def28bec46251d7d58a6359d0d9"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Intell_Customer.xml" hash="6a464e604ee4e082b93385c59f8f9d24"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

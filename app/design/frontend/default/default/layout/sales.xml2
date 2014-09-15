@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+-->
+<layout version="0.1.0">
+    <sales_order_history translate="label">
+        <label>Customer My Account Order History</label>
+		<reference name="left">
+			<block type="customer/account_navigation" name="customer_account_navigation" before="-" template="singpost/navigation.phtml">
+				<action method="addLink" translate="label" module="customer"><name>profile_account</name><path>profile/index/account/</path><label>Profile</label></action>
+				<action method="addLink" translate="label" module="customer"><name>profile_settings</name><path>profile/index/settings/</path><label>Settings</label></action>
+				<action method="addLink" translate="label" module="customer"><name>notification</name><path>profile/</path><label>Notifications</label></action>
+				<action method="addLink" translate="label" module="customer"><name>seeders</name><path>profile/seeders/index/</path><label>Seeders Program</label></action>
+				<action method="addLink" translate="label" module="customer"><name>order_history</name><path>sales/order/history/</path><label>Order History</label></action>
+				<action method="addLink" translate="label" module="customer"><name>points_reward</name><path>points/reward/</path><label>Points</label></action>
+				<action method="addLink" translate="label" module="customer"><name>points_invitation</name><path>points/invitation/</path><label>Referal Centre</label></action>
+				<action method="addLink" translate="label" module="customer"><name>coupon_status</name><path>profile/</path><label>Coupon Status</label></action>
+			</block>
+			<remove name="codnitive.sidenav.left"/>
+            <remove name="codnitive.sidenav.left.cart"/>
+            <remove name="codnitive.sidenav.left.layered"/>
+            <remove name="codnitive.sidenav.left.links"/>
+            <remove name="codnitive.sidenav.left"/>
+			<remove name="tags_popular"/>
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+		</reference>
+        <reference name="content">
+            <block type="sales/order_history" name="sales.order.history">
+                <block type="core/text_list" name="sales.order.history.info" as="info" translate="label">
+                    <label>Order History Info</label>
+                </block>
+            </block>
+        </reference>
+    </sales_order_history>
+</layout>

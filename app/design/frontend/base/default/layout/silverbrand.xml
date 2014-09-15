@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <!--Is Anchor No-->
+	<catalog_category_default translate="label">
+		<reference name="head">
+			<action method="addCss"><stylesheet>css/silverbrand/silverbrand.css</stylesheet></action>
+<action method="setData" translate="title"><key>title</key><value> Redeem the free samples now at Sample Store. </value></action>
+		</reference>       
+   </catalog_category_default>
+   <!--Is Anchor Yes-->
+	<catalog_category_layered translate="label">
+		<reference name="head">
+			<action method="addCss"><stylesheet>css/silverbrand/silverbrand.css</stylesheet></action>
+		</reference>       
+   </catalog_category_layered>
+</layout>
+
+
+
+
+
+

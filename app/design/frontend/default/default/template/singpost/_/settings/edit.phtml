@@ -1,0 +1,203 @@
+<?php if (Mage::registry('redirect_url')) { ?>
+    <meta http-equiv="refresh" content="0;url=<?php echo Mage::registry('redirect_url')?>">
+    <script type="text/javascript">
+        window.location = '<?php echo Mage::registry('redirect_url')?>';
+    </script>
+<?php
+}
+
+if ($this->getWebform()->getIsActive() == VladimirPopov_WebForms_Model_Webforms::STATUS_DISABLED || !$this->isDirectAvailable()) {
+    echo $this->getNotAvailableMessage();
+} else {
+
+    if (Mage::registry('show_form_name')) {
+        ?>
+		<div class="title title2">
+			<span>Edit Preference</span>
+		</div>
+    <?php } ?>
+
+    <?php if ($this->isAjax()) { ?>
+        <div id="webform_<?php echo $this->getWebform()->getId()?>_success_text" class="std webforms-success-text"
+             style="display:none"></div>
+    <?php } ?>
+
+    <?php
+    if (Mage::registry('show_success')) {
+        ?>
+        <div class="std webforms-success-text">
+            <?php echo $this->getWebform()->getSuccessText()?>
+        </div>
+    <?php
+    } else {
+        ?>
+
+        <div id="webform_<?php echo $this->getWebform()->getId()?>_form" class="settings spacer-50">
+
+            <?php if ($this->getWebform()->getDescription()) { ?>
+                <div class="std">
+                    <?php echo $this->getWebform()->getDescription();?>
+                </div>
+            <?php }?>
+
+            <?php if ($this->isAjax()) { ?>
+                <iframe id="webform_<?php echo $this->getWebform()->getId()?>_iframe"
+                        name="webform_<?php echo $this->getWebform()->getId()?>_iframe"
+                        style="width:0;height:0;border:0;position:absolute"></iframe>
+            <?php } ?>
+
+            <?php
+            $result = $this->getCustomerResult()->addFieldArray();
+            $webform = $this->getWebform();
+            $logic_rules = $webform->getLogic();
+            if ($logic_rules)
+                $targets = $webform->_getLogicTarget();
+            ?>
+
+
+            <form action="<?php echo $this->getUrl('webforms/index/iframe', array('_secure' => true))?>" method="post"
+                  name="webform_<?php echo $this->getWebform()->getId()?>"
+                  id="webform_<?php echo $this->getWebform()->getId()?>" enctype="<?php echo $this->getEnctype()?>"
+                  class="webforms-<?php echo $this->getWebform()->getCode()?>"
+                  <?php if($this->isAjax()){?>target="webform_<?php echo $this->getWebform()->getId()?>_iframe"<?php }?>>
+                <input type="hidden" name="submitWebform_<?php echo $this->getWebform()->getId()?>" value="1"/>
+                <input type="hidden" name="webform_id" value="<?php echo $this->getWebform()->getId()?>"/>
+                <?php
+                if ($result->getId()) {
+                    ?>
+                    <input type="hidden" name="result_id" value="<?php echo $result->getId()?>"/>
+                <?php
+                }
+                ?>
+
+                <?php if (count($this->getWebform()->_getHidden())) {
+                    foreach ($this->getWebform()->_getHidden() as $field) {
+                        if ($result->getId()) {
+                            $field->setData('result', $result);
+                        }
+                        echo $field->toHtml();
+                    }
+                } ?>
+
+                <?php
+                foreach (Mage::registry('fields_to_fieldsets') as $fieldset_id => $fieldset) {
+                    ?>
+                    <?php    if (!empty($fieldset['name'])) { ?>
+                        <!-- <h2 class="legend"><?php echo $fieldset['name']?></h2> -->
+                    <?php }    ?>
+                        <?php
+                        $k = 0;
+                        $j = 0;
+                        $prev = false;
+                        $fields_count = count($fieldset['fields']);
+                        foreach ($fieldset['fields'] as $field) {
+
+                            $size_class = "fields";
+                            $field_class = "field";
+                            if ($field->getSize() == 'wide') {
+                                $size_class = "wide";
+                                $field_class = "";
+                            }
+
+                            ?>
+                            <?php if ($j % 2 == 0 || $field->getSize() == 'wide' || $prev->getSize() == 'wide') {
+                                $j = 0; ?>
+                                <?php if ($k > 1) { ?></li><?php } ?>
+                            <?php } ?>
+                            <!-- <div id="field_<?php echo $field->getId()?>"
+                                 class="<?php echo $field_class?> webforms-fields-<?php echo $field->getId()?><?php if ($field->getCode()) { ?> webforms-fields-<?php echo $field->getCode();}?>"> -->  
+                                <div class="input-box"> <!-- end of this div is on the string-->
+                                <?php if ($field->getType() != 'html') { ?>
+                                       <h3><?php echo $field->getName()?></h3>
+                                <?php } ?>
+                                    <?php
+                                    if ($result->getId()) {
+                                        $field->setData('result', $result);
+                                    }
+                                    echo $field->toHtml('_settings_edit');
+									// $string = preg_replace('/<ul class="list-select">/', '', $field->toHtml());
+									// $string = str_replace(array("<li class='control'>","</li>","</ul>"), '', $string);
+									// //$string = str_replace("</label>", '</label></div>', $string);
+									// echo $string;
+									// $string = str_replace("</ul>", '', $string);
+									// $string = str_replace("<li class='control'>", '<div class="option2 option-100">', $string);
+									// $string = str_replace("</li>", '</div">', $string);
+									//echo $string;
+                                    ?>
+
+                                    <?php if ($field->getComment()) { ?>
+                                        <p class="webforms-fields-comment">
+                                            <?php echo nl2br($field->getComment())?>
+                                        </p>
+                                    <?php }?>
+                            	</div>
+                            <?php if ($k == $fields_count - 1) { ?>
+
+                            <?php } ?>
+                            <?php
+                            $k++;
+                            $j++;
+                            $prev = $field;
+                        }?>
+            <?php
+            } // foreach 'fields_to_fieldsets'
+            ?>
+
+
+                <div class="buttons-set">
+                    <button type="submit" class="next next2"
+                            id="webform_<?php echo $this->getWebform()->getId()?>_submit_button"
+                            onclick="webform_<?php echo $this->getWebform()->getId()?>_submit()"
+                            title="<?php echo $this->__('Save')?>"><?php echo $this->__('Save')?>
+                    </button>
+		<span class="please-wait" id="webform_<?php echo $this->getWebform()->getId()?>_sending_data"
+              style="display:none;">
+			<img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>"
+                 alt="<?php echo $this->__('Sending...') ?>" title="<?php echo $this->__('Sending...') ?>"
+                 class="v-middle"/><span
+                id="webform_<?php echo $this->getWebform()->getId()?>_progress_text"><?php echo $this->__('Sending...') ?></span>
+		</span>
+                </div>
+
+            </form>
+
+        </div>
+
+        <script>
+            <?php
+            foreach ($targets as $target) {
+                if (!$webform->getLogicTargetVisibility($target, $logic_rules, $result->getData("field"))) {
+            ?>
+            $('<?php echo $target["id"]?>').hide();
+            <?php
+                }
+            }
+            ?>
+        </script>
+
+        <?php echo $this->getLayout()->createBlock(
+            'core/template',
+            'webform_' . $this->getWebform()->getId() . '_submit_script',
+            array(
+                'webform' => $this->getWebform(),
+                'ajax' => $this->isAjax(),
+                'template' => 'webforms/scripts/settingsEdit.phtml',
+            )
+        )->toHtml();
+        ?>
+
+        <?php if ($this->getWebform()->getLogic())
+            echo $this->getLayout()->createBlock(
+                'core/template',
+                'webform_' . $this->getWebform()->getId() . '_logic',
+                array(
+                    'webform' => $this->getWebform(),
+                    'template' => 'webforms/scripts/logic.phtml',
+                )
+            )->toHtml();
+        ?>
+
+    <?php
+    } // if(show_success)
+} // is active
+?>

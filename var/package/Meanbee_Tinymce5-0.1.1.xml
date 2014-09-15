@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Meanbee_Tinymce5</name>
+    <version>0.1.1</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Add compatibility with new HTML 5 elements in Magento's WYSIWYG editor. </summary>
+    <description>Add compatibility with new HTML 5 elements in Magento's WYSIWYG editor. </description>
+    <notes>Initial release</notes>
+    <authors><author><name>Meanbee</name><user>Meanbee</user><email>hello@meanbee.com</email></author></authors>
+    <date>2011-08-04</date>
+    <time>21:32:11</time>
+    <contents><target name="magecommunity"><dir name="Meanbee"><dir name="Tinymce5"><dir name="Helper"><file name="Data.php" hash="d5b924df25fc5b9935c0f0781e3f3015"/></dir><dir name="etc"><file name="config.xml" hash="8679f7a5da07dc21d69beb572dc62a96"/><file name="system.xml" hash="9f5f16769dee4f6edc86f2e09e9d0c8d"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Meanbee_Tinymce5.xml" hash="8ed475c5b9358fb3d0497903391a0a0a"/></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><dir name="meanbee"><file name="tinymce5.xml" hash="5329694763bfb5dc65d87fd6d5d20dfb"/></dir></dir></dir></dir></dir></target><target name="mageweb"><dir name="js"><dir name="meanbee"><dir name="tinymce5"><file name="setup.js" hash="f8ba0aaa2e152c653320a28d0a56ed9f"/></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

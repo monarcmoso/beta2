@@ -1,0 +1,19 @@
+<div class="title title2">
+	<span>seeders program</span>
+</div>
+<div class="clearfix"></div>
+<div class="p-small gap">
+	<p>For every 5 accepted invitation, you will get 1 point added to your account instantly.<br>
+	Highlight and copy & paste the Link below to where your friends can see it ... <br>
+	Click here for more instructions.</p>
+</div>
+<div class="clearfix"></div>
+<img class="auto" alt="" src="<?=$this->getSkinUrl('images/seeders-pgm.png');?>">
+<div class="clearfix"></div>
+<?php
+echo $this->getLayout()->createBlock('webforms/webforms', 'my_webform_block', array
+(
+    'webform_id' => 12,
+    'template' => 'singpost/webforms/seeders.phtml',
+))->toHtml();
+?>

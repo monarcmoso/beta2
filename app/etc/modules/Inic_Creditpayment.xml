@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * @category    IndiaNic
+ * @package     IndiaNic_CreditPoints
+ */
+-->
+<config>
+    <modules>
+        <Inic_Creditpayment>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Inic_Creditpayment>
+    </modules>
+</config>

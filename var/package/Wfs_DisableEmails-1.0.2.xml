@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Wfs_DisableEmails</name>
+    <version>1.0.2</version>
+    <stability>stable</stability>
+    <license uri="http://webflakestudio.com/WFS-LICENSE-COMMUNITY.txt">Custom</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension allows to disable specific email notifications in Magento.</summary>
+    <description>Disable Emails extension from WebFlakeStudio allows to disable specific email notifications in Magento store. In some cases it is needed to disable particular transactional email. You can do this easily with Wfs_DisableEmails module. This extension can be used to disable all native Magento email notifications and even notifications of custom modules.</description>
+    <notes>Fixed core issue: warning on system config save for dynamic fields (eg. disable modules output).</notes>
+    <authors><author><name>WebFlakeStudio</name><user>WebFlakeStudio</user><email>webflakestudio@gmail.com</email></author></authors>
+    <date>2013-04-10</date>
+    <time>15:22:19</time>
+    <contents><target name="magecommunity"><dir name="Wfs"><dir name="DisableEmails"><dir name="Block"><dir name="Adminhtml"><dir name="System"><dir name="Config"><dir name="Form"><dir name="Fieldset"><file name="DisableEmails.php" hash="c22d12aa471d2ff9ddad366c97dc8c62"/></dir></dir></dir></dir></dir></dir><dir name="Helper"><file name="Data.php" hash="44996e62b767efce86d7cbeae9ee56de"/></dir><dir name="Model"><dir name="Adminhtml"><dir name="Config"><file name="Data.php" hash="077c84bfad5cf74e4ccc496af121efce"/></dir></dir><dir name="Email"><dir name="Template"><file name="Mailer.php" hash="17218d1c3762d30a646b607d2a25a1f3"/></dir><file name="Template.php" hash="8e7d6db646896664929dc11278cc330a"/></dir></dir><file name="WFS-LICENSE-COMMUNITY.txt" hash="5110d0940ef56f2f91bfd8da858c1c1f"/><dir name="etc"><file name="config.xml" hash="b62a2e98fb8063a8b4ffa6856ed46ad3"/><file name="system.xml" hash="8a56a027b9e5dfa040b06c39265a3e95"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Wfs_DisableEmails.xml" hash="0bbc0af646ff4c4d1e31e4bf844cc5ed"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

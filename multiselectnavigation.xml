@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+<multiselectnavigation_ajax_search>
+    <remove name="right"/>
+    <remove name="left"/>
+    
+    <block type="multiselectnavigation/catalogsearch_layer" name="layer"  template="multiselectnavigation/layer.phtml"/>
+    
+    <!-- check compatibility with gift registry -->
+    <block type="multiselectnavigation/list" name="root" >
+        <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+            <action ifconfig="adjgiftreg/general/active" name="setTemplate"><template>adjgiftreg/product/list.phtml</template></action>
+        </block>
+    </block>
+</multiselectnavigation_ajax_search>
+
+<multiselectnavigation_ajax_category>
+    <remove name="right"/>
+    <remove name="left"/>
+
+    <block type="multiselectnavigation/catalog_layer_view" name="layer"  template="multiselectnavigation/layer.phtml"/>
+    
+    <block type="multiselectnavigation/list" name="root" >
+        <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+            <action ifconfig="adjgiftreg/general/active" name="setTemplate"><template>adjgiftreg/product/list.phtml</template></action>
+        </block>
+    </block>
+</multiselectnavigation_ajax_category>
+
+
+<catalog_category_layered> 
+    <remove name="catalog.leftnav"/>
+ 
+    <reference name="head">
+        <action method="addCss"><stylesheet>css/multiselectnavigation.css</stylesheet></action> 
+        <action method="addItem"><type>skin_js</type><name>js/multiselectnavigation.js</name></action>         
+    </reference>
+    
+    <reference name="left">
+            <block type="multiselectnavigation/catalog_layer_view" name="catalog.multiselectnavigation" after="currency" template="multiselectnavigation/layer.phtml"/>
+    </reference>
+</catalog_category_layered> 
+
+
+
+<catalogsearch_result_index> 
+    <remove name="catalogsearch.leftnav"/>
+ 
+    <reference name="head">
+        <action method="addCss"><stylesheet>css/multiselectnavigation.css</stylesheet></action> 
+        <action method="addItem"><type>skin_js</type><name>js/multiselectnavigation.js</name></action>         
+    </reference>
+    
+    <reference name="left">
+            <block type="multiselectnavigation/catalogsearch_layer" name="catalogsearch.multiselectnavigation" after="currency" template="multiselectnavigation/layer.phtml"/>
+    </reference>
+</catalogsearch_result_index> 
+
+</layout>

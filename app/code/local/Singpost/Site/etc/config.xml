@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Singpost_Site>
+            <version>0.1.0</version>
+        </Singpost_Site>
+    </modules>
+    <frontend>
+        <routers>
+            <site>
+                <use>standard</use>
+                <args>
+                    <module>Singpost_Site</module>
+                    <frontName>site</frontName>
+                </args>
+            </site>
+        </routers>
+        <!-- <layout>
+            <updates>
+                <profile>
+                    <file>singpostprofile.xml</file>
+                </profile>
+            </updates>
+        </layout> -->
+    </frontend>
+    <global>
+        <models>
+            <site>
+                <class>Singpost_Site_Model</class>
+                <resourceModel>singpost_site_mysql4</resourceModel>
+            </site>
+            
+            <site_mysql4>
+                <class>Singpost_Site_Model_Mysql4</class>
+                <entities>
+                    <action>
+                        <table>smsotp</table>
+                    </action>
+                </entities>
+            </site_mysql4>
+        </models>
+        <resources>
+            <site_setup>
+                <setup>
+                    <module>Singpost_Site</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </site_setup>
+            <site_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </site_write>
+            <site_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </site_read>
+        </resources>
+        <blocks>
+        	<!-- <adminhtml>
+				<rewrite>
+					<customer_edit>Singpost_Profile_Block_Adminhtml_Customer_Edit</customer_edit>
+				</rewrite>
+			</adminhtml> -->
+            <site>
+                <class>Singpost_Site_Block</class>
+            </site>
+        </blocks>
+        <helpers>
+            <site>
+                <class>Singpost_Site_Helper</class>
+            </site>
+        </helpers>
+    </global>
+</config>

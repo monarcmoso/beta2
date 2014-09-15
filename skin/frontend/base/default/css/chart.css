@@ -1,0 +1,183 @@
+.chart_verti,
+.chart_hori {
+	width: 435px;
+	margin: 0 auto;
+}
+
+/* .chart_verti */
+.chart_verti .bar_wrapper,
+.chart_hori .bar_wrapper {
+	height: 100%;
+	width: 100%;
+}
+
+.chart_verti .bar_wrapper {
+	position: relative;
+}
+
+.chart_verti .bar {
+	float: left;
+	width: 40px;
+	height: 100%;
+	position: absolute;
+	bottom: 0px;
+	text-align: center;
+}
+
+.chart_verti .label {
+	display: block;
+	font-size: 9px;
+	color: #8B7A5E;
+	width: 100%;
+	text-align: center;
+	margin-top: 5px;
+}
+
+.chart_verti .b1 {
+	left: 10px;
+}
+
+.chart_verti .b2 {
+	left: 60px;
+}
+
+.chart_verti .b3 {
+	left: 110px;
+}
+
+.chart_verti .b4 {
+	left: 160px;
+}
+
+.chart_verti .b5 {
+	left: 210px;
+}
+
+.chart_verti .legend_wrapper {
+	width: 100%;
+	margin-top: 5px;
+}
+
+.chart_verti .legend_wrapper ul {
+	list-style: none;
+	padding: 0 0 0 5px;
+	margin: 0px;
+}
+
+.chart_verti .legend_wrapper li {
+	float: left;
+	 margin: 1px;
+        width: 125px;
+	height: 12px;
+}
+
+.chart_verti .legend_wrapper span {
+	display: inline-block;
+	margin-right: 3px;
+	font-size: 9px;
+	color: #8B7A5E;
+}
+
+.chart_verti .legend {
+	width: 20px;
+	height: 10px;
+}
+
+.chart_verti .b1, 
+.chart_verti .legend_wrapper .b1 {
+/*	background-color: #C2ECAD;*/
+}
+
+.chart_verti .b2, 
+.chart_verti .legend_wrapper .b2 {
+/*	background-color: #9FD6D1;*/
+}
+
+.chart_verti .b3, 
+.chart_verti .legend_wrapper .b3 {
+/*	background-color: #FFC6C5;*/
+}
+
+.chart_verti .b4, 
+.chart_verti .legend_wrapper .b4 {
+/*	background-color: #FEEB82;*/
+}
+
+.chart_verti .b5, 
+.chart_verti .legend_wrapper .b5 {
+/*	background-color: #FF8C89;*/
+}
+/* [end].chart_verti */
+	
+	
+/* .chart_hori */
+.chart_hori .bar_row {
+	margin: 8px 0;
+}
+
+.chart_hori .rank,
+.chart_hori .bar_outer {
+	display: inline-block;
+}
+	
+.chart_hori .rank {
+/*	width: 30px;*/
+	text-align: left;
+	font-size: 11px;
+	color: #7C7C7C;
+	line-height: 33px;
+	display: block;
+	float: left;
+}
+
+.chart_hori .bar_outer {
+	height: 22px;
+	width: 386px;
+	background-color: #f5f5f5;
+	position: relative;
+	float: right;
+}
+
+.chart_hori .bar,
+.chart_hori .label,
+.chart_hori .indicator {
+	height: 100%;
+	position: absolute;
+}
+	
+.chart_hori .bar,
+.chart_hori .label {
+	top: 0;
+	left: 0;
+}
+
+.chart_hori .label,
+.chart_hori .indicator {
+	font-size: 12px;
+	color: #8B7A5E;
+	display: block;
+	line-height: 33px;
+	font-weight: bold;
+        
+        
+}
+
+.chart_hori .bar {	
+	width: 40%;
+/*	background-color: #9FD6D1;*/
+}
+
+.chart_hori .indicator {
+	top: 0;
+	right: 0;
+	text-align: right;
+	padding-right: 5px;
+        background: #fff;
+        padding-left: 8px;
+}
+
+.chart_hori .label {
+	text-align: left;
+	padding-left: 5px;
+}
+/* [end].chart_hori */

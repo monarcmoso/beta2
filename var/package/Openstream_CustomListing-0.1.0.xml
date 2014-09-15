@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+    <name>Openstream_CustomListing</name>
+    <version>0.1.0</version>
+    <stability>stable</stability>
+    <license>GPL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Add bestsellers, specials, all products or products by attribute page to your Magento installation.</summary>
+    <description>This extension adds a possibility to add a following listing types into CMS page:&#xD;
+&#xD;
+- bestsellers&#xD;
+- specials&#xD;
+- all products&#xD;
+- products with a specific attribute&#xD;
+&#xD;
+Each block can be added either with {{block}} shortcode, or with Magento widget.</description>
+    <notes>Initial release.</notes>
+    <authors><author><name>openstream</name><user>auto-converted</user><email>info@openstream.ch</email></author></authors>
+    <date>2012-08-03</date>
+    <time>12:51:49</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Openstream_CustomListing.xml" hash="3194f5754d39c6111fe85a902e301ce8"/></dir></target><target name="magecommunity"><dir name="Openstream"><dir name="CustomListing"><dir name="Block"><file name="Abstract.php" hash="dcfc12dbe6d97c29dd8de418ee1da7ea"/><file name="All.php" hash="a3736c6cf701bf1f83292f331f916a1a"/><file name="Attribute.php" hash="d8a96f95390645c9b40e33e07ce40182"/><file name="Bestsellers.php" hash="5eee400a2df96937bba1eaa96847e377"/><file name="Specials.php" hash="aef97a5035a8a690b79394bd8886cebb"/></dir><dir name="Helper"><file name="Data.php" hash="c1c885ec236fbd7582e895fb74aabdb3"/></dir><dir name="etc"><file name="config.xml" hash="24592c17cf3f669dc0887a81eb3b99dc"/><file name="widget.xml" hash="7379f541e435277420294d32738ca8cf"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="openstream"><file name="custom_listing.xml" hash="0d5e8d780e462590ec05c19a78c2a6dd"/></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="openstream"><file name="custom_listing.css" hash="4a901e26968b14dc79396ba4fcf7643e"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

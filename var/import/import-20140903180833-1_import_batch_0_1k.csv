@@ -1,0 +1,1001 @@
+first_name,last_name,email,full_name,dob,gender,password_hash,medma_avatar,website,group,facelift_customer_id,facelift_country,credit_limit
+,,adoll88@gmail.com,Elfaine,1988-09-14,Female,465a4a5c37218ea43fa4fdce331d88b4a5ffffc9,/Picture0009.jpg,base,General,2,SG,0
+,,silly.lil.thing@gmail.com,-,1920-05-30,Female,35d393523a1e417eb4afefb46e4d269fbef3ff08,,base,General,3,SG,0
+,,renjitehsmex@yahoo.com.sg,Jasmine Lim,1920-05-30,Female,7e8bd84a156023481bea29367f639065feb31188,,base,General,4,SG,0
+,,cyy_66@hotmail.com,-,1920-05-30,Female,499ea6c5e764f5f5be2dcbf7acdf4d6e0f7f9dd7,,base,General,5,SG,0
+,,vjohari@consg.jnj.com,-,1920-05-30,Female,1a71bd7a111307fa365108cb2192e7343322c5f7,,base,General,6,SG,0
+,,exlibra78@yahoo.com.sg,-,1920-05-30,Female,24652092a89d71cf2272d40e937fada53f9ee1c6,,base,General,7,SG,0
+,,velvet.lust@hotmail.com,Yvonne,1920-05-30,Female,5988565a6e5c699a43af0986d90f7d843a5f79cc,,base,General,8,SG,0
+,,iurnaiq@hotmail.com,qian rui,1920-05-30,Female,087e0ede17c4590ec576ae017ea9e46ea79e3630,,base,General,9,SG,0
+,,manhua_90@hotmail.com,Man Hua,1920-05-30,Female,869e5a2354719028d47aad7c78551f110b5f32b5,,base,General,10,SG,0
+,,tanjiahuan_1991@hotmail.com,Michelle Tan Jia Huan,1920-05-30,Female,f54d298acc728422b6e6eecea115665731bbd31b,,base,General,11,SG,0
+,,apple_gummy@hotmail.com,Jasmine Lim,1920-05-30,Female,324a035ef4f16dcd3e6b9f9d578e5656dbe0700f,,base,General,12,SG,0
+,,yilin.eil@gmail.com,Eilleen,1985-07-02,Female,fceaedf1a2daa748880925f2f185c7591deef918,,base,General,13,SG,0
+,,xiaozhen109@yahoo.com,Angeline,1920-05-30,Female,26aa9aa29f23728db8b8440d38e7ef0f1c4abc4a,,base,General,14,SG,0
+,,edgehogers@hotmail.com,Keri Low,1920-05-30,Female,41700c1dc066003e42d00bf688492f723440e436,,base,General,15,SG,0
+,,jan_tan88@hotmail.com,JanicE,1988-11-07,Female,3cb4fa14cabd4bba4440beaed016bd6b3881046e,/pig-7617.jpg,base,General,16,SG,0
+,,freya_vue@yahoo.com.sg,Amelia Koh,1920-05-30,Female,e37212bb1b6b2b6acfdce52b37008102becd414f,,base,General,17,SG,0
+,,daphne.tan@beiersdorf.com,Daphne Tan,1920-05-30,Female,37ab5b3328a62f78aa81a7186a36747362005f59,,base,General,18,SG,0
+,,alice_yqy@hotmail.com,Qinyan,1920-05-30,Female,345b69bf2366c2d765c61a7e8d00d152fd7cacc7,,base,General,19,SG,0
+,,tsl1987@hotmail.com,Serene,1920-05-30,Female,571e9ce0bce19de5d2bf039c69593fff20e26e78,,base,General,20,SG,0
+,,iqis@hotmail.com,siqi,1983-02-13,Female,a3721d3fb89f41df3bc9b63fdc23d577c16d0ebb,,base,General,21,SG,0
+,,icanflyuptothesky@yahoo.com,melissa,1920-05-30,Female,db3767acc83b1e5f88f1f6c8df075e4e2457770b,,base,General,22,SG,0
+,,jennifertay240@hotmail.com,Tay Yuhan Jennifer,1920-05-30,Female,795e4a89d39d5b92fa0d1c443964fa3787f4e6d8,,base,General,23,SG,0
+,,blue_loner@hotmail.com,Caryn,1988-08-06,Female,f05ad93ed20427f7dc1ef22f4cd16cffd7c5b796,,base,General,24,SG,0
+,,sixteenpm16@gmail.com,Teresa Iek,1993-10-15,Female,ca73f32ff84bdbb0c67fe1412d47b41567fa4d6f,,base,General,25,SG,0
+,,eelinn@gmail.com,Kerina Ng,1987-08-07,Female,94b17604caa467b6d84cd2ab6fd0c7362c40c5e9,,base,General,26,SG,0
+,,volpsy@hotmail.com,fredrick loo,1988-03-13,Male,50ef1f0f185d7974339ac30e2b1664767ca9e9cd,,base,General,27,SG,0
+,,enerolim@hotmail.com,Dianna Lim,1985-01-30,Female,1db8fabec835ddac49d596784c8e0a5d02954fa7,,base,General,28,SG,0
+,,drsxj@hotmail.com,Deborah,1985-12-31,Female,fc7261dc463cd7ecca927f50b243e65c11ddbd67,,base,General,29,SG,0
+,,evelynhoh_89@hotmail.com,Evelyn Hoh,1989-01-30,Female,c45475fa46e1fa49ff9f80d57bca647702ff6a9f,,base,General,30,SG,0
+,,caiyun1990@hotmail.com,Wong Cai Yun,1990-09-26,Female,7cade9ee415bb1e73982a150bbb26f8a77bd7e0e,,base,General,31,SG,0
+,,xiaoblur.jo-@hotmail.com,Joanna Lye,1991-05-31,Female,f5c8db0f365826281d02d5e4c2eebe4530de027f,,base,General,32,SG,0
+,,jeslyne17@hotmail.com,Jeslyn Lee,1981-08-18,Female,045ffe48fcac6712ff8ca02ab53efb11d2973372,,base,General,33,SG,0
+,,yinglu01@singnet.com.sg,Ying Lu,1986-08-22,Female,9ff6884d5d8d78d92d2681bd40659e6cee150a2d,,base,General,34,SG,0
+,,leetingz@yahoo.com.sg,Lynn,1977-10-25,Female,2b1d833cb9b5499b17657d584b3fff5a2732b5c7,,base,General,35,SG,0
+,,lilbadkid36@hotmail.com,Wei Li,1989-07-28,Female,b49a6023709b6bcf2d84d9bc8198a4ba9bd81004,,base,General,36,SG,0
+,,xalfaromeo@hotmail.com,Elaine,1988-05-29,Female,4c81f3be3667df2a65b0b04bfd50d05097e81931,,base,General,37,SG,0
+,,supermini@gmail.com,Sandra,1984-09-10,Female,c3fdb1d5794ec17d3e879cc6a66f2740aa179e80,,base,General,38,SG,0
+,,dianalianghuili@yahoo.com.sg,Diana Liang,1981-06-08,Female,940c5e527e09e7e0f1a66c9bca2b6b45dac575e7,,base,General,39,SG,0
+,,leohuiyi_91@hotmail.com,huiyi,1991-08-07,Female,bc7486d6eb75b45145d97db14a5c5973d5401523,,base,General,40,SG,0
+,,wendyloh@hotmail.com,Wendy Loh,1979-06-27,Female,66dcbae8ff3759ef7b1bdb9adcf49d91cdfb4e81,,base,General,41,SG,0
+,,limthiany@yahoo.com.sg,Nichies,1985-09-09,Female,cb7ea004ea094febb41d0548ad291a14559ab791,,base,General,42,SG,0
+,,mixue01@yahoo.com.sg,Michelle Ang,1984-10-01,Female,bf33bf27c3e5d139358498e8dd8c1bfcab573947,,base,General,43,SG,0
+,,estherteo89@gmail.com,Esther,1989-03-14,Female,530b153208620e97f2f85dd7b666fa025540222c,,base,General,44,SG,0
+,,nickyjas@hotmail.com,Jasmine,1987-03-10,Female,eedf7c4596da1772a6aea4c21f3f1adad0675052,,base,General,45,SG,0
+,,rubylimmy@hotmail.com,Ruby Lim,1977-08-23,Female,c5260e96b9a9c60e23111c567ae6909343a90419,,base,General,46,SG,0
+,,rae_gurl@hotmail.com,Hui Ying,1988-12-09,Female,c25036c1da54562bd9a881b0e608bc9d38ed6146,,base,General,47,SG,0
+,,nottie_angel@hotmail.com,gooon,1970-01-01,Female,89d327d468a91269a44bac5eaa882849f71c48dd,,base,General,48,SG,0
+,,tsz_shan@hotmail.com,tsz shan,1988-02-19,Female,e066d11bb0ea088e56fcdf9088ba747c6020e8ca,,base,General,49,SG,0
+,,ychunyue@gmail.com,Amanda,1987-09-06,Female,87d553da8cd01909e43192b055db1014e034eb0b,,base,General,50,SG,0
+,,yuki84@gmail.com,Amy Chua,1984-11-26,Female,53d6f4a59be275ee7430aa617ad33c429cd648b0,/40df600007c4bbeb3baa9e84a6b00ce4.jpg,base,General,51,SG,0
+,,fr3beditor@fr3beditor.com,fr3beditor,1920-05-30,Female,2fb0c547bc7b639c2b893ea2bc3b284f80a90527,,base,General,52,SG,0
+,,paper.flower.leafs@gmail.com,Si Min,1989-04-15,Female,b578fd26196cad8c2b0c759a5fa1a75a10b4fe40,,base,General,53,SG,0
+,,DANPINGIS@GMAIL.COM,JOWIE,1986-06-27,Female,080d8b3d550317269c14f2328e25ea54af6261bf,,base,General,54,SG,0
+,,DANPINGIS@GMAIL.COM,JOWIE,1986-06-27,Female,67ca23dea8a5420d36c6ab1c33f7e00d7021d0ee,,base,General,55,SG,0
+,,mikelkl82@gmail.com,Mike Lee,1982-03-30,Male,a3c5dae6c9fc79148f8260bd796446cce767d645,,base,General,56,SG,4.02
+,,linching07@gmail.com,Lindy,1987-07-05,Female,a5f00db8fb2ab3bc031814eb6f0389ea2404336a,,base,General,57,SG,0
+,,pinkerdoll@gmail.com,Xiuling,1986-03-21,Female,236dbc74cd53ec76229a4df9cade15c38012f4eb,,base,General,58,SG,0
+,,elj.712.204@gmail.com,Elise Tan,1982-02-04,Female,367055fbf65c3c435c7cdcc29a166dbf5c0e04e5,,base,General,59,SG,0
+,,jemima03@hotmail.com,Ashley,1986-10-14,Female,ce3f6405ffddf75bba7a0f9066b25502381c1f05,,base,General,60,SG,0
+,,mngedo@gmail.com,Kerin Ong,1985-01-06,Female,76f4ad8b07fa56245ebe6bf049dce7ec54d94b01,,base,General,61,SG,0
+,,hitokiri_sab@hotmail.com,Sabrina,1987-02-11,Female,466e9d04c319ec29e9d00f2da25f7f74e8431374,,base,General,62,SG,0
+,,liza1131@hotmail.com,Liza S.,1983-08-31,Female,7afadc4bc5b46c6b69e2231db9efa7c1658d62be,,base,General,63,SG,0
+,,meixue84@yahoo.com.sg,Pearlyn Lim ,1984-11-25,Female,c10184d51bad68cd1bb24da2e5363f77430d4ef9,,base,General,64,SG,0
+,,prisysl@gmail.com,zoetia,1987-10-19,Female,ab518b88e6f1a17ea6628b1342241c780b6cf7be,,base,General,65,SG,0
+,,viv.cyber@gmail.com,Viv,1985-10-08,Female,56cdfd52906c9c6e8e05eb887f6ac89fda7ca1db,,base,General,66,SG,0
+,,j0lene90@gmail.com,Jolene Gan,1983-12-08,Female,45bbe7c66d2070109183276a391e45cc8fa4475c,,base,General,67,SG,0
+,,ellm_luv@yahoo.com.sg,Emily Lam,1985-05-28,Female,01e829967580c1b445f2b2bf24f271efda5f5c89,,base,General,68,SG,0
+,,angelineng.aki@gmail.com,Angeline Ng,1983-09-08,Female,bca3967f3a496717088bc1c296c934856eb0739f,,base,General,69,SG,0
+,,julia.snowice@gmail.com,Julia,1987-06-06,Female,dd05641738a4576981902c8fd94138eefa470f6d,,base,General,70,SG,0
+,,kissingher@live.com,Pamela Khoo,1988-06-09,Female,de60234fbddb6417cfa1af9ffb3f53d72efddc30,,base,General,71,SG,5.22
+,,melliez87@yahoo.com,Melissa Lim Singh,1987-05-11,Female,272297c1531f65a9bbd66ec487a1413977cf6949,,base,General,72,SG,0
+,,ssohmq@hotmail.com,Stefani,1990-08-06,Female,09537877cffb7a49f534c76a81dac3c8cfb5f5d1,,base,General,73,SG,0
+,,nemo_shine1988@hotmail.com,Shine Toh,1988-01-30,Female,5c4d391be7dbe058dee25349327ef04088461448,,base,General,74,SG,0
+,,ah_jenn@hotmail.com,Jennifer Kwok,1985-11-05,Female,745582fa85f5fc79dac93ead0c14f88b74209f37,,base,General,75,SG,0
+,,sylviathegirl@hotmail.com,sylvia,1991-01-12,Female,ec887be23ed4b52d6be44ef38ae53250e25c6bef,,base,General,76,SG,0
+,,tulipset@gmail.com,LEE,1988-11-14,Female,7ae5f9f2019fa0c9b17cd2493ac2d5a987b8f550,,base,General,77,SG,0
+,,qiyin-@hotmail.com,Michelle,1990-08-06,Female,d64eb95d9e0ce0379e17c64ec4275a424785bba0,,base,General,78,SG,0
+,,wish_4_luv@hotmail.com,Eve Hong,1987-03-24,Female,aef17b61d8bdce8468fdf017ccbc48184a20a475,,base,General,79,SG,0
+,,weijie_1984@hotmail.com,BEN ONG,1984-11-13,Male,05324632ba107cb10a6771862eec32dc38e67804,,base,General,80,SG,0
+,,strawberriz_21@msn.com,Koh Shin Yee,1989-10-21,Female,9eca6ad2c293ff8c7945b417d25999f3c665ccec,,base,General,81,SG,0
+,,kymiko@live.com,Kym Li Ming Gui,1989-12-12,Female,c30a9421ff39612fabc0bb87e2f9760ff12e630f,/2010-08-12_15.50_.30_.jpg,base,General,82,SG,0
+,,carexware@gmail.com,Clare Tan,1988-10-18,Female,26817679cc5b0c9d6e1d054c1bd6469ca9479422,,base,General,83,SG,0
+,,pigs_of_the_world@hotmail.com,Bess,1988-05-08,Female,5228b83475a082f1eed62d4888522b7fed397357,,base,General,84,SG,0
+,,gynnho@gmail.com,Gynn Ho,1979-10-24,Female,0954ad408f2b7430a1e7ecb6f6e52f80f7e9bff9,,base,General,85,SG,0
+,,ahgirl@msn.com,Fiona,1989-11-11,Female,da4cc082830ffd8bf15ea7ea01121a46c2346f81,,base,General,86,SG,0
+,,icecherie@gmail.com,Ivy,1985-01-20,Female,6c2ac9b6344d4827a34f18a1c301e0254423025f,,base,General,87,SG,0
+,,getup-close@hotmail.com,Jieying,1990-08-16,Female,1d8aa2a2c85bdf01a5752993c79d71f50ba5be5f,,base,General,88,SG,0
+,,as.sweet.as.chilli@gmail.com,Jinling,1986-08-04,Female,61935af7c184bbe0ef81f032d5bff059635801a3,,base,General,89,SG,7.01
+,,blue_rainz2002@yahoo.com.sg,Peiling,1983-10-19,Female,18bb58b6911d12d0d2d960280fbce3f0a33b394e,,base,General,90,SG,0
+,,jn1839@hotmail.com,Joyce Ng,1974-12-11,Female,58a061446bbabd2497e2437e9ee57f948946efb3,,base,General,91,SG,0
+,,xiaochocolate@yahoo.com.sg,Angelina Aw,1983-12-09,Female,51bb4edbdb04e6d9294259ebe566ff4de99e6163,,base,General,92,SG,0
+,,qi029@singnet.com.sg,Lynn Lee,1980-07-29,Female,d02194c0127665da564382d5913748700b111606,,base,General,93,SG,0
+,,xia0r4in@hotmail.com,weeli,1990-02-06,Female,887cddc16c4fd8106670f8c489a9384862d1835c,,base,General,94,SG,0
+,,sheilarules@hotmail.com,Sheela Tan,1988-09-14,Female,824f80dd061d7f5ad84e19de9d298f631e5fe29b,,base,General,95,SG,0
+,,geraldine_58@hotmail.com,geraldine,1988-01-19,Female,3e8a076deb54931e90b3f6fbc749b5b2a83860af,,base,General,96,SG,0
+,,cgoh_86@hotmail.com,Qiu Yi,1986-04-19,Female,0bd552ae37408af699917c911992ad0ea0e098fd,,base,General,97,SG,0
+,,yinxin_c@yahoo.com.sg,Anna,1977-08-01,Female,c5a509862cd39930752df28d5f6c8b8a5697ec30,,base,General,98,SG,0
+,,kimteosokhui@hotmail.com,Kim,1989-05-19,Female,48c2ef287ec38e8b1b17fded1e945f6beea5cfa8,,base,General,99,SG,0
+,,ycb14-ok@yahoo.com.sg,Bo Yi,1990-10-02,Male,030b1099b671c9c7c6775bbf7e971944104ba8b5,,base,General,100,SG,0
+,,m418418@hotmail.com,Melanie,1990-07-10,Female,27a8da797309225a7d39df681c9b24ae01e33a6a,,base,General,101,SG,0
+,,deborahcheok@hotmail.com,Deborah Cheok,1991-04-16,Female,d3b05ad2069e4e535d69ae40f5cc81ae12c599cc,,base,General,102,SG,0
+,,catangel_82@yahoo.com,Linda Fong,1982-04-07,Female,2eea561e2da692c98721210c64a4eeaed294075b,,base,General,103,SG,0
+,,linggish_1987@hotmail.com,Gan See Ling,1987-06-05,Female,9104f1fa581075e110645abdb20f7656ea972a06,,base,General,104,SG,0
+,,carrieislala@gmail.com,Carrie Ng,1988-08-16,Female,a8298bfc0016133eaeee2afe036969e8d328eaaa,,base,General,105,SG,0
+,,imaginetheunimaginable@live.com,ying ying,1989-09-26,Female,dcf75a661fed57e27c488ddefb2a7f2aaf516f5b,,base,General,106,SG,0
+,,Mavis.W@live.com,Mavis,1990-12-02,Female,91733736dddc02d88750e5aec098a662596aa86d,,base,General,107,SG,0
+,,tan_elis@hotmail.com,Tan E-Lis,1990-04-11,Female,6d815a4d7a0106f1b078b8f8a66145fd649f65e8,,base,General,108,SG,0
+,,shengjia_xie@hotmail.com,sj,1920-05-30,Female,833d620668040becc41a49878c618ff0c750a053,,base,General,109,SG,0
+,,mad_over_ambrose@hotmail.com,Riena,1987-08-16,Female,23953c72a3631a2d85ee80a8263950622fee5254,,base,General,110,SG,0
+,,anthea_tan@hotmail.com,Anthea Tan,1989-10-15,Female,cc7b0bccf745290081ec91da1906ff54433b1d2e,,base,General,111,SG,0
+,,bluewaves88@yahoo.com,Jazane,1988-10-31,Female,bf5ff82a46b165aa5819cd09c7e354fddeef21db,,base,General,112,SG,0
+,,chilli_0404@yahoo.com.sg,QiLi,1986-04-04,Female,8f5635f2a92118dace7746beb73017006f80564a,,base,General,113,SG,0
+,,jieshi_joyce@Yahoo.com.sg,Joyce Ho,1986-09-16,Female,979c8d55ec799c482a4ad2ba43d176e8c0fd2b2b,,base,General,114,SG,0
+,,little_matchstick@hotmail.com,Rozliana Azman,1991-11-29,Female,c2b932422e04cb2bc915465228c041557f96342e,,base,General,115,SG,0
+,,beyond-recognition@hotmail.com,evelynn chua ,1989-08-24,Female,8d424473126948b3d77e933406f8be31640a9b23,,base,General,116,SG,0
+,,boi_32@hotmail.com,albert yeo,1990-09-30,Male,9674d26b29694e560e8ab3095da9202df18b9847,,base,General,117,SG,0
+,,czwq.low@gmail.com,cw low,1986-02-27,Female,aed464896ef49e04a4ff63774f85f7d7d048f1f4,,base,General,118,SG,0
+,,xyining@hotmail.com,Clarissa Soh,1991-12-20,Female,9783c502465c6228082a2d7b74883ee897ef112d,,base,General,119,SG,0
+,,moongal89@hotmail.com,Hui Li ,1989-02-10,Female,d8786c2aa124edff1e8029e6cc5c1e145a79f5c1,,base,General,120,SG,0
+,,iam-peiyun@hotmail.com,Peiyun Yeo,1988-02-20,Female,869e8f1bc8e84ec6ac8c8d61e37d79461473a487,/206c6f728370ff99a614c70572b2910e.jpg,base,General,121,SG,0
+,,ashlyn.toh@hotmail.com,Ashlyn ,1993-10-08,Female,2bf092830496e1dd5e9288f7edb5ddb88cb49dd4,,base,General,122,SG,0
+,,diamond-tiara-crown@hotmail.com,Tan Yi Yin,1985-06-21,Female,6150bb791c4a1230e7fa38960e43463fa8f94df3,,base,General,123,SG,0
+,,cutebunnycute@hotmail.com,Siew Ping,1984-08-04,Female,82f2bae3d196ea7fc758065db46b6f0f9a720e75,,base,General,124,SG,0
+,,guttleblue@hotmail.com,Natasha Kayla Lee,1986-07-23,Female,74986b3402af7846aaa22224aeed555de24b1a64,,base,General,125,SG,0
+,,esther.aiw@gmail.com,Esther,1982-07-27,Female,1e82f4d36d0b1a59e616b641e57e0c67fe23f82b,,base,General,126,SG,0
+,,gurlz_ahxue@hotmail.com,shirley,1988-11-11,Female,7ce0019a3e444909eb923d2d16a1c66c994b15c5,,base,General,127,SG,0
+,,absence.presence@hotmail.com,kiki,1989-02-02,Female,fd8644fc009e5939b374f1a87a698f1caf7545bc,,base,General,128,SG,0
+,,daphy-xj@live.com,Daphne Lim,1988-11-28,Female,060f99e5d1cd6e627ef5b0410cf743d48575ca8d,,base,General,129,SG,0
+,,athena9h@hotmail.com,Qianrong,1983-12-29,Female,c8b1470a8213ec5be1b02f9a283da45dae10d31c,,base,General,130,SG,0
+,,rykiel@ymail.com,Rykiel Goh,1986-11-14,Female,861acb6f4b81dea5a27dd7ce20a6a149914bb26d,,base,General,131,SG,0
+,,krissiebum@hotmail.com,kristal,1988-11-18,Female,346885df7b8adeb3d7acf3c8bd4cf653fcf4cf4e,,base,General,132,SG,0
+,,mnm539@hotmail.com,adreen lim,1985-11-19,Female,356d52e39c88fd544a072495020560954b9bdee8,,base,General,133,SG,0
+,,theresaang8@hotmail.com,Theresa Ang,1959-08-14,Female,5cf26d9db76964c1435491f4061c1f868d7a3d01,,base,General,134,SG,0
+,,jo_sianz@yahoo.com.sg,Jo-Ann,1988-12-19,Female,4fb1fcd2687fe492a8468570e4c2125654a99bc9,,base,General,135,SG,0
+,,metamorphosis_18293@hotmail.com,Gladys,1993-02-18,Female,f5c70194090896b843a99e850a2c00b5af8658ff,,base,General,136,SG,0
+,,babyweiling_1982@hotmail.com,esther yap,1982-10-27,Female,d5ec5d8d93cb8eeb416edc2332e9b0259038e9ca,,base,General,137,SG,0
+,,jestine.ng@gmail.com,Jestin Ng,1985-09-27,Female,2455f1274c838c85ef5abcb0253785b38fe1d598,,base,General,138,SG,0
+,,red_raspberries@hotmail.com,Karine Neo,1984-10-09,Female,e0c089f340dc0351f8b1e6ad78fc6fd1433a8825,,base,General,139,SG,0
+,,jovena_huang@hotmail.com,jovena ng,1993-05-26,Female,98af51ccecd202a003191d44f68b48436426a834,,base,General,140,SG,0
+,,lilandra2000@hotmail.com,Nurul A'in,1983-10-07,Female,c0be7429f987677ec8cce663b8a9805011afde0e,,base,General,141,SG,0
+,,jingzhi_pig@hotmail.com,JingZhi,1993-03-08,Female,0d45a06b21f30ec2c2a83886b5a09bd868ded7e3,,base,General,142,SG,0
+,,kleo_88@hotmail.com,Kleo,1988-03-24,Female,fdaed00a7678998d2bea09d43b16fb271d20d505,,base,General,143,SG,0
+,,goaskanna@yahoo.com,Syazanna,1988-10-26,Female,88011c5fec4a54467749809aaf50d5cc32b01661,,base,General,144,SG,0
+,,emo-promises@hotmail.com,Jenny,1987-03-05,Female,827ee307b66dd00c066753066a353df2f424e1d0,,base,General,145,SG,0
+,,jas1freedom@yahoo.com.sg,Jasmine Fu,1986-05-05,Female,8895d853536b7f3664f38684f01a3b12862559ed,,base,General,146,SG,0
+,,fishcode_672@hotmail.com,Veana,1990-08-31,Female,5fd94438908d5a72f1c50f114a7ae76aea720927,,base,General,147,SG,0
+,,xy_chua@hotmail.com,chua xin ying,1989-04-16,Female,86e74eccb2f6d6e38d1df0b33ec3cd67e1a66ecd,/cornerfloral.png,base,General,148,SG,0
+,,winnie_lam89@hotmail.com,Winnie,1989-12-20,Female,614352530f56c49508bd2d11bd05cd6433bbfbc2,,base,General,149,SG,0
+,,v.for_valerie@hotmail.com,Valerie,1991-06-09,Female,5ac674d35db31e932a31cedb47d9b7643e743363,,base,General,150,SG,0
+,,sweety_starz@hotmail.com,kehui,1990-09-21,Female,5dd8068071d188eb57aef5fa8784fda8b34cfae5,,base,General,151,SG,0
+,,space_walker1989@hotmail.com,juenn,1989-08-26,Female,d3c42ef214634f3a03341f1ee7e8755da36f9d30,,base,General,152,SG,0
+,,bcos_of_u@hotmail.com,Sandie,1987-03-15,Female,b00b024b063c1505e4bc98f44944f5f5a2163bd0,,base,General,153,SG,0
+,,i_wanna_be_a_happy_kid@hotmail.com,Gladys Liao,1986-07-19,Female,21c456252e7a920bda4fe04f017ba64ede9727dc,,base,General,154,SG,0
+,,bethlieben@yahoo.com.sg,Nat,1993-09-16,Female,4d6370aeba6680b05b3865bad403a97bfff7c50b,,base,General,155,SG,0
+,,j.amber-@hotmail.com,Joanna,1990-04-20,Female,b06bc2ba484a88fff0794f297d2ec75e8d57e873,,base,General,156,SG,0
+,,khwee_ming@hotmail.com,Jennifer Koh,1980-10-28,Female,595caff16a4cb8b6da0f492bc0388e9c4237f1ff,,base,General,157,SG,0
+,,smallitgal@hotmail.com,Peiyi,1990-06-06,Female,28fbdcfe10814468445e35daac22ce602291f6cd,,base,General,158,SG,0
+,,shoppingfantasia.x@gmail.com,May,1993-04-14,Female,96c401515acc4e04f133825ae4a54554978d1e36,,base,General,159,SG,0
+,,huiru_@hotmail.com,huiru,1988-02-17,Female,738691c10a06bed9aa53df04ba2066e515308802,,base,General,160,SG,0
+,,wei_sen91@hotmail.com,tan hui zhen,1991-03-08,Female,30c4fa5b55a874a6490e23995be5a5ed9f1c5e6a,,base,General,161,SG,0
+,,jgzq19@live.com.sg,Jamie Gan,1992-01-19,Female,522482131c82a95cd331558e008422cabd1b0cb6,,base,General,162,SG,0
+,,chewting2_91@hotmail.com,Cindy,1989-11-06,Female,783ecfd0b00a6e8e96ab349a6a74810eb81db78a,,base,General,163,SG,0
+,,missy.deadd-bendan@hotmail.com,Carolyn Lee,1990-05-12,Female,dc43121cd47176c87e206942d50380d6f1d3e524,,base,General,164,SG,0
+,,apple_6690@hotmail.com,peiyi,1990-06-06,Female,23fbfad33a592def613ba5856f3d9cb6695210ea,,base,General,165,SG,0
+,,ferlinetan@yahoo.com.sg,Ferline Tan,1978-03-26,Female,430359be92168792439b5afbfd849d41e1e913e1,,base,General,166,SG,0
+,,tazzypoo@gmail.com,jasmine chan,1988-01-03,Female,5c343b03891ee6cf70e95211e85edab4a9095a00,,base,General,167,SG,0
+,,a.dangerous.kiss@hotmail.com,CELINE,1990-12-16,Female,64bebbe5293a08c7dd181a789a7b521d6200a50e,,base,General,168,SG,0
+,,chezigrace@hotmail.com,Grace Poon,1988-01-22,Female,9ce75f4bce3789bfc489e16467fef18972915694,,base,General,169,SG,0
+,,su_ki89@hotmail.com,ashley,1989-07-18,Female,e13db91e6c1109545bbf1a0862f8daf7ae024e59,,base,General,170,SG,0
+,,chiamin-_-@hotmail.com,Raquel,1991-02-03,Female,8ad856b3b045ea7eb401ee3a456d23e5b3098d98,,base,General,171,SG,0
+,,iloveyoux-@hotmail.com,Jasmine Eng,1991-11-11,Female,832ff57cfe3ca27de554f9f62dd9e4b26bd92ca1,,base,General,172,SG,0
+,,su.ism@hotmail.com,anna su,1988-09-08,Female,9a73a1ef5586c8e24725a4a6e2ff884e1295263d,,base,General,173,SG,0
+,,summerain_88@hotmail.com,ee kheng,1988-03-31,Female,01481d6ea5da056837bd960462d6d1d578cdf371,,base,General,174,SG,0
+,,made4shoppin@yahoo.com.sg,chwc,1988-05-20,Female,bf850f68a9209c2591dd1de407c1acbc642c01b6,,base,General,175,SG,0
+,,erica.lwy@hotmail.com,Erica,1994-10-03,Female,7f6cecf6fa67cfd4130845bfe927644f7a1c44c2,,base,General,176,SG,0
+,,shirni7@hotmail.com,Shirley Tan,1986-09-28,Female,b3df56158ac86653ac6797a90e46790adab72084,,base,General,177,SG,0
+,,candypeiling5566@hotmail.com,Jeslyn,1990-01-29,Female,8b824ca594a124b5051b6d7ac750dc06ba2d2086,,base,General,178,SG,0
+,,qingz19@hotmail.com,he huiqing,1985-03-19,Female,b7c1d68ef457103fc2aecf6ae67467d95b6def8d,,base,General,179,SG,0
+,,lim.kaihan@hotmail.com,Kaihan,1988-11-19,Female,27d9cc1b93c21c179179bbec3f2d232f771937f0,,base,General,180,SG,0
+,,maruko_85@yahoo.com.sg,Sharon Sue,1985-09-22,Female,8329fab447b0b112984a0e1d0aee44da86374794,,base,General,181,SG,0
+,,vodkager@gmail.com,Jacqueline Goh,1987-10-24,Female,8c90dca21cffc7939d7fcf0c7f1303475a40d0ef,,base,General,182,SG,0
+,,ahlingz_89@yahoo.com.sg,Queenie Ng,1989-10-05,Female,8b84c7a86a8bcebc9ac8034a4a12ad65675dc1bb,,base,General,183,SG,0
+,,joyce_yumin@hotmail.com,yumin,1989-08-20,Female,e8090566e4f1014bfd3a3952b1e3ffe06881d467,,base,General,184,SG,0
+,,wenqi21@hotmail.com,Wen Qi,1988-09-14,Female,efed0b5d634edf7f99e19869724ae505d578abef,,base,General,185,SG,0
+,,fionastar@gmail.com,Fiona,1988-10-19,Female,ad828d5a6337857cda71155491c76d23a9c0a1df,,base,General,186,SG,0
+,,indulgez@hotmail.com,LiTing,1988-10-16,Female,c9092fdc507512ccc31423063b0e597ac7452850,,base,General,187,SG,0
+,,ngyvonne36@hotmail.com,Yvonne ng,1979-04-19,Female,9deed2f1b16dc9aefc85f8d314324dc4e7c8f3df,,base,General,188,SG,0
+,,carol.npy@gmail.com,Carol Ng,1975-03-27,Female,a8371cf1be600d3a03e581f30ef96829d17ecda8,,base,General,189,SG,0
+,,shijia_02@hotmail.com,Tan Shi Jia,1988-02-15,Female,b44915ff7b1b306ca74f6f9830d061c41344d812,,base,General,190,SG,0
+,,missy_yukiko@hotmail.com,emily khoo hui ping,1992-01-06,Female,a06378ad87c6d7afbb3a073af7e765713dfeb94c,,base,General,191,SG,0
+,,elaine_ws@hotmail.com,Elaine Lim,1987-03-28,Female,079caed93095be584e0215842057c19af67dda00,,base,General,192,SG,0
+,,tingssss@hotmail.com,huiting,1990-04-16,Female,5e96f84c3c40547f8eb1a4e8dea01d50a48cb98f,,base,General,193,SG,0
+,,xiuen@hotmail.com,Ann,1992-01-17,Female,b1441e9ba111ac66e5a331d1c122b74bb6578ab4,,base,General,194,SG,0
+,,snowywind_03@hotmail.com,Yilin,1989-11-30,Female,1bdde6af517ca9eca6b14ab668e61854d5f653ee,,base,General,195,SG,0
+,,chseet09@hotmail.com,cindy,1979-12-29,Female,28e0ddabbb8f734e19b0b09cd659a75926e928a1,,base,General,196,SG,0
+,,ahh_xinz@hotmail.com,Jeyna,1989-09-10,Female,50570ca108aef4db1f1400eac70f9ed70552e1a4,,base,General,197,SG,0
+,,cantfakefresh@gmail.com,geraldine,1989-02-17,Female,dd4c74e5ca9f8a43c84114d950e45c5ecb7e5a21,,base,General,198,SG,0
+,,thypapercut-@hotmail.com,Yeeching,1993-11-05,Female,0689986bc76e44542293f9d9b4419efcbc25cd9f,,base,General,199,SG,0
+,,wchengy@yahoo.com,Wong Cheng Yee,1975-04-11,Female,c88da05b347b7421545f372a5ff8d81dec82be5a,,base,General,200,SG,0
+,,eunicegigigal@hotmail.com,eunice,1990-08-10,Female,60273c73c4d75a4043029cd94dc039ed03a1d939,,base,General,201,SG,0
+,,oldmansgirl@hotmail.com,Jean,1988-05-15,Female,3331d3fadce7b48d0b786ac69586e88a51e71ce8,,base,General,202,SG,0
+,,CHARCHARII@YAHOO.COM.SG,KISSESHOUSE,1987-06-08,Female,8e24fe7c3950ab79afb3e525d97273b0581a32d4,,base,General,203,SG,0
+,,babyling10@hotmail.com,Joyce,1980-10-10,Female,17c94ec234a887bfc28b7e6a0b7f55e083b0aea1,,base,General,204,SG,0
+,,rcmyrcmy@hotmail.com,fifi,1990-03-27,Female,3b59e05d9574388c7de5f89da792e11459c32938,,base,General,205,SG,0
+,,jamie.angpl@gmail.com,Princess,1985-08-27,Female,d063e8a1e5034c67d5f18d94929b3bdf08c443d3,,base,General,206,SG,0
+,,ron_ron_89@hotmail.com,Sharon Tan,1989-08-17,Female,c67d92c257ca4330c6cd87af09adab558a06a53b,,base,General,207,SG,0
+,,taunee87@hotmail.com,Anthony Neo,1987-07-27,Male,2acc332d020365695640b91978a3c44b70ad13b8,,base,General,208,SG,0
+,,blue_ice_06@hotmail.com,Denise,1991-06-02,Female,152f0019314807f8b9db824edc7fb0112644a11e,,base,General,209,SG,0
+,,orangey19@hotmail.com,OH Ai Ling,1986-12-30,Female,783ad60e3bad0cd063f0217bb907023eb0916a96,,base,General,210,SG,6.22
+,,kahhuei.khor@corporate.com.sg,kah huei,1983-06-05,Female,5a4432e720a831e69f2ef611903c79d17b5c4ea3,,base,General,211,SG,0
+,,estelle@lush-group.com,Estelle Cheong,1987-02-25,Female,5c7196305679f2e27ffaaade9559c1d6b0b24b12,,base,General,212,SG,0
+,,baby_baox@hotmail.com,Nicole,1987-08-28,Female,201848197b249f71f5d4ffc6cb33d8d191941c27,,base,General,213,SG,0
+,,clariceha@gmail.com,Clarice Ha,1987-04-06,Female,00712f000be3d48856a2e0f5f2c81cfff99cd340,,base,General,214,SG,0
+,,janice_lau2000@yahoo.com.sg,Janice Lau,1979-02-05,Female,c12bb644686b536525c86f6656aba70fa481c094,,base,General,215,SG,0
+,,lmnishaop@yahoo.com,Nisha,1987-06-29,Female,4ebf4ffdec95fb614c7c36ab7af1c09ad2c3282d,,base,General,216,SG,0
+,,darkmagick666@hotmail.com,Ambe,1985-12-21,Female,ecc50615f2142b209c0fb718ce78a2ea89ffa9a2,,base,General,217,SG,0
+,,cherry_n_apple@hotmail.com,Gina,1988-07-15,Female,24bc31ffbf1c06b74773c2734c5917bf3b3664c6,,base,General,218,SG,0
+,,maychin123@gmail.com,May Chin,1976-12-03,Female,848b135d7d24a729afec4488562e1cc9fdbc6461,,base,General,219,SG,0
+,,forever_friend17@hotmail.com,Hung Wing Yan,1981-01-12,Female,68a186b919afb027472f9e75a21181adc3443e70,,base,General,220,SG,0
+,,PissOff_322@hotmail.com,Theresa,1989-11-20,Male,dc69d0398a3218cc72a9332f11ef61a144ac0982,,base,General,221,SG,0
+,,tengteng.v@gmail.com,Vicky Wang,1989-09-18,Female,a3a4d7798b1ed3c0304a2483a8892d0462dcd630,,base,General,222,SG,0
+,,frenz1314@hotmail.com,Phua Rouyi,1985-10-02,Female,7d2e3983cc3af815e3756450f3d1157e81762320,,base,General,223,SG,0
+,,joey_unicorn@hotmail.com,Joey Lim,1978-12-05,Female,63b44e1141c2be18498ee806368fa4ec7424b4e7,,base,General,224,SG,0
+,,icemarmalade@gmail.com,Winnie Poh,1990-03-10,Female,c877c9b52a72567fcbad22715d39b369db070842,,base,General,225,SG,0
+,,ic3ysn0w@hotmail.com,bing xue,1989-11-22,Female,ffc563c499b192e3202aa23bddc32c91cdb68986,,base,General,226,SG,0
+,,yoshinoya20@yahoo.com.sg,Tan Liyun,1988-06-13,Female,a4864990dc30e54ac3f6f71ccd0e9a0417d3256b,,base,General,227,SG,0
+,,vanillasugarchocolate@yahoo.com.sg,RuiDuan,1986-06-11,Female,159487761134a3e9cea05a945749dafc261ce201,,base,General,228,SG,0
+,,alohalmh88@hotmail.com,Mei Ho,1988-06-02,Female,7c34e017a02e198fafdcd35ef9e0f8a679cf87b0,,base,General,229,SG,0
+,,chlyfe@hotmail.com,charlotte,1989-06-26,Female,7da18aabf8eb74ee57ce23579b6fa6bf733bc31a,,base,General,230,SG,0
+,,minghuiblue@hotmail.com,Ming Hui,1986-07-08,Female,8342aecb8b31865db0fd40154fcb3ca7ee87d8b8,,base,General,231,SG,0
+,,darkangelic88@gmail.com,Jia Hui,1988-04-13,Female,4f4624659af4db765e498077d4be34a5ef411aff,,base,General,232,SG,0
+,,tracieyeo@hotmail.com,Tracie,1984-08-19,Female,d26f359e01dd9df805d1b1f09b0617ec2e448776,,base,General,233,SG,0
+,,zhuzhu_41@hotmail.com,Julia Kwok,1986-09-29,Female,a6f7bc2ce307a85d9cd940bdb17fb38787020628,,base,General,234,SG,0
+,,mao_mi_5566@yahoo.com.sg,June Poh,1986-06-10,Female,d645f13508d92b96e85b64b6949ef5ac7ce0eb8d,,base,General,235,SG,0
+,,witchz@gmail.com,Kelly,1985-09-09,Female,0c00abf09f6f29d9fd62335e259ac90043dda2b8,,base,General,236,SG,0
+,,cloud_yuen85@yahoo.com.tw,Susen Yuen,1985-01-08,Female,bf06ff768570987af9e70bfa0da89ffc9229d392,,base,General,237,SG,7.75
+,,red_amethyst2003@yahoo.com.sg,Suhura,1986-02-12,Female,7473714e3758a4b3486516495f9e7e68d8e9f687,,base,General,238,SG,0
+,,xylmh@hotmail.com,Kaden Ee,1985-07-08,Male,28c70b41fb10bac48ac84f353f90aafe885191da,,base,General,239,SG,0
+,,michileigh@gmail.com,Michelle,1976-04-14,Female,4e01aa85a75f11dc326b0a9a614f1f670641b265,,base,General,240,SG,0
+,,sabreenabegum@yahoo.com.sg,Sabreena ,1985-07-22,Female,68ffe09390a7dafa5aae5afc4e720863dd173556,,base,General,241,SG,0
+,,ah_gal_12@hotmail.com,ng shiau wei,1989-05-12,Female,69c0a093cf61d0eb1612ec2c627f6d74faa3fa9f,,base,General,242,SG,0
+,,irisa_forever@yahoo.com.sg,Iris Yeong,1975-07-12,Female,329c53646ff1bf86e8ad252744056eb987d2e1ae,,base,General,243,SG,0
+,,babypris86@yahoo.com,Priscilla Chong,1986-08-16,Female,f2cfc165a3fb7837d0bcf45e4e7594859f177bea,,base,General,244,SG,0
+,,triciager87@yahoo.com.sg,tricia ong,1987-04-28,Female,4f1168765c5f02c405d3623d041c5c9cc50fac0f,,base,General,245,SG,0
+,,jerstarz@gmail.com,Starz Sze,1989-01-09,Female,7cd077f967808cbab460c4812c9aa1205057770d,,base,General,246,SG,0
+,,olivetea_melon@hotmail.com,Ong Yunyu,1982-04-13,Female,a2300c1118ae254d57f79a567945156f26664813,,base,General,247,SG,0
+,,stillsweetened__@hotmail.com,pang shi lin,1991-08-15,Female,fa028892988a8a9d58fb2e554841b952401721e7,,base,General,248,SG,0
+,,seashell9688@hotmail.com,Michelle,1988-06-09,Female,85e74e13ad1e88df27468cf34fa6f7e032ce2075,,base,General,249,SG,0
+,,choo.jiahui@gmail.com,Jiahui,1984-03-04,Female,20adc4f2d24159e2536ffac566beeee106953e7a,,base,General,250,SG,0
+,,4d.striker@gmail.com,Jess Chng,1960-04-07,Female,b52d1f8e10a99671b4c8fd0cff13201dba4fe58a,,base,General,251,SG,0
+,,radodo@hotmail.com,Eliz ,1972-04-21,Female,c7cf9bc574631721f04937778c37fb805c7bfa7d,,base,General,252,SG,0
+,,fairyspritz@gmail.com,esther,1985-03-23,Female,f67005c96336f13971354e7fe75dd3adee9a770e,,base,General,253,SG,0
+,,pearlz.tpp@gmail.com,Pearlene Lim,1984-06-20,Female,a461d14a3835cd1ea6e4f670204ca1ae99b8b272,,base,General,254,SG,0
+,,i.love.butterfly@hotmail.com,Rina,1989-08-31,Female,477b9bccbcff4acf1f1ca73ed1420e10edf1f93e,,base,General,255,SG,0
+,,cherish_mi@yahoo.com.sg,Chuah Jia Ying,1989-10-16,Female,33a1bd18465d8031b1129a2e190c5e306e78f336,,base,General,256,SG,0
+,,glamorous_elegance@yahoo.com.sg,Puay Ching,1990-01-22,Female,8bc336eba616abc5c82c3ea9d839ad6aba555533,,base,General,257,SG,0
+,,devonz@gmail.com,Mei Jun,1985-07-06,Female,00a62a1d90d7d2e2ea13bd57b86d15bc2b3a05d7,,base,General,258,SG,0
+,,i_wenwen@hotmail.com,Wenn,1979-10-09,Female,0a2235d8993a9e40176dc7ab95993aae0355d353,,base,General,259,SG,0
+,,contactwatashi@yahoo.com,Meiling,1987-02-02,Female,6464a6d5f8734c000adb3320b3c6506aa8e6bbe4,,base,General,260,SG,0
+,,contactwatashi@yahoo.com,Meiling,1987-02-02,Female,6355a15b2bbbd18e4201047130a4d8f494af9f40,,base,General,261,SG,0
+,,lai_mun12@hotmail.com,Lai Mun,1990-04-09,Female,8a562621a716a50d0a85e2c6edbd309c602dd545,,base,General,262,SG,0
+,,yeau.mj@gmail.com,boo,1986-01-22,Female,2a9bce4d9f3a1f6cd8dcbffcc517e68475cb2aaa,,base,General,263,SG,0
+,,eu.simplicity@gmail.com,baabaa,1988-01-06,Female,afc2d110d4c5973da44a2669086fe905bfcc994c,,base,General,264,SG,0
+,,glitterskiss@gmail.com,Jing,1989-10-23,Female,8d12bcfbb9a5aa737655c663bcc82ae415af098c,,base,General,265,SG,0
+,,reachformei@gmail.com,Lincoln Toh,1973-11-06,Male,59f96897b282e0c8cd6c3023c9d7da38c6ad0803,,base,General,266,SG,0
+,,fearless_sg@hotmail.com,Jesslyn,1988-11-04,Female,5bf3c65103daea5fc982c4b28b1e9859e430c7e3,,base,General,267,SG,0
+,,dnet_87@hotmail.com,Daphne Tan,1987-08-12,Female,faaaa9c23baff49034ac36f9d0dac9bf3ce4aaab,,base,General,268,SG,0
+,,truthlurve@hotmail.com,Hwan Ling,1991-04-13,Female,374fbc530d36691e4b8ffebbdce21b444c2d7904,,base,General,269,SG,0
+,,winayf@yahoo.com,Rowena Feliciano,1978-10-02,Female,ad44c646dc9505ce112940f007412c7205947ae2,,base,General,270,SG,0
+,,inner_doubts@hotmail.com,Karie Lee,1988-08-28,Female,4471e784a254c1af8b2b523d669fe271f0b40457,,base,General,271,SG,0
+,,sparklinlove@Hotmail.com,yitian,1990-03-19,Female,4a015aac4e37fc06093713dc2d2855f7861eedf8,,base,General,272,SG,0
+,,cui_yunngo@hotmail.com,Jill Ngo,1989-10-13,Female,bb5a4d9053006d3eaff9402835e1ab81521e1335,,base,General,273,SG,0
+,,geline49@hotmail.com,Angie,1989-03-27,Female,3fad83b576cfb053fb6943936d34ddf0b8541c54,,base,General,274,SG,0
+,,hurt_lotzx@hotmail.com,Eileen,1989-04-04,Female,8df5dd3506bc84a20c6b51244c23256bc5a78cad,,base,General,275,SG,0
+,,l-fel-l@hotmail.com,Felicia Tan,1989-05-26,Female,5c65c6617ec0cb97e6f773970235dbf7a5b662ee,,base,General,276,SG,0
+,,livatwist@gmail.com,Olivia,1986-11-20,Female,c9e3e96d9880409211dc4e64aea088475e58ba37,,base,General,277,SG,0
+,,suthasinee.christina@gmail.com,Christina,1991-04-05,Female,6b56e665f2a87c3456f2dc46f987e22928dacb9c,,base,General,278,SG,0
+,,blueterfly88@Hotmail.com,suxian,1988-07-18,Female,898f11dfa220a0b3c8c37d517fa998562e757560,,base,General,279,SG,0
+,,potato_ass@hotmail.com,jolene,1990-10-10,Female,0460d55b35c3e617dbc00137150f4381baf377f1,,base,General,280,SG,0
+,,jun_tong_87@hotmail.com,june chen,1987-01-02,Female,f7c7a422b8ba93d3a8c7d47a3abd257990998763,,base,General,281,SG,0
+,,audreyongozi@gmail.com,Ms Audrey Ong,1987-05-28,Female,ed18885e49c668f53cec6a282e542c809f642818,,base,General,282,SG,0
+,,lovesviki@hotmail.com,Chuan Li Peng,1983-06-27,Female,6f71d1e5a92bac69ee41e831915102e1cd96826b,/o_Baby_Tweety.jpg,base,General,283,SG,0
+,,ng.melissa90@gmail.com,NGM,1990-12-02,Female,1bc28544e7ba9b8ec270f55b287ccd4592ce697a,,base,General,284,SG,0
+,,babyger21@yahoo.com,Rachel,1985-08-21,Female,7eb30467405b90ee1ca27539b81e78ca899f03c8,,base,General,285,SG,0
+,,myrainbowpony@yahoo.com.sg,Liao Mengkai,1982-08-21,Female,a84684785a89ece3acd87fd20d166b2aa8ea4e47,,base,General,286,SG,0
+,,sabrina19792001@yahoo.com.sg,Sabrina Lim,1979-04-15,Female,0a75787da3c96273a8dae96d7ffca907f069dd10,,base,General,287,SG,0
+,,hotwater7@gmail.com,neow shirlyn,1985-09-03,Female,ce9a255b76e9a6851e841ce4f4d3a015e1026ac4,,base,General,288,SG,0
+,,mudcrabp@gmail.com,Goh Jing Teng,1988-01-15,Female,4036c4b8d7adebe3f2b72774e1fdd73d005569b0,,base,General,289,SG,0
+,,hazeline79@yahoo.com,Hazeline,1979-02-24,Female,d93edce66d1e0b7c1415bfbfe963b335af92483c,,base,General,290,SG,0
+,,Yenmichelle106@msn.com,michelle,1988-09-12,Female,9c3ddd68de11730e660c7f781ca05fbdec18d1de,,base,General,291,SG,0
+,,navybluebelle@yahoo.com,Lee Jia Yi,1987-10-24,Female,be979d88daa3c103bc4d0787af5126b9764fd26a,,base,General,292,SG,0
+,,Gemini_lydia@hotmail.com,Lydia,1981-06-08,Female,01f6b5bf1579983c278d3a6f8fc74cec0d5809cd,,base,General,293,SG,0
+,,kloudnie@hotmail.com,Ang Hock Kay,1982-09-30,Male,4f215faa7dfa485782b16c932f27dcc5369fe522,,base,General,294,SG,0
+,,chin744@hotmail.com,Jeanie Chin,1984-12-25,Female,3e0239f6be0741229702fc4336243d2e82408f78,,base,General,295,SG,0
+,,rynna82@hotmail.com,Rynna Goh,1982-11-28,Female,7b8b45f1ab969a52dd2767001e74240be7e6610f,,base,General,296,SG,0
+,,joanneyapws@yahoo.com.sg,Yong Qi,1976-05-27,Female,8ced3a211b7e4ded2ae78b1572c59cd4f6326414,,base,General,297,SG,0
+,,sleet@xlink.org,Yvonne,1984-05-14,Female,dc623ac05a67ee1125d970a739fad5dc64e3dd87,,base,General,298,SG,0
+,,siti_fadhilah60@hotmail.com,Siti Fadhilah,1988-12-08,Female,6d004f090975989ad1f5e1fd116a18961dcead99,,base,General,299,SG,0
+,,xiao_zhuzhu87@hotmail.com,Ong Hui Ying,1987-03-21,Female,0c3deb8a8619e858b56659c9be7f989129af2c10,,base,General,300,SG,0
+,,i.sha@live.co.uk,Aisyah Bagarib,1988-08-16,Female,46ead8b75b48687ae0546c087024cae74a20d18b,,base,General,301,SG,0
+,,ivoy_chia@hotmail.com,Ivoy,1988-11-07,Female,5784fe5ff763715622c405afe4bf765e4958eed4,,base,General,302,SG,0
+,,lowklc90@hotmail.com,Crystal Low,1990-10-30,Female,cfd40a4f8509d62076285f9e06934ab1cf1fbe4c,,base,General,303,SG,0
+,,linlin_jielin@hotmail.com,jie lin,1993-05-18,Female,42b75639a1fd91e1b1bfa6f180b0cd98921ab809,/06b19c7cfda86e6c32da131f47e99890.jpg,base,General,304,SG,3.98
+,,hairclip@gmail.com,Joey,1990-08-20,Female,f00ae6506a785d7b7966a8b76b13c75e442f58f4,,base,General,305,SG,0
+,,luv_bonnie87@hotmail.com,michele wei,1987-07-08,Female,9bfb9055e5e032b15c7dfeaf9261c08e2bf468fd,,base,General,306,SG,0
+,,iheartyou.not@hotmail.com,Joey Tan,1993-10-12,Female,b6b2ef125dccf5668292060b93bba340f9766b8e,,base,General,307,SG,0
+,,elainewee@hotmail.co.uk,Elaine,1991-08-26,Female,fa16dc7a01a1649318503beea39998f866f067b1,,base,General,308,SG,0
+,,ahxinq_0422@hotmail.com,xinru,1992-04-22,Female,8dcea9af711a19213280a51e2ea8ccd96358e37e,,base,General,309,SG,0
+,,yoke_79@hotmail.com,yoke ying,1979-04-30,Female,c7f53c6d39e7f4d498e7bad6ca2cf702cacb2e32,,base,General,310,SG,0
+,,punkisserat@hotmail.com,Hellvenchua,1990-12-22,Male,3342546705b2e6048158ee78e57ea57f875b0c34,,base,General,311,SG,0
+,,mystery_gal89@hotmail.com,Rasyidah,1989-04-19,Female,16525723138d8acf88d59c9aeaa41e988f828a59,,base,General,312,SG,8.01
+,,wadeversellor@gmail.com,winnie,1992-03-19,Female,e443c9eb6605405f0c75c5fa4d1c2ddf7233b7d7,,base,General,313,SG,0
+,,joylim7109@hotmail.com,Lim Ying Hui,1988-09-28,Female,dd746e75e10f5d0a230935daf4e88e25fdaf7f91,,base,General,314,SG,0
+,,heartsandhugs.enquires@gmail.com,Lorraine L,1993-11-08,Female,91b9fca492aaf929d107ddae8c9dc9e8eb90c1f7,,base,General,315,SG,0
+,,angelzstarz@hotmail.com,pinkk,1991-09-11,Female,7b6ced10bfb7fe322f606ab6b0aa71e72bf271e9,,base,General,316,SG,0
+,,inoryn@hotmail.com,Tan Shi Hui,1986-12-25,Female,48646942f15f7bac57e7077324c4dbb61537d1b4,,base,General,317,SG,0
+,,the-pinklolly@hotmail.com,Shawna Kow,1993-10-29,Female,f674bd0ce4ba99700c23a6ebf4df41b12a7efd05,,base,General,318,SG,0
+,,geraldzzz2001@kuririnmail.com,geraldzzz2001,1988-10-20,Female,edda296a4c8a20ab8a92e70e81bd8e14c5fbc1e9,,base,General,319,SG,0
+,,purple.musical@gmail.com,Carely,1992-04-09,Female,922b0c76811de1d7d87b32eb92c5984b61f1f4a1,,base,General,320,SG,0
+,,wenson_tay@hotmail.com,WENSON,1990-04-18,Male,f665af670df02f19143ed33dcfeda7661413a7d2,,base,General,321,SG,0
+,,xxbrenda-@hotmail.com,Brenda Chua,1992-11-28,Female,387f03d3120e963528710377a826533c13ddd452,,base,General,322,SG,0
+,,siti_shada@hotmail.com,Siti Zubaidah,1987-07-30,Female,eaba21d7aed44136723b879dda1a1b17a8c7459a,,base,General,323,SG,0
+,,girlscloset@hotmail.com,Jervenne,1990-11-12,Female,cbdc4d396a65315f551520f77e2a24ef603b68da,,base,General,324,SG,0
+,,jing_square@hotmail.com,Woo Jing Jing,1988-12-30,Female,47dacf3322a7a2bc79b1ccd63041f883cf9e2a57,,base,General,325,SG,0
+,,sendtogladys@gmail.com,Gladys Ng,1986-09-12,Female,fd85a17727c2717ad01f2e0140c16163d664d685,,base,General,326,SG,0
+,,thaianh_forever@yahoo.com,Ta Nguyen Thanh Thao,1986-11-27,Female,0bd6bfcdcf4a60626d695a110998f02e63d56401,,base,General,327,SG,0
+,,sheila_nghuiyi@hotmail.com,Sheila,1990-05-17,Female,ae47ba781e67fb74ee12f6d8392b3724b920e6ad,,base,General,328,SG,0
+,,evelinng82@yahoo.com.sg,Evelin Ng,1982-10-03,Female,969e6134a321f206d1bdb25e7eb2731fb6398a8e,,base,General,329,SG,0
+,,loneli_soul88@hotmail.com,Joyce Tan,1988-02-28,Female,8ac79093c85e71c796d875848e42f4b953866027,,base,General,330,SG,0
+,,sandy_ahgirl@hotmail.com,Sandy Yeo,1984-06-15,Female,5a6b4c5a973411e83e3f8027bd0795174787a5b6,,base,General,331,SG,0
+,,tanpeini@hotmail.com,Pei Ni,1987-04-15,Female,72b2af37c4625da28c2d8888198f5b99d4020c07,,base,General,332,SG,0
+,,xiutangc@gmail.com,xiutang,1988-09-11,Female,c74119d3a6d52b513270295c1196f9e2f921dd61,,base,General,333,SG,0
+,,wen.lingg@live.com,Wen Ling,1989-09-26,Female,f4cecffdff2d41ebe2bfbfb1dff792dadd1ab68a,,base,General,334,SG,0
+,,wen.lingg@live.com,Wen Ling,1989-09-26,Female,6b96bb78a970aed9519d7f069aeab6cec50713e4,,base,General,335,SG,0
+,,xiaodaisy_85@hotmail.com,Daisy Tay,1985-10-04,Female,96e3bcfb3f7320f11f2bf233669a135c88dffac7,,base,General,336,SG,0
+,,jacqueline.ng@reckittbenckiser.com,Jacqueline,1972-10-02,Female,309b25902b4fa3657f87b9c43a205e31aa8991a6,,base,General,337,SG,0
+,,lowcharis@hotmail.com,charis low,1988-01-23,Female,f2d32f2a93287accc3876a9fbd1c81d25a7a83b5,,base,General,338,SG,0
+,,tainted-minds@hotmail.com,jiahui,1988-10-12,Female,cb8f1f07892af45604dc16103b9faf206033cc49,,base,General,339,SG,0
+,,cqyhamster@yahoo.com,qingyi,1986-02-28,Female,7457a8e25b7ad4bc385fe54bfb555d836a7eb5d5,,base,General,340,SG,0
+,,ever.green@musician.org,lesley,1988-10-13,Female,78fbec782494e5441bf947bfed81ab619e0b786b,,base,General,341,SG,0
+,,phy.phy@hotmail.com,phyllicia,1986-08-14,Female,1b8db79ee6b84e0fad63ec9f19e54ab46826d477,,base,General,342,SG,0
+,,faysha@hotmail.com,Aysha,1982-12-03,Female,630e3483f141c104fc77a66307a76669809ff580,,base,General,343,SG,0
+,,flowerdell@gmail.com,Adeline Ng,1979-12-22,Female,b8a187bebd97057436ae5174eb7c732fe22f43ba,,base,General,344,SG,0
+,,fantabulous_@hotmail.com,Shen Rui Xiao,1993-05-19,Female,12fb43c3589a41c4324164f803fa24f606661e33,,base,General,345,SG,0
+,,tsh_shiyun@hotmail.com,Tan Say Hoon,1988-02-09,Female,8b69e343f342b8cfdb336a4382bd373012a3ca3a,,base,General,346,SG,0
+,,estherteo-@hotmail.com,Esther,1993-05-30,Female,d5964edbb4e6b00d733421a4a75a5068a8bff741,,base,General,347,SG,0
+,,sweetchild77@gmail.com,Penny,1987-12-15,Female,7ed721360e198241a2aaaa28b0b6f53ae1f5a8da,,base,General,348,SG,0
+,,linalee_77@hotmail.com,Lina Lee,1977-10-14,Female,7e25b88cf8a52d9dec926eb335269c507e127b20,,base,General,349,SG,0
+,,small_gina@hotmail.com,Justina,1988-04-26,Female,9a1c466a298e041787dd428508cd7313861e6a7e,,base,General,350,SG,0
+,,grace7369@hotmail.com,Rosena Aw,1981-09-06,Female,274acc24065405cd8adc4e664e9e563c95f88e10,,base,General,351,SG,0
+,,veo_poo@hotmail.com,felicia,1991-01-08,Female,bea89f7c67a2377e11b7ac5a398710a417dbd60e,,base,General,352,SG,0
+,,xiao_shilin@hotmail.com,wee jek woan,1981-08-15,Female,9d3aadd710a88403431844cd78028e84b21bcc4e,,base,General,353,SG,0
+,,mxj13@hotmail.com,xiaojun,1985-03-04,Female,c121556e5edbb260ca6383ac70608969ebdee0f3,,base,General,354,SG,0
+,,unknowngal87@hotmail.com,tricia ong,1987-04-28,Female,b6e85219f9636bb4da39be8956b24e103df20cc5,,base,General,355,SG,0
+,,ying.sui.generis@gmail.com,Huiying,1990-11-25,Female,526a4c840fdbc69a9e5d5359a9422750cc3a305a,,base,General,356,SG,0
+,,babyish_leen@hotmail.com,eileenteo,1991-01-04,Female,2c3044005220343d24b03e4950fa46467a7e69bd,,base,General,357,SG,0
+,,annabellekwokshimin@hotmail.com,Annabelle,1986-12-22,Female,4721fd7aae5b9ed30257a618f5443a253347fa55,,base,General,358,SG,0
+,,michelle-@royal.net,Michelle Leong,1993-06-12,Female,98ea528572dc683e598dedbd0de818e2496aeb35,,base,General,359,SG,0
+,,luv_cyn_1991@hotmail.com,cynthia,1991-05-16,Female,417d83bda79275bf5f7a80753c620dbea61d738b,,base,General,360,SG,0
+,,euphoric_delusion@hotmail.com,Terry Shen,1992-09-24,Female,5151f9c93b94b3a7a034bc3f10dea9b0ad8f1d0e,,base,General,361,SG,0
+,,mmattheew@hotmail.com,Joyce Chai,1988-08-10,Female,f2dd256e19f9510923322252c202e1493498039e,,base,General,362,SG,0
+,,shopwithpiggy@gmail.com,Winnie,1983-08-17,Female,1c0796e2658794d316609788fdbfd476c0adc121,,base,General,363,SG,0
+,,keer_87@hotmail.com,Holly,1987-12-25,Female,ede9d0bde23bd37e8ceb2661e8d93beccc9925bc,,base,General,364,SG,0
+,,x-shoppingspree@hotmail.com,Ning Wei,1992-12-18,Female,0331fafc8d2b7aa376b06d0272598a5c4af001f2,/Image234.jpg,base,General,365,SG,0
+,,felicia@qcn.com.sg,Felicia Wee,1986-10-19,Female,cdb0ee6da7a264080c7dfc27b0453c11a2295f64,,base,General,366,SG,0
+,,truely_retards@hotmail.com,beverlyn,1991-10-26,Female,a5721a7f6fc4863112d17d23b54cce0b5ff2980b,,base,General,367,SG,0
+,,hann_ee@hotmail.com,hannah,1991-12-05,Female,171df39c31e58ad5a8ae9198ff3aa4684ad3d242,,base,General,368,SG,1.03
+,,lucylooteo@hotmail.com,Lucy Teo,1970-01-15,Female,3bec660c32364455f8b1f9306a1de63fe387279e,,base,General,369,SG,0
+,,myztically@hotmail.com,Rita,1979-09-11,Female,138556392dc2d84ab535be8f511a9cf5950d9535,,base,General,370,SG,0
+,,fionadoresemilystrange@yahoo.com.sg,Fiona Lam,1990-04-08,Female,c796d0cf16317ec76e6b03b3bffdc18bb0a50ae1,,base,General,371,SG,0
+,,lil-barbiedoll@Hotmail.com,andrea,1993-10-14,Female,3037b6291dc6f4e42e3ac48edf400790d1a5b7a7,,base,General,372,SG,0
+,,erikorelation@gmail.com,Ying Ju,1986-11-13,Female,97abcb94e4a07eccec253f7a5fee5734992ec216,,base,General,373,SG,0
+,,angela_seow@hotmail.com,huiyin,1987-12-24,Female,c820eb2db06e3f3d34a5337f4b868d075bd1a50b,,base,General,374,SG,0
+,,evalasting_me@hotmail.com,Daniel,1985-01-17,Male,665421908c960378c957970cf9d63815ec740663,,base,General,375,SG,0
+,,vanness_09@hotmail.com,venessa chua,1988-09-30,Female,c16ad0719889a9c19d32f67556fd299840a0a6c7,,base,General,376,SG,0
+,,ilovemyboyfriendso@hotmail.com,Dawnelle Chua,1989-05-04,Female,77e2dd5f57fe1547718656d960162168ab9a5d80,,base,General,377,SG,0
+,,ansinbiocare@gmail.com,Meijuan,1990-06-28,Female,00ad32c421fcb5526a2291091f77d18162e1e2c2,,base,General,378,SG,0
+,,ourpinkycloset_jo@yahoo.com.sg,josephine,1978-02-15,Female,3db3cb314424e2c4aa410dbb7efc4dd28376fadd,,base,General,379,SG,0
+,,tiramisu_wendy@hotmail.com,wendy,1987-08-14,Female,d533868b5f1af3e7286092b725a323b731a1e926,,base,General,380,SG,0
+,,meijuan-@hotmail.com,Meijuan,1990-06-28,Female,18f434211c989f23a300aa14457ae0eb17060184,,base,General,381,SG,0
+,,yunrui.ruirui@yahoo.com.sg,Eugenia Lim,1989-11-29,Female,a41b5ed9f33495281152070cc12aba6fccf36747,,base,General,382,SG,0
+,,lin_sm16@yahoo.com.sg,shumei,1985-12-21,Female,96733688ac57cbe412e7aae02c662a2520e3df4e,,base,General,383,SG,0
+,,whyearth@hotmail.com,Luo Jiahui,1983-09-06,Male,5c7bd78cfd75c6049e03383225ffbf6a5141f83b,,base,General,384,SG,0
+,,adelene_2002@hotmail.com,Adelene Tan,1987-12-27,Female,203e2deed92dcbb6302cdd48cd1b3fa80241f681,,base,General,385,SG,0
+,,chotoki@yahoo.com,NG LI TING,1986-12-30,Female,adffee771b4b48407632b2f0528a6030119104d5,/38692_426402663192_695518192_4,base,General,386,SG,0
+,,ootingxoo@hotmail.com,Sueyhweeting,1991-12-30,Female,560a93af31f24cadff9712a71b6974cfe5be2eae,,base,General,387,SG,0
+,,foo_xiuling@hotmail.com,Foo Xiuling,1986-04-03,Female,bfbf503ea7b7db8548483c68fdc4f22ac7a59417,,base,General,388,SG,0
+,,mikoypw@gmail.com,miko,1987-05-02,Female,51964bf73da26767716b1f25abf8b2f65c3d3052,,base,General,389,SG,0
+,,sharonville@hotmail.com,Sharon,1985-10-25,Female,a4b3cddc17bab60e6964a73d45c79667c5a8a1bf,,base,General,390,SG,0
+,,aly_aesthetic86@hotmail.com,sk,1986-08-20,Female,214e99b6da40cf5be5e2f6cbb6fcfea6f211c6f4,,base,General,391,SG,0
+,,rabbitbellangela@hotmail.com,Angela Zhang Anqi,1991-08-27,Female,ce7d502a9f1f0704c9d05e09d79efee9e64daf59,,base,General,392,SG,0
+,,chotchke@gmail.com,Wanxin,1988-09-28,Female,ac77a9454f83725ebb46a895514545916cc2a500,,base,General,393,SG,0
+,,lizzie_pinkiez@hotmail.com,Lizawati,1982-06-12,Female,aee092f1b2f44ff52c7488d6aa06e969694be685,,base,General,394,SG,0
+,,fr3nzy_fan5@hotmail.com,Choo Huey Wen,1988-11-08,Female,4d07e37faf1f9289953d796c18ecb5252f7a7738,,base,General,395,SG,0
+,,ilovejacelyn@hotmail.com,Jacelyn Pang,1988-08-15,Female,9f4e439f18a72fdd6359015b50e59f001b61fc17,,base,General,396,SG,0
+,,ah_jie1989@hotmail.com,Wei jie,1990-07-24,Male,8ff4c227054ec44969dd9a22833f791ef0412e20,,base,General,397,SG,0
+,,raymondtan_1988@hotmail.com,Raymond Tan,1988-04-06,Male,009d028309825d6b21081a7eceaf57907157cd03,,base,General,398,SG,0
+,,michelle_168@hotmail.com,Michelle PS,1990-10-17,Female,736d40a76b91a93ac78abfb380f3a20e239f1cd5,,base,General,399,SG,0
+,,ah-lings@hotmail.com,ng wan ling,1993-12-31,Female,c71da37523479899722a573f0fc7e46f78cf5fc0,,base,General,400,SG,0
+,,ashlee_fly@hotmail.com,weimin,1995-03-29,Female,c077129ee236c7e7db2283b9e13b11ce981c7e49,,base,General,401,SG,0
+,,clarissachew2005@hotmail.com,Chew Si Pei,1992-02-16,Female,e8e6e9fd769ef8564bf0e40e18107a857c01801d,,base,General,402,SG,8.05
+,,tesoro-10@hotmail.com,Faezah,1988-08-26,Female,10a1576116d55e9ac39e51b7ff0bb4d3050e20f6,,base,General,403,SG,0
+,,babykangaroo_91@hotmail.com,Joey,1991-11-06,Female,d7f0d45f92e9fd0ae57a019faf21fbf7aad1a8ba,,base,General,404,SG,0
+,,crazy__shirleyy@hotmail.com,shirley,1992-05-27,Female,56040c707956ee15843ceeb99907ac175c2aa198,,base,General,405,SG,0
+,,xiaodazhu@gmail.com,eme ,1987-03-21,Female,6fae8d8f4abde02ac07c05855a1586eb0ff95f7f,,base,General,406,SG,0
+,,wow-eee@hotmail.com,wow-eee,1989-01-15,Female,7056f4852ed7ca662eb85d20eb1d6c912507786a,,base,General,407,SG,0
+,,funk26687@gmail.com,Jasmine,1987-06-26,Female,b27ffe3315435ee00d257d9838b78f13846e9ad6,,base,General,408,SG,0
+,,starbrightlxye@gmail.com,Elisa Lim,1991-06-14,Female,0d276c56e07042c32293a0c6eaa331557c47f919,,base,General,409,SG,0
+,,i.r.3.n.e@hotmail.com,irene goh,1988-08-17,Female,17bba8e5efc2b3597c14c758563bf767d3d7c981,,base,General,410,SG,0
+,,lin55leen@yahoo.com.sg,Kaleen Teo,1987-04-28,Female,428d43bf3d4b6b82e674fd83e442dc790bdb60d6,,base,General,411,SG,0
+,,kakaleen@hotmail.com,leen,1987-04-28,Female,2031c42d3c84cc60491a232bfb09d6ff3505cd84,,base,General,412,SG,0
+,,momoiro_8@yahoo.com,Xue Ling,1987-10-23,Female,b233d553c1b621ef2577aa898976c7e2cb726e47,,base,General,413,SG,0
+,,pamela_ssj@hotmail.com,Pamela,1989-09-17,Female,b08b72144896b5fdd58854960306a01e1177485a,,base,General,414,SG,0
+,,dingy88@hotmail.com,Chia Ding Zhi,1988-08-08,Male,9477263dc8e9f33ec31389536d2f44a096e16ca1,,base,General,415,SG,0
+,,fireviolet_21@yahoo.com.sg,Elaine ,1979-09-07,Female,e453fd727c1cad30e2eb17b9bde063502aff1077,,base,General,416,SG,0
+,,izzit_artemiz@hotmail.com,Patricia,1988-07-20,Female,75bda92045d4abda6772be10854f508cfe64895e,,base,General,417,SG,0
+,,peiqichen@gmail.com,peiqi,1988-09-27,Female,c8b4b3b534aeb4e2e2b6ccfed52fdd25cecef4b8,,base,General,418,SG,0
+,,hapflower@hotmail.com,Jolin Chua,1980-09-24,Female,d62b51459ad613f3deb4a6a9a35d131f2273c195,/738f6542fd53b1a458936243adbaf670.gif,base,General,419,SG,0
+,,menglosh@starhub.net.sg,Nicholas Wong,1977-09-19,Male,3539ff86741517b319874af5c923b010d73bd701,,base,General,420,SG,0
+,,shadowedmemoire@gmail.com,yiting,1989-08-23,Female,059835dd465809c0cbe6e765aeccd0a1bd03b665,,base,General,421,SG,0
+,,ten_ling@hotmail.com,rae lim yee ling,1990-05-02,Female,1c46f63d6158966172d94e81e0f862b209d8c638,,base,General,422,SG,0
+,,joeychue@singnet.com.sg,Joey,1987-03-27,Male,3ac37d8df3f3f490e498ede94280d30960651f25,,base,General,423,SG,0
+,,debbie_boh@hotmail.com,Debbie Boh,1989-12-18,Female,d1680ba1a47e9f2adfb67896156965f107cf4ae9,,base,General,424,SG,0
+,,karonq@yahoo.com.sg,karon quek,1973-06-04,Female,524f72d3083e34cad69205ff3813cc156aa19e51,,base,General,425,SG,0
+,,siao_char_bo89@hotmail.com,Cindy,1989-04-08,Female,088595b4fbbd0a02ea31c4cc3c589bc195a530b6,,base,General,426,SG,0
+,,nicholastan2003@hotmail.com,Tan Chee Tiong,1960-12-16,Male,1e492b963b96eb3de93115edb0f8397bb05e1693,,base,General,427,SG,0
+,,junkjunk888@gmail.com,kerine,1987-05-08,Female,5f04b818d9c42988826983b46724f2c5c91fb9da,,base,General,428,SG,0
+,,stars_vera@hotmail.com,Angela Lim,1986-03-06,Female,c0af2fc36db4488dd189b2cd98eafcee91938e98,,base,General,429,SG,0
+,,superachel-@hotmail.com,Rachel,1994-03-24,Female,9951f4e3f0e3695c64b06aec11a53baedf07f592,,base,General,430,SG,0
+,,bethalu@gmail.com,Betha Lu,1979-02-25,Female,e160c1976d3f69fff247b09573f80cc8e2e4e55a,,base,General,431,SG,0
+,,fuishien@yahoo.com,Fui Shien,1983-01-07,Female,b0edb16b39eae034346663b3d05240e290840db6,,base,General,432,SG,0
+,,dgjr_1122@hotmail.com,Damien Goh,1987-11-22,Male,b497858a8a9b01cf1f43d75be696646a661ef869,,base,General,433,SG,0
+,,meihui_ger@hotmail.com,melissa,1994-06-05,Female,ffe65887fda96862333d1d6d51e3b51495a1d836,,base,General,434,SG,0
+,,meizhenade@hotmail.com,meizhen,1987-04-07,Female,7c7512599d94f42c67ad7724e5541492a4ff7905,,base,General,435,SG,0
+,,angyanjie@hotmail.com,yanjie,1992-06-12,Female,6ad5d133745b1c9c4afb5fed14c852781c0019ce,,base,General,436,SG,0
+,,jerene23@gmail.com,Jerene,1985-03-23,Female,6a7af68d698632cbf9ed58a2aba0abfc7cceff46,,base,General,437,SG,0
+,,yongyuanaiinii@gmail.com,Jerlyn,1987-05-30,Female,454e7362398ed84589ec60b023a92636d3df7270,,base,General,438,SG,0
+,,simply_piink@hotmail.com,vivien,1990-12-21,Female,7836f3d7ec6c9f57d385e6fc17348fcd35409c64,,base,General,439,SG,0
+,,momo_koh84@yahoo.com.sg,Koh Payne,1984-11-04,Female,f6dc26fcbb705b6ddf1c96525836d0f8c2a2166a,,base,General,440,SG,7.01
+,,yewsiewyin@yahoo.com.sg,Jess,1982-12-18,Female,3eba22ecaf2ce2a04565ceadbaefc03e85c4097a,,base,General,441,SG,0
+,,affinity-@live.com.sg,vyvy,1989-10-16,Female,0d71dc64f8429847cf8ccc2cc4cf71f1efd610c0,,base,General,442,SG,0
+,,Geraldine.tay@hotmail.com,Geraldine,1990-05-16,Female,48a7777ad44c02120b6f23f95f8c14def3400183,,base,General,443,SG,0
+,,sky.declare@gmail.com,Hee Chuan Whai,1991-11-05,Female,5c2c62ffa9afd929299d20ea03c579ac5a75eb45,,base,General,444,SG,0
+,,sher1993@hotmail.com,Shermaine Lim,1993-03-01,Female,78fee3077496047c01929c5f4b896fcfa1bae09c,,base,General,445,SG,0
+,,janice_kitten@hotmail.com,Gaiana Damaris Lim,1993-09-30,Female,2c8a0ed77e7ab4674d869fe11314c0ae93f766b4,,base,General,446,SG,0
+,,gal_july@hotmail.com,Nurul Farhah,1990-07-27,Female,d78be25f6b198d592278bdb42cb3a722cb4df753,,base,General,447,SG,0
+,,Jingling963@hotmail.com,Catherine Soh,1989-10-19,Female,0f5f2cd12b47b6e5ad6b007db74dec70f7fdc31a,,base,General,448,SG,0
+,,sherlyn.gan@gmail.com,sherlyn gan,1988-11-22,Female,dd59601d490e155725bc79645ef14e3e85c6f504,,base,General,449,SG,0
+,,capturedd@gmail.com,Joanna Koh,1990-04-20,Female,83a3c7ca7cf01b9394802e1b0195e2e4c5b8a64b,/Photo_on_2010-10-21_at_20.15_#,base,General,450,SG,0
+,,jojoan_031095@hotmail.com,Joanne,1995-10-03,Female,45b8b5e92701a9979d141f3030ca387acba57d29,,base,General,451,SG,0
+,,iamdennisinned@hotmail.com,Dennis Check,1984-03-09,Male,f309036539b011747370bbfb17ed66971be0812d,,base,General,452,SG,0
+,,haodidi@hotmail.com,Chan Chun Hoe,1984-10-04,Male,7e16bbf5fc345e7320133de1d2936c24926045ec,,base,General,453,SG,0
+,,serene246@hotmail.com,Cheryl,1994-04-13,Female,8e50badbe84e564140a7cc1c3892dcdbd319528f,,base,General,454,SG,0
+,,tjm_140681@hotmail.com,toh,1982-06-14,Male,b0e75f2aeda766b26fe08ac57ca12d2ffb765b76,,base,General,455,SG,0
+,,newtyqw@hotmail.com,chester chua,1990-10-17,Male,e375ab03733deeea2cc1a6854c62f3aa97e1c111,,base,General,456,SG,0
+,,crystal_casing@hotmail.com,Marcus Ong,1985-12-13,Male,9350a31e72e75edd9d83462991df249c22ce50a2,,base,General,457,SG,0
+,,zzzdaydreamer@hotmail.com,Jasmine,1987-05-25,Female,c5bd2d8428c3f9dc34190c64a61084aeda73448c,,base,General,458,SG,0
+,,chocm85@yahoo.com,Joyce,1985-03-29,Female,c0638507cd287a8ad1a07436e3d182079349e55e,,base,General,459,SG,0
+,,alana2929@hotmail.com,Edna Tan,1991-03-29,Female,70f66807ebdd251040249dbde302876512f785de,,base,General,460,SG,0
+,,natleying@hotmail.com,Natalie Toh,1991-12-25,Female,c0752d50b957bb4f14687948e6eb30de8409f66c,,base,General,461,SG,0
+,,real0fficer@hotmail.com,Luo Yonghui,1985-12-06,Male,03f3b36e82691437d5d5a07b76b1abaadeb65d02,,base,General,462,SG,0
+,,klc_volley@hotmail.com,Tracy,1988-01-04,Female,c75071270df44c2a80ca04ed2530bb42b1480084,,base,General,463,SG,0
+,,iamabread@hotmail.com,kelly,1989-07-05,Female,c6638caccdf708f084d17e7c16afed6e3f640478,,base,General,464,SG,0
+,,vanessajohari@hotmail.com,MadeleineJohari,1980-05-25,Female,7fa795e6be03b54011cdb6acc021cc5f14cdad5e,,base,General,465,SG,0
+,,y2darkdevil@hotmail.com,CHUI WAI HON,1986-08-06,Male,e23f31adaf98c83e743446d9c7f83721832468cd,,base,General,466,SG,0
+,,nuttin84@hotmail.com,Vincent Leong,1984-03-03,Male,a7f73e7168c99be7fd7566f6fd3e33867e329bed,,base,General,467,SG,0
+,,jianwen15@hotmail.com,Thomas,1985-10-15,Male,5b27ea7b2873b78ee0e9bd3d93ebc717a1f90706,,base,General,468,SG,0
+,,ong.siqi@gmail.com,Elycia Ong,1990-04-25,Female,f28b1441e988df3a3379de761fd8771d3df8be35,,base,General,469,SG,0
+,,warzone9992003@yahoo.com,Kwan Dihui ,1983-12-24,Male,c82c59879790a2e2109085ed1ef213b0c4ef13c3,,base,General,470,SG,0
+,,opal_cres@hotmail.com,ryan,1985-04-03,Male,d675337eddff8cff0d202ddcd9a7b75b5ae0e894,,base,General,471,SG,0
+,,baby_angellub_angel@hotmail.com,emily khoo,1992-01-06,Female,0f48d4d79dea0b25766504ee0d99a2ee832d5f9b,,base,General,472,SG,0
+,,stephen.bot@gmail.com,Stephen Lee,1984-09-09,Male,3106ea3499af07a434bbe7c48142b786a119ce1a,,base,General,473,SG,0
+,,galrulz90_siti@hotmail.com,Siti Khadijah Bte Kemat,1990-12-31,Female,213594db26688cdf194792536fc05e49da47f0ed,,base,General,474,SG,0
+,,siti_nazra@yahoo.com,Siti Nazra Mohamed Sani,1986-09-02,Female,f875d148ffcb900090d2673f0132e22a01d166aa,,base,General,475,SG,0
+,,bubblegum_kimoko@yahoo.com,Kimoko,1981-08-10,Female,efaf01b993a635e217cfd5482f117ed0c563a24c,/Kim.jpg,base,General,476,SG,0
+,,paperlovenote-s@hotmail.com,huixiu,1994-04-08,Female,ab317330a07552aabfc02fe54abea890921900e8,,base,General,477,SG,0
+,,smithlph@gmail.com,Smith Leong ,1986-08-31,Male,0157528dd267fb3b9cecb339797665352bdc57c2,,base,General,478,SG,0
+,,vivoparaibailar@gmail.com,Olivia,1988-05-28,Female,27fc8a2694d8af7eeee8d67ddf7c8280397b83dc,,base,General,479,SG,0
+,,rainy_daes89@hotmail.com,yuyang,1989-09-19,Female,20d4dc022a92756b176e46eb6550aa42edcf5691,,base,General,480,SG,0
+,,chien_email@yahoo.com,Cheow Chien Yi,1974-02-20,Female,bb0110fcb07380fa662abd0ab205c4273bf8fb44,,base,General,481,SG,0
+,,modchicc@gmail.com,Izan,1987-10-27,Female,1b72a8a1d4afa667476c47f74791b1c3c31c3641,,base,General,482,SG,2.3
+,,U0402711@gmail.com,Chiu Kai Ling,1985-07-17,Female,75fe6aa5bf9834c4733c8a285c9f0a2a74503f47,,base,General,483,SG,0
+,,khaymar_cutey@hotmail.com,khay mar,1989-08-21,Female,d9104d228ce3ac07f0ddf91645f0ce0821e28fab,,base,General,484,SG,0
+,,evelyn_lee87@hotmail.com,Evelyn Li,1987-12-28,Female,84383338d8caf43884e368db4ed90a949fc35ed8,,base,General,485,SG,0
+,,yeoseehwee@hotmail.com,Yeo See Hwee,1986-04-04,Male,0178c7cea79b067633eddd96eae0e19830cf911c,,base,General,486,SG,0
+,,jayiantan@hotmail.com,Jay-ian Tan,1979-12-22,Female,97e720bbc18d673f123181f083fbdeff7122ac82,,base,General,487,SG,0
+,,maaayyyzzz@yahoo.com,ng ming may,1988-05-12,Female,886bfb170ea2e1b288a95fa157a0088ba6beb8f8,,base,General,488,SG,0
+,,suhaida_sumadi@yahoo.com,Suhaida Sumadi,1986-07-12,Female,a72dda6a215a95036fbde033d7f697170eafca16,,base,General,489,SG,0
+,,mosmos77@gmail.com,Fong Kin Fai,1977-04-12,Male,012243d6ece4fc2c8359751e3c3fbc6b8dccc061,,base,General,490,SG,0
+,,gui_rong@hotmail.com,Krayon,1986-10-09,Female,1e726269eae6d8b5ec74e4a4f2e525fbdc935384,,base,General,491,SG,0
+,,alllurez@hotmail.com,Serena,1982-12-02,Female,a29158756901a6511e49e9c57f290461b68fce10,,base,General,492,SG,0
+,,kris_jc@hotmail.com,Faith,1983-05-14,Female,8de63ecdb9dd93bd033aec5e795193fa35600b40,,base,General,493,SG,0
+,,barleyan@hotmail.com,helen ang,1978-11-24,Female,9b4fea5d27f7c2b1363bf6830cae9a450d725edc,,base,General,494,SG,0
+,,club87er@gmail.com,Junita,1987-06-20,Female,aa932431a8206fb77937226e67fe75539e086ffb,,base,General,495,SG,0
+,,hyperbole@gmail.com,Samantha,1986-07-30,Female,02e14ec88b437f6d07d8d5daed7e33eeecfa7de5,,base,General,496,SG,0
+,,hweeying0909@hotmail.com,Tan Hwee Ying,1988-04-09,Female,0e8db4776c02b4ac368dadc4ff575cf6c049d2d2,,base,General,497,SG,0
+,,hazelkung@hotmail.com,Hazel,1986-04-13,Female,b23a15288f5676fb8e312438027105459d6830b5,,base,General,498,SG,0
+,,ckmeooy@gmail.com,amanda,1985-11-19,Female,0a8e7670e105667d15d56d140e59686b0a2b8af1,,base,General,499,SG,0
+,,zura_15@hotmail.com,Zura,1985-05-26,Female,deb39fba5b4334d9352f9d0074ba6c00de49c75a,,base,General,500,SG,0
+,,deniseloo@hotmail.com,denise loo,1991-03-24,Female,181f25fd4fc2590f62a023e3ab6ba20b4b5ea19c,,base,General,501,SG,0
+,,jyunnz@gmail.com,jooyun,1988-05-07,Female,9770cce421887e42d03e90c5f0d525158d7c55f6,,base,General,502,SG,0
+,,cammygan@gmail.com,cammy gan,1980-02-26,Female,2804a2fab9e005635c058c53dc622cd3b8cfc11e,,base,General,503,SG,0
+,,sendsomelove@gmail.com,Sha J,1988-11-22,Female,cac6ec8439a4e65caf4b91a32be1994326bc521a,,base,General,504,SG,0
+,,crazy_gal162@yahoo.com,Jie En,1983-12-17,Female,6a7bbe8dc467d69b35608f3edcdc9b358cbd88b9,,base,General,505,SG,0
+,,xineclky@hotmail.com,christine ,1984-09-23,Female,184362e1eaa2a185726f8de589608c496f0b20c0,,base,General,506,SG,0
+,,adeline_xinyi@yahoo.co.uk,Tan Xin Yi Adeline,1987-07-03,Female,42550a969537c203665a546288e440c445c3bdf4,,base,General,507,SG,0
+,,bewitched88_@hotmail.com,Ria,1988-11-11,Female,0029fcf38276c6487ea2566e70e9a00d541f981d,,base,General,508,SG,0
+,,icesng31@yahoo.com,Janice,1986-08-31,Female,d4afa3144b4087e0a73d0c6d6b731c9715f5c359,,base,General,509,SG,0
+,,pacific2k@hotmail.com,Kelvin Lim,1988-09-24,Male,1f2c2c11a9f479f97548744c7da9fd6f2c46d6b2,,base,General,510,SG,0
+,,elainewu78@gmail.com,Elaine Wu,1978-12-29,Female,c16c49e368781158b076d36d5727c93d40dbe082,,base,General,511,SG,0
+,,woshidingdingdong@hotmail.com,Jiahui,1989-01-26,Female,fb3ffcc30cb45678d176bf61e37b0013f960520c,,base,General,512,SG,0
+,,evelyn_cyh18@hotmail.com,Chee Yun Hui,1994-04-18,Female,086cf66690c8e464d38448bb406b25f5a9bdfe11,,base,General,513,SG,0
+,,genevek@hotmail.com,Geneve Kua,1984-10-23,Female,9941c65a49d85af3247d2d7b87d4c99fc0d28843,,base,General,514,SG,0
+,,olwr4586@gmail.com,Royston Ow,1986-05-04,Male,a4cd1f0585a832d10039eb5a186db7448601ce58,,base,General,515,SG,0
+,,wongwanru@hotmail.com,Wong Wanru,1989-09-29,Female,2ad0c13540b04ca3eff4ed8456694cbbd4dc4915,,base,General,516,SG,0
+,,iyisgnek@gmail.com,siyi,1985-06-12,Female,4bef056ecbe936258c71d66c609b3f4438310efb,,base,General,517,SG,0
+,,buttercup878@hotmail.com,Grace Lua,1987-01-09,Female,17e8f14921e87cfeaf2dcae31eb967a646cf4810,,base,General,518,SG,0
+,,koh0006@yahoo.com.sg,Koh Peck Sin,1986-09-05,Female,d40816f665832292d9c99c635faee1145ddbf82f,,base,General,519,SG,0
+,,shng1002@yahoo.com.sg,Jace Ng,1920-05-30,Female,9db93bb2b7c1bf8c88074e48f5edd9e8d4cd1176,,base,General,520,SG,0
+,,angelstars_87@Hotmail.com,mypinkoreos,1987-11-30,Female,1f6c0edaadc0c763e17c6e79e91327f8739e0d4f,,base,General,521,SG,0
+,,paradise_lost87@hotmail.com,Michelle Kuek,1987-03-06,Female,1449b4aa854b6f400fa91c914aa04ba6c8eb2f20,,base,General,522,SG,0
+,,hoc.rachel@gmail.com,Rachel Ho,1987-11-01,Female,4a08c30882c38342f94533d523a5dc050d8b269a,,base,General,523,SG,0
+,,delight_ful_gall@yahoo.com.sg,callyn,1989-12-16,Female,4ab2aa7678282d1a8c49a0f41df9bee900f5d8d2,,base,General,524,SG,0
+,,wy_nike@hotmail.com,wendy,1986-09-09,Female,c6206e51f9c0cc4ad00a6ffad5a396c00c494c71,,base,General,525,SG,0
+,,kasil_33@yahoo.com,Lisa Koh,1982-12-07,Female,719658a1fc64cd4352031ea5c01ec780256e9df5,,base,General,526,SG,0
+,,roxzen@lycos.com,Ng Hoon Hong,1984-05-28,Female,6bbcd59f6b306413509dce4aa33a8f93e18c47c6,,base,General,527,SG,0
+,,sendto.lina@gmail.com,linakoh,1986-09-05,Female,4f0791d7b1b8dac9cf2617f1ed4f41b066002ed3,,base,General,528,SG,0
+,,siaobo@hotmail.com,Edwin,1983-06-02,Male,9c6fe1591c5b87c8b98bb41057c3a09fe321f85b,,base,General,529,SG,0
+,,eileen.neo.yilin@gmail.com,Eileen,1986-11-13,Female,23e08d4c7afc4786a45d1f37924db9d0695eeabd,,base,General,530,SG,0
+,,lingteh85@hotmail.com,Teh Ling Ling,1985-11-15,Female,46c65f49eb2ca9552871c648899c6e1b07a3880b,,base,General,531,SG,0
+,,jingfeng_89@hotmail.com,Phey Jing Feng,1989-06-21,Male,f82c42a3e1f2f4c799a7494bf8d1e8e1e3ed2626,,base,General,532,SG,0
+,,siaogeena@yahoo.com.sg,Fong Wen Pang Benjamin,1980-11-25,Male,0bf79b33147af99ee2a00bb6b5d559ac5e386705,,base,General,533,SG,0
+,,patrick_voo@yahoo.com,Patrick Voo,1974-11-06,Male,4db84b1bf122d4dfa726c6501cb1adcd731e50f5,,base,General,534,SG,0
+,,janicejanel@yahoo.com.sg,Janel,1985-11-08,Female,c13c593c12fdc78dff5385fa1a3c22902c577d79,,base,General,535,SG,0
+,,tequila_7_ek@msn.com,Eileen,1986-01-29,Female,8214b9ac121030a86378164f0613b412d2b99bdc,,base,General,536,SG,0
+,,hamster_socute@hotmail.com,Chan Chi Teng,1987-06-03,Female,acf179a59225ea27782f9426daa09c082ce25721,,base,General,537,SG,0
+,,anqi2706@hotmail.com,Angela Tan,1986-06-27,Female,e7f255aab405b2b3fdd3022adeb1bd27b07c620f,,base,General,538,SG,0
+,,unidentified-@hotmail.com,yingying,1991-04-07,Female,2d3ef599ae31362b5a0567e1f443d92d6d5d3a0a,,base,General,539,SG,0
+,,herwarrior17@hotmail.com,summer,1990-03-17,Female,e88902991a95f32fbc8daf9911a54f2d4ed11c93,,base,General,540,SG,0
+,,shinyliner@hotmail.com,ivan,1973-11-08,Male,27df595cca8633737d09ffb3807b47e718f1930d,,base,General,541,SG,0
+,,koh.hanwei@gmail.com,Koh Han Wei,1985-04-28,Male,5f71d4f8001f8fd65a875c9b5a93e3e74c554c05,,base,General,542,SG,0
+,,sendohcg@yahoo.com,Edwin,1984-12-12,Male,d1307875733eb2df95518211a2165cc1409d9606,,base,General,543,SG,0
+,,kristin.yvonn@gmail.com,Yvonne,1984-05-21,Female,97d501f1a5aa45d645e0cbf2f40b8b81d0891579,,base,General,544,SG,0
+,,pein@live.com.sg,Edwin,1984-12-12,Male,1d6329a84751627c9db25cf4a45875e0050f5345,,base,General,545,SG,0
+,,6thmarch@gmail.com,Benjamin Yam,1991-03-06,Male,a2952989318c08d5c04e64fb780649fb5ddebaaf,,base,General,546,SG,0
+,,supershoppie@yahoo.com.sg,Richelle,1985-09-01,Female,c76acb277b1c44b4ee2c02d1ebca11077e3665f0,,base,General,547,SG,0
+,,snow.tv.addict@hotmail.com,ivy,1992-12-22,Female,71d542cd861877546264317af31694b96238e591,,base,General,548,SG,0
+,,zhenhao83@gmail.com,Sin Zhen Hao,1983-11-21,Male,42037d28910bb446d885feef619f07a0d9b5d4c1,,base,General,549,SG,0
+,,joriephey@yahoo.com.sg,Jorie,1985-11-08,Female,9f1e84f9a39427899cd76a668df504271e7405c0,,base,General,550,SG,0
+,,charlottetan2@gmail.com,charlotte,1987-03-26,Female,cf717f13431524e4dcbebb1d0ee2200edab2e324,,base,General,551,SG,0
+,,findyeexian56_cyndi@hotmail.com,Yeexian,1992-10-20,Female,5536388bc16e1cc77a1a4590f52ce8e3534a0e20,,base,General,552,SG,0
+,,fatal_trap@hotmail.com,ann,1987-04-20,Female,0ff291e66513996d93867e3d8192d31dcb0864f0,,base,General,553,SG,0
+,,boo.boo.ears@gmail.com,Nurul Atiqah Zulkfili,1991-03-03,Female,1c42d441cca6d352a02584565d8e2694d4b96afa,,base,General,554,SG,0
+,,funky_shop@hotmail.com,claire,1990-06-15,Female,918c9ca5b2d472d7f8e63ba7bf5bb44196d4b958,,base,General,555,SG,0
+,,weng_mun20@yahoo.com.sg,Angeline,1983-01-20,Female,09dc976d6adb332976174d5711fa4bf2e2d5e14e,,base,General,556,SG,0
+,,spearmint87@hotmail.com,shiling,1987-03-01,Female,46a163d95164f4904702a180fa7426e8687da46c,,base,General,557,SG,0
+,,dauphin_z@hotmail.com,Zixian,1988-11-18,Female,3886dbe587ea18c9a4fee5743ebc7985ed79b34a,,base,General,558,SG,0
+,,mushroom_bibi@hotmail.com,Pauline,1990-11-19,Female,3bb598e10bc8f66bdd1b71c3623dae273708fb4a,,base,General,559,SG,0
+,,jolin1989@hotmail.com,Wong Li Ling,1989-01-09,Female,df03b01c3ee8dd954ac48eb2cace9911ccaf2c0e,,base,General,560,SG,0
+,,girls-furtive@hotmail.com,hui,1991-08-31,Female,b9c5a7e0e67477ce3e7eee1f78d23710f99ba0b3,,base,General,561,SG,0
+,,agneslim81@gmail.com,Agnes,1981-09-08,Female,8e17207c232007a824939a770b3ae105ab6ae9d8,,base,General,562,SG,5.22
+,,nor_adlina@hotmail.com,Adlina,1986-06-20,Female,f198ae70afd439be1f0440e1b223298084b3fdc5,,base,General,563,SG,0
+,,x__ilu@hotmail.com,Yu Ling,1991-09-24,Female,da2b9d1ebd7206856ef2859ed5f38fb155859ce9,,base,General,564,SG,0
+,,yusame1205@gmail.com,Amelia,1985-11-29,Female,15301bc71fa5be732db8a39d8a5ba14d00c3e47e,,base,General,565,SG,0
+,,cherisho0@hotmail.com,Cheryl,1986-02-26,Female,297d33ee5474ecb7d67f279f1aa7746f828b8f13,,base,General,566,SG,0
+,,xingjues@gmail.com,Tan Xing Jue,1991-12-22,Female,16f65637acb1135ab70cfd5e5b1524d40510f063,,base,General,567,SG,0
+,,riceeatme@hotmail.com,Yu Im,1987-07-22,Female,7429264d4f5dc582a5132a97521a518782110ae8,,base,General,568,SG,0
+,,gothicfairies@gmail.com,Irene Lau,1985-07-31,Female,4e7320814289cc35f7892fd64eb48078e0bdc40a,,base,General,569,SG,0
+,,swimming39@hotmail.com,Karen,1989-01-06,Female,1b3e28e3495aab70f62691dfb8b6601e3e40b645,,base,General,570,SG,0
+,,Shakemyfingers@hotmail.com,samantha shum,1993-02-14,Female,85b3d5df40c57fd508c2b4b0b9cfbfb30df10485,,base,General,571,SG,0
+,,orange.melissa@gmail.com,Melissa,1989-05-27,Female,30da92449b139909d99199d8187339e3ab934f16,,base,General,572,SG,0
+,,daphne@munkee.org,daphne,1980-08-08,Female,075925958c7125dee23ff77a03a05f7d8a82bb32,,base,General,573,SG,0
+,,Darkstar261@hotmail.com,Kenneth,1992-06-10,Male,0643902993e86282012bcd54aee36c0723cbc658,,base,General,574,SG,0
+,,reginarht@hotmail.com,regina ruan,1989-05-04,Female,6146b8316d1a6e9c0d0dde765a5c8fd424eb9129,,base,General,575,SG,0
+,,fruitmelody@hellokitty.com,Cheng Shi Qi,1985-01-30,Female,8f393cf00794b3dbc4993393b176853669ad1d61,,base,General,576,SG,0
+,,i.heart.smelly.boys@gmail.com,Cheryl,1987-07-07,Female,26f98f1c3e30c833187b7fc52899c2909b50a3fd,,base,General,577,SG,0
+,,emilygal88@hotmail.com,Emily Liao,1988-07-09,Female,8b6579413d8b6fdc8f777ade1301760c49015ef1,,base,General,578,SG,0
+,,acid.bar@hotmail.com,klarice,1987-03-28,Female,e0e86e2b6a9f234cfe272ebd8f70ebb2c517d18b,,base,General,579,SG,0
+,,wu_jiaqian@hotmail.com,Jesslyn,1988-11-12,Female,008bdaf5d493ad9d3db47a292a3c000a32dd3101,,base,General,580,SG,0
+,,amethyst.twine@gmail.com,Joanne,1988-05-01,Female,cddd07712b7bddaf72057a8112be188d16a41877,,base,General,581,SG,0
+,,huimei.zhang@hotmail.com,Zhang Huimei,1984-08-12,Female,99c9b15b9c3237166c91a5cfbab16d0648b521b2,,base,General,582,SG,0
+,,ng0079ng@ntu.edu.sg,NG LAI KENG,1983-06-01,Male,fab0cd05a2f342807875c09547a6aec17a3e1b19,,base,General,583,SG,0
+,,bahari_goma@hotmail.com,Bahari,1991-02-20,Male,ec338cb9b51a4d5a00c6a3bf15a786adc1382a09,,base,General,584,SG,0
+,,akl48@hotmail.com,Janis,1948-03-01,Female,229951f5d9f25466a0055ce2b70402a155531b15,,base,General,585,SG,0
+,,jasminetanrh@gmail.com,Jasmine Tan,1987-05-03,Female,db16032c09a2eb6d820dd2e585ac25a97c6beb0f,,base,General,586,SG,0
+,,missahwish@gmail.com,Winnie Chen,1985-09-22,Female,4de9d01461ebdfa3aea0ee49a24e44000aa9759a,,base,General,587,SG,0
+,,skvivian07@yahoo.com.sg,Vivian Ang,1971-04-27,Female,9f38142a15c3b3ff2197d2b1a89841f919905deb,,base,General,588,SG,0
+,,zoohunter2002@yahoo.com.sg,kahwei,1979-06-25,Male,9d46fb1d0ee79df49f393cb9c5a98d311526425c,,base,General,589,SG,0
+,,evontehh@gmail.com,evon,1988-04-16,Female,bfd0150a0f36db0c802c39fe855a3d97f92b4e38,,base,General,590,SG,0
+,,taxes_gal@hotmail.com,Nur Juwana Binte Sh Othman,1984-01-27,Female,210aa271badb74c7e945ae0314ed077260e0b100,,base,General,591,SG,0
+,,kohtammy@gmail.com,tammy,1985-09-22,Female,3a0f24dc1c7008dd369e0c49e41a54c348babb76,,base,General,592,SG,0
+,,loisleong@gmail.com,Lois,1980-08-11,Female,d26e5ffb352ad380a242c2682c21ba773930347e,,base,General,593,SG,0
+,,iamwhoyouthinkiam@hotmail.com,Cindy Khoo,1988-10-01,Female,ee6edc236673d3610b6869e42214eb09ff9eef47,,base,General,594,SG,0
+,,charmaiin@hotmail.com,charmain,1987-04-14,Female,baeb386e5cc54532c1264429f4bc71b02c944c49,,base,General,595,SG,5.22
+,,jo.annawong@hotmail.com,Joanna,1991-12-10,Female,22fc32e4ef2c076a52c68694bfcbe7b288bd6994,,base,General,596,SG,0
+,,ocean_gal330@hotmail.com,Ruth,1990-05-06,Female,34b5e77213e1a72a706a8edf87bed22679a1332e,,base,General,597,SG,0
+,,turbulentshores@gmail.com,Dorothea,1992-10-08,Female,261302164dc5f80f6d50bdc0942a96c273022483,,base,General,598,SG,0
+,,lilmerrymant@gmail.com,joy,1989-10-09,Female,c54bf225afe6765a93bea119252e982ca63f17ee,,base,General,599,SG,0
+,,janell.hoong@gmail.com,Janell,1987-03-26,Female,469602ca23da59c37193a4f0608c41c1b9721016,,base,General,600,SG,0
+,,blackocea@hotmail.com,Melvina Koh,1986-08-09,Female,6e391053a07419497b76257f18ea992a8bfe2b39,,base,General,601,SG,0
+,,enhanzed@hotmail.com,Hanz,1980-08-12,Male,cbe67d886140047bfac3a3e410dd3f986e89fe17,,base,General,602,SG,0
+,,balloon.x@gmail.com,Joyce,1992-08-09,Female,e1e82f92f208f696eef17c510d4aed5f5898ed27,,base,General,603,SG,0
+,,dreamclay@hotmail.com,charissa,1984-01-30,Female,0ef038a69a658ddcf933ccd03e58e1f70c790d26,,base,General,604,SG,0
+,,bettygoh23@gmail.com,Betty Goh,1976-12-23,Female,4014204cd592c47272c592ca32e828de18332634,,base,General,605,SG,0
+,,jiajie87@hotmail.com,Lim Jia Jie,1987-01-01,Male,56439516b8fa8a808537870027daabb3d76e6dac,,base,General,606,SG,0
+,,karpoo123@hotmail.com,Lim Jia Jie,1999-01-01,Female,ef9472b1c90d704f7b2c1053656268bbf7978218,,base,General,607,SG,0
+,,purplyfied-@hotmail.com,gin,1992-06-02,Female,900c728c287bab12f6fe8f2345741ff800e7ce8c,,base,General,608,SG,0
+,,tiancaicentry@hotmail.com,Terence,1988-08-02,Male,4ec2c9bcac3e3f2cd0218cca00af0ba93beb3b91,,base,General,609,SG,0
+,,seokyun86@hotmail.com,seokyun,1986-08-28,Female,2bbab5ff2932ba815f848ae8e7262fe1ad369a27,,base,General,610,SG,0
+,,healingadept@gmail.com,Daniel Tham,1981-05-23,Male,368e9cf6d0f5b0e933c65361db7b2bad1d9bf061,,base,General,611,SG,0
+,,devil_ting@hotmail.com,liting,1988-12-23,Female,66aebf1ec23df8f99404ed5709085fc419e92a6a,,base,General,612,SG,0
+,,feliqque@gmail.com,Isabel,1989-02-25,Female,1dfddabb3708516f996d44f397d6d52d36c1a77c,,base,General,613,SG,0
+,,calvin44@gmail.com,Calvin Ng,1983-04-04,Male,1400d3a58f9fdf2d8841c85e36a18491639a6e43,,base,General,614,SG,0
+,,yeo.cindy@gmail.com,Cindy,1984-09-19,Female,854e68d813502ca1ecd30e53fd73c61f68b98c4c,,base,General,615,SG,0
+,,kenny_yeohk@hotmail.com,kenny yeo,1987-08-15,Male,3802be023b479a7b7bd1379bfc74172854bedf23,,base,General,616,SG,0
+,,teresa_bernadette@yahoo.com.sg,Teresa Chong ,1986-09-05,Female,c2af4a29cdd08936e47490d8e0b2ef0793295bb3,,base,General,617,SG,0
+,,eleven.nine@hotmail.com,kailin,1990-09-11,Female,711b03799a92aecd1ec1b511681095851a8df682,,base,General,618,SG,0
+,,leejiayi7@gmail.com,Jia Yi,1990-07-03,Female,ba2326c1357ca1b6a988cb1333e3482586e4ce46,,base,General,619,SG,0
+,,piggysiao_adel@hotmail.com,adelaide,1987-09-19,Female,fdfaddd09b7c56526d875e0a8f1c62b8e05adf46,,base,General,620,SG,0
+,,lambaoyan@gmail.com,Lam Bao Yan,1984-01-15,Female,559a905b2239bc44a59f07cd026f9c9ed8f853c2,,base,General,621,SG,0
+,,lover_ger87@hotmail.com,Summer Cheam ,1987-10-01,Female,fab2146342ea53db3b3a992af4288e13cb4a266c,,base,General,622,SG,0
+,,vperiot@hotmail.com,Jewel,1987-08-24,Female,6d7077bb7abddbefb1c8d76b0fdea7b2a6ffc695,,base,General,623,SG,0
+,,pavilion-@hotmail.com,val,1987-03-14,Female,ed3b3596d2eaf3685cd4775593fe010b635cfc4c,,base,General,624,SG,0
+,,Yong_PZ@yahoo.com.sg,Yong Pei Chin,1976-08-05,Female,2ef7e790837d16e586aa69ae8acfd969e38bcc1d,,base,General,625,SG,0
+,,starclove_xinyi@hotmail.com,phoebe,1990-07-23,Female,139b171db3d5325d69f47dee76db31ccf43c88e9,,base,General,626,SG,0
+,,ngshuyu@gmail.com,Ng Shu Yu,1984-10-08,Female,e064b48558475f6b77baba972efdd7e9291e41db,,base,General,627,SG,0
+,,jiaju_85@msn.com,Sharon Tan Jia Ju,1985-05-05,Female,7f2a58ffc9d3247c966717964dd01af78ae37911,,base,General,628,SG,0
+,,junie_zhi@hotmail.com,Junie,1920-05-30,Female,f737614d3760a65e3bef5343159db715f4f6b37a,,base,General,629,SG,0
+,,estee@dreamgroup.com.sg,Estee,1983-07-23,Female,7c785ceea1f728608c229d6d1c1589de8d01da8e,,base,General,630,SG,0
+,,huiyinggg@pixnet.net,Lam Hui Ying,1987-07-15,Female,a49261fc42f72209464ca4fe6a65076a54a44a30,,base,General,631,SG,0
+,,lin_qianyue@hotmail.com,Lin Qianyue,1990-06-11,Female,28648b6294765bffd285d758c3a8cc0227f510f2,,base,General,632,SG,0
+,,chimericalz@gmail.com,Pearly,1987-09-01,Female,61feef1e48c2b22347249279132d8894e6acafcd,,base,General,633,SG,0
+,,glamrockdiva72@yahoo.com.sg,chew ya ting,1983-02-07,Female,fdcceec35f9abb464cfab6bb18c59e8ff51f53e5,,base,General,634,SG,0
+,,shuyi.kweix@gmail.com,Loh Shu Yi,1988-04-30,Female,86cd58062fba14170ebc97b1bf72f831b762cb7d,,base,General,635,SG,0
+,,siokcheng_ng@yahoo.com.sg,Ng Siok Cheng,1979-06-09,Female,8add7e937b16b72475ac3a910b346f8ba1a3e729,,base,General,636,SG,0
+,,superbread_man@hotmail.com,Chan Guo Wei,1984-11-13,Male,95bbec078d0bcbb0e9764d9da0f7803572312e6a,,base,General,637,SG,0
+,,missnikofong@gmail.com,Niko,1989-06-12,Female,6aaaf62d1b379e6456827ab69b5786abf63cffc9,,base,General,638,SG,0
+,,gal8001sxw@hotmail.com,Soh Xiu Wei,1985-08-08,Female,50102de2c4c81acf84c33fcde40c8ee2ec00438e,,base,General,639,SG,0
+,,gaikmoey2000@yahoo.com.sg,gaik moey,1962-11-16,Female,91ef5b0dfa53c327a47bb343ef38166ab3a93163,,base,General,640,SG,0
+,,ianpoh@gmail.com,ian,1985-12-26,Male,2ceb87842177e0a0705472ea87b8aa68ee4bd6b5,,base,General,641,SG,0
+,,thedarksideoflife@gmail.com,Liwen,1991-12-09,Female,b18902eb9ee642833776dc7db363d3581dde1850,,base,General,642,SG,0
+,,gin_josephine@hotmail.com,josephine,1986-03-10,Female,a6fd421ed64b3fcf1732cc2384d57d02ca0fc85b,,base,General,643,SG,0
+,,silverlast@gmail.com,ho,1974-09-27,Female,fd6884aa3a259efac53493e7d03ffe2080a0af49,,base,General,644,SG,0
+,,lau.celeste@gmail.com,Celeste,1988-07-07,Female,c73e64de92e8c2b4ed366a8b5c63a450c3761bce,,base,General,645,SG,0
+,,measure_of_a_lady@hotmail.com,Jaslin,1987-07-10,Female,64dd937bb162a7e29e3b3ed32bced72c3fc35fad,,base,General,646,SG,0
+,,arbutden@yahoo.com.sg,Chan Ting Tang,1974-01-07,Male,359ec0573daf3ab750d47797ac733c5bb46c8cf5,,base,General,647,SG,0
+,,smellybeans@gmail.com,Udaya Tay,1989-09-21,Male,21f001fbf0926fde38d83b31fa607fb3ed8912ef,,base,General,648,SG,0
+,,luv_zai79@hotmail.com,Vanessa,1990-07-05,Female,d8d74e8eb9e4ddd50c60795b9d7ed024c081711c,,base,General,649,SG,0
+,,chan-jane@hotmail.com,Jane Chan,1990-09-18,Female,99425ee833e2de8031c66cb8dd22fdd4b4bf8566,,base,General,650,SG,0
+,,weifen_15@hotmail.com,poh wei fen,1990-12-11,Female,e0476726422ee3b041ded87fed12b65c92f1d1fb,,base,General,651,SG,0
+,,lijiamin@hotmail.com,Zi Hao,1987-07-17,Female,7d5613f3e4de5d37043623e44ea741610b88a02e,,base,General,652,SG,0
+,,xia0912@gmail.com,Janice Chua,1985-06-13,Female,cce2a3e29e4b1970b6b65a49c6af5797e2110b86,,base,General,653,SG,0
+,,yu_xueling@hotmail.com,Sandy,1987-12-10,Female,3eb06502a5f5e47158a1e20fd4bc9e05d52ce4d7,,base,General,654,SG,0
+,,rebecca_f4_09@hotmail.com,rebecca,1990-08-30,Female,4d3ff72c04b4784663cdc770f087907e179b3986,,base,General,655,SG,0
+,,mingrang_3656@hotmail.com,Pek Ming Rang,1988-07-03,Female,61fcf6698b67ce523747213f16f4c42564513d97,,base,General,656,SG,0
+,,cocopela@gmail.com,Kissy,1985-10-15,Female,6ff127548ab7918111eae31ecd0fa467e8c62a9b,,base,General,657,SG,0
+,,say2151314_ivy@hotmail.com,ivy zhuo,1983-01-15,Female,cf43eeb5ec7103187f359b1b438893dce64175d1,,base,General,658,SG,0
+,,cloud0910@gmail.com,seeyun,1988-10-09,Female,7b2aa1adfba5a0506460ec65183c3e40ae895fc9,,base,General,659,SG,0
+,,frenz4ever_eli@hotmail.com,Elizabeth,1990-02-20,Female,e9269d6b594d7940b6536ec0c8279d6c4d5e8576,,base,General,660,SG,0
+,,suyunnie@gmail.com,Yunting,1988-05-30,Female,a5724ac94d9e8b057eb1e96bd69f0ef4d00826f2,,base,General,661,SG,0
+,,miyaku0902@hotmail.com,Elicia Kimberly Chan,1984-07-11,Female,742a0daf2bef843ff065afe09f941b310cc49ea6,,base,General,662,SG,0
+,,winteroceanne@hotmail.com,cherry chua,1975-09-24,Female,f61551c6d91440fbeacfa837fc6c32f4c1863d0b,,base,General,663,SG,0
+,,eileenang87@hotmail.com,Eileen Ang,1987-11-26,Female,2dcd1e00e6218756f60470a1b4445506fc4d5936,,base,General,664,SG,6.06
+,,hweihoon@gmail.com,Sion Hwei Hoon,1985-10-03,Female,79dd6d4a3e49fca98aa4783d6f1f5f4f4fa39a22,,base,General,665,SG,0
+,,dizzy_dosey@hotmail.com,LingLi,1993-12-02,Female,f157dd974b51d27545a56f3ddfa66af1d46c9a8a,,base,General,666,SG,0
+,,jocelyn_tinghui@hotmail.com,jocelyn,1990-10-11,Female,24c68ee7b04e67b0dfe323a43e9a0ae4c108ef28,,base,General,667,SG,0
+,,99539549--@live.com,vernis,1994-04-02,Female,682726ec6c6e130beb087caed85e33637fb3077d,,base,General,668,SG,0
+,,msgrapevine@hotmail.com,Lisa Roslan,1986-12-23,Female,a725a7ebbdd5d1d3281233db80e93c240c05e079,,base,General,669,SG,0
+,,changgf@hotmail.com,G F Chang,1975-07-16,Male,dfcf39e44ec1d74fb57fc56bfb6b28a8d64bb8c9,/get_image.jpg,base,General,670,SG,0
+,,angela_jiaqi@hotmail.com,Leong Jia Qi,1995-05-15,Female,a4f6488d038137b48b024e3f6369dc6f51e0468e,,base,General,671,SG,0
+,,liquidfir@gmail.com,amanda,1986-08-05,Female,b6f7cdbe973286c7f0f35680e591fe3db7a938e7,,base,General,672,SG,0
+,,board_surfer88@hotmail.com,Sherlene,1988-06-16,Female,9018580c5f43a69aa81b25f39683962cc87d9b29,,base,General,673,SG,0
+,,board_surfer88@hotmail.com,Sherlene Lian,1988-06-16,Female,5f45e2a53e5511f8f3bea2eeb28b39a8bca3bf63,,base,General,674,SG,0
+,,gwynne_chan@hotmail.com,gwynne chan,1984-08-31,Female,644e38155f68bb9716e43d8c864f4e620324592d,,base,General,675,SG,0
+,,tsetze@gmail.com,Goh Tze Shweng,1988-10-13,Male,9830e9b3d1cdc8076950ce286f009fbd8ed2afa8,,base,General,676,SG,0
+,,idontwnacarenomore@hotmail.com,linda,1991-06-20,Female,14088e38a5e3fd5d00000a46349993f87787f36a,,base,General,677,SG,0
+,,jellll@hotmail.com,jelina,1990-06-28,Female,1f32ff6e9df34030e7ff239d1376d44091f0dbfe,,base,General,678,SG,0
+,,lohwanhua@gmail.com,Nicole Loh,1988-05-25,Female,b6de0a2e89575111ccaee73279eab4f2942daa49,,base,General,679,SG,0
+,,lyan0309@hotmail.com,Lanyan,1986-03-09,Female,b19c9992ebe4d896444ee77e96f083a712e7b02c,,base,General,680,SG,0
+,,iamchristinelim@gmail.com,Christine Lim,1985-10-13,Female,828d8915de4b47942217f9632de40c5106a732c6,,base,General,681,SG,0
+,,splashes_everywhere@yahoo.com.sg,Mingyi,1987-01-15,Female,b2ba54fbc7a23c01dc210e2441977371e2385a7d,,base,General,682,SG,0
+,,sharlynnooi_mutants@hotmail.com,Sharlynn,1994-07-20,Female,b65139c38c2367dfcf6ad541c93dc71ebe9da08e,,base,General,683,SG,0
+,,metalix_lim87@hotmail.com,Desmond,1987-10-28,Male,4e02d3ca6aff339c31f1709c9c2fbc286cd2a21d,,base,General,684,SG,0
+,,mj-brokentears@hotmail.com,Valeriee,1990-11-16,Female,b3d39f73e25a0c1a51f9c4ebbbd880a485be6670,,base,General,685,SG,0
+,,valerie_tan88@hotmail.com,valerie,1920-05-30,Female,34a6dc98552183b9f446c7f4ce01142d6525a696,,base,General,686,SG,0
+,,sandy_ng91@hotmail.com,sandy,1991-08-29,Female,652347c3ba08ebd801ea1894103ee7a659c0d4d0,,base,General,687,SG,0
+,,conte5tsing@yahoo.com.sg,hazel ,1983-04-04,Female,e87bcd7e303e0428ee30902f5d089a9b4dcb1993,,base,General,688,SG,2.23
+,,apples86@hotmail.com,Noelle,1986-08-30,Female,da5fb984cb5d214707cba9f2918f03afe234be5b,,base,General,689,SG,0
+,,concon107@hotmail.com,Constance,1996-06-16,Female,fbe95d4ba2015e2ac849573ea1010c7e3bf2584e,,base,General,690,SG,0
+,,osteia@gmail.com,minix tang,1986-06-05,Female,bfed40b8e6cfb2b0c6929a0b4f39c43dacd97904,,base,General,691,SG,0
+,,icedarling1314@hotmail.com,LEE WAI LING,1978-12-31,Female,f37c424636f6938cee773081a8a3958816be48f9,,base,General,692,SG,0
+,,queen_cybervillage@hotmail.com,Syazwana,1988-04-06,Female,5e3752f930728ee52bd90ac2d94dad17b650cbb2,,base,General,693,SG,0
+,,cherrieleong@yahoo.com,Cherrie Leong,1981-10-28,Female,273774a56859295718e77477c3064524699a4155,,base,General,694,SG,0
+,,ween@yen.com.sg,pang chia ween,1972-10-24,Female,069d48abbcec8ee15e72f470a887c9e461596a86,,base,General,695,SG,0
+,,brendating@gmail.com,Brenda,1980-11-19,Female,39b2d8432f814b485858f21a198e95a2ec454ed0,,base,General,696,SG,0
+,,brendating@gmail.com,Brenda,1980-11-19,Female,3786e0e8b2c0b4e6bc0363481fe79e1829d3e2db,,base,General,697,SG,0
+,,lokleeteng@yahoo.com.sg,LOK LEE TENG,1981-02-10,Female,e08eeead48ddf76a852337add503ee9c345870fc,,base,General,698,SG,0
+,,vennbaby_84@yahoo.com.sg,Teo Sheau Tyng,1984-07-15,Female,3eede6a5f11c5131a804c3ba3ade8506606a71ae,,base,General,699,SG,0
+,,koeyalin@hotmail.com,Ya Lin,1988-11-11,Female,1b484957f7e276d93c47633b45efa7f198373238,,base,General,700,SG,0
+,,simplelives@gmail.com,Jillian,1978-07-30,Female,fdbfa173f7bea7d694e03933e80fd6d9e80b89d8,,base,General,701,SG,0
+,,princesssuperbaby@hotmail.com,Christine Tan,1988-03-14,Female,a0120d8afb6c648bba6fe9466d2729fc3f91da1d,,base,General,702,SG,0
+,,cchow@igel.com.sg,Christine Chow,1958-09-22,Female,691c08cf9a3ab1e8a95914212a7235accb9c7668,,base,General,703,SG,0
+,,kimbahlee07@gmail.com,Kimberly,1983-09-01,Female,b295e83f58d114795a06e289d9b22fc8cd11e336,,base,General,704,SG,0
+,,xia0_b3L@yahoo.com.sg,Isabel Poon,1982-07-26,Female,a118f1e53744c8d877d5b0481fc3563561e2f778,,base,General,705,SG,0
+,,mia-er@hotmail.com,Michelle Lei,1982-03-01,Female,f125c8e07dcfe223ac64330287802ff31c37893f,,base,General,706,SG,0
+,,pinky_lishi_91@hotmail.com,Clara,1991-08-06,Female,b9fcba085c885e33c03a1575367933f7b7d59163,,base,General,707,SG,0
+,,ice_teagal86@hotmail.com,Ruo Yun,1986-05-18,Female,b4b695b570b8109453eaa2001ed836c235bc6a4f,,base,General,708,SG,0
+,,jingness@gmail.com,Jing Ling,1986-01-22,Female,adebe5ea29352c266f9a77d8ec6fc3c70ced5e80,,base,General,709,SG,0
+,,zx.com.sg@hotmail.com,zx,1991-04-12,Male,acfefd0d6b2c825b79b53bad6d4f675a8a251717,,base,General,710,SG,0
+,,kel_cys@yahoo.com.sg,Kelvin Chan,1979-11-01,Male,63d0b74a58ee1208bae09d732658854c5ef17550,,base,General,711,SG,0
+,,el_leumas@yahoo.com,Samuel,1988-04-26,Male,4fd5548fdff10dffd06f49516461b84fc264e57c,,base,General,712,SG,0
+,,lhnkhang@gmail.com,Le Huynh nguyen Khang,1980-10-31,Female,06ed740e30e13062b27960e8209aa3887c9e3c65,,base,General,713,SG,0
+,,sabrina_bells@hotmail.com,Sabrina,1988-11-23,Female,46d5a64c371f69ea39c602af9598a6a0708e0226,,base,General,714,SG,0
+,,meow1991@hotmail.com,Melissa Guo,1991-04-26,Female,c66c81d98751004ffdf4a05ab8bb520231d8a370,,base,General,715,SG,0
+,,coca-latte@hotmail.com,wangshi.,1994-11-15,Female,e44b7156d6426a0d67ba4efad16bfe73228b20f5,,base,General,716,SG,0
+,,mavis_tan@live.com,mavis ,1991-06-29,Female,4018f6899619a1b90b1624fdabe0d2508145b892,/elmo-3.jpg,base,General,717,SG,0
+,,sugar-cherries@hotmail.com,Cherilyn,1992-10-14,Female,7e7dffa2a0fd972a9d0d47d428535886f8f08ca6,,base,General,718,SG,0
+,,sun_shine_qs@hotmail.com,Shann wong,1990-12-19,Female,68335d3ccd4d0a33f15bfba3f8dcef27cada700c,,base,General,719,SG,0
+,,silver.seah@gmail.com,Silver Seah,1981-07-07,Female,e55542e3dc6087d6d58e49251f493d8c83d689c5,,base,General,720,SG,0
+,,Pamng_21@hotmail.com,Pamela,1987-09-13,Female,b92a1af6ab15e0ae2bb94c4664048dd12cc5ece3,,base,General,721,SG,0
+,,yeeshufeng@yahoo.com,YEE SHU FENG,1981-10-14,Female,4d151931b8fec2949b8ce836630a3ec84b177b50,,base,General,722,SG,0
+,,d4rk_fire@hotmail.com,shumin,1992-12-26,Female,e726708c21b3f54bc1a04a2f5dc30a9eb19a7adf,,base,General,723,SG,0
+,,johnathon-@hotmail.com,johnathon,1989-05-22,Male,2dcb4db326d8ab6bc10d82e81cea0998a8e7ebe2,,base,General,724,SG,0
+,,shallwe.dance.86@gmail.com,Claire,1986-02-06,Female,bd241c26e960afa829c84b70b55b93b8ad0aa3f3,,base,General,725,SG,0
+,,summerdream_gal@hotmail.com,Amanda Choo,1992-07-10,Female,73a6c60fc6ff5fe0ff71b562c175252c0892af8d,,base,General,726,SG,0
+,,josephine_lim93@hotmail.com,Josephine,1993-10-18,Female,5cac176ef6c16ab148ab0e7d504d560bb80f3e18,,base,General,727,SG,0
+,,pietrek_chan@hotmail.com,Pietrek Chan Yansheng,1994-02-22,Male,eb0c40c722e5fbee1bd6781d5faf890bcebd2813,,base,General,728,SG,0
+,,lydiatay81@yahoo.com.sg,Lydia Tay,1981-06-08,Female,e5c27c5ac68248b66c144efc06534a2716988965,,base,General,729,SG,0
+,,fyxin85@gmail.com,FYX,1985-08-21,Female,0b817578db3f0c4ed8cb334262e29b4daf5d2c4b,,base,General,730,SG,0
+,,nghanxiang@hotmail.com,Ng Han Xiang,1988-02-16,Female,e361b6e16c9a3ab7a40fb9e145730f19ca63501e,,base,General,731,SG,0
+,,tw_dewei@hotmail.com,Ong TeckWee Jake,1985-06-25,Male,fe293f68580437f7ee7bd7ffb115b89482cf4fb8,,base,General,732,SG,0
+,,fiona.yeo@fujixerox.com,Fiona,1984-12-13,Female,f2ed86b4e278337a6ec5d10902eb5c138de9f752,/12868571895979.gif,base,General,733,SG,0
+,,mcroygoh@gmail.com,mcroy,1982-05-14,Male,b363f343b0290a72b596cd09b3a9c754b8945eed,,base,General,734,SG,0
+,,pooh-licious@live.com,Ang Xue Ying,1993-04-07,Female,e4ab67c2d2f29dd38c3fa4e6a0e2e4f4ef803bb7,,base,General,735,SG,0
+,,ferlis83@hellokitty.com,"Chen Meiru, Ferlis",1983-08-30,Female,77d8f907064666297e62d501e00e8314f46f60f6,,base,General,736,SG,0
+,,trishawong85@yahoo.com.sg,Trisha Wong,1985-12-30,Female,44d1d81aae2075f819293cc21e0850f5a4561c91,,base,General,737,SG,0
+,,r.s.toyztown@gmail.com,Reeve,1980-03-07,Male,1243adc2866921945c016cfe5f5470544ebee683,,base,General,738,SG,0
+,,xiaoman.tay@live.com.sg,tay xiaoman,1991-08-08,Female,8dc2eea6e3817a07509e0d1c727d8d1b85a28deb,,base,General,739,SG,0
+,,iloveautumnshowers@gmail.com,jessica,1987-03-14,Female,d1b119ebd360d63a4498668acb22d55d3c47c734,,base,General,740,SG,0
+,,agneswg88@hotmail.com,Agnes Wong,1974-03-16,Female,91b07c7b723bfb5f3638d0924c7030a992c7ad24,,base,General,741,SG,0
+,,iloveautumnshowers@gmail.com,jessica,1987-03-14,Female,dcc4955fd30ca506b5af82279a27e7cd4b7ef62a,,base,General,742,SG,0
+,,leonghuisun@yahoo.co.uk,Sunshine Leong,1983-05-21,Female,c84c8efd4c0f34ca0277c7cba16e2afeb72dea7f,,base,General,743,SG,0
+,,seimin00@hotmail.com,Seimin,1986-04-25,Female,6452712e2ada3fcbd0c557956f5067cf702ab14f,,base,General,744,SG,0
+,,jas2lll@hotmail.com,Leong Li Ling,1984-10-23,Female,0aafb4db385b9cc2c05705562b491ebd648a2948,,base,General,745,SG,0
+,,yellowplaster@gmail.com,eeteng,1988-09-14,Female,c508be1d50dd71a0f09225c24bd0e9c18fd8f60a,,base,General,746,SG,0
+,,c_aiwen@yahoo.com,Chung Ai Wen ,1985-03-01,Female,41822a8c400fade9b55c6a8a9050fe0c17511603,,base,General,747,SG,0
+,,guangz83@hotmail.com,Gareth Lim,1983-12-24,Male,98ea76b78a6bcce4fb79b22222b95e74ced4d2a7,,base,General,748,SG,0
+,,shanshine85@gmail.com,Shannie Leong,1985-02-19,Female,7178122cedcdf5fb61d4fc2683af32717de990c0,,base,General,749,SG,0
+,,phenilla@yahoo.com.sg,Ying,1986-06-25,Female,ff9f105810a3e9f28297a09a28f633fb1c09d9c6,,base,General,750,SG,0
+,,samuel_maomao@hotmail.com,Samuel Yeong,1990-04-24,Male,b981d1875c87791e5f6980f648641ebb78555dfb,,base,General,751,SG,0
+,,mango_ger@hotmail.com,Mindy,1985-03-16,Female,883949ad848d0e649976de1dac3af8407f07c779,,base,General,752,SG,0
+,,ahsheng_84@hotmail.com,Seah Guang Sheng,1984-11-29,Male,1e2c64a7939e4650a1be6be58cc8fef7e22a587e,,base,General,753,SG,0
+,,oohs@yahoo.com,Siew Goh,1975-02-06,Female,df45ceabd1b23cb41d4f1097113698aa70021f2e,,base,General,754,SG,0
+,,huiru87@hotmail.com,Lee Hui Ru,1987-08-13,Female,09d03376d851a32108e3df40bfc756380f68d597,,base,General,755,SG,0
+,,ilovefatchips@gmail.com,pmchua,1992-05-14,Female,65b63868976d117ab9a473f57b11d517743f2f95,,base,General,756,SG,0
+,,agirlscloset@hotmail.com,Hui Wen,1993-03-05,Female,10bbf0353304267671101a223a7f34e0b9457c25,,base,General,757,SG,0
+,,pink_hamster89ger@hotmail.com,Baoxiang,1989-12-25,Female,20e1d0834c147e70e07ad53e1d5150d2e0d2ff03,,base,General,758,SG,0
+,,serhua89@hotmail.com,Toh Ser Hua,1989-01-20,Female,c30c98e29912b69a9119af9a91a74aef506902be,,base,General,759,SG,0
+,,paganini_sg@yahoo.com,Chee Jean Hung,1986-07-27,Male,48c27d8d2881e9d177f325def9110ffea338fd79,,base,General,760,SG,0
+,,paganini_sg@yahoo.com,Chee Jean Hung,1986-07-27,Female,665ba21560a33bf660b881fab4f4a5f05ff72d5c,,base,General,761,SG,0
+,,thanz.baby@yahoo.com.sg,Ong Fei Jing ,1986-01-24,Female,bbfe1cfc69a6c986a03dfd97325b307b94ac106b,,base,General,762,SG,0
+,,chanliyinggg@gmail.com,liying,1992-03-28,Female,e2474551e81e0b031d53a13337db31ba8326daeb,,base,General,763,SG,0
+,,ishting@hotmail.com,Ethereal Neoh,1987-08-17,Female,f5a8b8290617198ae67dbef8c4d979009d921fb5,,base,General,764,SG,0
+,,tabitha@sola-gratia.per.sg,gazelle1987,1987-06-09,Female,53ab8574f00a062ea78e549c4103da3f061f846b,,base,General,765,SG,0
+,,i_am_nini14@hotmail.com,Cindy Ng,1984-11-13,Female,dcbbca4bbeb7154e06f463ee5950df27b3b78cb3,,base,General,766,SG,0
+,,june_012@hotmail.com,june teo ai kian ,1991-06-06,Female,2f4a4926ba2583c9fb5c0ef333c9104d1db3434b,,base,General,767,SG,0
+,,jaccyy@gmail.com,Jacqualine,1985-08-22,Female,d6ca1cae2d5efeb381e16062ccd647aed15aa488,/29005_403218806968_556286968_4448038_1321581_n3.jpg,base,General,768,SG,1.8
+,,thevelvetgoldmine@gmail.com,pri,1981-04-26,Female,956a88330585eaf953fc1e65632aa6b0e4a369c8,,base,General,769,SG,0
+,,shoesgal@gmail.com,Penny Pun,1985-10-08,Female,3a8dc104a0b96c9a61be60e6b4385f16d33d66ac,,base,General,770,SG,0
+,,noxtross@hotmail.com,Amy Chan,1981-03-13,Female,9491080acb2d0c337d223623aab3c798d41a093f,,base,General,771,SG,0
+,,teoshareen@hotmail.com,SHAREEN TEO WEI LING,1987-09-01,Female,46d6ac0599959a2b1a7627118638eeb9e93a7d59,,base,General,772,SG,0
+,,simple_luv1314@hotmail.com,Xiuyun,1987-09-16,Female,70fcbb56b61897874c107a661f31650803f312b0,,base,General,773,SG,0
+,,rahhs.xD@gmail.com,Valerie Yip,1993-11-19,Female,47a18e88fd54587e777e6c961b799a2755f58c63,,base,General,774,SG,0
+,,starstar_shines@yahoo.com.sg,Nicole,1989-01-05,Female,07e172ed1ffedfa9a4e8c090d454832635cc2456,,base,General,775,SG,0
+,,evelyn_cflim@hotmail.com,Lim Chew Feng,1984-09-11,Female,62609b5d5e644603952cd0fa75bb96c60ee9e5d3,,base,General,776,SG,0
+,,toxicatedd_kiss@hotmail.com,Cheri,1990-05-06,Female,af853a41233378dffe7e6be0c802be54f7a36054,,base,General,777,SG,0
+,,eileen_xiaohui@hotmail.com,Eileen seow,1989-01-07,Female,bcd4fc951e29598b688418d3a3fb09f483ba99d3,,base,General,778,SG,0
+,,alsh2307@hotmail.com,Audrey,1987-07-23,Female,72105dbc3035fd08abe806c7da0f793014557e48,,base,General,779,SG,0
+,,scurphy@hotmail.com,Germaine,1987-08-01,Female,4725fdd408d67511e213a0aa0ebf961edc257b7f,,base,General,780,SG,0
+,,jacqn_lm@yahoo.com.sg,jacqueline,1981-11-02,Female,cef412f948002b8f878db68480be5975946b64f8,,base,General,781,SG,0
+,,roseyapmm@hotmail.com,Yap Ming Min Rossellini,1991-07-03,Female,04b419e6cc15650bae7ccf4148c7357bd6d720df,,base,General,782,SG,0
+,,cool_girlz_91@hotmail.com,Jesslyn,1991-01-12,Female,260d0b2a7de40a6c0e5f2ae6446e1af00ce5b4cf,,base,General,783,SG,0
+,,skyline_r34r@yahoo.com,loobee,1981-10-16,Female,53053296ee1952015acb6f525cb6a6a5fcae5990,,base,General,784,SG,0
+,,Unadulteratedbliss@live.com,Mavis Lee,1993-07-15,Female,cf43152c593a13970253e42c9ee1ac40783e54b0,,base,General,785,SG,0
+,,hazelgal84@yahoo.com,Felicia Ang,1984-06-15,Female,4a24775207a003b8fd84ed1500d47723cde51523,,base,General,786,SG,0
+,,tarepandada@hotmail.com,Win Loh,1981-02-10,Female,ee616c0a86aaa385304ef50f73aa02b0a75eb86f,,base,General,787,SG,0
+,,syur.fashion@gmail.com,Fiona Soh,1993-09-02,Female,3c846c6a8b037f128b37b4ada35da2efc32336aa,,base,General,788,SG,0
+,,suzankoh@hotmail.com,suzan koh,1986-01-30,Female,5e16c3c40624e0d257f8b5e5f82ddc4e08b639b0,,base,General,789,SG,0
+,,joanne_the_great@hotmail.com,Joanne Seow,1987-03-11,Female,3b6c6c4c172e9f97b7a6db6155d2e917073dabe1,,base,General,790,SG,0
+,,purpleminsh@Yahoo.com,Chris Tan,1981-11-17,Female,b33a1fede1a555ea94d2ad6fd107eda8d933109e,,base,General,791,SG,0
+,,alien_luv3@hotmail.com,Mandy,1985-08-02,Female,675f65aebdaaf71d730161c28c35d4656dfd14a5,,base,General,792,SG,0
+,,olyme_karen88@hotmail.com,karen chng,1988-03-27,Female,c187baaf303f48f142aab78bdddbccf6d8d07365,,base,General,793,SG,0
+,,leng87@hotmail.com,Apel Yap,1987-04-01,Female,9793c71a493514edd1b1609bef7246641fb2b7aa,,base,General,794,SG,0
+,,huimei86@gmail.com,Wendy Lee,1986-06-11,Female,ee3294e36dd0286e5cf8af584940c1a50ea5a7af,,base,General,795,SG,0
+,,scintillant_@hotmail.com,gillian,1990-04-08,Female,4ab66f1b5e75e5bc712faed1ecbe4f6f5810f360,,base,General,796,SG,0
+,,boeyshona@hotmail.com,Shona,1992-12-01,Female,416d3487b5d83246d12fde31d8f5695676779258,,base,General,797,SG,0
+,,pple_champ@hotmail.com,Ryan Koh,1984-12-01,Male,a58bb9a6c05f95c396666fad7dc266dbd24c00c2,,base,General,798,SG,0
+,,coolove89@hotmail.com,Lynn,1989-02-19,Female,d9546c7d55699acc42759da6d10c6fc524f8e4c2,,base,General,799,SG,0
+,,coolove89@hotmail.com,Lynn,1989-02-19,Female,62f32cd23f6ef4f37eb1c12ed1c52e445216b5f3,,base,General,800,SG,0
+,,yuan_nie@yahoo.com.sg,Tan Mui Yuan,1985-02-01,Female,e488943af044f82075f396572ac2206afbee7ed0,,base,General,801,SG,0
+,,khengling64@hotmail.com,Jane Neoh,1988-04-29,Female,4e87b5848dd0a9ff09cc6a62dda79d3b344494a1,,base,General,802,SG,0
+,,squarechocolate@yahoo.com.sg,Jocelyn ,1981-12-28,Female,bdeb24579641e243e94fce1190478eafa018c8e8,,base,General,803,SG,0
+,,drealq@gmail.com,Andrea,1981-05-06,Female,05a2046c4a0975c313da9542b2a57a8a93141f9c,,base,General,804,SG,0
+,,jacindakee@gmail.com,Jacinda Kee,1985-09-10,Female,463e29ad2655223ea1244d7c50dbbb06803cc2b7,,base,General,805,SG,0
+,,linlin82@gmail.com,LYNN,1982-04-25,Female,494c7be7cc8526357eca7374fee075a29cf5695d,,base,General,806,SG,0
+,,dansoon@gmail.com,Dan Soon,1979-07-30,Male,9b5438aaf8235558cfbde3f695d2cdf96657541e,,base,General,807,SG,0
+,,leave87@hotmail.com,KaiLi,1987-07-17,Female,c127b3614e220ab429c9bc488dbda14d637c75c5,,base,General,808,SG,0
+,,tryser07@hotmail.com,July,1988-01-28,Female,38c8e1c55b54c747de21de96b65bb7a0c906ea59,,base,General,809,SG,0
+,,daphn3t@gmail.com,Daphne,1985-12-14,Female,b7702c9c018420a7a1bfbd42544924456098824e,,base,General,810,SG,0
+,,karenyap1201@hotmail.com,Karen Yap,1976-12-04,Female,e986c34c9edeaae99c0feed877a81e2e3a227e9e,,base,General,811,SG,0
+,,ironical-@hotmail.com,Neo Shi Hui,1991-09-10,Female,ae610dcf5fc5a767258b40c79070da83ec965340,,base,General,812,SG,0
+,,scip8375@yahoo.com,Wu Shuhui,1983-04-05,Female,efcb48b01a094bbc21aa601b4f868f85185e3e26,,base,General,813,SG,0
+,,etay25@gmail.com,EVONNE TAY,1980-05-30,Female,c7def8e7a6fdde1f0b64db4d27d6068bc312ae61,,base,General,814,SG,0
+,,wong_vicky86@hotmail.com,vicky,1986-11-09,Female,57332dabdcfc8ccd44dc3417c51d1cd408d4f066,,base,General,815,SG,0
+,,chocolatelust@gmail.com,Jamie,1989-03-22,Female,44644bf095d7faba8c9a21b2b0af4a3d1e33db1a,,base,General,816,SG,0
+,,jonasong84@hotmail.com,Jonas Ong,1984-09-24,Female,b47d1598be7067a039fe0c5f9436e50f58e6f25c,,base,General,817,SG,0
+,,y_linchew@hotmiail.com,Eileen Chew,1992-10-27,Female,8c8a9222e5fa68e4136635e6d2384a4b1239df18,,base,General,818,SG,0
+,,tabbeee@hotmail.com,Tabitha Leong,1984-08-18,Female,20711b55667ceafb4747668911caeba98771f359,,base,General,819,SG,0
+,,geraldineyeow@hotmail.com,Geraldine Yeow,1986-08-03,Female,ba582c060694bfdb3ec4b9da7879f65a541f3033,,base,General,820,SG,0
+,,ailan_lee@hotmail.com,aiLan,1986-04-01,Female,e776cff62b0936e036010af8127c9c9b182f0ec5,,base,General,821,SG,0
+,,justinalook@hotmail.com,Justina Loke,1982-09-24,Female,018a02e5710993f6705011d775dbcaa05a6143d4,,base,General,822,SG,0
+,,bbprincessbb@gmail.com,Amanda koh,1987-01-28,Female,51dc63b6cbde63165777ad60beb159b34b248f2e,,base,General,823,SG,0
+,,thyelement@yahoo.com.sg,elements,1987-02-17,Female,7340528d8a15f67ebc797d5bb69858559e12ad17,,base,General,824,SG,0
+,,eskonia2000@yahoo.com.sg,Felicia Eng,1982-02-04,Female,b136e0adc604dd75972861efc1109e91e15da8fd,,base,General,825,SG,0
+,,Derick.sin@gmail.com,Derick Sin,1981-11-13,Male,1393dfad35f97338a0151aed9fd65924943ecd25,,base,General,826,SG,0
+,,kerensalim@hotmail.com,Kerensa,1980-05-19,Female,3c795869df71df7dd9f7731e3d2c23031b62f634,,base,General,827,SG,0
+,,huiwen_magic@hotmail.com,Chia Hui Wen,1991-12-21,Female,b381e3f2a03964d63e7bcbd44030252a7643ef09,,base,General,828,SG,2.99
+,,deadly_fannie@hotmail.com,Su FangTing,1985-03-22,Female,d681d86783105672a67d7ef9b4c998538f6a0d13,,base,General,829,SG,0
+,,star_blaze02@yahoo.com,Jan Yeo,1984-04-10,Female,778b93b30dca1a006dd2259927777bdb8856bdfb,,base,General,830,SG,0
+,,celestefong@gmail.com,Celeste,1981-06-15,Female,30bebc69ffb41285a3def3802cdc8a2677598716,,base,General,831,SG,0
+,,cindytoh92@hotmail.com,Cindy Toh Ser Hui,1992-11-26,Female,13dec2b7f5bc5e8d7a37a5a23350eb1dadbc2194,,base,General,832,SG,0
+,,xshir.vinx@gmail.com,Shirley,1989-12-28,Female,3c873ca888cad8cffe5fa1d07051b2ec82a7377f,,base,General,833,SG,0
+,,kwaein_kaiwen@hotmail.com,Kai Wen,1992-09-23,Female,3a238f708a74194a4515c28c61ddb8bd329ec7e6,,base,General,834,SG,0
+,,qixia-@live.com,QIXIA,1990-05-09,Female,4d0690b3a26c668cb12a1efff750608753db2738,/aliens.jpg,base,General,835,SG,0
+,,aloe_2_u@hotmail.com,Janice,1990-06-25,Female,d5b612180859262555f7c7dc59ba1a6e7be49373,,base,General,836,SG,0
+,,fishbonez03@yahoo.com,Qiu Huiwen,1983-09-07,Female,e5a593f941321f954bcaf90032e30088a23647ef,,base,General,837,SG,0
+,,helpdesk@fr3b.com,Serene,1990-01-12,Female,02074fdb4b538261f93db01a28cf78af26ea17c0,,base,General,838,SG,0
+,,chitchat@fr3b.com,test,1988-01-13,Female,cd526354c02f1781c640327d42d37abdcd031e1d,,base,General,839,SG,0
+,,mybananaz@gmail.com,Lina,1982-05-31,Female,c4022a1db3e75498869c5e49339a4648c3812d73,,base,General,840,SG,0
+,,edweeena@yahoo.com.sg,Edwina,1988-10-14,Female,c04620d9279adf39ba63da9a2890296770364efc,,base,General,841,SG,0
+,,cheekymons@hotmail.com,Liao SW,1991-05-18,Female,85320320f66d56abf2d4e42c35b9418c28bc3b43,,base,General,842,SG,0
+,,duck.is.here@gmail.com,Amanda,1987-11-17,Female,3d4d9ed1509321d3d839986cbe931931a05dcae0,,base,General,843,SG,0
+,,angeline_xiaotian@hotmail.com,Angeline Goh,1986-12-14,Female,476da520aaac958546b0a34ad25218f94e96e2a7,,base,General,844,SG,0
+,,aya_splashy112@hotmail.com,Marian,1988-11-02,Female,da2ce9257a593a99c86ccd900d8cbf9bdfc84415,,base,General,845,SG,0
+,,jovneo@yahoo.com,Jovien Neo,1976-09-16,Female,adcc2e44650f015017a84010599c2d9dc1c68831,,base,General,846,SG,0
+,,Lilacy_crush24@hotmail.com,Kristine,1989-10-24,Female,2fffc399c54f01b37c0f8323f2ac3ef6cf418d51,,base,General,847,SG,0
+,,jasmine_chiyeh@hotmail.com,Jasmine,1986-04-23,Female,98f66677f949102e64e2cf2d1d471110aa37cb1f,,base,General,848,SG,0
+,,dreamsrocs@gmail.com,Joshua,1990-05-22,Male,f5e9ad6655b654fd50c343592f457a0f3f670e9d,,base,General,849,SG,0
+,,hye212@hotmail.com,Hazel,1987-08-23,Female,b5f5b4119a27a011716dd4d87843b822c5183e2b,,base,General,850,SG,0
+,,lruiling19990@hotmail.com,ruiling,1990-09-19,Female,5faf172e104b99f4d7add8df269706219ce24a20,,base,General,851,SG,0
+,,chin12262002@yahoo.com,Sheryl,1977-12-26,Female,af1d1a25e57457a9c538143d78f1a2d6d6706b64,,base,General,852,SG,0
+,,luvena1911@gmail.com,luvena,1987-11-19,Female,1649b9b5a1a977f62803e220c3d8ad4d85d75290,,base,General,853,SG,0
+,,redchillipadi@gmail.com,Joanne,1984-10-19,Female,b6cd5f2b163961426f1c93a9c9aaccf076c282fd,,base,General,854,SG,0
+,,stsp@live.com.sg,Serene Tan,1991-11-07,Female,af6129a4ac68aaec4709129552381040749a82b6,/tumblr_ldrar4ARC41qetg32o1_500.jpg,base,General,855,SG,0
+,,felix_koh@hotmail.com,felix koh,1968-01-26,Male,9024fb82bf7d0a8a372f611d02abda26f79df148,,base,General,856,SG,0
+,,libra_rogerng@hotmail.com,Roger Ng,1978-10-01,Male,2cb177c753920e74f83b0197e8fa93dada440245,,base,General,857,SG,0
+,,lizho1@hotmail.com,Blurrbl0ck,1988-10-01,Female,e3161514d9b0f09d5840fe7698e2afe25244f042,,base,General,858,SG,0
+,,vinceong@gmx.net,Vincent Ong,1975-10-13,Male,cc9126fd378b4cb88586dfc6ef9aa87e49ac68da,,base,General,859,SG,0
+,,xuefen_am87@hotmail.com,melissa,1987-10-01,Female,211cf13cc94a79def79864b583f42702dd7d1ebc,,base,General,860,SG,0
+,,shinystar_83@hotmail.com,Sandy Pang,1983-05-15,Female,75e22a1e1b300e993378abd0b5b7ebd010c195c3,,base,General,861,SG,0
+,,erinluvbear@hotmail.com,Erin,1988-11-17,Female,53703cdd949ce56fa013b9bbea73861980328803,,base,General,862,SG,0
+,,laykiang@gmail.com,Lay Kiang,1985-11-17,Female,5f5b2cbce90198afba321ca46cbc1522fb1f8fc3,,base,General,863,SG,0
+,,irenechng88@hotmail.com,irenechng,1988-04-12,Female,6c5c22e6a72166a547c235e691b39bf98a8f7c53,,base,General,864,SG,0
+,,love_xuan1985@yahoo.com.sg,Weiwei,1985-07-07,Female,1fa3b9c553251c3c5c823a141faffd03e9662ce8,,base,General,865,SG,0
+,,lim_elvin@hotmail.com,Lim Wei Xiang Elvin,1983-05-06,Male,d6428e786bc2125c725d5b5197ede173a719ee3c,,base,General,866,SG,0
+,,wweiz_12@hotmail.com,Poh Wei fen,1988-08-26,Female,6583f7978fc883d4c1d42f1abe48a918280b4249,,base,General,867,SG,0
+,,july_xia@hotmail.com,Shuxia,1986-07-17,Female,fce86eca5c5fffabefb551be353a5c03c23d674e,,base,General,868,SG,0
+,,aceique@hotmail.com,Luanne,1982-01-25,Female,2ba030dce255bc28bf7373cfb943f2ff47ea8be4,,base,General,869,SG,0
+,,luv_jace@hotmail.com,Lim Geok Lin,1982-10-17,Female,910c943be5a858ad1f0fda3e3097d80f5eba4638,,base,General,870,SG,0
+,,nsy87@singnet.com.sg,Fiona,1987-04-15,Female,0529921f45e05a26edd7c49963ee80dafe47ff01,,base,General,871,SG,0
+,,mr_raul_07@hotmail.com,Chong,1989-08-29,Male,6fafeecaefe2da39beedb5f2f13cd9aaf462316a,,base,General,872,SG,0
+,,low_anthea@yahoo.com.sg,Anthea Low,1987-05-19,Female,49137c4f8543ef41852a9675604fb46fff3a2449,,base,General,873,SG,0
+,,notchildishfrig@hotmail.com,Xueli,1989-12-12,Female,8f097a6df1945f50f2a8937f8241a96872edf592,,base,General,874,SG,0
+,,amyloh2004@hotmail.com,amy loh,1991-11-11,Female,6a3e5e9933c1a176ca62fd383d992a5f6172e6ab,,base,General,875,SG,0
+,,eileen87@gmail.com,Tan Eileen,1987-10-19,Female,2bbe80f366561e53a5bd9420e33de7be5bf70af0,,base,General,876,SG,0
+,,yuyiloh@gmail.com,alicia loh,1987-10-31,Female,15b483e986f2cead41d30078b385989bb911ac5f,,base,General,877,SG,0
+,,weirdo89_@hotmail.com,samantha,1989-10-03,Female,3f0367578720ee7b4a007aeed3c31ca95c78bd81,,base,General,878,SG,0
+,,dorcas_pink@hotmail.com,Dorcas Yeo,1989-07-07,Female,23d69057dd81eeb672d7b8f40e9c59bedd829536,,base,General,879,SG,0
+,,xia0piggy_60@hotmail.com,Audrey Toh,1986-11-09,Female,2d17cdf7d174c7a1b64622a5f8c8e2b9e8678ef9,,base,General,880,SG,0
+,,jia_ping_jasmine@hotmail.com,Tan Jia Ping,1990-10-31,Female,86bc257a9bec3cdce4f233f97328d40f8a675d2c,,base,General,881,SG,0
+,,mad_gal_@hotmail.com,lee ling,1987-07-11,Female,6e724db92160ef03e1918bb1f9d31390a60d94eb,,base,General,882,SG,0
+,,fengow@gmail.com,miracleow,1984-10-18,Female,6830e4cbb2335d80e8c2a4d35e8c48e788fb1a95,,base,General,883,SG,0
+,,marn_pinkprincess@hotmail.com,Charlene,1990-11-16,Female,3443f770d3b941798ead009a57e5174cb2deba81,,base,General,884,SG,0
+,,pexlee@gmail.com,Lee Michelle,1988-06-05,Female,f8f5eeea48148a561733a7be38c23039a9dc2c97,,base,General,885,SG,0
+,,dixon98@gmail.com,Dixon Chan,1976-08-10,Male,b5f8c72349369cbb90c9c6f01bcf0865ac8d1579,,base,General,886,SG,0
+,,claryl_08@hotmail.com,Claryl,1982-01-14,Female,a55cf5e67c47b6095fa1140f1409757e64749a0f,,base,General,887,SG,0
+,,daisy.boon@gmail.com,Daisy,1987-08-19,Female,70e10cfc8182c00b6d99330342cf0c927d2d0037,,base,General,888,SG,0
+,,summerperks@gmail.com,Sheena,1989-04-27,Female,7fb19076ab69d75870238649329592fb2d3a5bd2,,base,General,889,SG,0
+,,selina_87@hotmail.com,Selina Goh,1987-10-07,Female,bd755da668f47e8a2157e63ae045d0bb92688614,,base,General,890,SG,0
+,,rachelle_kei@yahoo.com.sg,Rachelle,1985-09-09,Female,92a4145b04dd197ad9d270f0929c15c43507f12c,,base,General,891,SG,0
+,,limliyin@hotmail.com,liyin,1989-02-19,Female,0af7036ae6127a31e6ffc42a576e0de75fb73098,,base,General,892,SG,0
+,,undeniablyhaute@gmail.com,Tay Laiyan,1989-06-19,Female,39c96ffd5f4d4d94077a04b49143aa83f695a598,,base,General,893,SG,0
+,,xam_77@yahoo.com,max hoe,1977-09-07,Male,da81e5173ad44e14fa8218d61f38678b79f1f569,,base,General,894,SG,0
+,,ayumi_03@hotmail.com,michelle,1990-11-13,Female,a91b958783f27f989c9e827701ec3e0f43658e87,,base,General,895,SG,0
+,,irisogl@hotmail.com,Iris Ong,1966-11-14,Female,6acc60b18ad594d0e65ecdec9228c0828aaef5aa,,base,General,896,SG,0
+,,tmeini@gmail.com,Tee Meini,1985-12-12,Female,376e4ecf655aeb90d7157497121cf7bd46e9d0f8,,base,General,897,SG,0
+,,iamlarry@hotmail.com,Larry Low,1989-08-10,Male,2d7b9d2e15de7875970f44b164ca5e1e12f25fcf,,base,General,898,SG,0
+,,jnyping@yahoo.com.sg,Jean Yap,1978-08-27,Female,b498398d48ba599e5befd396d25f24a9a524214d,,base,General,899,SG,0
+,,Hailkalz_14@yahoo.com.sg,Haikel,1993-08-30,Male,31d491697b5a0addbaf62b3cf4ef382dd651f5cd,,base,General,900,SG,0
+,,merwin_7@hotmail.com,Merwin,1987-07-13,Male,9d6469eace757ad18d98a4783408a8bb6b101021,,base,General,901,SG,0
+,,freezingmoment@gmail.com,Sheena,1989-04-27,Female,bd99a60aed55f1a97403ba056083f5a25c92d329,,base,General,902,SG,0
+,,kaeru_nokusu@hotmail.com,Nurul Jannah,1990-02-09,Female,d618144f929a1de9970d182c390099fec8126afe,,base,General,903,SG,0
+,,xiaozhu_ric@hotmail.com,Chrissie Chan,1982-06-06,Female,5c16a08b2b2695c339f95df3206b9d32fa32131a,,base,General,904,SG,0
+,,icegal86@hotmail.com,lai yee,1986-06-01,Female,71ed56c352af4e5c6f8fd376275a02c85551ec24,,base,General,905,SG,0
+,,g_agate@hotmail.com,Nicolette Chen,1990-06-07,Female,fbc502c8044ef65017608b93fe575de6990b2787,,base,General,906,SG,0
+,,pinkified95@hotmail.com,Lim Yu Xin,1995-10-19,Female,e4e376f09673c7ae97b32f50c63bc929f1cf9701,,base,General,907,SG,0
+,,jtjy82@gmail.com,Jasmine,1982-09-27,Female,47924aed784f96408be7ce98148fdcdef06da3c9,,base,General,908,SG,0
+,,shiuhfang@yahoo.com,Tee Shiuh Fang,1978-06-22,Female,1c708a52be3fd690e1d2cf332f3307acfc6c2d70,,base,General,909,SG,0
+,,rey.kohcheehwee@gmail.com,Koh Chee Hwee,1984-09-08,Male,7c6b553deb2962e9d1611f6e50c0d6d53796840b,,base,General,910,SG,0
+,,lim_kai_liang@hotmail.com,lim kai liang,1991-12-23,Male,49d12bd59c1da1428a918ec0d712d72153a2920c,,base,General,911,SG,0
+,,eloquent1@gmail.com,Cameron,1989-04-08,Male,0563a7796d846112336b77d8b5b878481e84489e,,base,General,912,SG,0
+,,bratsy@live.com.sg,nadiah,1986-01-29,Female,5756c6a3b2b132a2b4e549b450a98349398b4526,,base,General,913,SG,0
+,,r.t.s.m@hotmail.com,Rachel Tan,1989-04-07,Female,15a0452a652e64142251ccbf179b34185e1d45b7,,base,General,914,SG,0
+,,namrata160279@yahoo.com.sg,Namrata,1979-02-16,Female,7d8cb2ebf921567eab48cc16b3cca61cda76d3ce,,base,General,915,SG,0
+,,herasys@hotmail.com,John,1989-06-22,Male,ebdffd82798a2743477f52ec847a890c397cdef8,,base,General,916,SG,0
+,,pinkstarangels@yahoo.com,Ling Lee,1990-11-20,Female,0730069d6987a3ab5ac1f518d4ccdf6a12ba5b06,,base,General,917,SG,0
+,,janice_gal@hotmail.com,chen shuling,1989-05-03,Female,1f2fe008d6e707f8783eebec86f050cda2767695,,base,General,918,SG,0
+,,jas91_sum41@hotmail.com,Jasmine,1991-05-09,Female,c13195e341134bbd3335a43fadcbe410b6729adf,,base,General,919,SG,0
+,,junnebae@hotmail.com,junne,1984-06-01,Female,7675be2f402284dec83c662f5a2700426cdf3089,,base,General,920,SG,0
+,,lockeddepth@hotmail.com,Vanessa,1989-06-09,Female,4cd75a1f8b026bd073e4bca15501e2b01df299fc,,base,General,921,SG,0
+,,krazydog@hotmail.com,Sandra Lim,1987-02-14,Female,0a96390af3a9213ee84359f4d1219855494c848c,,base,General,922,SG,0
+,,inxanne@hotmail.com,Kelly Hong,1992-06-05,Female,7236bbb0655cf4699e98dd27615715a0d8ab9b3f,,base,General,923,SG,0
+,,dna2002@singnet.com.sg,Dolly,1974-09-19,Female,1060041d44003f6060d3de61e141eb4a48e1cf0c,,base,General,924,SG,0
+,,onegai86@yahoo.com.sg,kumi,1986-09-04,Female,3f8b18c39a4186a57845d69f1f6cee261392a5ad,,base,General,925,SG,5.22
+,,silly_gatti@hotmail.com,gattison,1991-11-23,Female,31d2ec3b7c6f847e9752ba4c89cecae6758f103d,,base,General,926,SG,0
+,,sylai84@gmail.com,Lai Siyan,1984-07-28,Male,0bfb6f84c17049b1a92864d8e84b23dd3e53e54e,,base,General,927,SG,0
+,,dianateo@hotmail.com,diana,1989-02-27,Female,4c9093957ef7de9516f5288845768ec09bc06e4b,,base,General,928,SG,0
+,,ben25_ben25@Hotmail.com,benjamin Lim,1991-07-09,Male,9781b4c4e802863339d32e7574b210d3431e5718,,base,General,929,SG,0
+,,felyup@hotmail.com,Felicia Yap,1986-05-15,Female,3d0060a714937b3b56e9a1e82450f56bbd909801,,base,General,930,SG,0
+,,p-fanatic@hotmail.com,AKAOAV,1989-09-14,Female,a5294303618b44bf210f1d35cbfa4cc9a3797de4,,base,General,931,SG,0
+,,applelsf168@yahoo.com.sg,Appel Lee,1971-03-09,Female,b05cc4db9a1201707939cc9d1693f90226826c8b,,base,General,932,SG,0
+,,khooaiwei@gmail.com,aiwei,1986-03-10,Female,c0d53dd5c8f5ef3ebf966c4f7c966ebf0f3908e8,,base,General,933,SG,0
+,,goh_xiaoling@yahoo.com,xiaoling,1987-03-06,Female,38edc906f0058c0f0a3965f3a935b4329dc4e929,,base,General,934,SG,0
+,,sinern@doramail.com,sinern,1988-12-31,Female,9f640ff63dfd22470e9c260e5e2cfb629e51b9b8,,base,General,935,SG,0
+,,carynl_wwt@hotmail.com,Carynl Wong,1988-07-01,Female,9c3392a16530a410f4463a278c4ee326feb00ad0,,base,General,936,SG,0
+,,luvearrings@yahoo.com.sg,DJ Chua,1984-11-30,Female,acb42e249910a91678b26aaaa934b4bfd246ace9,,base,General,937,SG,0
+,,kcleong@starhub.net.sg,Leong Kien Chung,1979-12-03,Male,d38dd29d332d74e1c5aa50007d4a2f8fd4b8321e,/ac6f17afc6c44de6fb0b9446a27baf31.jpeg,base,General,938,SG,0
+,,ong.zu.er@hotmail.com,Zuer,1991-01-01,Female,424bcb4b9b89a9b0470810e60f151a8243f92ce8,,base,General,939,SG,0
+,,muackiex@hotmail.com,Mindy,1989-02-02,Female,6cc3dda1c83d71fcd5bcc0bc3ab0180eae05452a,,base,General,940,SG,0
+,,whimsicallylight@gmail.com,Jodine,1983-10-13,Female,44ac977db34e354998d55731a570c3524547df21,,base,General,941,SG,0
+,,eileen_fong43@hotmail.com,eileen,1989-05-19,Female,7228929af236999243092a0b8a971a40d1da83b0,,base,General,942,SG,0
+,,b_anana45@hotmail.com,Farhana Ja'afar,1989-03-23,Female,0741ea99121f128ec0c46c602b7bc9493f9ee729,,base,General,943,SG,0
+,,caroline_1609@hotmail.com,caroline,1988-09-16,Female,5580f00f889486c2d89c1537ee67a4a881e7a157,,base,General,944,SG,0
+,,al_azhar20@yahoo.com,Azhar,1982-09-20,Male,4b26f1bf337885600f68ae1498df9f31019bc923,,base,General,945,SG,0
+,,maltese_love@hotmail.com,rachel,1992-09-30,Female,7235c135c2679c20e4eecfca463fb98175826e43,,base,General,946,SG,0
+,,wadz_up@hotmail.com,debbie,1986-07-18,Female,7240c38fc012f3cfee621beac1e8442acb70ecb5,,base,General,947,SG,0
+,,clakristal@gmail.com,dkriss,1987-01-31,Female,138396e9f3757cc57a1e20c9dcd3b48fd51f33bd,,base,General,948,SG,0
+,,mochalattemonster@gmail.com,Tiffany Leow,1987-01-19,Female,fcc61a027c34b4231ed797a9cc73ad2c4e10ca2b,,base,General,949,SG,0
+,,wonghln@hotmail.com,Helen,1972-06-07,Female,ed9dc4c413c6629a137d8379baf2cfb546a3278d,,base,General,950,SG,0
+,,kizoku161988@hotmail.com,Alvin Ng Wee Chong,1988-06-01,Male,789d4176a5a76395d03574f23a9b253c0d6675ac,,base,General,951,SG,0
+,,steph.nic@gmail.com,Stephanie ,1982-07-31,Female,ecc1a8bc5d1b05bec91681dd93e37a0bb7dda4eb,,base,General,952,SG,0
+,,xeviouss@hotmail.com,Betty,1980-07-31,Female,90659f6ec2829490d29712227f69569cc6b7eb77,,base,General,953,SG,0
+,,jtangxw@yahoo.com.sg,Janice,1981-06-27,Female,6e469730ece3af3a6083d8bbe5918e5af512beec,,base,General,954,SG,0
+,,awy_09@yahoo.com.sg,Angeline,1990-01-02,Female,4bf671a67d870620cb5e5e6f551ed98a1b920cea,,base,General,955,SG,0
+,,nbkeng@hotmail.com,Ng Bee Keng,1962-07-03,Female,2c8a3fb4119bfcd6b5fda4be89581304966b4f17,,base,General,956,SG,0
+,,seagull_7380@hotmail.com,michelle,1980-07-03,Female,77dfcb54b8dc4ca003b16e8818f3dd6e9089ac55,,base,General,957,SG,0
+,,yvonnek89@hotmail.com,Yvonne Kua,1989-11-11,Female,fa2e11742813af897fe9a76ccd73f89ce9b53557,,base,General,958,SG,0
+,,feley_luv@hotmail.com,Felicia ,1987-11-24,Female,668d360a4b0c575e7c978e4984a3e59c1dc28db4,,base,General,959,SG,0
+,,dorries_@hotmail.com,Li Lian,1985-06-23,Female,a4401e806df12a57982bcfaf226a4df9d1f3d3ed,,base,General,960,SG,0
+,,richelle-lim@hotmail.com,richelle,1990-06-21,Female,c01e6fa5625190ed401b0ec9cd4a52ff8e7c527e,,base,General,961,SG,0
+,,mybigbag@gmail.com,nicole,1988-05-10,Female,17d71a0a09000a1c1e0388a9e88531fba8e8f8f3,,base,General,962,SG,0
+,,hello_to_you_91@hotmail.com,belle,1991-12-31,Female,227fe4a73a75763b84c16193d661ab2ac0e21aef,,base,General,963,SG,0
+,,cavis_mail@yahoo.com.sg,cavis,1983-10-29,Female,80fd74070e60dc7138678640a22020790a097759,,base,General,964,SG,0
+,,xstareax@hotmail.com,starea,1990-06-27,Female,97e3fb5f869c7c98c20b26f9bc241391b83ed426,,base,General,965,SG,0
+,,silverdreams21@hotmail.com,yanxi,1990-06-21,Female,fde8f81e9f5cbee4c0a34b2204ca3258c8108d48,,base,General,966,SG,0
+,,ngleekay@gmail.com,Ng Leekay,1987-07-06,Female,03cbfe58f6d598d08e5a2f2e7321d0f69a5cdf45,,base,General,967,SG,0
+,,pink_virus@hotmail.com,Tina,1989-03-16,Female,8067bcc741f0511a2611fac68dbd9bb26dddee42,,base,General,968,SG,0
+,,starea21@yahoo.com,eleanorlim,1990-09-08,Female,50e085dfaf12b93a7aae58b3e9ccce7f61a29eaa,,base,General,969,SG,0
+,,green5113@hotmail.com,Elly,1982-09-13,Female,8f093c161bc1db3624975bfd5bc6f96c5759d387,,base,General,970,SG,0
+,,c_tea_lover@hotmail.com,Nurulhuda Bte Hamzah,1988-03-23,Female,8dd6daa523f68c28bb042b65af60910d50b64375,,base,General,971,SG,0
+,,tauraemon@hotmail.com,Iris,1979-04-28,Female,feec749ddda18b9116244a286db8d1630fc79c9b,,base,General,972,SG,0
+,,coolzblue@hotmail.com,Elicia,1991-08-24,Female,2dbccb28c5d83aa1dfd918faded1bd6c6335ea37,,base,General,973,SG,0
+,,yin_Gal86@yahoo.com,Cindy,1986-11-21,Female,0214ec2d6e4bff6653a2d6c2d64570880928d116,,base,General,974,SG,0
+,,Darylngch@gmail.com,Daryl Nicholas,1989-12-29,Female,a35bb18833a4ecda0f14e4016a56bb3fb08f1140,,base,General,975,SG,0
+,,aprilphua@yahoo.com.sg,May,1977-04-26,Female,a3e36023474ff9c1f869c59488d286c827e132c8,,base,General,976,SG,0
+,,candy_palace@hotmail.com,candy,1992-06-08,Female,34cc40f5dafd4874fecc6d18e66b333888d8e9b5,,base,General,977,SG,0
+,,kristine33.kc@gmail.com,Kristine,1985-02-25,Female,ded77716ba6873195067dad7a6498c548fbe432e,,base,General,978,SG,0
+,,sweetmemories.hui.ren@hotmail.com,Kelynn Nai,1989-06-21,Female,e025e8bba8c4c388d602334060caabc04284b895,,base,General,979,SG,0
+,,emoling@singnet.com.sg,Weiling,1984-03-01,Female,98d6ef430397efa9b45a926e6f56e362b773f402,,base,General,980,SG,0
+,,caramel.cookies@hotmail.com,Fatin,1991-08-16,Female,de5b48742fa60388cbc4b11d446a13de37946911,,base,General,981,SG,0
+,,ricktan1983@hotmail.com,Allan Tan,1983-07-08,Male,9ce93c63758c876ca83d15e59cbbd77a85123b0a,,base,General,982,SG,0
+,,Phyllis_ng12@yahoo.com,Phyllis Ng,1984-01-03,Female,5780e53dd2b37f4a8621cd2f7c85f0b5c4b100dd,,base,General,983,SG,0
+,,zinhtet@gmail.com,Kyaw Zin Htet,1987-08-03,Male,67e5084a9caa81ec7ff83d7785209cf9c7f11797,,base,General,984,SG,0
+,,missha_func@hotmail.com,lynn,1990-01-10,Female,b73ec2a1e723ef17f4d3027dd3f9e23ec0c8afc0,,base,General,985,SG,0
+,,kareen.koh@gmail.com,kareen koh,1987-03-02,Female,f65440468dd430c45665d5c6c5c177440f9bdbab,,base,General,986,SG,0
+,,jewelmybabe@hotmail.com,3L,1971-04-09,Female,8596e64f192f2de486a2df466d3658629ffb35a1,,base,General,987,SG,0
+,,rayne.minjun@hotmail.com,Rayne,1990-08-09,Female,f263559f18f3519a619cd8741bf7aea0aa8c8865,,base,General,988,SG,0
+,,bel_oon@yahoo.com.sg,bel,1983-08-13,Female,25d0b71ad6a50902d3da668187ffac14971db442,,base,General,989,SG,0
+,,kohgs@hotmail.com,Koh Gin Sheng,1987-06-27,Male,9c81f7b994ced7e5c50949bbb07d75d562506085,,base,General,990,SG,0
+,,nirselamat@yahoo.com.sg,Nir Selamat,1970-03-11,Female,e54d738532901392cb4c19b2cdd1017de08c69bd,,base,General,991,SG,0
+,,lehuii_swiit90@hotmail.com,Lehui,1990-11-06,Female,e1741105df960bc51c98a1c8ceca1e8fdb25b49d,,base,General,992,SG,0
+,,ktw380@gmail.com,Tracy,1978-05-12,Female,2788b88ace6cf1f72fa4f389a4bc6997f953a334,,base,General,993,SG,0
+,,linmeixiu@gmail.com,jasmine,1984-08-15,Female,b47a0a6aebe9c51153eaf9bb1cc4161e7581c819,,base,General,994,SG,0
+,,ikuy_eniale@yahoo.com,eniale,1981-12-29,Female,7771d84037b21aba10eef12d0bbb17dcbb4dc791,,base,General,995,SG,0
+,,xxqkcl@yahoo.com.sg,Lynn Koh,1977-05-29,Female,2bbac90c45553f84033e6d5fda7766da2c5566e3,,base,General,996,SG,0
+,,gnskoh@yahoo.com.sg,Li Cheng,1973-10-05,Female,de53812818e085df20b1caf40e84a2cb0650a755,,base,General,997,SG,0
+,,eunicetan_20@yahoo.com,Eunice Tan,1983-05-20,Female,0842e4e6d7fd94278491b2c9c82f6a82a8248173,,base,General,998,SG,0
+,,vvicolee@yahoo.com.sg,Vicole,1920-05-30,Female,3551a739db6e2bc881497766a607d08847044c0b,,base,General,999,SG,0
+,,y_elodea_z@hotmail.com,Chen Yiying,1986-07-28,Female,d4e01e348d801d3d6b45c1a5234ca88a6b204e03,,base,General,1000,SG,0
+,,kathren_seek@hotmail.com,fumei,1988-04-19,Female,7a4e50e59aa13452f202ee8cab9123093d520a94,,base,General,1001,SG,0

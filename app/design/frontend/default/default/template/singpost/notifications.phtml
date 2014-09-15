@@ -1,0 +1,188 @@
+<?php
+	$new = "We are processing your order.";
+	$pending_payment = "You have a pending payment in your checkout.";
+	$processing = "We are processing your order.";
+	$complete = "You have completed an order successfully.";
+	$closed = "Your recent order is being delivered. ";
+	$canceled  = "You have canceled an order.";
+	$on_hold = "Your orders is on hold";
+	$payment_review = "Your payment is under by review.";
+	$newsletter = "You have updated your settings for receiving our newsletter.";
+	$telephone = "You have updated your mobile number.";
+	$country = "You have updated the country that you are staying in.";
+	$street = "You have updated your shipping address.";
+	$medma_avatar = "You have updated your profile picture.";
+	$full_name = "You have updated your name.";
+	$dob = "You have updated your date of birth.";
+	$gender = "You have updated the gender in your account.";
+?>
+
+<div class="title title2">
+	<span>Notifications</span>
+</div>
+<div class="clearfix"></div>
+<div class="p-small gap">
+<p>Keep track of all your activities in Sample Store.</p>
+<div>
+<div class="table-wrap">
+	<div class="clearfix"></div>
+	<table class="notify">
+		<?php if(!count($this->getNotification()) > 0):?>
+				<tr><td rowspan="4" align="center">No records yet.</td></tr>
+		<?php else:?>
+		<thead>
+			<tr>
+				<th scope="col">&nbsp;</th>
+				<th scope="col">Description</th>
+				<th scope="col">Date</th>
+				<th scope="col">&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			 <!-- <span class="text-grey"><?php echo "$dateExplode[0] $monthName $dateExplode[2]"; ?> (<?php if($timeDiff > 0)echo "$timeDiff days ago"; else echo "Today";?>)</span> -->
+			<?php 
+				foreach($this->getNotification() as $order){
+					$dateAdded = date("d-m-Y", strtotime($order['date']));
+					$state = $order['state'];
+					$orderId = $order['order_id'];
+					$dateString = $order['date_string'];
+					$dateToday = date('d-m-Y');
+					$timeDiff = abs($dateToday - $dateAdded);
+				    if($timeDiff <= 3){
+						switch ($state) {
+							case 'new':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$new</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/sales/order/view/order_id/{$orderId}' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+							case 'processing':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$processing</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/sales/order/view/order_id/{$orderId}' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+							case 'pending_payment':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$pending_payment</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/sales/order/view/order_id/{$orderId}' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+							case 'complete':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$complete</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/sales/order/view/order_id/{$orderId}' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+							case 'closed':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$closed</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/sales/order/view/order_id/{$orderId}' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+							case 'canceled':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$canceled</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/sales/order/view/order_id/{$orderId}' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+							case 'holded':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$on_hold</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/sales/order/view/order_id/{$orderId}' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+							case 'payment_review':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$payment_review</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/sales/order/view/order_id/{$orderId}' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+							case 'Newsletter':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$newsletter</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/profile/index/settings' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+							case 'telephone':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$telephone</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/profile/index/settings' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+							case 'country':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$country</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/profile/index/settings' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+							case 'street':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$street</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/profile/index/settings' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+							case 'medma_avatar':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$medma_avatar</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/profile/index/account' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+							case 'full_name':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$full_name</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/profile/index/account' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+							case 'dob':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$dob</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/profile/index/account' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+							case 'gender':
+							    echo "<tr>";
+								echo "<td>&nbsp;</td>";
+								echo "<td>$gender</td>";
+								echo "<td>$dateString</td>";
+								echo "<td><a href='/profile/index/account' target='_blank'>View Details</a></td>";
+								echo "</tr>";
+								break;
+						}
+					}//end of if before the switch
+				}//end foreach?>
+  		</tbody>
+  		<?php endif;?>
+	</table>
+	<!-- <div class="row"><input type="submit" value="Dismiss Selected" class="submit-btn"></div> -->
+</div>

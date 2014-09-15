@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Magestore_Lesson05admin>
+            <version>0.1.0</version>
+        </Magestore_Lesson05admin>
+    </modules>
+    <admin>
+        <routers>
+			<lesson05admin>
+				<use>admin</use>
+				<args>
+					<module>Magestore_Lesson05admin</module>
+					<frontName>lesson05admin</frontName>
+				</args>
+			</lesson05admin>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<lesson05admin module="lesson05admin">
+				<title>Lesson05</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="lesson05admin">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>lesson05admin/lesson05</action>
+					</items>
+				</children>
+			</lesson05admin>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Magestore_Lesson05admin>
+							<title>Lesson05 Module</title>
+							<sort_order>10</sort_order>
+						</Magestore_Lesson05admin>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<lesson05admin>
+					<file>lesson05admin.xml</file>
+				</lesson05admin>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+		<blocks>
+			<lesson05admin>
+				<class>Magestore_Lesson05admin_Block</class>
+			</lesson05admin>
+		</blocks>
+		<helpers>
+			<lesson05admin>
+				<class>Magestore_Lesson05admin_Helper</class>
+			</lesson05admin>
+		</helpers>
+    </global>
+</config>

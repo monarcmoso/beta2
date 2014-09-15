@@ -1,0 +1,76 @@
+<style>
+    
+    .chart_verti {
+        height: 223px!important;
+        width: 332px!important;
+        margin-left: 20px!important;
+    }
+</style>
+<?php   
+    $color_set = $this->color_set; 
+    $arr = array();
+    $color_set = str_replace("'", "", $color_set);
+    $color = explode(',',$color_set);
+
+?>
+<div class="chart_verti" style="padding-left: 11px;padding-top: 30px;">
+     <?php if($this->age_line1_percent==0 && $this->age_line2_percent==0 && $this->age_line_percent==0 && $this->age_line4_percent==0 && $this->age_line5_percent==0  ):?>
+<div style="text-align: center; color: #9FD6D1;width:250px;">No records yet.</div>
+<?php else:?>
+	<div class="bar_wrapper" >
+		<div class="bar b1" style="background-color:<?php echo($color[0]!="")?$color[0].';':"#9FD6D1;"; ?>height: <?php echo ($this->age_line1_percent <= 1) ? '1' : $this->age_line1_percent; ?>%;">
+			<span class="label" style="<?php if($this->age_line1_percent <= 10) :?>position: absolute; top: -20px; color: #8B7A5E;<?php endif; ?>"><?php echo $this->age_line1_percent; ?>%</span>
+		</div>
+		<div class="bar b2" style="background-color:<?php echo($color[0]!="")?$color[1].';':"#9FD6D1;"; ?>height: <?php echo ($this->age_line2_percent <= 1) ? '1' : $this->age_line2_percent; ?>%;">
+			<span class="label" style="<?php if($this->age_line2_percent <= 10) :?>position: absolute; top: -20px; color: #8B7A5E;<?php endif; ?>"><?php echo $this->age_line2_percent; ?>%</span>
+		</div>
+		<div class="bar b3" style="background-color:<?php echo($color[0]!="")?$color[2].';':"#9FD6D1;"; ?>height: <?php echo ($this->age_line3_percent <= 1) ? '1' : $this->age_line3_percent; ?>%;">
+			<span class="label" style="<?php if($this->age_line3_percent <= 10) :?>position: absolute; top: -20px; color: #8B7A5E;<?php endif; ?>"><?php echo $this->age_line3_percent; ?>%</span>
+		</div>
+		<div class="bar b4" style="background-color:<?php echo($color[0]!="")?$color[3].';':"#9FD6D1;"; ?>height: <?php echo ($this->age_line4_percent <= 1) ? '1' : $this->age_line4_percent; ?>%;">
+			<span class="label" style="<?php if($this->age_line4_percent <= 10) :?>position: absolute; top: -20px; color: #8B7A5E;<?php endif; ?>"><?php echo $this->age_line4_percent; ?>%</span>
+		</div>
+		
+		<div class="bar b5" style="background-color:<?php echo($color[0]!="")?$color[4].';':"#9FD6D1;"; ?>height: <?php echo ($this->age_line5_percent <= 1) ? '1' : $this->age_line5_percent; ?>%;">
+			<span class="label" style="<?php if($this->age_line5_percent <= 10) :?>position: absolute; top: -20px; color: #8B7A5E;<?php endif; ?>"><?php echo $this->age_line5_percent; ?>%</span>
+		</div>
+		
+		<div style="clear: both;"></div>
+	</div>
+	
+	<div class="legend_wrapper">
+           
+		<ul>
+			<li>
+				<span class="legend b1" style="background-color:<?php echo($color[0]!="")?$color[0].';':"#9FD6D1;"; ?>"></span>
+				<span class="legend_indicator">< 18 YRS OLD</span>
+				<span class="legend_label"><?php echo $this->age_line1_percent; ?>%</span>
+			</li>
+			<li>
+				<span class="legend b2" style="background-color:<?php echo($color[1]!="")?$color[1].';':"#9FD6D1;"; ?>"></span>
+				<span class="legend_indicator">19-24 YRS OLD</span>
+				<span class="legend_label"><?php echo $this->age_line2_percent; ?>%</span>
+			</li>
+			<li>
+				<span class="legend b3" style="background-color:<?php echo($color[2]!="")?$color[2].';':"#9FD6D1;"; ?>"></span>
+				<span class="legend_indicator" >25-29 YRS OLD</span>
+				<span class="legend_label"><?php echo $this->age_line3_percent; ?>%</span>
+			</li>
+			<li>
+				<span class="legend b4" style="background-color:<?php echo($color[3]!="")?$color[3].';':"#9FD6D1;"; ?>"></span>
+				<span class="legend_indicator">30-34 YRS OLD</span>
+				<span class="legend_label"><?php echo $this->age_line4_percent; ?>%</span>
+			</li>
+			<li>
+				<span class="legend b5" style="background-color:<?php echo($color[4]!="")?$color[4].';':"#9FD6D1;"; ?>"></span>
+				<span class="legend_indicator">> 35 YRS OLD</span>
+				<span class="legend_label"><?php echo $this->age_line5_percent; ?>%</span>
+			</li>
+			
+			<div style="clear: both;">
+		</ul>
+
+	</div>
+                        <?php endif; ?>
+</div>
+	

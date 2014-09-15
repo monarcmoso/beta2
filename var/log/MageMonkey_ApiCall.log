@@ -1,0 +1,408 @@
+2014-07-29T12:00:49+00:00 DEBUG (7): Array
+(
+    [0] => us1.api.mailchimp.com
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:49+00:00 DEBUG (7): Array
+(
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:49+00:00 DEBUG (7): Array
+(
+    [0] => getAccountDetails
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:49+00:00 DEBUG (7): Array
+(
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:50+00:00 DEBUG (7): Array
+(
+    [0] => 
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:50+00:00 DEBUG (7): Array
+(
+    [0] => Error: You must specify a apikey value for the getAccountDetails method, code -90
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:50+00:00 DEBUG (7): Array
+(
+    [0] => us1.api.mailchimp.com
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:50+00:00 DEBUG (7): Array
+(
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:50+00:00 DEBUG (7): Array
+(
+    [0] => lists
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:50+00:00 DEBUG (7): Array
+(
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:51+00:00 DEBUG (7): Array
+(
+    [0] => 
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:51+00:00 DEBUG (7): Array
+(
+    [0] => Error: You must specify a apikey value for the lists method, code -90
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:51+00:00 DEBUG (7): Array
+(
+    [0] => us1.api.mailchimp.com
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:51+00:00 DEBUG (7): Array
+(
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:51+00:00 DEBUG (7): Array
+(
+    [0] => ping
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:51+00:00 DEBUG (7): Array
+(
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:52+00:00 DEBUG (7): Array
+(
+    [0] => 
+    [__pid] => 35501
+)
+
+2014-07-29T12:00:52+00:00 DEBUG (7): Array
+(
+    [0] => Error: You must specify a apikey value for the ping method, code -90
+    [__pid] => 35501
+)
+
+2014-07-29T12:10:28+00:00 DEBUG (7): Array
+(
+    [0] => us1.api.mailchimp.com
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:28+00:00 DEBUG (7): Array
+(
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:28+00:00 DEBUG (7): Array
+(
+    [0] => getAccountDetails
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:28+00:00 DEBUG (7): Array
+(
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:29+00:00 DEBUG (7): Array
+(
+    [0] => 
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:29+00:00 DEBUG (7): Array
+(
+    [0] => Error: You must specify a apikey value for the getAccountDetails method, code -90
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:29+00:00 DEBUG (7): Array
+(
+    [0] => us1.api.mailchimp.com
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:29+00:00 DEBUG (7): Array
+(
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:29+00:00 DEBUG (7): Array
+(
+    [0] => lists
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:29+00:00 DEBUG (7): Array
+(
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:29+00:00 DEBUG (7): Array
+(
+    [0] => 
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:29+00:00 DEBUG (7): Array
+(
+    [0] => Error: You must specify a apikey value for the lists method, code -90
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:30+00:00 DEBUG (7): Array
+(
+    [0] => us1.api.mailchimp.com
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:30+00:00 DEBUG (7): Array
+(
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:30+00:00 DEBUG (7): Array
+(
+    [0] => ping
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:30+00:00 DEBUG (7): Array
+(
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:30+00:00 DEBUG (7): Array
+(
+    [0] => 
+    [__pid] => 33324
+)
+
+2014-07-29T12:10:30+00:00 DEBUG (7): Array
+(
+    [0] => Error: You must specify a apikey value for the ping method, code -90
+    [__pid] => 33324
+)
+
+2014-08-19T12:26:27+00:00 DEBUG (7): Array
+(
+    [0] => us1.api.mailchimp.com
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:27+00:00 DEBUG (7): Array
+(
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:27+00:00 DEBUG (7): Array
+(
+    [0] => getAccountDetails
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:27+00:00 DEBUG (7): Array
+(
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:28+00:00 DEBUG (7): Array
+(
+    [0] => 
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:28+00:00 DEBUG (7): Array
+(
+    [0] => Error: You must specify a apikey value for the getAccountDetails method, code -90
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:28+00:00 DEBUG (7): Array
+(
+    [0] => us1.api.mailchimp.com
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:28+00:00 DEBUG (7): Array
+(
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:28+00:00 DEBUG (7): Array
+(
+    [0] => lists
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:28+00:00 DEBUG (7): Array
+(
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:29+00:00 DEBUG (7): Array
+(
+    [0] => 
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:29+00:00 DEBUG (7): Array
+(
+    [0] => Error: You must specify a apikey value for the lists method, code -90
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:30+00:00 DEBUG (7): Array
+(
+    [0] => us1.api.mailchimp.com
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:30+00:00 DEBUG (7): Array
+(
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:30+00:00 DEBUG (7): Array
+(
+    [0] => ping
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:30+00:00 DEBUG (7): Array
+(
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:30+00:00 DEBUG (7): Array
+(
+    [0] => 
+    [__pid] => 2640
+)
+
+2014-08-19T12:26:30+00:00 DEBUG (7): Array
+(
+    [0] => Error: You must specify a apikey value for the ping method, code -90
+    [__pid] => 2640
+)
+
+2014-08-19T12:31:58+00:00 DEBUG (7): Array
+(
+    [0] => us1.api.mailchimp.com
+    [__pid] => 4256
+)
+
+2014-08-19T12:31:58+00:00 DEBUG (7): Array
+(
+    [__pid] => 4256
+)
+
+2014-08-19T12:31:58+00:00 DEBUG (7): Array
+(
+    [0] => getAccountDetails
+    [__pid] => 4256
+)
+
+2014-08-19T12:31:58+00:00 DEBUG (7): Array
+(
+    [__pid] => 4256
+)
+
+2014-08-19T12:31:59+00:00 DEBUG (7): Array
+(
+    [0] => 
+    [__pid] => 4256
+)
+
+2014-08-19T12:31:59+00:00 DEBUG (7): Array
+(
+    [0] => Error: You must specify a apikey value for the getAccountDetails method, code -90
+    [__pid] => 4256
+)
+
+2014-08-19T12:31:59+00:00 DEBUG (7): Array
+(
+    [0] => us1.api.mailchimp.com
+    [__pid] => 4256
+)
+
+2014-08-19T12:31:59+00:00 DEBUG (7): Array
+(
+    [__pid] => 4256
+)
+
+2014-08-19T12:31:59+00:00 DEBUG (7): Array
+(
+    [0] => lists
+    [__pid] => 4256
+)
+
+2014-08-19T12:31:59+00:00 DEBUG (7): Array
+(
+    [__pid] => 4256
+)
+
+2014-08-19T12:31:59+00:00 DEBUG (7): Array
+(
+    [0] => 
+    [__pid] => 4256
+)
+
+2014-08-19T12:31:59+00:00 DEBUG (7): Array
+(
+    [0] => Error: You must specify a apikey value for the lists method, code -90
+    [__pid] => 4256
+)
+
+2014-08-19T12:32:00+00:00 DEBUG (7): Array
+(
+    [0] => us1.api.mailchimp.com
+    [__pid] => 4256
+)
+
+2014-08-19T12:32:00+00:00 DEBUG (7): Array
+(
+    [__pid] => 4256
+)
+
+2014-08-19T12:32:00+00:00 DEBUG (7): Array
+(
+    [0] => ping
+    [__pid] => 4256
+)
+
+2014-08-19T12:32:00+00:00 DEBUG (7): Array
+(
+    [__pid] => 4256
+)
+
+2014-08-19T12:32:00+00:00 DEBUG (7): Array
+(
+    [0] => 
+    [__pid] => 4256
+)
+
+2014-08-19T12:32:00+00:00 DEBUG (7): Array
+(
+    [0] => Error: You must specify a apikey value for the ping method, code -90
+    [__pid] => 4256
+)
+

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <customer_account_index>
+        <reference name="customer_account_dashboard">
+      
+            <action method="setTemplate"><template>creditpayment/customer/account/dashboard.phtml</template></action>
+           <reference name="customer_account_dashboard">  
+             <block type="customer/account_dashboard" name="customer_account_dashboard_credit" as="credit" template="creditpayment/customer/creditpayment.phtml"/>
+        </reference>
+                    
+        </reference>
+    </customer_account_index>
+</layout>

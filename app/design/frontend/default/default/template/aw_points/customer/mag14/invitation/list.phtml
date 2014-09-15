@@ -1,0 +1,154 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Points
+ * @version    1.7.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?>
+<div class="title title2">
+	<span><?php echo $this->getTitle(); ?></span>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+	<div class="p-small gap">
+		<p><a class="button" href="/points/invitation/list"><img src="<?=$this->getSkinUrl('images/user.png');?>"/> View Invitation Status</a></p>
+		<p>Earn extra points now by inviting your friends to join.<br>
+		For every 5 accepted invitation, you will get 1 point added to your account.<br>
+		There are 2 options to invite your friends:</p>
+	</div>
+</div>
+<div class="clearfix"></div>
+<div class="title"><span>option 1</span></div>
+<div class="row">
+	<div class="p-small gap">
+		<p>Highlight and copy & paste the Link below to where your friends can see it .</p>
+	</div>
+	<div class="login-block-md">
+		<pre><?php echo Mage::helper('points')->getInvitationLink(); ?></pre>
+	</div>
+</div>
+<div class="clearfix"></div>
+<div class="width-xs">
+	<div class="title dark"><span>OR</span></div>
+</div>
+<div class="row">
+	<div class="p-small">
+		<p>Add a Sample Store Button to your site!<br>
+		Copy the code below and paste it wherever you want the Button to live</p>
+	</div>
+</div>
+<div class="clearfix"></div>
+<ul class="ss-code">
+	<li><span><img src="<?=$this->getSkinUrl('images/ss-lg.png');?>" alt=""></span><a href="#">Get Code</a></li>
+	<li><span><img src="<?=$this->getSkinUrl('images/ss-md.png');?>" alt=""></span><a href="#">Get Code</a></li>
+	<li><span><img src="<?=$this->getSkinUrl('images/ss-sm.png');?>" alt=""></span><a href="#">Get Code</a></li>
+</ul>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?> <!-- message output -->
+<?php //if ($this->hasInvitees()): ?>  
+    <!-- <fieldset> -->      
+        <!-- <table class="data-table" id="invitelist-table">
+            <thead>
+                <tr>
+                    <th><?php echo $this->__('E-mail') ?></th>
+                    <th><?php echo $this->__('Status') ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($this->getCollection() as $item): ?>
+                    <tr>
+                        <td>
+                            <span class="nobr"><?php echo $item->getEmail() ?></span>
+                        </td>
+                        <td>
+                            <span class="nobr"><?php echo $item->getStatus() ?></span>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+        <script type="text/javascript">decorateTable('invitelist-table')</script>            
+    <!-- </fieldset> -->
+<?php //else: ?>
+    <!-- <p><?php //echo $this->__("You haven't sent any invitation yet") ?></p> -->
+<?php //endif ?>
+<!-- <div class="buttons-set">
+    <button  title="<?php echo $this->__('Send invitation') ?>" class="button" onclick="window.location.href='<?php echo $this->getInvitationFormUrl(); ?>'">
+        <span>
+            <span>
+                <?php echo $this->__('Send invitation') ?>
+            </span>
+        </span>
+    </button>
+    <p class="back-link"><a href="<?php echo $this->getBackUrl(); ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>
+</div> -->
+<div class="clearfix"></div>
+<div class="row">
+	<div class="title"><span>option 2</span></div>
+</div>
+<div class="clearfix"></div>
+<div class="login-block pull-up-30">
+	<div class="form">
+		<form id="aw_sendinvitation"  action="/points/invitation/sendinvitation/" method="post">
+	    <div class="row">
+			<div class="p-small">
+	        	<p>You can send invitation to your friends via Email.<br>
+	         	 We'll automatically send up to 3 reminders after the first invite.</p>
+			</div>
+	    </div>
+	    <div class="row">
+			<input tabindex="1" placeholder="Email Address" name="email[]" id="email_1" title="<?php echo $this->__('Email') ?>" value="" class="required-entry input-text validate-email aw_points_input" type="text" />
+	    </div>
+	    <div class="row">
+	    	<!-- <button type="submit" title="<?php echo $this->__('Send invitation') ?>" class="button submit-btn"><?php echo $this->__('Invite') ?></button> -->
+			<input type="submit" value="Invite" class="submit-btn button">
+	    </div>
+	  </form>
+	</div>
+	<div class="clearfix"></div>
+</div>
+<!-- <div class="aw-points-referral">
+	<h3>&#151;&#151;&#151;&#151;&#151; OPTION 2 &#151;&#151;&#151;&#151;&#151;</h3>
+	<p>You can send invitation to your friend via Email</p>
+	<p>We'll automatically send up to 3 reminders after the first invite.</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<form id="aw_sendinvitation"  action="/points/invitation/sendinvitation/" method="post">
+		<div class="clearfix">
+			<input tabindex="1" placeholder="Email Address" name="email[]" id="email_1" title="<?php echo $this->__('Email') ?>" value="" class="required-entry input-text validate-email aw_points_input" type="text" />
+		</div>
+		<div class="clearfix">
+	        <button type="submit" title="<?php echo $this->__('Send invitation') ?>" class="button"><?php echo $this->__('Invite') ?></button>
+        </div> -->
+	    <!-- <div class="buttons-set">
+	        <button type="submit" title="<?php echo $this->__('Send invitation') ?>" class="button">
+	            <span>
+	                <span>
+	                    <?php echo $this->__('Send invitation') ?>
+	                </span>
+	            </span>
+	        </button>
+	    </div> -->
+	<!-- </form>
+</div> -->
+<script type="text/javascript">
+    var contactForm = new VarienForm('aw_sendinvitation', true);
+</script>

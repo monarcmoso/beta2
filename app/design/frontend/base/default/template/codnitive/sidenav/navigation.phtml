@@ -1,0 +1,140 @@
+<?php
+/**
+ * CODNITIVE
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   Codnitive
+ * @package    Codnitive_Sidenav
+ * @author     Hassan Barza <support@codnitive.com>
+ * @copyright  Copyright (c) 2011 CODNITIVE Co. (http://www.codnitive.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+/**
+ * Sidebar menu
+ *
+ * @see Codnitive_sidenav_Block_Navigation
+ */
+?>
+<style>
+    input{
+        background : none;
+        text-align: center;
+        color: #7cded5;
+        line-height: 28px;
+        font-size: 12px;
+    }
+    </style>
+    <!-- <script src="<?php echo Mage::getBaseUrl(); ?>/js/jquery/jquery.min2.js"></script>  -->
+ <form action="<?php echo Mage::getBaseUrl(); ?>all-samples.html" method="post">
+<?php if ($categories = $this->getCategoriesNavMenu()): ?>
+
+
+    
+    <aside class="sidebar">
+   <h2 style="margin:0px;">view by:</h2>
+    <div id="cssmenu">
+        <ul style="padding:0px;">
+        <?php// if ($this->showHome()): ?>
+<!--            <li class="<?php echo $this->getHomeClasses() ?>">
+                <a href="<?php echo $this->getBaseUrl() ?>"><span class="category_name">Home</span></a>
+            </li>-->
+        <?php //endif; ?>
+           
+        <?php echo $categories; ?>
+
+        </ul>
+       
+        
+      
+        <div class="clearer support-logo-wrapper"></div>
+       <!-- <a href="http://www.codnitive.com/" target="_blank" class="support_logo">
+            <?php //if ($this->showAsImage()): ?>
+            <img src="<?php echo $this->getSkinUrl('images/codnitive/sidenav/codnitive_logo.png'); ?>" alt="CODNITIVE&reg;" title="Sidebar Navigation by CODNITIVE"/>
+            <?php //else: ?>
+            <span>CODNITIVE&REG;</span>
+            <?php //endif; ?>
+        </a>-->
+        <?php //endif; ?>
+    </div>
+   </aside>
+
+    <div>
+    </form>      
+    <?php if ($this->getConfig()->isCollapsible()): ?>
+    <script type="text/javascript" language="javascript">
+        jQuery(document).ready(function($) 
+        {
+
+            $("#clearme").click(function() {
+                $('input:checkbox').removeAttr('checked');
+                $('label.css-label').css('backgroundPosition', bgpos[0] + ' ' + (parseInt(bgpos[1],10)-550)+ 'px');
+            });
+
+        });
+    //<![CDATA[
+
+    Codnitive = {
+        expandMenu: function(parent) 
+        {
+            var mode = parent.getElementsByTagName("ul")[0].getAttribute("expanded");
+            (mode == 1) ? Codnitive.collapse(parent) : Codnitive.expand(parent);
+                
+        },
+
+        expand: function(parent)
+        {
+            parent.getElementsByTagName("ul")[0].style.display = "block";
+            parent.getElementsByTagName("span")[0].style.backgroundPosition = "right center";
+            parent.getElementsByTagName("ul")[0].setAttribute("expanded", "1");
+         
+            
+//                if((parent.getElementsByTagName('li')[0].className).indexOf("nav-3")>=0)
+//                       $('.nav-3').addClass('active');
+//                if((parent.getElementsByTagName('li')[0].className).indexOf("nav-4")>=0)
+//                       $('.nav-4').addClass('active');   
+        },
+
+        collapse: function(parent)
+        {
+            parent.getElementsByTagName("ul")[0].style.display = "none";
+//            parent.getElementsByTagName("span")[0].style.backgroundPosition = "left center";
+            parent.getElementsByTagName("ul")[0].setAttribute("expanded", "0");
+   
+          
+            if((parent.getElementsByTagName('li')[0].className).indexOf("nav-3")>=0)
+                       $('.nav-3').removeClass('active');
+            if((parent.getElementsByTagName('li')[0].className).indexOf("nav-4")>=0)
+                    $('.nav-4').removeClass('active');  
+       
+          
+          
+        }
+    };
+  
+    //]]>
+    </script>
+    <?php endif; ?>
+</div>
+   
+<?php endif ?>
+<?php
+$product = Mage::getModel('catalog/product');
+      $attributes = Mage::getResourceModel('eav/entity_attribute_collection')
+                  ->setEntityTypeFilter($product->getResource()->getTypeId())
+                  ->addFieldToFilter('attribute_code', 'brand_set');
+$attribute = $attributes->getFirstItem()->setEntity($product->getResource());
+$manufacturers = $attribute->getSource()->getAllOptions(false);
+?>
+  

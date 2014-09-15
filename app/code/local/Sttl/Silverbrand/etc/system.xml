@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <sttl_tab translate="label" module="silverbrand">
+            <label>STTL</label>
+            <sort_order>184</sort_order>
+        </sttl_tab>
+    </tabs>
+	<sections>
+		<silverbrand translate="label" module="silverbrand">
+			<label>SILVER Brand</label>
+			<show_in_default>1</show_in_default>
+			<tab>sttl_tab</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>100</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<silverbrand translate="label">
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+				</silverbrand>
+				<silverbrand translate="label">
+					<label>Enable Silver Brand</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>50</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enable translate="label">
+							<label>Enable Silver Brand</label>
+							<frontend_type>select</frontend_type>
+							<source_model>sttl_silverbrand_model_mode_display_enabledisable</source_model>
+							<sort_order>25</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable>
+						<categoryId translate="label">
+							<label>Define Brand Id (Category ID)</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</categoryId>
+					</fields>
+				</silverbrand>
+			</groups>
+		</silverbrand>
+	</sections>
+</config>	
+
+
+

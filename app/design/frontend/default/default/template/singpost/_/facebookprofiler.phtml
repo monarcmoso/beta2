@@ -1,0 +1,73 @@
+<div class="contact-content">
+	<div class="title title2">
+		<span>User Profile</span>
+	</div>
+	<div class="clearfix"></div>
+	<div class="fb-block">
+		<form id="frmFBprofiler" action="#" method="post">
+		<div class="row">
+			<div class="additional">
+				<label class="last">Date of Birth:</label>
+				<div class="dob2">
+					<input id="dd" class="input-xs-sm" type="text" placeholder="dd" value="" name="dd">
+					<input id="mm" class="input-xs-sm" type="text" placeholder="mm" value="" name="mm">
+					<input id="yy" class="input-md-sm" type="text" placeholder="yyyy" value="" name="yy">
+					<input id="dob" type="hidden" name="dob">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="additional">
+				<label class="last">Country:</label>
+				<label class="align-middle">
+					<input type="radio" value="SG" name="country_value">
+					<img alt="" src="<?=$this->getSkinUrl('images/flag.jpg');?>">
+				</label>
+				<label class="align-middle">
+					<input type="radio" value="MY" name="country_value">
+					<img alt="" src="<?=$this->getSkinUrl('images/flag.jpg');?>">
+				</label>
+				<label class="align-middle">
+					<input id="others" name="others" type="radio">
+					Others
+				</label>
+			</div>
+			<div class="additional">
+				<div id="country_dropdown" style="display:none;">
+					<?php $_countries = Mage::getResourceModel('directory/country_collection')->loadData()->toOptionArray(false) ?>
+					<?php if (count($_countries) > 0): ?>
+					    <select name="country" id="country">
+					        <option value="">Select Country</option>
+					        <?php foreach($_countries as $_country): ?>
+					            <option value="<?php echo $_country['value'] ?>">
+					                <?php echo $_country['label'] ?>
+					            </option>
+					        <?php endforeach; ?>
+					    </select>
+					<?php endif; ?>
+				</div>
+			</div>
+		</div>
+		<p class="error_msg2" id="error_msg2" style="display: none;"></p>
+		<div class="border"></div>
+		<div class="additional">
+		<?php 
+		$newsletter = Mage::getModel("profile/dashboard")->getNewsletter();
+		foreach($newsletter as $key => $NewsLetter):?>
+			<?php if($key == 0):?>
+			<input type="hidden" name="webform_id" id="webform_id" value="<?=$NewsLetter['id']?>">
+			<?php endif;?>
+			<div class="row">
+				<input type="checkbox" name="profile_<?=$key?>" id="profile_<?=$key?>"  value="<?=$NewsLetter['field_id']?>" class="<?=$NewsLetter['code']?>">	
+				<label class="small"><?=$NewsLetter['value']?></label>
+			</div>
+		<?php endforeach;?>
+		</div>
+		<div class="row">
+			<input id="updateCountry" class="submit-btn" type="submit" value="Submit">
+		</div>
+		</form>
+	</div>
+	<div class="clearfix"></div>
+</div>
+<div id="popup"><img src="<?=$this->getSkinUrl('images/ajax-loader.gif');?>"></div>

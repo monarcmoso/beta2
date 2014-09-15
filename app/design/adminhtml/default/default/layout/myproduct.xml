@@ -1,0 +1,8 @@
+<?xml version = "1.0" ?>
+<layout version="0.1.1">
+  <myproduct_adminhtml_index_index>
+     <reference name="content">
+             <block type="myproduct/monblock"  name="myproduct_monbloc" template="myproduct/myproduct.phtml" />
+     </reference>
+   </myproduct_adminhtml_index_index>
+</layout>

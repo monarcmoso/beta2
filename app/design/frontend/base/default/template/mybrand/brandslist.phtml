@@ -1,0 +1,55 @@
+
+<div class = "myproducts">
+
+	<div class = "myproducts-heading">
+		
+		<h1>Brands</h1>	
+		
+	</div>
+	
+                <?php // 
+            $productNameArray = array();	
+            $host = $_SERVER[HTTP_HOST];
+            $uri = $_SERVER[REQUEST_URI];
+            $uriArray = explode('/',$uri);
+            $url2 = '';//'/'.$uriArray[1];
+
+            echo '<link href="http://'.$host.$url2.'/skin/frontend/base/default/css/mybrand.css" rel="stylesheet" type="text/css">';
+            echo '<script src="http://'.$host.$url2.'/skin/frontend/base/default/js/mybrand.js"></script>';
+            echo '<script src = "http://'.$host.$url2.'/skin/frontend/base/default/js/vticker.js"></script>';
+            echo '<script>';
+            echo '$.noConflict();';
+            echo '</script>';
+//            echo "<script>";
+//            echo "	jQuery(function() {";
+//            echo "	  jQuery('#example').vTicker({";
+//            echo "		   speed: 500,";
+//            echo "		   pause: 3000,";
+//            echo "		   animation: 'fade',";
+//            echo "		   mousePause: true,";
+//            echo "		   showItems: 1,";
+//            echo "		   height:120";
+//            echo "	  });";
+//            echo "	});";
+//            echo "</script>";
+
+            $collection = Mage::getModel('mybrand/mybrand')->getCollection()->setOrder('brand_id','asc');
+            echo '<div>';
+            echo '</div>';
+            echo '<div id="example" style="padding: 10px;width:100px;float:left;">';
+            echo '<div style="width: 1200px;">';
+            foreach($collection as $data)
+            {
+
+                    echo '<div style="float:left;width: 200px;">';
+                    echo '<div style="width: 100px;" class = "mybrand-name"><center>'.$data->getData('brand_name').'</center></div>';
+                    echo '<a href = "http://'.$host.$url2.'/mybrand/?id='.$data->getData('brand_id').'">';
+                    echo '<img src = "http://'.$host.$url2.'/upload/mybrand/brands/'.$data->getData('brand_image_file').'" style = "width:100px;height:50px">';
+                    echo '</a>';
+                    echo '</div>';
+
+            } 
+            echo '</div>';
+            echo '</div><div style="clear:both;"></div>';
+        ?>
+               

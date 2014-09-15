@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default translate="label" module="page">
+        <reference name="head">
+			<block type="core/template" name="cartrescuer_tracking" template="cartrescuer/cartrescuer.phtml" />
+        </reference>
+	</default>
+</layout> 

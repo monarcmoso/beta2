@@ -1,0 +1,142 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<meta http-equiv="Content-Type" content="<?php echo $this->getContentType() ?>" />
+<title><?php echo $this->getTitle() ?></title>
+<meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
+<meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
+<meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
+<link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<?php if (Mage::registry('current_product')) : ?>
+<meta property="og:image" content="<?php echo Mage::helper('catalog/image')->init(Mage::registry('current_product'), 'small_image')->resize(200,200);?>" />
+<meta property="og:title" content="<?php echo Mage::registry('current_product')->getMetaTitle()?>" /> 
+<?php endif;?>
+<script>
+FB.ui(
+   {
+     method: 'feed',
+     name: 'Facebook Dialogs',
+     link: 'http://payments.samplestore.com/out-of-stock/la-roche-posay-uvidea-spf-50-bb-cream.html',
+     picture: 'http://fbrell.com/f8.jpg',
+     caption: 'Reference Documentation',
+     description: 'Dialogs provide a simple, consistent interface for applications to interface with users.',
+     message: 'Facebook Dialogs are easy!'
+   },
+   function(response) {
+     if (response && response.post_id) {
+       alert('Post was published.');
+     } else {
+       alert('Post was not published.');
+     }
+   }
+ );
+</script>
+<!-- start Mixpanel --><script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2.2.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+mixpanel.init("c4d7924bdf21e04826846df38af78a12");</script><!-- end Mixpanel -->
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = '<?php echo $this->helper('core/js')->getJsUrl('blank.html') ?>';
+    var BLANK_IMG = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
+//]]>
+</script>
+<![endif]-->
+<?php echo $this->getCssJsHtml() ?>
+<?php echo $this->getChildHtml() ?>
+<?php echo $this->helper('core/js')->getTranslatorScript() ?>
+<?php echo $this->getIncludes() ?>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+     $(".request_btn" ).click(function() {
+        	
+            	var produc_id =  $(this).attr("id");
+		var formdata = $("#param_"+produc_id).val();
+                var counter = parseInt($("#ctr_"+produc_id).val());
+                <?php
+            if ($this->helper('customer')->isLoggedIn() ) { ?>
+		//var formdata = "product/"+produc_id+"/form_key/"+formkey;
+            $.ajax({
+                url: "/index.php/wishlist/index/addAjax/"+formdata,
+                type: "get",
+                data: formdata,
+                dataType: 'json',
+               success: function(data)
+		{ 	 
+                    if (data.status == 'success') {
+                        alert("Thank you, we have noted your request.");
+                        counter = counter+1;
+                        $('#counter'+produc_id).text("Requested ("+counter+")");
+                    }else if(data.status == 'have'){
+                         $('#counter'+produc_id).text("Request ("+counter+")");
+                         alert("Ok, you have removed your request.");
+                    }
+		else if(data.status == 'notlogin'){
+                         $('#counter'+produc_id).text("Request ("+counter+")");
+                         alert("You are not login.Please login to samplestore to request this product");
+			
+                    }
+                    else{
+                        alert("please try again there some network problems encountered.");
+                    }
+                }
+            });
+ 	<?php } else { ?> 
+		alert("Sorry , Please login to continue.");
+            window.location="<?php echo  Mage::getBaseUrl(); ?>customer/account/login";
+            <?php
+           }
+        ?>
+    }); 
+  
+    $(".block-layered-nav").hide();
+
+});
+
+</script>
+<script type="text/javascript" src="http://staging.samplestore.com/js/webforms/logic.js"></script>
+<script type="text/javascript" src="http://staging.samplestore.com/js/webforms/stars.js"></script>
+<script type="text/javascript" src="http://staging.samplestore.com/js/webforms/HelpBalloon.js"></script>
+<script type="text/javascript" src="http://staging.samplestore.com/js/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="http://staging.samplestore.com/js/calendar/calendar.js"></script>
+<script type="text/javascript" src="http://staging.samplestore.com/js/calendar/calendar-setup.js"></script>
+<link rel="stylesheet" type="text/css" href="http://staging.samplestore.com/skin/frontend/base/default/webforms/form.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://staging.samplestore.com/skin/frontend/base/default/webforms/stars.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://staging.samplestore.com/skin/frontend/base/default/webforms/helpballoon.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://staging.samplestore.com/skin/frontend/base/default/css/chart.css" media="all" />
+<?php Mage::register('before_expiry', '30'); ?>
+
+<link href="css/jquery.custombox.css" rel="stylesheet" type="text/css" />
+<link href="css/tooltip.css" rel="stylesheet" type="text/css" />
+<link href="css/animate.css" rel="stylesheet" type="text/css" />
+<script src="<?= $this->getJsUrl('singpost/main.js');?>"></script> 
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+<![endif]-->
+<?php //echo $date = date('m/d/Y h:i:s', time()); ?>

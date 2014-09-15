@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package>
+    <name>Inic_Creditpayment</name>
+    <version>0.1.1</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Admin can assign credits which are then redeemable at time of purchase towards the cost of your order. &#xD;
+Credit points are an added bonus to our customers on the site and just one of the ways we thank you for being a loyal customer.</summary>
+    <description>Features&#xD;
+view credit balance at customer dashboard&#xD;
+Assign credits to customer from admin side &#xD;
+Enable to specific Customer groups&#xD;
+Set New Order Status, pending or processing (if status is processing then it will generate invoice automatically)&#xD;
+select Countries to accept payments from.(Customer's country)&#xD;
+Set Minimum Order Total/Maximum Order Total to apply credits&#xD;
+Supports on refund and Credit memo&#xD;
+Supports on Order creation from admin side&#xD;
+Payment option works if total order amount is less than or equal to Credit available in account.</description>
+    <notes>Credit points are an added bonus to our customers on the site and just one of the ways we thank you for being a loyal customer.</notes>
+    <authors><author><name>indianic</name><user>indianic</user><email>enquiry@indianic.com</email></author></authors>
+    <date>2013-10-02</date>
+    <time>04:44:25</time>
+    <contents><target name="magelocal"><dir name="Inic"><dir name="Creditpayment"><dir name="Block"><dir name="Adminhtml"><dir name="Customer"><dir name="Edit"><dir name="Tab"><file name="Credit.php" hash="7817e2527a34a966a963fa164a1e1965"/></dir></dir><file name="Editcustomer.php" hash="42700c2ab0b7cd928b60b0998129aec7"/></dir></dir></dir><dir name="Helper"><file name="Data.php" hash="4fd596c9fa025252b88cb92a7feb9ac0"/></dir><dir name="Model"><dir name="Checkout"><dir name="Type"><file name="Multishipping.php" hash="ff1df095bcd7ebd99226b10f7802ba26"/><file name="Onepage.php" hash="dbbf8ad0a330efc05c5a6139dd84953e"/></dir></dir><file name="Creditpayment.php" hash="90ca96af5bf218912e9efc16be494a30"/><file name="Customer.php" hash="dade5ab5c0b46de0d195f20773f37014"/><dir name="Method"><file name="Creditpayment.php" hash="2581429356b3b430d1b950c81cbc90d5"/></dir><dir name="Mysql4"><dir name="Creditpayment"><file name="Collection.php" hash="2a99b21cc832446b91c8d53f39c5f5f6"/></dir><file name="Creditpayment.php" hash="6e0ae712783b4fa6081ebbf1933c098b"/></dir><file name="Observer.php" hash="22be572d9fc42efa6535d66e47122f34"/></dir><dir name="controllers"><dir name="Adminhtml"><dir name="Sales"><dir name="Order"><file name="CreateController.php" hash="1138f0ca790b63265f12572f89482c5e"/></dir></dir></dir></dir><dir name="etc"><file name="config.xml" hash="4892ff9528cb24b1f3e8dbb40445e93e"/><file name="system.xml" hash="e3a18b665eeec23326f95768c82d865e"/></dir><dir name="sql"><dir name="creditpayment_setup"><file name="mysql4-install-0.1.0.php" hash="e10c250efd42691f723173074fee0149"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Inic_Creditpayment.xml" hash="039e0c15a06b409001dacf20beff364d"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="creditpayment.xml" hash="a7cdf1caf3e14e4655a32985d6edb132"/></dir><dir name="template"><dir name="creditpayment"><dir name="customer"><dir name="account"><file name="dashboard.phtml" hash="a50d7afced8b802771118adf457c89cb"/></dir><file name="creditpayment.phtml" hash="9350a9462f75c395601aba2017dcfe90"/></dir></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="creditpayment.xml" hash="295e7c2715b2b17ff9b85b824b995f58"/></dir><dir name="template"><dir name="creditpayment"><file name="creditpayment.phtml" hash="be77ae4bbea4212b89d12f32956fd296"/><file name="js.phtml" hash="bc073792a58bc2bcac3d511ccbe236c0"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

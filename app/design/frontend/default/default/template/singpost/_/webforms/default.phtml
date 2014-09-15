@@ -1,0 +1,424 @@
+<style>
+   #page_3,#page_6,.page_6,.page_3{display:none;}
+</style>
+<script type="text/javascript">
+	//Query.noConflict()
+	jQuery(document).ready(function($){
+		var field_1;
+		var field_2;
+		var field_3;
+		var field_5;
+		var field_6;
+		var field_4;
+		var field_7;
+		var field_8;
+		var styles = {color : "red",fontWeight: "bold"};
+		var default_styles = {color : "#5f6062",fontWeight: "normal"};
+		$("#next1").click(function(){
+			//#2
+			if($("#field_92 input[type='radio']:checked").length > 0){
+				field_1 = 1;
+				$("#field_92 h3").css(default_styles);
+			}else{
+				$("#field_92 h3").css(styles);
+				field_1 = 0;
+				$('#field_92')[0].scrollIntoView(true);
+			}
+			//#2			
+			if($("#field_93 input[type='radio']:checked").length > 0){
+				field_2 = 1;
+				$("#field_93 h3").css(default_styles);
+			}else{
+				$("#field_93 h3").css(styles);
+				field_2 = 0;
+				$('#field_93')[0].scrollIntoView(true);
+			}
+			//#3			
+			if($("#field_94 input[type='checkbox']:checked").length > 0){
+				field_3 = 1;
+				$("#field_94 h3").css(default_styles);
+			}else{
+				$("#field_94 h3").css(styles);
+				field_3 = 0;
+				$('#field_94')[0].scrollIntoView(true);
+			}
+			if(field_1 ==1 && field_2 == 1 && field_3 == 1){
+				clear();
+				$("#page_3").fadeIn();
+				$(".page_3").fadeIn();
+			}
+		});
+		
+		$("#next2").click(function(){
+			//#4			
+			if($("#field_95 input[type='checkbox']:checked").length > 0){
+				field_4 = 1;
+				$("#field_95 h3").css(default_styles);
+			}else{
+				$("#field_95 h3").css(styles);
+				field_4 = 0;
+				$('#field_95')[0].scrollIntoView(true);
+			}
+			//#5			
+			if($("#field_96 input[type='checkbox']:checked").length > 0){
+				field_5 = 1;
+				$("#field_96 h3").css(default_styles);
+			}else{
+				$("#field_96 h3").css(styles);
+				field_5 = 0;
+				$('#field_96')[0].scrollIntoView(true);
+			}
+			//#6			
+			if($("#field_97 input[type='radio']:checked").length > 0){
+				field_6 = 1;
+				$("#field_97 h3").css(default_styles);
+			}else{
+				$("#field_97 h3").css(styles);
+				field_6 = 0;
+				$('#field_97')[0].scrollIntoView(true);
+			}
+			if(field_4 ==1 && field_5 == 1 && field_6 == 1){
+				clear();
+				$("#page_6").fadeIn();
+				$(".page_6").fadeIn();
+			}
+		});
+		$("#submit_form").click(function(){
+			//#7			
+			if($("#field_98 input[type='checkbox']:checked").length > 0){
+				field_7 = 1;
+				$("#field_98 h3").css(default_styles);
+			}else{
+				$("#field_98 h3").css(styles);
+				field_7 = 0;
+				$('#field_98')[0].scrollIntoView(true);
+			}
+			//#8			
+			if($("#field_99 input[type='checkbox']:checked").length > 0){
+				field_8 = 1;
+				$("#field_99 h3").css(default_styles);
+			}else{
+				$("#field_99 h3").css(styles);
+				field_8 = 0;
+				$('#field_99')[0].scrollIntoView(true);
+			}
+			if(field_7 ==1 && field_5 == 1 && field_8 == 1){
+				$("#frmSettings" ).submit();
+				$(this).hide();
+				$('#loading').show();
+			}
+		});
+		function clear()
+		{
+			$(".page-no .title span").each(function(){
+				$(this).hide();
+			});
+			
+			$(".slide").each(function(){
+				$(this).hide();
+			});
+		}
+	});
+</script>
+<?php
+/**
+ * @author         Vladimir Popov
+ * @copyright      Copyright (c) 2014 Vladimir Popov
+ */
+
+// in case redirect fails
+if (Mage::registry('redirect_url')) {
+    ?>
+    <meta http-equiv="refresh" content="0;url=<?php echo Mage::registry('redirect_url') ?>">
+    <script type="text/javascript">
+        window.location = '<?php echo Mage::registry('redirect_url')?>';
+    </script>
+<?php
+}
+
+// get temporary data
+$tmpData = Mage::getSingleton('core/session')->getData('webform_result_tmp_' . $this->getWebform()->getId());
+$tmpResult = new Varien_Object();
+if (!empty($tmpData['field']) && is_array($tmpData['field'])) {
+    foreach ($tmpData['field'] as $field_id => $value) {
+        $tmpResult->setData('field_' . $field_id, $value);
+    }
+}
+
+if ($this->getWebform()->getIsActive() == VladimirPopov_WebForms_Model_Webforms::STATUS_DISABLED || !$this->isDirectAvailable()) {
+    echo $this->getNotAvailableMessage();
+} else {
+
+    if (Mage::registry('show_form_name')) {
+        ?>
+        <div class="page-title">
+            <h1><?php echo $this->getWebform()->getName(); ?></h1>
+        </div>
+    <?php } ?>
+
+    <?php if ($this->isAjax()) { ?>
+        <div id="webform_<?php echo $this->getWebform()->getId() ?>_success_text" class="std webforms-success-text"
+             style="display:none"></div>
+    <?php } ?>
+
+    <?php
+    if (Mage::registry('show_success')) {
+        ?>
+        <div class="std webforms-success-text">
+            <?php echo $this->getWebform()->getSuccessText() ?>
+        </div>
+    <?php
+    } else {
+        ?>
+
+        <div id="webform_<?php echo $this->getWebform()->getId() ?>_form" class="contact-content">
+
+            <?php if ($this->getWebform()->getDescription()) { ?>
+                <div class="std">
+                	 <div class="title title2"><span>Profile settings</span></div>
+                    <?php echo $this->getWebform()->getDescription(); ?>
+                </div>
+            <?php } ?>
+
+            <?php if ($this->isAjax()) { ?>
+                <iframe id="webform_<?php echo $this->getWebform()->getId() ?>_iframe"
+                        name="webform_<?php echo $this->getWebform()->getId() ?>_iframe"
+                        style="width:0;height:0;border:0;position:absolute"></iframe>
+            <?php } ?>
+
+            <!-- <form action="<?php echo $this->getFormAction() ?>" method="post"
+                  name="webform_<?php echo $this->getWebform()->getId() ?>"
+                  id="webform_<?php echo $this->getWebform()->getId() ?>" enctype="<?php echo $this->getEnctype() ?>"
+                  class="webforms-<?php echo $this->getWebform()->getCode() ?>"
+                  <?php if ($this->isAjax()) { ?>target="webform_<?php echo $this->getWebform()->getId() ?>_iframe"<?php } ?>> -->
+
+            <form action="<?php echo $this->getFormAction() ?>" method="post"
+                  name="webform_<?php echo $this->getWebform()->getId() ?>"
+                  id="frmSettings" enctype="<?php echo $this->getEnctype() ?>"
+                  class="webforms-<?php echo $this->getWebform()->getCode() ?>"
+                  <?php if ($this->isAjax()) { ?>target="webform_<?php echo $this->getWebform()->getId() ?>_iframe"<?php } ?>>
+                  
+                <input type="hidden" name="submitWebform_<?php echo $this->getWebform()->getId() ?>" value="1"/>
+                <input type="hidden" name="webform_id" value="<?php echo $this->getWebform()->getId() ?>"/>
+
+                <?php if (is_array($this->getData('hidden'))) {
+                    foreach ($this->getData('hidden') as $key => $value) {
+                        ?>
+                        <input type="hidden" name="<?php echo $key ?>" value="<?php echo $value ?>"/>
+                    <?php
+                    }
+                }?>
+
+                <?php if (count($this->getWebform()->_getHidden())) {
+                    foreach ($this->getWebform()->_getHidden() as $field) {
+                        echo $field->toHtml();
+                    }
+                } ?>
+
+                <?php
+                foreach ($this->getWebform()->_getFieldsToFieldsets() as $fieldset_id => $fieldset) {
+                    ?>
+					<div class="clearfix"></div>
+					<div class="page-no" >
+						<div class="title">
+							<span class="page_0">PAGE 1 OF 3</span>
+							<span class="page_3">PAGE 2 OF 3</span>
+							<span class="page_6">PAGE 3 OF 3</span>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+                    <div id="fieldset_<?php echo $fieldset_id ?>" class="clearfix-registration fieldset-<?php echo $fieldset_id ?>"
+                        <?php if ($fieldset['logic_visibility'] == VladimirPopov_WebForms_Model_Logic::VISIBILITY_HIDDEN) echo 'style="display:none"'; ?>>
+                            <?php
+                            $k = 0;
+                            $j = 0;
+                            $prev = false;
+                            $fields_count = count($fieldset['fields']);
+                            foreach ($fieldset['fields'] as $field) {
+                                // set temporary value
+                                $field->setData('result', $tmpResult);
+
+                                $size_class = "fields";
+                                $field_class = "field";
+                                if ($field->getSize() == 'wide') {
+                                    $size_class = "wide";
+                                    $field_class = "";
+                                }
+
+                                ?>
+                                <?php //if ($j % 3 == 0 || $field->getSize() == 'wide' || $prev->getSize() == 'wide') {
+                                    // $j = 0; ?>
+                                    <?php //if ($k > 1) { ?></li><?php //} ?>
+                                    <!-- <li style="border:solid 1px #000;" <?php if ($size_class == 'wide') { ?>id="field_<?php echo $field->getId() ?>_row" <?php } ?>
+                                    class="<?php echo $size_class ?> <?php if ($size_class == 'wide') { ?>webforms-fields-row-<?php echo $field->getId() ?><?php } ?>"
+                                    <?php if ($size_class == 'wide' && $field->getData('logic_visibility') == VladimirPopov_WebForms_Model_Logic::VISIBILITY_HIDDEN) echo 'style="display:none"'; ?>> -->
+                                <?php //} ?>
+                                <?php          
+								if ($j % 3 == 0) {
+								    echo "<div class='slide' id='page_$j'>";
+								  }
+								$j++;
+                                ?>
+                                <div class="c-row" id="field_<?php echo $field->getId() ?>"
+                                     class="<?php echo $field_class ?> webforms-fields-<?php echo $field->getId() ?><?php if ($field->getCode()) { ?> webforms-fields-<?php echo $field->getCode();
+                                     }?>"
+                                    <?php if ($field->getData('logic_visibility') == VladimirPopov_WebForms_Model_Logic::VISIBILITY_HIDDEN) echo 'style="display:none"'; ?>>
+
+                                    <?php if ($field->getType() != 'html' && $field->getType() != 'subscribe') { ?>
+                                        <h3 for="field_<?php echo $field->getId() ?>"
+                                               <?php if ($field->getRequired()) { ?>class="required new-title"<?php } ?>>
+                                            <?php echo $field->getName() ?>
+                                            <?php 
+                                                $tooltip = $field->getTooltip(); 
+                                                if($tooltip){
+                                                    echo $this->getLayout()->createBlock(
+                                                        'core/template',
+                                                        'field' . $field->getId() . '_tooltip',
+                                                        array(
+                                                            'title' => $field->getName(),
+                                                            'tooltip' => $tooltip,
+                                                            'template' => 'webforms/scripts/tooltip.phtml',
+                                                        )
+                                                    )->toHtml();
+                                                }
+                                            ?>
+                                        </h3>
+                                    <?php } ?>
+
+                                    <!-- <div class="input-"> -->
+                                        <?php echo $field->toHtml('_settings'); ?>
+                                        <?php 
+										//$string = preg_replace('/<ul class="list-select">/', '', $field->toHtml());
+										//echo str_replace(array("<li class='control'>","</li>","</ul>"), '', $string);
+                                        ?>
+
+                                        <?php if ($field->getComment()) { ?>
+                                            <p class="webforms-fields-comment">
+                                                <?php echo nl2br($field->getComment()) ?>
+                                            </p>
+                                        <?php } ?>
+                                    <!-- </div> -->
+                                </div>
+								<?php
+								  if ($j % 3 == 0) {
+								  		
+								  	$num = ($j - 3);	
+								  	//echo $j;
+								  	if($num == 0)
+								  	{
+								  		echo '<div class="c-row">';
+										//echo '<div class="settings_btn next"><a href="#next" id="next1"  rel="'.($num+3).'">Next</a></div>';
+								  		//echo '<div class="next" style="float:left;width:20%;"><a href="#" rel="'.($num+3).'">Next</a></div>';?>
+										<!-- <div class="settings_btn next"><a href="#next" id="next1" onclick="myFunction()">Next</a></div> -->
+										<a href="#next" id="next1"><div class="settings_btn next">Next</div></a>
+										<?php
+										echo '</div>';
+								  	}
+									else if($num == 3) {
+										echo '<div class="c-row">';
+										echo '<div class="settings_btn prev"><a href="#prev" id="prev2" rel="'.($num-3).'">Previous</a></div>';
+										echo '<a href="#next" id="next2" rel="'.($num+3).'"><div class="settings_btn next">Next</div></a>';
+										echo '</div>';
+									}
+									// else{
+										// echo '<div class="next" style="float:left;width:20%;"><a href="#" rel="'.($num-3).'">Preview</a></div>';
+									// }
+									//echo $num;
+								    echo "</div>";
+								  }
+								  else {
+									 //	 echo $j;
+									 //echo $j;
+								  }
+								?>
+                                <!-- <div class="next_<?=$k;?>"><a href="#">NEXT</a></div> -->
+                                <?php if ($k == $fields_count - 1) { ?>
+                                    <!-- </li> -->
+                                <?php } ?>
+                                <?php
+                                $k++;
+                                //$j++;
+                                $prev = $field;
+                            } //end inside foreach?>
+                        <!-- </ul> -->
+                    </div> <!-- fieldset -->
+
+                <?php
+                } // foreach 'fields_to_fieldsets'
+                ?>
+
+                <?php if (Mage::registry('use_captcha')) { ?>
+                    <div class="fieldset">
+                        <h2 class="legend">Captcha</h2>
+                        <ul class="form-list">
+                            <li class="fields">
+                                <div class="field">
+                                    <?php echo $this->getCaptcha()->getHTML() ?>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                <?php } ?>
+
+                <?php if (Mage::getStoreConfig('webforms/honeypot/enable')) {
+                    echo $this->getLayout()->createBlock(
+                        'core/template',
+                        'webform_' . $this->getWebform()->getId() . '_honeypot',
+                        array(
+                            'webform' => $this->getWebform(),
+                            'template' => 'webforms/scripts/honeypot.phtml',
+                        )
+                    )->toHtml();
+                }?>
+   				
+                <div class="c-row page_6">
+                	<div class="settings_btn prev"><a href="#prev" rel="3">Previous</a></div><!-- Back button-->
+                    <!-- <button type="button" class="button next"
+                            id="webform_<?php echo $this->getWebform()->getId() ?>_submit_button"
+                            onclick="webform_<?php echo $this->getWebform()->getId() ?>_submit()"
+                            title="<?php echo $this->__('submit') ?>">
+                            Submit
+                    </button> -->
+					<button type="button" class="button next"
+                            id="submit_form"
+                            title="<?php echo $this->__('submit') ?>">
+                            Submit
+                    </button>
+					<span class="please-wait" id="loading"
+			              style="display:none;">
+						<img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>"
+			                 alt="<?php echo $this->__('Sending...') ?>" title="<?php echo $this->__('Sending...') ?>"
+			                 class="v-middle"/><span
+			                id="webform_<?php echo $this->getWebform()->getId() ?>_progress_text"><?php echo $this->__('Sending...') ?></span>
+					</span>
+                </div>
+
+            </form>
+
+        </div>
+
+        <?php echo $this->getLayout()->createBlock(
+            'core/template',
+            'webform_' . $this->getWebform()->getId() . '_submit_script',
+            array(
+                'webform' => $this->getWebform(),
+                'ajax' => $this->isAjax(),
+                'template' => 'webforms/scripts/userSettings.phtml',
+            )
+        )->toHtml();
+        ?>
+
+        <?php echo $this->getLayout()->createBlock(
+            'core/template',
+            'webform_' . $this->getWebform()->getId() . '_logic',
+            array(
+                'webform' => $this->getWebform(),
+                'template' => 'webforms/scripts/logic.phtml',
+            )
+        )->toHtml();
+        ?>
+
+    <?php
+    } // if(show_success)
+} // is active
+?>

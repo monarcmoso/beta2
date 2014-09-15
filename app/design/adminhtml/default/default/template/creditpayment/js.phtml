@@ -1,0 +1,32 @@
+<script type="text/javascript">
+Array.prototype.has = function(needle) {
+  for (var i=0;i<this.length;i++) {
+    if(this[i] == needle){ return true; }
+  }
+  return false;
+}
+
+var Tab_div = $$('.credit-limit').size();
+
+
+Event.observe('_accountgroup_id', 'change', checkAvailbleCredit);
+    
+        function checkAvailbleCredit(e)
+        {
+            var array =  $('selected_group').value;
+            if(Tab_div == 0 || array== ""){
+                return;
+            }
+         
+            var someArray = array.split(',');
+            var currentGroup = $('_accountgroup_id').value;
+            if(someArray.has(currentGroup) )
+            {
+               $('customer_info_tabs_customer_edit_tab_credit').style.display="block" 
+            }
+            else{ 
+               $('customer_info_tabs_customer_edit_tab_credit').style.display="none" 
+                }
+         }
+
+</script>

@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Medma Avatar Module.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Team
+ * that is bundled with this package of Medma Infomatix Pvt. Ltd.
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * Medma Support does not guarantee correct work of this package
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * =================================================================
+ */
+-->
+<config>
+    <modules>
+        <Medma_Avatar>
+            <version>1.0.1</version>
+        </Medma_Avatar>
+    </modules>
+    
+    <default>
+        <customer>
+            <avatar_widget>
+                <enabled>0</enabled>
+            </avatar_widget>
+        </customer>
+    </default>
+    
+    <frontend>
+        <routers>
+            <avatar>
+                <use>standard</use>
+                <args>
+                    <module>Medma_Avatar</module>
+                    <frontName>avatar</frontName>
+                </args>
+            </avatar>
+        </routers>
+        
+        <events>
+        <customer_save_before>
+            <observers>
+                <prepare_avatar_upload>
+                    <class>Medma_Avatar_Model_Observer</class>
+                    <method>saveCustomerAvatar</method>
+                </prepare_avatar_upload>
+            </observers>
+        </customer_save_before>
+        </events>
+        
+        <layout>
+            <updates>
+                <avatar>
+                    <file>medma/avatar.xml</file>
+                </avatar>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+        <events>
+            <medma_domain_authentication>
+                <observers>
+                    <domain>
+                        <class>Medma_Avatar_Model_Authenticate</class>
+                        <method>saveDomain</method>
+                    </domain>
+                </observers>
+            </medma_domain_authentication>
+            
+        </events>   
+
+        <helpers>
+            <avatar>
+                <class>Medma_Avatar_Helper</class>
+            </avatar>
+        </helpers>
+
+        <blocks>
+            <avatar>
+                <class>Medma_Avatar_Block</class>
+            </avatar>
+        </blocks>
+       
+        <models>
+            <avatar>
+                <class>Medma_Avatar_Model</class>
+            </avatar>
+        </models>
+       
+        <resources>
+            <avatar_setup>
+                <setup>
+                    <module>Medma_Avatar</module>
+                </setup>
+
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </avatar_setup>
+
+            <avatar_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </avatar_write>
+
+            <avatar_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </avatar_read>
+        </resources>
+    </global>
+</config>

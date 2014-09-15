@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>All_Reviews</name>
+    <version>1.0.1</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>All Reviews allows you to display all reviews of your products on a single CMS page. Customers searching Google, Bing, Yahoo for "YOUR STORE Reviews" will be able to find a page controlled by you with recent reviews of your products.</summary>
+    <description>All Reviews allows you to display all reviews of your products on a single CMS page. Customers searching Google, Bing, Yahoo for "YOUR STORE Reviews" will be able to find a page controlled by you with recent reviews of your products.</description>
+    <notes>All Reviews allows you to display all reviews of your products on a single CMS page. Customers searching Google, Bing, Yahoo for "YOUR STORE Reviews" will be able to find a page controlled by you with recent reviews of your products.</notes>
+    <authors><author><name>EKO Internet Marketing</name><user>ekoim</user><email>sean@ekoim.com</email></author></authors>
+    <date>2012-12-19</date>
+    <time>17:03:12</time>
+    <contents><target name="magecommunity"><dir name="EkoInternetMarketing"><dir name="AllReviews"><dir name="Block"><file name="AllReviews.php" hash="be9d05bf6973a74dc54cc4bdde900ddd"/></dir><dir name="Helper"><file name="Data.php" hash="81210b49288b21f89a57c9e68f9302bd"/></dir><dir name="etc"><file name="adminhtml.xml" hash="f12d7db8434a7f0d849e8a38395e3e50"/><file name="config.xml" hash="dc2e7383013bab1b6dc6bb83aa9233ed"/><file name="system.xml" hash="d454e272190652ce0a43dacea115b60c"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="EkoInternetMarketing_AllReviews.xml" hash="7cb85256e04ad790890bdc62ca09f20c"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="allreviews.xml" hash="3d637d0eb60c8ab250df20c8e12e31dd"/></dir><dir name="template"><dir name="allreviews"><file name="reviews.bak.phtml" hash="46cef9a397e1872a2265a58c817144e3"/><file name="reviews.phtml" hash="ceab7dcabfb9b151a3fe4eaa165cb206"/><file name=".DS_Store" hash="80c4b527339a69da63a06a3a4d35467e"/></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="ekoim"><dir name="allreviews"><file name="5-stars-empty.png" hash="cb292e1d37b85b3ca28394e57521125b"/><file name="5-stars-full.png" hash="829a1c85d9a29b71907b0e6367bd4387"/><file name="allreviews.css" hash="2f2d4ee78a39734e70412bc0a88dc264"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php><package><name>Mage_Core_Modules</name><channel>community</channel><min>1.6.0.0</min><max>1.8</max></package></required></dependencies>
+</package>

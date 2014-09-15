@@ -1,0 +1,51 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+<div class="clearfix"></div>
+<footer>
+<a class="scrollup" href="#" style="display: block;">scroll</a>
+	<div class="container">
+		<div class="col-1">
+		  <h2><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);?>frontend/default/samplestore/images/f-logo.png" alt=""> about sample store</h2>
+		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tellus neque, venenatis pulvinar nisi id, dignissim scelerisque tellus. Praesent mattis varius sem sollicitudin ultrices... <a href="index.html#"><strong>Read More</strong></a> </p>
+		</div>
+			 <?php echo $this->getChildHtml() ?>   
+		<div class="col-3">
+		  <h3>Latest News / Follow Us On</h3>
+		  <div class="social">
+		    <ul>
+		      <li><a href="index.html#"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);?>frontend/default/samplestore/images/social_01.png" alt=""></a></li>
+		      <li><a href="index.html#"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);?>frontend/default/samplestore/images/social_03.png" alt=""></a></li>
+		      <li><a href="index.html#"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);?>frontend/default/samplestore/images/social_05.png" alt=""></a></li>
+		      <li><a href="index.html#"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);?>frontend/default/samplestore/images/social_07.png" alt=""></a></li>
+		    </ul>
+		  </div>
+		</div>
+		<div class="clearfix"></div>
+		<span class="copyright">&copy;2014 SINGAPORE POST LIMITED. ALL RIGHTS RESERVED</span> 
+	</div>
+</footer>

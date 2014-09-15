@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Singpost_Samplestoreadmin>
+            <version>0.1.0</version>
+        </Singpost_Samplestoreadmin>
+    </modules>
+    
+    <global>
+        <models>
+            <samplestoreadmin>
+                <class>Singpost_Samplestoreadmin_Model</class>
+                <resourceModel>samplestoreadmin_mysql4</resourceModel>
+            </samplestoreadmin>
+            <samplestoreadmin_mysql4>
+                <class>Singpost_Samplestoreadmin_Model_Mysql4</class>
+            </samplestoreadmin_mysql4>
+        </models>
+        <blocks>
+            <samplestoreadmin>
+                <class>Singpost_Samplestoreadmin_Block</class>
+            </samplestoreadmin>
+        </blocks>
+        <helpers>
+            <samplestoreadmin>
+                <class>Singpost_Samplestoreadmin_Helper</class>
+            </samplestoreadmin>  
+        </helpers>
+    </global>
+    
+    <admin>
+        <routers>
+            <samplestoreadmin>
+                <use>admin</use>
+                <args>
+                    <module>Singpost_Samplestoreadmin</module>
+                    <frontName>samplestoreadmin</frontName>
+                </args>
+            </samplestoreadmin>
+        </routers>
+    </admin>
+    
+    <adminhtml>
+        <translate>
+            <modules>
+                <singpost_adminhtml>
+                    <files>
+                        <samplestoreadmin>Singpost_Samplestoreadmin.csv</samplestoreadmin>
+                    </files>
+                </singpost_adminhtml>
+            </modules>
+        </translate>
+        
+        <menu>
+            <catalog>
+                <children>
+                    <samplestoreadmin_adminform translate="title" module="samplestoreadmin">
+                        <title>Samplestore Referal</title>
+                        <action>samplestoreadmin/adminhtml_referral</action>
+                    </samplestoreadmin_adminform>
+                </children>
+            </catalog>
+        </menu>
+        
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <catalog>
+                            <children>
+                                <samplestoreadmin_adminform>
+                                    <title>Samplestore Referal</title>
+                                </samplestoreadmin_adminform>
+                            </children>
+                        </catalog>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        
+        <layout>
+            <updates>
+                <samplestoreadmin>
+                    <file>samplestoreadmin.xml</file>
+                </samplestoreadmin>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

@@ -1,0 +1,49 @@
+<div class="content-header">
+    <table cellspacing="0" class="grid-header">
+        <tr>
+            <td><h3><?=$this->__('Add Referral Code')?></h3></td>
+            <td class="a-right">
+                <button onclick="save(this)" class="scalable save" type="button"><span>Save</span></button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="entry-edit">
+    <form id="FrmReferral" name="FrmReferral">
+        <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+        <!-- <h4 class="icon-head head-edit-form fieldset-legend"><?=$this->__('This fieldset name')?></h4> -->
+        <fieldset id="my-fieldset">
+            <table cellspacing="0" class="form-list">
+                <tr>
+                    <td class="label"><?=$this->__('Referral Code')?> <span class="required">*</span></td>
+                    <td class="input-ele"><input class="input-text required-entry" id="ref_title" name="ref_title" /></td>
+                </tr>
+				<tr>
+                    <td class="label"><?=$this->__('Referral Description')?> <span class="required">*</span></td>
+                    <td class="input-ele"><textarea class="input-text required-entry" id="ref_desc" name="ref_desc"></textarea></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</div>
+<script type="text/javascript">
+    var editForm = new varienForm('FrmReferral');
+	function save(button){
+		if(editForm.validator &&  editForm.validator.validate()){
+		    var referral = document.getElementById('ref_title').value;
+		    var referral_desc = document.getElementById('ref_desc').value;
+		    addreferral(referral,referral_desc);
+		}
+	}
+	function addreferral(referral_title,referral_desc){
+		new Ajax.Request('/samplestoreadmin/adminhtml_referral/saveReferral', {    // url of the controller
+			method: 'POST',
+			parameters: {referral_title:referral_title,referral_desc:referral_desc}, //parameter is  color  & its value is  number[verified]
+			onComplete: function(transport) {
+			 //alert(transport.responseText);// response from the controller will get alerted.
+			 setTimeout(function(){ window.location.reload(); }, 100);
+			  //window.location.reload();
+			}
+		});
+	}
+</script>

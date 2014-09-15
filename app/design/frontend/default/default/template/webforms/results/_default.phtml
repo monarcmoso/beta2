@@ -1,0 +1,1074 @@
+<?php
+/**
+ * @author        Vladimir Popov
+ * @copyright    Copyright (c) 2014 Vladimir Popov
+ */
+$_items_overview = $this->getResultsCollection();
+$_items_blogger = $this->getResultsCollection();
+$_items_comments = $this->getResultsCollection();
+$_baseurl = Mage::getBaseUrl() . "media/";
+(int) $yesctr = 0;
+(int) $noctr = 0;
+$ages = array();
+?>
+
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php
+$_products = $this->getProductCollection();
+$default_color_set = "'#9FD6D1', '#FFEA84','#FEC9C1','#C3EAA9','#FD8C86'";
+$colorFieldset = Mage::registry('colorFieldset');
+$brand = Mage::registry('brand');
+$product_id = Mage::registry('product_id');
+$product_name = Mage::registry('product_name');
+
+
+?>
+<?php
+//$attr = Mage::getResourceModel('catalog/product')->getAttribute('custom_review_set');
+$product_id = Mage::registry('current_product')->getId();
+$attributeValue = Mage::getModel('catalog/product')
+            ->load($product_id)
+            ->getAttributeText('custom_review_set');
+$sql = "SELECT 
+	a.name,a.code, 
+	b.id as field_id,b.name as field_set,b.code as field_code, b.result_label as field_label,
+	c.value as result_value,
+	d.customer_id 
+	FROM 
+	webforms a
+	LEFT JOIN webforms_fields b ON a.id = b.webform_id
+	LEFT JOIN webforms_results_values c ON b.id = c.field_id
+	LEFT JOIN webforms_results d ON d.id = c.result_id
+	WHERE a.code = '{$attributeValue}' ORDER BY d.customer_id";
+$arr = Mage::getSingleton('core/resource') ->getConnection('core_read')->fetchAll($sql);
+$filtered = array();
+$buyIt = array();
+foreach($arr as $temp){
+	//$temp[] = $result['customer_id'];
+	if(is_numeric($temp['result_value'])){
+		$filtered[] = array('field_id'=>$temp['field_id'],'customer_id'=>$temp['customer_id'],'result_value'=>$temp['result_value']);
+	}
+	//$buy = strtolower(str_replace(' ', '_', $temp['field_set']));
+	$buy = $temp['field_code'];
+	if($buy == 'will_you_buy_it'){
+		$buyIt[] = strtolower($temp['result_value']);
+	}
+}
+
+$result = array();
+foreach ($filtered as $data) {
+  $id = $data['customer_id'];
+  if (isset($result[$id])) {
+     $result[$id][] = $data;
+  } else {
+     $result[$id] = array($data);
+  }
+}
+
+$customers = array();
+$items = array();
+foreach($result as $key => $res){
+	foreach($res as  $r){
+		$customers[$key][] = $r['result_value'];
+	}
+	for($i = 0; $i< count($res); $i++){
+		$items[$i][] = $res[$i]['result_value'];
+	}
+}
+
+$customer_total = array();
+$question_num = '';
+foreach($customers as $customer){
+	$question_num = count($customer);
+	$customer_total[] = array_sum($customer);
+}
+
+$range_gap = ($question_num*5)/5;
+$bad = $range_gap;
+$ok = $range_gap + $range_gap;
+$good = $range_gap + $ok;
+$v_good = $good + $range_gap;
+$excellent = $v_good + $range_gap;
+
+$bad_score = array();
+$ok_score = array();
+$good_score = array();
+$vgood_score = array();
+$excellent_score = array();
+foreach($customer_total as $total_points){
+	if($total_points <= $bad){
+		$bad_score[] =+ 1;
+	}
+	else if($total_points <= $ok){
+		$ok_score[] =+ 1;
+	}
+	else if($total_points <= $good){
+		$good_score[] =+ 1;
+	}
+	else if($total_points <= $v_good){
+		$vgood_score[] =+ 1;
+	}
+	else if($total_points <= $excellent){
+		$excellent_score[] =+ 1;
+	}
+}
+$overall_ratings_total = array_sum($bad_score) + array_sum($ok_score) + array_sum($vgood_score) + array_sum($good_score) + array_sum($excellent_score);
+$bad_percentage = (array_sum($bad_score)  / $overall_ratings_total) * 100;
+$ok_percentage = (array_sum($ok_score)  / $overall_ratings_total) * 100;
+$good_percentage = (array_sum($good_score)  / $overall_ratings_total) * 100;
+$vgood_percentage = (array_sum($vgood_score)  / $overall_ratings_total) * 100;
+$ex_percentage = (array_sum($excellent_score)  / $overall_ratings_total) * 100;
+$sum = array();
+foreach($items as $key => $item){
+	//pagkuha ng per question
+	$sum[] = array_sum($item)."<br/>";
+}
+$total = array_sum($sum);
+$efficacy = array();
+$eff_questions = array();
+foreach (Mage::registry('fields_to_fieldsets') as $fieldset) {
+	foreach ($fieldset['fields'] as $field) {
+		if(strtolower($field->getResultLabel()) == 'review'){}
+		else if($field->getResultLabel() == '') {}
+		else{
+			$eff_questions[] = $field->getResultLabel();
+		}
+	}
+}
+foreach($sum as $key => $eff)
+{
+	$efficacy[] = array(label=>$eff_questions[$key],'sum'=>$eff,'total'=>$total);
+}
+?>
+<style>
+    .fancybox{
+        position: absolute;
+        left: 300px;
+        top: 100px;
+        background: #fff;
+        margin: 0 auto;
+        padding-right: 20px;
+        padding-left: 20px;
+        opacity: 1.7;
+        z-index: 999999;
+        height:auto!important
+    }
+    #dimScreen
+    {
+        position:absolute;
+        padding:0;
+        margin:0;
+        top:0px;
+        left:0px;
+        width: 100%;
+        height: 2100px;
+        background:#ccc;
+        opacity: 0.7;
+        z-index: 999999;
+    }
+
+</style>  
+
+
+<div id="tab-wrapper2">
+    <ul class="tabs">
+        <li class="active"><a href="#overview">overview</a></li>
+        <li><a href="#blogger">bloggers review</a></li>
+        <li><a href="#comments">comments</a></li>
+    </ul>
+    <!--tabs ends-->
+    <div class="main_content remove-space">
+        <div id="overview">
+            <?php
+            $cmsPage = "";
+            $ranking_data = array();
+            $excellent = 0;
+            $verygood = 0;
+            $good = 0;
+            $ok = 0;
+            $bad = 0;
+            $ranking_now = 0;
+            $excellent_num_users = 0;
+            $verygood_num_users = 0;
+            $good_num_users = 0;
+            $ok_num_users = 0;
+            $bad_num_users = 0;
+            $num_users = 1;
+           
+            foreach ($_items_overview as $result) {
+
+                $customer_id = $result->getData('customer_id');
+                $customerData = Mage::getModel('customer/customer')->load($customer_id)->getData();
+
+                $ages[] = $customerData['dob'];
+                $connection = Mage::getSingleton('core/resource')->getConnection('core_write');
+                $read = Mage::getSingleton('core/resource')->getConnection('core_read');
+
+                $webform_id = $this->getWebform()->getId();
+
+
+//              error here.
+                $i = 0;
+                $ranking_data = array();
+                foreach (Mage::registry('fields_to_fieldsets') as $fieldset) {
+                    foreach ($fieldset['fields'] as $field) {
+
+                        $text = trim($result->getData('field_' . $field->getId()));
+                        $filename = $text;
+
+                        // echo $customerData->getData('dob');
+                        if (strlen($text) > 0 && $field->getResultDisplay() != 'off') {
+                            ?>
+
+
+                            <?php if (strlen($field->getResultLabel()) > 1 && $field->getResultDisplay() != 'value') { ?>
+
+                                <?php
+                                $i++;
+                                ?>
+
+
+                            <?php } ?>
+
+                            <?php
+                            switch ($field->getType()) {
+                                // download link
+                                case 'file':
+                                    //   echo "<a href=" . $result->getDownloadLink($field->getId(), $filename) . ">" . $filename . "</a>";
+                                    break;
+                                // image thumbnail
+                                case 'image':
+
+
+
+                                    break;
+                                // stars rating bar
+                                case 'select/radio':
+                                    $value = (int) $text;
+                                    if (strlen($field->getResultLabel()) > 1 && $field->getResultDisplay() != 'value') {
+                                        $ranking_data[] = array('name' => $field->getResultLabel(), 'rating' => round($value));
+                                    } else if ($text === 'No') {
+                                        $noctr = $noctr + 1;
+                                    } else if ($text === 'Yes') {
+                                        $yesctr = $yesctr + 1;
+                                    }
+
+                                    $width = round(100 * $value / $field->getStarsCount()) . '%';
+
+                                    //echo "<div class='stars'><ul class='stars-bar'><li class='stars-value' style='width:$width'></li></ul></div>";
+                                    break;
+                                // text
+                                default:
+                                    ?>
+
+                                    <?php
+                                    if ($text === 'No') {
+                                        $noctr = $noctr + 1;
+                                    } else if ($text === 'Yes') {
+                                        $yesctr = $yesctr + 1;
+                                    }
+                                    ?>
+
+
+                                    <?php
+                                    break;
+                            }
+                            ?>
+
+
+                            <?php
+                        } // if text
+                    } // foreach fields
+                } // foreach fields_to_fieldsets
+
+                $efficacy_count = count($ranking_data);
+                ?>
+
+                <?php
+            } // foreach results    
+
+            $no_of_efficacies = $efficacy_count;
+            $ages = array();
+            foreach ($_items_overview as $result) {
+
+                $customer_id = $result->getData('customer_id');
+                $customerData = Mage::getModel('customer/customer')->load($customer_id)->getData();
+
+                $ages[] = $customerData['dob'];
+                $connection = Mage::getSingleton('core/resource')->getConnection('core_write');
+                $read = Mage::getSingleton('core/resource')->getConnection('core_read');
+
+
+                $i = 0;
+                $ranking_data = array();
+                foreach (Mage::registry('fields_to_fieldsets') as $fieldset) {
+                    foreach ($fieldset['fields'] as $field) {
+
+                        $text = trim($result->getData('field_' . $field->getId()));
+                        $filename = $text;
+
+                        // echo $customerData->getData('dob');
+                        if (strlen($text) > 0 && $field->getResultDisplay() != 'off') {
+                            ?>
+
+
+                            <?php if (strlen($field->getResultLabel()) > 1 && $field->getResultDisplay() != 'value') { ?>
+
+                                <?php
+                                $i++;
+                                ?>
+
+
+                            <?php } ?>
+
+                            <?php
+                            switch ($field->getType()) {
+                                // download link
+                                case 'file':
+                                    //   echo "<a href=" . $result->getDownloadLink($field->getId(), $filename) . ">" . $filename . "</a>";
+                                    break;
+                                // image thumbnail
+                                case 'image':
+
+
+
+                                    break;
+                                // stars rating bar
+                                case 'select/radio':
+                                    $value = (int) $text;
+
+                                    if (strlen($field->getResultLabel()) > 1 && $field->getResultDisplay() != 'value') {
+                                        $ranking_data[] = array('name' => $field->getResultLabel(), 'rating' => round($value));
+
+                                        $cmsPage .= "['" . $field->getResultLabel() . "'," . round($value) . "],";
+
+
+                                        $total_efficacies = $no_of_efficacies;
+                                        $rantings = $value;
+                                        $ranking_now = $rantings / $total_efficacies;
+
+                                        if ($ranking_now >= 0.9) {
+                                            $excellent = + $ranking_now;
+                                            $excellent_num_users += $num_users;
+                                        }
+                                        if ($ranking_now >= 0.7 && $ranking_now < 0.9) {
+                                            $verygood = + $ranking_now;
+                                            $verygood_num_users += $num_users;
+                                        }
+                                        if ($ranking_now >= 0.6 && $ranking_now < 0.7) {
+                                            $good = + $ranking_now;
+                                            $good_num_users += $num_users;
+                                        }
+                                        if ($ranking_now >= 0.5 && $ranking_now < 0.6) {
+                                            $ok = + $ranking_now;
+                                            $ok_num_users += $num_users;
+                                        }
+                                        if ($ranking_now < 0.5) {
+                                            $bad = + $ranking_now;
+                                            $bad_num_users = + $num_users;
+                                        }
+                                    } else if ($text === 'No') {
+                                        $noctr = $noctr + 1;
+                                    } else if ($text === 'Yes') {
+                                        $yesctr = $yesctr + 1;
+                                    }
+
+                                    $width = round(100 * $value / $field->getStarsCount()) . '%';
+
+                                    //echo "<div class='stars'><ul class='stars-bar'><li class='stars-value' style='width:$width'></li></ul></div>";
+                                    break;
+                                // text
+                                default:
+                                    ?>
+
+                                    <?php
+                                    if ($text === 'No') {
+                                        $noctr = $noctr + 1;
+                                    } else if ($text === 'Yes') {
+                                        $yesctr = $yesctr + 1;
+                                    }
+                                    ?>
+
+
+                                    <?php
+                                    break;
+                            }
+                            ?>
+
+
+                            <?php
+                        } // if text
+                    } // foreach fields
+                } // foreach fields_to_fieldsets
+                //check if efficacy is more than category color set if yes replace it with the default color set.
+                $colour_set = explode("','", $colorFieldset);
+                $efficacy_count = count($ranking_data);
+                $coulor_count = count($colour_set);
+                if ($efficacy_count > $coulor_count)
+                    $colorFieldset = $default_color_set;
+                ?>
+
+                <?php
+            } // foreach results
+            ?>
+            <?php
+            $age_line1 = count(Mage::helper("lesson05")->getUserAge(1, 18, $ages));
+
+            $age_line2 = count(Mage::helper("lesson05")->getUserAge(19, 24, $ages));
+
+
+            $age_line3 = count(Mage::helper("lesson05")->getUserAge(25, 29, $ages));
+
+            $age_line4 = count(Mage::helper("lesson05")->getUserAge(30, 34, $ages));
+
+            $age_line5 = count(Mage::helper("lesson05")->getUserAge(35, 100, $ages));
+
+            $age_line_sum = $age_line1 + $age_line2 + $age_line3 + $age_line4 + $age_line5;
+
+            if ($age_line_sum > 0) {
+                $age_line1_percent = floor((($age_line1 / $age_line_sum) * 100));
+                $age_line2_percent = floor((($age_line2 / $age_line_sum) * 100));
+                $age_line3_percent = floor((($age_line3 / $age_line_sum) * 100));
+                $age_line4_percent = floor((($age_line4 / $age_line_sum) * 100));
+                $age_line5_percent = floor((($age_line5 / $age_line_sum) * 100));
+            } else {
+                $age_line1_percent = 0;
+                $age_line2_percent = 0;
+                $age_line3_percent = 0;
+                $age_line4_percent = 0;
+                $age_line5_percent = 0;
+            }
+            ?>
+            <?php $this->getChild('rating')->setData('age_line1_percent', $age_line1_percent)->setData('age_line2_percent', $age_line2_percent)->setData('age_line3_percent', $age_line3_percent)->setData('age_line4_percent', $age_line4_percent)->setData('age_line5_percent', $age_line5_percent)->setData('yesctr', $yesctr)->setData('noctr', $noctr)->setData('colors', $colorFieldset); ?>
+
+            <?php
+            $no_of_efficacies = count($ranking_data);
+            ?>
+<?php Mage::helper("lesson05")->aasort($ranking_data, "rating"); ?>
+            <div class="tab-column2">
+                <div class="title"><span>Overall Rating</span></div>
+
+                <?php if ($ex_percentage == 0 && $vgood_percentage == 0 && $good_percentage == 0 && $ok_percentage == 0 && $bad_percentage == 0): ?>   
+                    <div style="text-align: center; color: #9FD6D1; padding-top:19px;">No records yet.</div>
+                <?php else: ?>
+    <?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('excellent_num_users', $ex_percentage)->setData('verygood_num_users', $vgood_percentage)->setData('good_num_users', $good_percentage)->setData('ok_num_users', $ok_percentage)->setData('bad_num_users', $bad_percentage)->setData('color_set', $colorFieldset)->setTemplate('lesson05/overall_rating.phtml')->toHtml(); ?> 
+<?php endif; ?>
+            </div>
+            <div class="tab-column3">
+                <div class="title"><span>Efficacy rating</span></div>
+
+<?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('ranking_data', $efficacy)->setData('color_set', $colorFieldset)->setData('num_entries', $no_of_efficacies)->setTemplate('lesson05/view_chart_ranking.phtml')->toHtml(); ?>
+                <!--<div class="right"><a href="#" class="more-reviews">More Reviews</a></div>-->
+            </div>
+            <div class="clearfix"></div>
+            <div class="tab-column2">
+                <div class="title"><span>Will you buy it?</span></div>
+                <?php if (($yesctr == 0 && $noctr == 0) || ($yesctr == "" && $noctr == "")): ?>
+                    <div style="text-align: center; color: #9FD6D1;padding-top: 30px;">No records yet.</div>
+
+                <?php else: ?>
+    <?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('buyit', $buyIt)->setData('color_set', $colorFieldset)->setTemplate('lesson05/will_you_buy_it.phtml')->toHtml(); ?>  
+<?php endif; ?>
+            </div>
+            <div class="tab-column2 special">
+                <div class="title"><span>Age Group</span></div>
+
+<?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('age_line1_percent', $age_line1_percent)->setData('age_line2_percent', $age_line2_percent)->setData('age_line3_percent', $age_line3_percent)->setData('age_line4_percent', $age_line4_percent)->setData('age_line5_percent', $age_line5_percent)->setData('color_set', $colorFieldset)->setTemplate('lesson05/view_chart_age.phtml')->toHtml(); ?></div>
+
+            <div class="tab-column2 special">
+                <div class="offers">
+                    <div class="title"><span>Reviews</span></div>
+                    <h2><?php echo count($_items_overview); ?> </h2>
+                    <div class="title"><span>Redemptions</span></div>
+
+<?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('product_id', $product_id)->setTemplate('lesson05/redemption_item.phtml')->toHtml(); ?></div>
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="review-block-wrap">
+                <?php
+                $m = 0;
+                $a = 0;
+                $customer_ids = array();
+                $review_ids = array();
+                    $itemperpg = 8;
+                    if(!isset($_GET['p']) || $_GET['p']==1 || $_GET['p']==""){
+                        $pg = 1;
+                        $start = 1;
+                        $end = $itemperpg;
+                    }
+                    else{ 
+                        $pg = $_GET['p'];   
+                        if($_GET['p']==1) $pg = 1;
+                        $start = (($pg-1) * $itemperpg)+1;
+                        $end = $pg * $itemperpg;
+                    }
+                    
+                foreach ($_items_overview as $result) {
+                    ?>
+
+
+                    <?php
+                    $customer_id = $result->getData('customer_id');
+                    $customerData = Mage::getModel('customer/customer')->load($customer_id)->getData();
+                    $visitorData = Mage::getModel('customer/customer')->load($customer_id);
+                    $group = Mage::getModel('customer/group')->load($visitorData->getGroup_id());
+                    $gender = $customerData['gender'];
+                    $ages[] = $customerData['dob'];
+                    $connection = Mage::getSingleton('core/resource')->getConnection('core_write');
+                    $read = Mage::getSingleton('core/resource')->getConnection('core_read');
+                    $imflink = "";
+                    $image = $customerData['medma_avatar']; // attribute code value = image name 
+                    $img_path = Mage::getBaseUrl() . 'media/customer/';
+                    $prof_pic = $img_path . $image;
+                    if ($image != "")
+                        $imflink = $prof_pic;
+                    ?>
+
+                    <?php
+                    $ranking_data = array();
+                    $review = "";
+                    $full_name = "";
+                    $review_img = "";
+                    foreach (Mage::registry('fields_to_fieldsets') as $fieldset) {
+                        $i = 0;
+                        foreach ($fieldset['fields'] as $field) {
+
+                            $text = trim($result->getData('field_' . $field->getId()));
+                            $filename = $text;
+
+                            // echo $customerData->getData('dob');
+                            if (strlen($text) > 0 && $field->getResultDisplay() != 'off') {
+                                ?>
+
+
+                                <?php if (strlen($field->getResultLabel()) > 1 && $field->getResultDisplay() != 'value') { ?>
+
+                                    <?php
+                                    $i++;
+                                    ?>
+
+
+                                <?php } ?>
+
+                                <?php
+                                switch ($field->getType()) {
+                                    // download link
+                                    case 'file':
+                                        echo "<a href=" . $result->getDownloadLink($field->getId(), $filename) . ">" . $filename . "</a>";
+                                        break;
+                                    // image thumbnail
+                                    case 'image':
+                                        $review_img_orig = $_baseurl . $result->getRelativePath($field->getId(), $filename);
+                                        $review_img = $result->getThumbnail($field->getId(), $filename, 140);
+
+                                        $full_name = ucfirst($customerData['full_name']);
+
+
+                                        break;
+                                    // radio  bar
+                                    case 'select/radio':
+
+                                        $value = (int) $text;
+                                        if (strlen($field->getResultLabel()) > 1 && $field->getResultDisplay() != 'value') {
+                                            $ranking_data[] = array('name' => $field->getResultLabel(), 'rating' => round($value));
+                                        }
+                                        $width = round(100 * $value / $field->getStarsCount()) . '%';
+
+                                        //echo "<div class='stars'><ul class='stars-bar'><li class='stars-value' style='width:$width'></li></ul></div>";
+                                        break;
+                                    // text
+                                    default:
+                                        ?>
+
+                                        <?php
+                                        if ($text === 'No') {
+                                            $noctr = $noctr + 1;
+                                        } else if ($text === 'Yes') {
+                                            $yesctr = $yesctr + 1;
+                                        }
+                                        ?>
+                                        <?php
+                                        if ($text != 'Yes' && $text != 'No') {
+                                            $review = nl2br($text);
+                                        }
+                                        ?>
+
+
+
+                                        <?php
+                                        break;
+                                }
+                                ?>
+
+                                <?php
+                            } // if text
+                        } // foreach fields
+                    } // foreach fields_to_fieldsets
+                    //check if efficacy is more than category color set if yes replace it with the default color set.
+                    $colour_set = explode("','", $colorFieldset);
+                    $efficacy_count = count($ranking_data);
+                    $coulor_count = count($colour_set);
+
+                    if ($efficacy_count > $coulor_count)
+                        $colorFieldset = $default_color_set;
+                    ?>
+                    <?php if ($visitorData->getGroup_id() != 5 && $review_img != ""): //show all reviews done by non-seeders?>
+                
+                    <?php $customer_ids[] = $customer_id; ?>
+                    <?php $review_ids[] =  $result->getData('id'); ?>
+                    <?php  $a++; //for pagination counter purpose ?>
+                             
+                    <?php //if($a>=$start && $a<=$end):?>
+                        <?php $m++;?>
+                        <div class="review-block-lg">
+                            <div class="review-info review-block-lg-info blue-light"> <img width="30px" height="30px" src="<?php echo ($imflink) ? $imflink : ($gender == 124) ? $this->getSkinUrl('images/female_no_image.gif') : $this->getSkinUrl('images/profile.png'); ?>" alt="">
+                                <h3><?php echo ucfirst($full_name); ?>’s Review</h3>
+                            </div>
+                            <div class="review-block-inner review-block-lg-inner"> <img src="<?php echo $review_img; ?>" alt="">
+                                <div class="right review-right">
+                                    <h4><?php echo $this->formatDate($result->getCreatedTime()) ?></h4>
+                                    <p><?php echo substr($review, 0, 90); ?> </p>
+                                </div>
+                                <div class="clearfix gap"></div>
+                                <div class="title"><span>Efficacy rating</span></div>
+                                <div class="clearfix"></div>
+
+                                <div class="bar-graph"> <?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('ranking_data', $ranking_data)->setData('color_set', $colorFieldset)->setData('num_entries', $i)->setTemplate('lesson05/view_user_chart_ranking.phtml')->toHtml(); ?> </div>
+                                <div class="clearfix"></div>
+                                <div class="right"><a href="#modal_<?php echo $customer_id; ?>" id="modal<?php echo $m++; ?>" class="blue-border modal<?php echo $customer_id; ?> btn" title="Custom effect">See Review</a></div>
+                            </div>
+                        </div>
+
+                        <!--     popup info start-->
+                        <div id="modal_<?php echo $customer_id; ?>" style="display: none;" class="modal-example-content">
+                            <div class="modal-example-header">
+                                <button type="button" class="close" onclick="$.fn.custombox('close');">Close <span>&times;</span></button>
+                                <h2><span><?php echo $brand; ?></span> <?php echo $product_name; ?></h2>
+                            </div>
+                            <div class="modal-example-body">
+                                <div class="modal-left"> <img src="<?php echo $review_img_orig; ?>" alt=""> </div>
+                                <div class="modal-right">
+                                    <div class="thumbnail"> <img  src="<?php echo ($imflink) ? $imflink : "../../images/girl-xs.jpg"; ?>" alt="">
+                                        <div class="thumbnail-info">Starter</div>
+                                        <h2><?php echo $full_name; ?></h2>
+                                        <h3>written 16 Review(s)</h3>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="title"><span>Efficacy rating</span></div>
+                                    <div class="clearfix"></div>
+                                    <div class="bar-graph">
+
+                             <?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('ranking_data', $ranking_data)->setData('color_set', $colorFieldset)->setData('num_entries', $i)->setTemplate('lesson05/view_user_chart_ranking.phtml')->toHtml(); ?> </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="space-15">
+                                    <p><?php echo $review; ?> </p>
+                                    <div class="clearfix"></div>
+                                    <span class="post-date">Posted on <?php echo $this->formatDate($result->getCreatedTime()) ?></span> <span class="post-by">Also written on <a href="#">http://rebeccaklq.blogspot.sg/</a></span> <span class="verified"><a href="#" data-tooltip="This User has Redeemed and used this Sample">Verified</a></span> </div>
+                            </div>
+                        </div>
+                        <!--     popup info end-->
+                        <?php //endif; ?>
+                    <?php endif; ?>
+                    <?php
+                } // foreach results
+                ?>
+            </div>        
+        </div>   
+        <?php if ($m > 0): ?>
+    
+        <style>
+            a{
+                text-decoration: none;
+                color:#000;
+            }
+         
+        </style>
+         
+        <?php endif; ?>
+    
+        <!--review-block-wrap ends--> 
+    </div>
+    <div id="blogger"><!--blogger-->
+
+        <div class="review-block-wrap">
+            <?php
+            foreach ($_items_blogger as $result) {
+                ?>
+                <?php
+                $ranking_data = array();
+                $review = "";
+                $full_name = "";
+                $review_img = "";
+                $visitorData = "";
+                $customer_id = "";
+
+                $customer_id = $result->getData('customer_id');
+                $customerData = Mage::getModel('customer/customer')->load($customer_id)->getData();
+                $visitorData = Mage::getModel('customer/customer')->load($customer_id);
+                $group = Mage::getModel('customer/group')->load($visitorData->getGroup_id());
+
+                $ages[] = $customerData['dob'];
+                $connection = Mage::getSingleton('core/resource')->getConnection('core_write');
+                $read = Mage::getSingleton('core/resource')->getConnection('core_read');
+                //get profile image
+                $imflink = "";
+                $image = $customerData['medma_avatar']; // attribute code value = image name 
+
+                $img_path = Mage::getBaseUrl() . 'media/customer/';
+                $prof_pic = $img_path . $image;
+                if ($image)
+                    $imflink = $prof_pic;
+                $full_name = ucfirst($customerData['full_name']);
+                ?>
+
+                <?php
+                foreach (Mage::registry('fields_to_fieldsets') as $fieldset) {
+                    $i = 0;
+                    foreach ($fieldset['fields'] as $field) {
+
+                        $text = trim($result->getData('field_' . $field->getId()));
+                        $filename = $text;
+
+
+                        // echo $customerData->getData('dob');
+                        if (strlen($text) > 0 && $field->getResultDisplay() != 'off') {
+                            ?>
+
+
+                            <?php if (strlen($field->getResultLabel()) > 1 && $field->getResultDisplay() != 'value') { ?>
+
+                    <?php $i++; ?>
+
+
+                            <?php } ?>
+
+                            <?php
+                            switch ($field->getType()) {
+                                // download link
+                                case 'file':
+                                    echo "<a href=" . $result->getDownloadLink($field->getId(), $filename) . ">" . $filename . "</a>";
+                                    break;
+                                // image thumbnail
+                                case 'image':
+                                    $review_img = $result->getThumbnail($field->getId(), $filename, 140);
+                                    $review_img_orig = $_baseurl . $result->getRelativePath($field->getId(), $filename);
+
+
+
+                                    break;
+                                // stars rating bar
+                                case 'select/radio':
+                                    $value = (int) $text;
+                                    if (strlen($field->getResultLabel()) > 1 && $field->getResultDisplay() != 'value') {
+                                        $ranking_data[] = array('name' => $field->getResultLabel(), 'rating' => round($value));
+                                    }
+                                    $width = round(100 * $value / $field->getStarsCount()) . '%';
+
+                                    //echo "<div class='stars'><ul class='stars-bar'><li class='stars-value' style='width:$width'></li></ul></div>";
+                                    break;
+                                // text
+                                default:
+                                    ?>
+
+                                    <?php
+                                    if ($text === 'No') {
+                                        $noctr = $noctr + 1;
+                                    } else if ($text === 'Yes') {
+                                        $yesctr = $yesctr + 1;
+                                    }
+                                    ?>
+                                    <?php
+                                    if ($text != 'Yes' && $text != 'No') {
+                                        $review = nl2br($text);
+                                    }
+                                    ?>
+
+
+
+                                    <?php
+                                    break;
+                            }
+                            ?>
+
+                            <?php
+                        } // if text
+                    } // foreach fields
+                } // foreach fields_to_fieldsets
+                //check if efficacy is more than category color set if yes replace it with the default color set.
+                $colour_set = explode("','", $colorFieldset);
+                $efficacy_count = count($ranking_data);
+                $coulor_count = count($colour_set);
+                if ($efficacy_count > $coulor_count)
+                    $colorFieldset = $default_color_set;
+                ?>
+
+    <?php if ($visitorData->getGroup_id() == 5 && $review_img != ""): //show all reviews done by seeders(bloggers,starters,editors) ?>
+                    <div class="review-block-lg">
+                        <div class="review-info review-block-lg-info blue-light"><img width="30px" height="30px" src="<?php echo ($imflink) ? $imflink : $this->getSkinUrl('images/profile.png'); ?>" alt="">
+                            <h3> <?php echo $full_name; ?>’s Review</h3>
+                        </div>
+                        <div class="review-block-inner review-block-lg-inner"> <img  src="<?php echo $review_img; ?>" alt="">
+                            <div class="right review-right">
+                                <h4><?php echo $this->formatDate($result->getCreatedTime()) ?></h4>
+                                <p><?php echo substr($review, 0, 100); ?> </p>
+                            </div>
+                            <div class="clearfix gap"></div>
+                            <div class="title"><span>Efficacy rating</span></div>
+                            <div class="clearfix"></div>
+                            <div class="bar-graph"> <?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('ranking_data', $ranking_data)->setData('color_set', $colorFieldset)->setData('num_entries', $i)->setTemplate('lesson05/view_user_chart_ranking.phtml')->toHtml(); ?> </div>
+                            <div class="clearfix"></div>
+                            <div class="right"><a href="#modal_<?php echo $customer_id; ?>" id="modal<?php echo $m++; ?>" class="blue-border" title="Custom effect">See Review</a></div>
+                        </div>
+                    </div>
+                    <!--     popup info start -->
+                    <div id="modal_<?php echo $customer_id; ?>" style="display: none;" class="modal-example-content">
+                        <div class="modal-example-header">
+                            <button type="button" class="close" onclick="$.fn.custombox('close');">Close <span>&times;</span></button>
+                            <h2><span><?php echo $brand; ?></span> <?php echo ucfirst($product_name); ?></h2>
+                        </div>
+                        <div class="modal-example-body">
+                            <div class="modal-left"> <img src="<?php echo $review_img_orig; ?>" alt=""> </div>
+                            <div class="modal-right">
+                                <div class="thumbnail"> <img src="<?php echo ($imflink) ? $imflink : "../../images/girl-xs.jpg"; ?>" alt="">
+                                    <div class="thumbnail-info">Starter</div>
+                                    <h2><?php echo $full_name; ?></h2>
+                                    <h3>written 16 Review(s)</h3>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="title"><span>Efficacy rating</span></div>
+                                <div class="clearfix"></div>
+                                <div class="bar-graph">
+
+        <?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('ranking_data', $ranking_data)->setData('color_set', $colorFieldset)->setData('num_entries', $i)->setTemplate('lesson05/view_user_chart_ranking.phtml')->toHtml(); ?> </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="space-15">
+                                <p><?php echo $review; ?> </p>
+                                <div class="clearfix"></div>
+                                <span class="post-date">Posted on <?php echo $this->formatDate($result->getCreatedTime()) ?></span> <span class="post-by">Also written on <a href="#">http://rebeccaklq.blogspot.sg/</a></span> <span class="verified"><a href="#" data-tooltip="This User has Redeemed and used this Sample">Verified</a></span> </div>
+                        </div>
+                    </div> 
+                    <!--     popup info end -->
+                <?php endif; ?>     
+                <?php
+            } // foreach results
+            ?>
+            <!--product-list ends--> 
+        </div>
+        <!--review-block-wrap ends--> 
+    </div>
+    <div id="comments">
+        <div class="review-block-wrap">
+            <?php
+            foreach ($_items_comments as $result) {
+                ?>
+
+                <?php
+                $review = "";
+                $full_name = "";
+                $review_img = "";
+                $visitorData = "";
+                $customer_id = "";
+                $full_name = ucfirst($customerData['full_name']);
+
+                $customer_id = $result->getData('customer_id');
+                $customerData = Mage::getModel('customer/customer')->load($customer_id)->getData();
+                $visitorData = Mage::getModel('customer/customer')->load($customer_id);
+                $group = Mage::getModel('customer/group')->load($visitorData->getGroup_id());
+
+                $ages[] = $customerData['dob'];
+                $connection = Mage::getSingleton('core/resource')->getConnection('core_write');
+                $read = Mage::getSingleton('core/resource')->getConnection('core_read');
+                //get profile image
+                $imflink = "";
+                $image = $customerData['medma_avatar']; // attribute code value = image name 
+                $img_path = Mage::getBaseUrl() . 'media/customer/';
+                $prof_pic = $img_path . $image;
+                if ($image)
+                    $imflink = $prof_pic;
+                $full_name = ucfirst($customerData['full_name']);
+                $ranking_data = array();
+                foreach (Mage::registry('fields_to_fieldsets') as $fieldset) {
+                    $i = 0;
+                    foreach ($fieldset['fields'] as $field) {
+                        $review_date = $result->getData('created_time');
+                        $text = trim($result->getData('field_' . $field->getId()));
+                        $filename = $text;
+
+
+                        // echo $customerData->getData('dob');
+                       // if (strlen($text) > 0 && $field->getResultDisplay() != 'off') {
+                            ?>
+
+
+                            <?php if (strlen($field->getResultLabel()) > 1 && $field->getResultDisplay() != 'value') { ?>
+
+                                <?php
+                                $i++;
+                                ?>
+
+
+                            <?php } ?>
+
+                            <?php
+                            switch ($field->getType()) {
+                                // download link
+                                case 'file':
+                                    echo "<a href=" . $result->getDownloadLink($field->getId(), $filename) . ">" . $filename . "</a>";
+                                    break;
+                                // image thumbnail
+                                case 'image':
+                                    $review_img = $result->getThumbnail($field->getId(), $filename, 140);
+
+
+
+
+                                    break;
+                                // stars rating bar
+                                case 'select/radio':
+                                    $value = (int) $text;
+                                    if (strlen($field->getResultLabel()) > 1 && $field->getResultDisplay() != 'value') {
+                                        $ranking_data[] = array('name' => $field->getResultLabel(), 'rating' => round($value));
+                                    }
+                                    $width = round(100 * $value / $field->getStarsCount()) . '%';
+
+                                    //echo "<div class='stars'><ul class='stars-bar'><li class='stars-value' style='width:$width'></li></ul></div>";
+                                    break;
+                                // text
+                                default:
+                                    ?>
+
+                                    <?php
+                                    if ($text === 'No') {
+                                        $noctr = $noctr + 1;
+                                    } else if ($text === 'Yes') {
+                                        $yesctr = $yesctr + 1;
+                                    }
+                                    ?>
+                                    <?php
+                                    if ($text != 'Yes' && $text != 'No') {
+                                        $review = nl2br($text);
+                                    }
+                                    ?>
+
+
+
+                                    <?php
+                                    break;
+                            }
+                            ?>
+
+                            <?php
+                        //} // if text
+                    } // foreach fields
+                } // foreach fields_to_fieldsets
+                //check if efficacy is more than category color set if yes replace it with the default color set.
+                $colour_set = explode("','", $colorFieldset);
+                $efficacy_count = count($ranking_data);
+
+                $coulor_count = count($colour_set);
+                if ($efficacy_count > $coulor_count)
+                    $colorFieldset = $default_color_set;
+                ?>
+
+                <?php if ($review_img == "" && $visitorData->getGroup_id() != 5): //show all reviews without images ?>
+        <?php ?>
+                    <div class="review-block-lg">
+                        <div class="review-info review-block-lg-info blue-light"> <img width="30px" height="30px" src="<?php echo ($imflink) ? $imflink : $this->getSkinUrl('images/profile.png'); ?>" alt="">
+                            <h3><?php echo $full_name; ?>'s Review</h3>
+                        </div>
+                        <div class="review-block-inner review-block-lg-inner grey">
+                            <blockquote><?php echo $review; ?></blockquote>
+                            <div class="clearfix"></div>
+                            <div class="left">
+                                <h3><?php $date = strtotime($review_date);
+                                         echo date("d-M-Y", $date); ?></h3>
+                                <h4>written 22 Review(s)
+
+                                </h4>
+                            </div>
+                            <div class="right"><a href="#modal_<?php echo $customer_id; ?>" id="modal<?php echo $m++; ?>" class="blue-border btn" title="Custom effect">View more</a></div>
+                        </div>
+                    </div>
+                    <div id="modal_<?php echo $customer_id; ?>" style="display: none;" class="modal-example-content">
+                        <div class="modal-example-header">
+                            <button type="button" class="close" onclick="$.fn.custombox('close');">Close <span>&times;</span></button>
+                            <h2><span><?php echo $brand; ?></span> <?php echo $product_name; ?></h2>
+                        </div>
+                        <div class="modal-example-body">
+                            <div class="modal-left"> <img src="<?php echo $review_img; ?>" alt=""> </div>
+                            <div class="modal-right">
+                                <div class="thumbnail"> <img width="30px" height="30px" src="<?php echo ($imflink) ? $imflink : "../../images/girl-xs.jpg"; ?>" alt="">
+                                    <div class="thumbnail-info">Starter</div>
+                                    <h2><?php echo $full_name; ?></h2>
+                                    <h3>written 16 Review(s)</h3>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="title"><span>Efficacy rating</span></div>
+                                <div class="clearfix"></div>
+                                <div class="bar-graph"> 
+        <?php echo $this->getLayout()->createBlock('lesson05/lesson05')->setData('ranking_data', $ranking_data)->setData('color_set', $colorFieldset)->setData('num_entries', $i)->setTemplate('lesson05/view_user_chart_ranking.phtml')->toHtml(); ?> </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="space-15">
+                                <p><?php echo $review; ?> </p>
+                                <div class="clearfix"></div>
+                                <span class="post-date">Posted on <?php $date = strtotime($review_date);
+        echo date("d-M-Y", $date); ?></span> <span class="post-by">Also written on <a href="#">http://rebeccaklq.blogspot.sg/</a></span> <span class="verified"><a href="#" data-tooltip="This User has Redeemed and used this Sample">Verified</a></span> </div>
+                        </div>
+                    </div>      
+                <?php endif; ?>     
+    <?php
+} // foreach results
+?>
+            <!--product-list ends-->  
+
+            <!--review-block-lg ends-->
+            <div class="clearfix"></div>
+            <!--            <div class="pagination bottom-spacer">
+                          <ul>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">&gt;</a></li>
+                            <li><a href="#">LAST</a></li>
+                          </ul>
+                        </div>-->
+                <?php if ($customer_ids): ?>
+
+
+                <div class="toolbar-bottom">
+                    <?php
+                    $itemsCollection = Mage::getModel('webforms/results')
+                            ->getCollection();
+                    // ->addFieldFilter('webform_id', $webform_id);
+                    // ->addFieldFilter('webform_id', array('in' => $webform_id));
+                    ?>
+                        <?php //if($this->getPagerHtml($itemsCollection)): ?> 
+                    <div class="pagination">
+                    <?php //echo $this->getPagerHtml($itemsCollection); ?>
+                    </div>
+                <?php //endif;  ?>
+
+                </div>
+<?php endif; ?>
+            <!--product-column ends--> 
+        </div>
+        <!--product-list ends--> 
+    </div>
+    <!--review-block-wrap ends--> 
+
+</div>
+</div>
+
+<script src="<?php echo Mage::getBaseUrl(); ?>js/jquery/easytabs.js"></script>
+<script src="<?php echo Mage::getBaseUrl(); ?>js/jquery/jquery.custombox.js"></script>
+<script src="<?php echo Mage::getBaseUrl(); ?>js/jquery/jquery-filestyle.min.js"></script>
+<script src="<?php echo Mage::getBaseUrl(); ?>js/jquery/main.js"></script>
+
+<?php $id = $_REQUEST['id']; ?>

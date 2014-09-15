@@ -1,0 +1,224 @@
+<?php
+
+	$collection = Mage::getModel('mybrand/mybrand')->getCollection()->setOrder('brand_id','asc');
+				 
+	foreach($collection as $data)
+	{
+		$data->getData('brand_name') ;
+	}
+	
+	
+?>
+
+	<?php 
+	
+		$productNameArray = array();	
+		$host = $_SERVER[HTTP_HOST];
+		$uri = $_SERVER[REQUEST_URI];
+		$uriArray = explode('/',$uri);
+		$url2 = '/'.$uriArray[1];
+		
+		$collection1 = Mage::getModel('catalog/product')->getCollection();
+		
+		foreach($collection1 as $product1)
+		{ 
+			$model = Mage::getModel('catalog/product') ;
+			$_product = $model->load($product1["entity_id"]);
+			$productNameArray[] = $_product->getName() ; 
+			$productIdArray[] = $product1["entity_id"] ;
+		}
+		
+		$collection2 = Mage::getModel('mybrand/mybrand')->getCollection()->setOrder('brand_id','asc');
+				 
+		foreach($collection2 as $data2)
+		{
+			$brandNameArray[] = $data2->getData('brand_name');
+			$brandIdArray[] = $data2->getData('brand_id');
+		}
+		
+	?>
+	
+	<script type="text/javascript" language="javascript">
+	
+		var productArray = new Array();
+		var productIdArray = new Array();
+		var brandArray = new Array();
+		var brandIdArray = new Array();
+	
+	</script>
+		
+	<?php foreach($productNameArray as $prdct) { ?>
+	
+		<script type="text/javascript" language="javascript">
+		
+			var productName = "<?php echo $prdct ; ?>" ;
+			productArray.push(productName);
+		
+		</script>
+	
+	<?php }	?> 
+	
+	<?php foreach($productIdArray as $id1) { ?>
+	
+		<script type="text/javascript" language="javascript">
+		
+			var productId = "<?php echo $id1 ; ?>" ;
+			productIdArray.push(productId);
+		
+		</script>
+	
+	<?php }	?> 
+	
+	<?php foreach($brandNameArray as $brdnm) { ?>
+	
+		<script type="text/javascript" language="javascript">
+		
+			var brandName = "<?php echo $brdnm ; ?>" ;
+			brandArray.push(brandName);
+		
+		</script>
+	
+	<?php }	?> 
+	
+	<?php foreach($brandIdArray as $id2) { ?>
+	
+		<script type="text/javascript" language="javascript">
+		
+			var brandId = "<?php echo $id2 ; ?>" ;
+			brandIdArray.push(brandId);
+		
+		</script>
+	
+	<?php }	?> 
+	
+	<script type="text/javascript" language="javascript">
+	
+		function addnew()
+		{
+			str = '<form action = "http://<?php echo $host.$url2 ;?>/mybrand/index/newproduct" method = "post" enctype="multipart/form-data">';
+			str += '<table style = "width :50%">';
+			str += '<tr>';
+			str += '<td style = "width :25%"><strong>Choose Brand</strong></td><td style = "width :25%"><strong>Choose Product</strong></td>';
+			str += '</tr>';
+			str += '<tr>';
+			str += '<td style = "width :25%"><select name = "brand" style="min-width: 200px;">';
+			
+			for(var i = 0 ; i < brandArray.length ; i++)
+			{
+			
+			str += '<option value = "'+brandIdArray[i]+'">'+brandArray[i]+'</option>';
+			
+			}
+			
+			str += '</select></td>';
+			str += '<td style = "width :25%"><select name = "product">';
+			
+			for(var i = 0 ; i < productArray.length ; i++)
+			{
+			
+			str += '<option value = "'+productIdArray[i]+'">'+productArray[i]+'</option>';
+			
+			}
+			
+			str += '</select></td>';
+			str += '</tr><tr>';
+			str += '<td style = "width :25%"><input type = "submit" value = "Save"></td>';
+			str += '<td style = "width :25%"><a href = "">Back</a></td>';
+			str += '</tr>';
+			str += '</table>';
+			str += '</form>';
+			
+			document.getElementById('mybrands').innerHTML=str;
+		
+		}
+		
+	</script>
+	
+	
+	<table>
+		<tr>
+			<td>
+				<button onclick = "addnew();">ADD NEW RECORD</button>
+			</td>
+		</tr>
+	</table>
+	
+	<div class = "mybrands" id = "mybrands" style="margin-top: 20px;">
+	
+		<table>
+			<tr style = "height :25px">
+				<td style = "min-width: 150px;max-width: 150px;">
+					<strong>Product ID</strong>
+				</td>
+				<td style = "min-width: 200px;max-width: 200px;">
+					<strong>Brand Name</strong>
+				</td>
+				<td style = "min-width: 300px;max-width: 300px;">
+					<strong>Product Name</strong>
+				</td>
+				<td style = "min-width: 100px;max-width: 100px;">
+					<strong>Action</strong>
+				</td>
+				<td style = "min-width: 100px;max-width: 100px;">
+					<strong>Action</strong>
+				</td>
+			</tr>
+		</table>
+		<?php
+		
+			$i = 1;
+			
+			$collection = Mage::getModel('myproduct/myproduct')->getCollection()->setOrder('product_id','asc');
+					 
+			foreach($collection as $data)
+			{ 
+				$n = 0 ;
+				$p = 0 ;
+		
+		?>
+		
+				<form action = "http://<?php echo $host.$url2 ;?>/mybrand/index/saveproduct" method = "post" enctype="multipart/form-data">
+					<table>
+						<tr style = "height :30px">
+							<td style = "min-width :150px;">
+								<span style = "position: relative;top: 4px;"><?php echo $data->getData('product_id') ; ?></span>
+								<input type = "hidden" name = "id" value = "<?php echo $data->getData('product_id') ; ?>" style="padding: 2px;"/>
+							</td>
+							<td style = "min-width :200px">
+								<select name = "brand">
+									<?php foreach($brandNameArray as $brd) { ?>
+										<?php if ($data->getData('brand_id') == $brandIdArray[$n]) { ?>
+											<option value = "<?php echo $brandIdArray[$n]; ?>" selected = "true"><?php echo $brandNameArray[$n] ; ?></option>
+										<?php } else { ?>
+											<option value = "<?php echo $brandIdArray[$n]; ?>"><?php echo $brandNameArray[$n] ; ?></option>
+										<?php } ?>
+									<?php $n++ ; } ?>
+								</select>
+							</td>
+							<td style = "min-width :300px">
+								<select name = "product">
+									<?php foreach($productNameArray as $pdt) { ?>
+										<?php if ($data->getData('cp_id') == $productIdArray[$p]) { ?>
+											<option value = "<?php echo $productIdArray[$p]; ?>" selected = "true"><?php echo $productNameArray[$p] ; ?></option>
+										<?php } else { ?>
+											<option value = "<?php echo $productIdArray[$p]; ?>"><?php echo $productNameArray[$p] ; ?></option>
+										<?php } ?>
+										<?php 
+										$n++ ; 
+										$p++ ;
+									} 
+									?>
+								</select>
+							</td>
+							<td style = "min-width :100px">
+								<input type = "submit" value = "Save" style="width: 75px;cursor: pointer;"/>
+							</td>
+							<td style = "min-width :100px">
+								<a href= "http://<?php echo $host.$url2 ;?>/mybrand/index/deleteproduct?id=<?php echo $data->getData('product_id') ; ?>">Delete</a>
+							</td>
+						</tr>
+					</table>
+				</form>
+			
+		<?php $i++ ; } ?>
+	</div>

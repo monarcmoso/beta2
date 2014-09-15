@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        
+          <reference name="content"></reference>
+    </default>
+    <lesson05_index_index>
+        <remove name="right"/>
+	<remove name="left"/>
+        <reference name="content">
+            <block type="lesson05/lesson05" name="lesson05" template="lesson05/lesson05.phtml" />
+             <block type="webforms/webforms" name="my_block_name" template="webforms/default.phtml">
+            <action method="setData">
+                <key>webform_id</key>
+                <value>12</value>
+            </action>
+        </block>
+        </reference>
+        
+    </lesson05_index_index>
+    
+      <catalog_product_view>
+        <reference name="product.info">
+            <block type="core/template" name="product.lesson05" as="lesson05" template="lesson05/lesson05.phtml" />
+        </reference>
+      </catalog_product_view> 
+      
+        <lesson05_index_index>
+        <remove name="right"/>
+	<remove name="left"/>
+        
+        <block type="webforms/webforms" name="my_block_name" template="webforms/default.phtml">
+            <action method="setData">
+                <key>webform_id</key>
+                <value>12</value>
+            </action>
+        </block>
+        <reference name="content">
+            <block type="lesson05/lesson05" name="lesson05" template="lesson05/seeders.phtml" />
+        </reference>
+            <reference name="root">
+                    <action method="setTemplate"><template>page/2column.phtml</template></action>
+            </reference>
+    </lesson05_index_index>
+</layout> 

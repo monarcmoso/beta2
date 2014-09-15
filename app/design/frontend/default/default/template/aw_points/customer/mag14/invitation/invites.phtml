@@ -1,0 +1,84 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Points
+ * @version    1.7.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?>
+<div class="title title2">
+	<span><?php echo $this->getTitle(); ?></span>
+</div>
+<div class="row">
+	<div class="p-small gap">
+		<p class="emphasise-block">Total <span class="emphasise">91</span> Friends Joined</p>
+		<p>Earn extra points now by inviting your friends to join.<br>
+		For every 5 accepted invitation, you will get 1 point added to your account.
+		</p>
+	</div>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php if ($this->hasInvitees()): ?>
+<div class="clearfix"></div>
+<div class="table-wrap">   
+        <table class="notify">
+            <thead>
+                <tr>
+                    <th width="40" scope="col"><?php echo $this->__('Invited') ?></th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th><?php echo $this->__('Status') ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($this->getCollection() as $item): ?>
+                    <tr>
+                    	<td><img src="<?=$this->getSkinUrl('images/user-grey.png');?>"/></td>
+                        <td><?php echo $item->getEmail() ?><br>
+                            <?php //echo $item->getDate() 
+                            $date = new DateTime($item->getDate());
+							$result = $date->format('d-m-Y');
+							//explode the date
+							$dateExplode = explode("-", $result);
+							$monthName = date("F", mktime(0, 0, 0, $dateExplode[1], 10));
+                       		//get the number of the days
+                       		$dateToday = date('d-m-Y');
+							$timeDiff = abs($dateToday - $result);
+                            ?>
+                            <span class="text-grey"><?php echo "$dateExplode[0] $monthName $dateExplode[2]"; ?> (<?php if($timeDiff > 0)echo "$timeDiff days ago"; else echo "Today";?>)</span>
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <span class="status-button status-pending"></span><?php echo $item->getStatus() ?>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+</div>
+<div class="clearfix"></div>
+<script type="text/javascript">decorateTable('invitelist-table')</script>            
+    <!-- </fieldset> -->
+<?php else: ?>
+    <p><?php echo $this->__("You haven't sent any invitation yet") ?></p>
+<?php endif ?>
+<script type="text/javascript">
+    //var contactForm = new VarienForm('aw_sendinvitation', true);
+</script>

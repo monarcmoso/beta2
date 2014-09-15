@@ -1,0 +1,418 @@
+<style>
+    .brands{
+        padding: 15px 0 15px 0!important;
+       margin-top:0px!important;
+    }
+</style>
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+
+<style>
+    .fancybox{
+        position: absolute;
+        left: 300px;
+        top: 100px;
+        width: 600px;
+        height: 800px;
+        background: #bbafa0;
+        margin: 0 auto;
+        padding-right: 20px;
+        padding-left: 20px;
+        opacity: 1.7;
+        z-index: 999999;
+    }
+    #dimScreen
+    {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 2100px;
+        background: #ccc;
+        opacity: 0.7;
+        z-index: 999999;
+    }
+    .close_survey
+    {
+        float: right;
+        cursor: pointer;
+    }
+    .blue-light{
+        
+    }
+    .tabs li a:hover, .tabs li.active a{
+        
+    }
+    .blue-border{
+        
+    }
+</style>    
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<script src="<?php echo Mage::getBaseUrl(); ?>js/jquery/modernizr.custom.17475.js"></script> 
+<script src="<?php echo Mage::getBaseUrl(); ?>js/jquery/jquery.min.js"></script>
+<script src="<?php echo Mage::getBaseUrl(); ?>js/jquery/easytabs.js"></script>
+
+
+
+<?php 
+             $categoryIds = $_product->getCategoryIds();
+         
+            $c = 1;
+            $brand = "";
+            $color = "";
+            $categoryname = "";
+            $product_name = $_helper->productAttribute($_product, $_product->getName(), 'name');
+            $product_id = $_product->getId();
+            if(count($categoryIds)){
+                $firstCategoryId = $categoryIds[0];
+                $_category = Mage::getModel('catalog/category')->load($firstCategoryId);
+
+            if($_customAttribute = $_category->getCustomAttribute()):
+                $colorFieldset = $_helper->categoryAttribute($_category, $_customAttribute, 'custom_attribute');
+            endif; 
+
+                foreach ($categoryIds as $catId) {
+                    $_category = Mage::getModel('catalog/category')->load($catId);
+                    if ($_category->getLevel() == '3' && $_category->getParentCategory()->getId()=='44'){
+                        $brand =  $_category->getName(); 
+                          $_imgHtml   = '';
+ 
+	
+                            if ($_imgUrl = $_category->getImage()) {
+                                    $_thumbnailImgageName	=	$_category->getImage();
+                                    $_thumbnailImgageUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'catalog/category/'.$_thumbnailImgageName;
+                                $_imgHtml = '<img class="brands-logo" src="'.$_thumbnailImgageUrl.'" alt="'.$this->htmlEscape($_category->getName()).'" title="'.$this->htmlEscape($_category->getName()).'" />';
+                                $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'thumbnail');
+                            }
+                    } 
+                    if ($_category->getLevel() == '3' && $_category->getParentCategory()->getId()=='18'&& $_category->getId()!='43'){
+                        $categoryname = $_category->getName();
+                        //get category color
+                        $color =  $_category->getResource()->getAttribute('color')->getFrontend()->getValue($_category);
+                    }
+                    $c++; 
+
+                }
+            }
+    
+
+                $days =  Mage::registry('before_expiry');
+                $end_datetime = $_product->getResource()->getAttribute('expiry_date')->getFrontend()->getValue($_product);
+                $current_date = date('Y-m-d');
+                $current_date1 = time() + $days * 24 * 60 * 60;
+                $current_date1 = date('Y-m-d', $current_date1);
+                $expired = FALSE;
+                if ($end_datetime) {
+                    $end_datetime = date('Y-m-d', strtotime($end_datetime));
+                    
+                    if (strtotime($end_datetime) >= strtotime($current_date1)) :
+                        $expired = FALSE;
+                    else:
+                        $expired = TRUE;
+                    endif;
+                }
+             
+                $start_datetime = $_product->getResource()->getAttribute('launched_date')->getFrontend()->getValue($_product);
+                $launch = FALSE;
+                if ($start_datetime) {
+                    $start_datetime = date('Y-m-d', strtotime($start_datetime));
+                    if (strtotime($current_date) >= strtotime($start_datetime)) :
+                        $launch = FALSE;
+                    else:
+                        $launch = TRUE;
+                    endif;
+                }
+                ?>
+    <div class="ad-lg">
+<?php //check if product is in the basket;
+ //get item ids in the cart
+    $quote = Mage::getSingleton('checkout/session')->getQuote();
+    $cartItems = $quote->getAllVisibleItems();
+    $cart_exist = false;
+ 
+$cart_exist = false;
+  foreach ($cartItems as $item)
+    {
+       $productId = $item->getProductId();
+       if($productId == $_product->getId()) $cart_exist = true;
+   }
+?>
+   <?php
+        $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image').'" alt="'.$this->escapeHtml($this->getImageLabel()).'" title="'.$this->escapeHtml($this->getImageLabel()).'" />';
+        echo $_helper->productAttribute($_product, $_img, 'image');
+    ?>
+      <div class="clearfix"></div>
+      <?php
+      
+      
+      ?>
+      <div class="brands" id="sticker"> 	
+                <?php if($_imgUrl): ?>
+			<?php echo $_imgHtml ?>
+		<?php endif; ?>
+        <div class="brand-info">
+          <h2><?php echo $brand; ?></h2>
+          <p><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></p>
+        </div>
+        <div class="brand-links">
+          <ul>
+            <li><?php  echo $this->getReviewsSummaryHtml($_product, false, true)?></li>
+            <li style="<?php echo($cart_exist)?"width: 126px; height: 36px; border: solid 2px #5f6062; cursor: pointer;":""; ?>">       
+            <?php if (!$this->hasOptions()):?>
+          
+                    <?php if($_product->isSaleable() && (!$expired) ): ?>
+                         
+                         <?php $cmsstatic = $_product->getResource()->getAttribute('product_survey_set')->getFrontend()->getValue($_product); ?>
+                         	
+                            <?php if($cmsstatic!='No'){ ?>	    
+                                <?php if (!$_product->isSaleable() || ($expired) || ($launch)): ?>
+                                    	
+                                        <?php echo $this->getChildHtml('addto') ?>
+
+                                <?php endif; ?>
+
+                                    <?php if(($expired) || ($launch) || !$_product->isSaleable() ):?>
+                                     
+                                    <?php else: ?>
+                                            <a href="#" onclick="open_survey()" id="add_to_cart">Redeem</a>
+                                    <?php endif;?>
+                            <?php }  ?>
+                            <?php if($cmsstatic=='No'):?>
+                                <?php if(($expired) || ($launch) || !$_product->isSaleable()):?>
+					<?php echo $this->getChildHtml('addto') ?>
+                                <?php else: ?>
+                                    <?php echo $this->getChildHtml('addtocart') ?>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                  
+                    <?php endif; ?>
+                     <?php if(($expired) || ($launch) || !$_product->isSaleable()):?>
+				<?php echo $this->getChildHtml('addto') ?>
+                    <?php endif; ?>
+            <?php else: ?>
+                    <?php echo $this->getChildHtml('addto') ?>
+            <?php endif; ?>
+                    
+            </li>
+		
+               <?php if (!$_product->isSaleable() || ($expired) || ($launch)): ?><li><a href="#">Out of <br>Stock</a></li><?php endif; ?>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+   <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+    <div id="tab-wrapper">
+      <ul class="tabs">
+        <li><a href="#tab1">DESCRIPTION</a></li>
+        <li><a href="#tab2">information</a></li>
+      </ul>
+      <!--tabs ends-->
+      <div class="main_content">
+        <div id="tab1">
+          <div class="tab-column1" style="width:100%!important;">
+            
+            <div class="clearfix"></div>
+            <?php if ($_product->getDescription()):?>
+                    <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getDescription()), 'short_description') ?></div>
+            <?php endif;?>
+          </div>
+          
+        </div>
+        <div id="tab2">
+      
+         
+        <?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
+                <div class="box-collateral <?php echo "box-{$alias}"?>">
+                    <?php if ($title = $this->getChildData($alias, 'title')):?>
+                    <h2><?php echo $this->escapeHtml($title); ?></h2>
+                    <?php endif;?>
+                    <?php echo $html; ?>
+                </div>
+        <?php endforeach;?>
+       
+          
+        </div>
+      </div>
+    </div>
+
+
+<div class="product-view" style="width:970px;"> 
+    <div class="product-essential">
+    <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <?php echo $this->getBlockHtml('formkey') ?>
+        <div class="no-display">
+            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+            <input type="hidden" name="related_product" id="related-products-field" value="" />
+        </div>
+
+        <div class="product-shop">
+        
+            <?php if ($this->canEmailToFriend()): ?>
+                <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a></p>
+            <?php endif; ?>
+
+            
+            <?php echo $this->getChildHtml('alert_urls') ?>
+            <?php //echo $this->getTierPriceHtml() ?>
+            <?php echo $this->getChildHtml('extrahint') ?>
+   
+     
+
+       
+
+            <?php echo $this->getChildHtml('upsell_products') ?>
+            <?php echo $this->getChildHtml('product_additional_data') ?>
+                
+            <?php echo $this->getChildHtml('other');?>
+
+            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+            <?php endif;?>
+
+        </div>
+        <div class="clearer"></div>
+        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+            <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+        <?php endif;?>
+    </form>
+   
+    <script type="text/javascript">
+       
+    //<![CDATA[
+        var productAddToCartForm = new VarienForm('product_addtocart_form');
+        productAddToCartForm.submit = function(button, url) {
+            if (this.validator.validate()) {
+                var form = this.form;
+                var oldUrl = form.action;
+
+                if (url) {
+                   form.action = url;
+                }
+                var e = null;
+                try {
+                    this.form.submit();
+                } catch (e) {
+                }
+                this.form.action = oldUrl;
+                if (e) {
+                    throw e;
+                }
+
+                if (button && button != 'undefined') {
+                    button.disabled = true;
+                }
+            }
+        }.bind(productAddToCartForm);
+
+        productAddToCartForm.submitLight = function(button, url){
+            if(this.validator) {
+                var nv = Validation.methods;
+                delete Validation.methods['required-entry'];
+                delete Validation.methods['validate-one-required'];
+                delete Validation.methods['validate-one-required-by-name'];
+                // Remove custom datetime validators
+                for (var methodName in Validation.methods) {
+                    if (methodName.match(/^validate-datetime-.*/i)) {
+                        delete Validation.methods[methodName];
+                    }
+                }
+
+                if (this.validator.validate()) {
+                    if (url) {
+                        this.form.action = url;
+                    }
+                    this.form.submit();
+                }
+                Object.extend(Validation.methods, nv);
+            }
+        }.bind(productAddToCartForm);
+    //]]>
+    </script>
+    </div>
+
+  
+    <?php 
+        /*
+        Mage::getModel('core/session')->setData('colorFieldset',$colorFieldset);
+        Mage::getModel('core/session')->setData('brand',$brand);
+        Mage::getModel('core/session')->setData('product_name', $product_name);
+        Mage::getModel('core/session')->setData('product_id', $product_id);*/
+        Mage::register('product_name', $product_name);
+        Mage::register('brand', $brand);
+        Mage::register('product_id', $product_id);
+        Mage::register('colorFieldset', $colorFieldset);
+    
+        $webform_code = $_product->getResource()->getAttribute('custom_review_set')->getFrontend()->getValue($_product);
+      
+
+        
+        $connection = Mage::getSingleton('core/resource')->getConnection('core_write');
+        $read= Mage::getSingleton('core/resource')->getConnection('core_read');
+        $webform_id = 0;
+        $sql3 = "SELECT webforms.* FROM webforms WHERE code='".$webform_code."'";
+        $arr = $read->fetchAll($sql3);
+
+        foreach($arr as $key ){
+                $webform_id =  $key['id'];
+        } 
+    
+        echo $this->getLayout()->createBlock('webforms/results', 'my_webform_block', array
+        (
+            'webform_id' => $webform_id,
+            'template' => 'webforms/results/default.phtml',
+        ))->toHtml();
+
+    ?>
+ 
+    <?php  
+        $this->getLayout()->createBlock('webforms/webforms')->setData('webform_id', 15);
+
+        $cmsstatic = $_product->getResource()->getAttribute('product_survey_set')->getFrontend()->getValue($_product);
+    ?>
+        <div id="show_survey" style="display:none;">
+            <div id="dimScreen">
+            </div>
+            
+          <div id="survey-popup" class="fancybox">
+              <div id="closeme" class="close_survey">X</div>
+             <?php echo $this->getLayout()->createBlock('cms/block')->setBlockID($cmsstatic)->tohtml(); ?>
+          </div>
+        </div>
+     <div class="clearfix"></div>
+  
+</div>

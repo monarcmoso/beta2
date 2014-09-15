@@ -1,0 +1,19 @@
+<config>
+    <modules>
+        <Atwix_Cmsattr>
+            <version>0.1.0</version>
+        </Atwix_Cmsattr>
+    </modules>
+    <global>
+        <blocks>
+            <atwix_cmsattr>
+                <class>Atwix_Cmsattr_Block</class>
+            </atwix_cmsattr>
+        </blocks>
+        <models>
+            <atwix_cmsattr>
+                <class>Atwix_Cmsattr_Model</class>
+            </atwix_cmsattr>
+        </models>
+    </global>
+</config>

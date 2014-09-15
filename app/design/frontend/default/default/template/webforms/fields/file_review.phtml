@@ -1,0 +1,281 @@
+
+<?php
+if($this->getCustomerValue()){
+    $got_image = false;
+?>
+<div class="clearfix"></div>
+<div class="photo photo-no-space">
+
+<?php
+	$this->setFieldClass(str_replace('required-entry','',$this->getFieldClass()));
+	if($this->getField()->getType() == 'file'){
+		if(strlen($this->getCustomerValue())>1){ 
+?>
+
+	<nobr>
+		<a href="<?php echo $this->getResult()->getDownloadLink($this->getField()->getId(),$this->getCustomerValue())?>"><?php echo $this->getCustomerValue()?></a> <small>[<?php echo $this->getResult()->getFileSizeText($this->getField()->getId(),$this->getCustomerValue())?>]</small>
+	</nobr>
+
+<?php
+		}
+	}
+	if($this->getField()->getType() == 'image'){
+            $got_image = true;
+	if(strlen($this->getCustomerValue())>1){
+			if($this->getResult()->getThumbnail($this->getField()->getId(),$this->getCustomerValue(),100)){
+?>
+	
+	<a href="#modal-<?php echo $this->getField()->getId(); ?>" class="_review_popup" <?php echo $this->getResult()->getDownloadLink($this->getField()->getId(),$this->getCustomerValue())?> ><span class="cross" style="top:1px!important"><img src="<?php echo Mage::getBaseUrl(); ?>/images/cross.png" alt=""></span><img src="<?php echo $this->getResult()->getThumbnail($this->getField()->getId(),$this->getCustomerValue(),100,100)?>"/></a>
+	<div class="clearfix"><input type="hidden" name="<?php echo $this->getField()->getId();?>" value="<?php echo $this->getCustomerValue();?>" /></div>
+	
+<?php
+	} else {
+?>
+
+	<nobr>
+		<a href="<?php echo $this->getResult()->getDownloadLink($this->getField()->getId(),$this->getCustomerValue())?>"><?php echo $this->getCustomerValue()?></a> <small>[<?php echo $this->getResult()->getFileSizeText($this->getField()->getId(),$this->getCustomerValue())?>]</small>
+	</nobr>
+
+<?php
+			}
+		}
+	}
+	if(!$this->getField()->getRequired()){
+?>
+
+	<div class='webforms-uploaded-file-delete'>
+		<input type='checkbox' id='delete_<?php echo $this->getFieldId()?>' name='delete_<?php echo $this->getFieldId()?>' value='1'/>
+		<label class='webforms-uploaded-file-delete-label' for='delete_<?php echo $this->getFieldId()?>'><?php echo Mage::helper('webforms')->__('Delete')?></label>
+	</div>
+
+<?php
+	}
+?>
+
+</div>
+
+<?php 
+}
+?>	
+<div class="clearfix"></div>
+<div class="photo photo-no-space">
+<?php if(!$got_image): ?>
+ <img src="<?php echo $this->getSkinUrl('images/canvas.png');?>">
+ <?php endif;?>
+</div>
+<div style="clear:both;"></div>
+<div style="float:left;">
+    
+<!--<a href="#modal-8" id="edit2" title="Custom effect" class="upload-btn">Upload an Image</a>-->
+<input type='file' name='<?php echo $this->getFieldName()?>' id='<?php echo $this->getFieldId()?>' class='<?php echo $this->getFieldClass()?>' style='<?php echo $this->getFieldStyle()?>'/>
+
+</div>
+<?php
+
+if(Mage::getStoreConfig('webforms/files/ajax')){
+	
+?>
+
+<div id="fileupload-progress-<?php echo $this->getFieldId()?>" class="file-progress"></div>
+
+<ul id="preview_<?php echo $this->getFieldId()?>" class="file-preview" style="display:none;float:left;"></ul>
+
+<script>
+var jqXHR<?php echo $this->getFieldId()?>;
+
+jQuery(document).ready(function($) {
+	
+	$('#<?php echo $this->getFieldId()?>').fileupload({
+		dataType: 'json',
+		url: '<?php echo Mage::getBaseUrl('js')?>webforms/upload/index.php?param_name=<?php echo $this->getFieldName()?>',
+		replaceFileInput: false,
+		change: function (e, data){
+			if(jqXHR<?php echo $this->getFieldId()?>) jqXHR<?php echo $this->getFieldId()?>.abort();
+			$('#preview_<?php echo $this->getFieldId()?>').empty();
+		},
+		add: function (e,data){
+                    jqXHR<?php echo $this->getFieldId()?> = data.submit();
+		},
+		autoUpload:true,
+                
+		done: function (e, data) { 
+		  var fileInfo = data.result[0];
+		  $("#<?php echo $this->getFieldId()?>").removeClass("required-entry");
+             
+		  if(fileInfo ){
+			  $("#preview_<?php echo $this->getFieldId()?>").append(
+					$('<input>').attr('type','hidden').attr('name','<?php echo $this->getFieldId()?>').attr('value',fileInfo.rand + '/' + fileInfo.name)
+			  );
+                        
+			  //$('#<?php //echo $this->getFieldId()?>').val(''); //causes problem in IE(call function twice)
+			  $.each(data.files, function (index, file) {	
+						
+				$("#preview_<?php echo $this->getFieldId()?>").append(
+				  $('<li>').attr('id', file.name)
+					.append($('<h3>').text(file.name))
+						.append($('<p>')
+							.append('<?php echo $this->__('type')?>: ' + (file.type || 'unknown'))
+							.append($('<br>'))
+							.append('<?php echo $this->__('size')?>: ' + Math.round(file.size / 1024) + 'KB' )
+							.append($('<br>'))
+							.append($('<a>').attr('class','file-cancel').text('[<?php echo $this->__('Remove')?>]').click(function(){
+								$('#preview_<?php echo $this->getFieldId()?>').empty();
+								<?php if($this->getField()->getRequired()){?>
+								$("#<?php echo $this->getFieldId()?>").addClass("required-entry");
+								<?php } ?>
+							})))
+				  );
+			  });
+			 
+			  var li = $('li[id="'+fileInfo['name']+'"]');
+			if(!li.find('> img').length){
+			  if (/image\/.*/.test(fileInfo['type']) ) {
+				if(fileInfo['thumbnail_url']){
+					var thumb = $('<img>').attr('src', fileInfo['thumbnail_url']);
+					li.prepend(thumb); 
+				}
+			  }
+		    
+                     
+                        }else{
+                           
+                            alert("Hi, we spotted that you have uploaded more than 1 images with the same filename. You can correct it by uploading a new one to replace it or click 'Submit' to continue if there is nothing wrong.");
+                        }
+              
+		  } else {
+			  alert('<?php echo $this->__('Error occured!')?>');
+		  }
+		}
+	});
+	
+	// Add detailed progress information	
+	$('#<?php echo $this->getFieldId()?>').bind('fileuploadstart', function ( e, data) {
+
+		var widget = $(this),
+			progressElement = $('#fileupload-progress-<?php echo $this->getFieldId()?>').fadeIn(),
+			interval = 500,
+			total = 0,
+			loaded = 0,
+			loadedBefore = 0,
+			progressTimer,
+			progressHandler = function (e, data) {
+				loaded = data.loaded;
+				total = data.total;
+			},
+			stopHandler = function () {
+				widget
+					.unbind('fileuploadprogressall', progressHandler)
+					.unbind('fileuploadstop', stopHandler);
+				window.clearInterval(progressTimer);
+				progressElement.fadeOut(function () {
+					progressElement.html('');
+					$('#preview_<?php echo $this->getFieldId()?>').fadeIn();
+				});
+			},
+			formatTime = function (seconds) {
+				var date = new Date(seconds * 1000);
+				return ('0' + date.getUTCHours()).slice(-2) + ':' +
+					('0' + date.getUTCMinutes()).slice(-2) + ':' +
+					('0' + date.getUTCSeconds()).slice(-2);
+			},
+			formatBytes = function (bytes) {
+				if (bytes >= 1000000000) {
+					return (bytes / 1000000000).toFixed(2) + ' GB';
+				}
+				if (bytes >= 1000000) {
+					return (bytes / 1000000).toFixed(2) + ' MB';
+				}
+				if (bytes >= 1000) {
+					return (bytes / 1000).toFixed(2) + ' KB';
+				}
+				return bytes + ' B';
+			},
+			formatPercentage = function (floatValue) {
+				return (floatValue * 100).toFixed(2) + ' %';
+			},
+			updateProgressElement = function (loaded, total, bps) {
+				progressElement.html(
+					formatBytes(bps) + 'ps | ' +
+						formatTime((total - loaded) / bps) + ' | ' +
+						formatPercentage(loaded / total) + ' | ' +
+						formatBytes(loaded) + ' / ' + formatBytes(total)
+				);
+			},
+			intervalHandler = function () {
+				var diff = loaded - loadedBefore;
+				if (!diff) {
+					return;
+				}
+				loadedBefore = loaded;
+				updateProgressElement(
+					loaded,
+					total,
+					diff * (1000 / interval)
+				);
+			};
+		widget
+			.bind('fileuploadprogressall', progressHandler)
+			.bind('fileuploadstop', stopHandler);
+		progressTimer = window.setInterval(intervalHandler, interval);
+
+		
+	});
+	
+});
+</script>
+
+<?php
+
+}
+
+?>
+<!--footer ends--> 
+<a href="#" class="scrollup">scroll</a>
+<div id="modal-8" style="display: none;" class="modal-example-content modal-example-content-md">
+  <div class="modal-example-header modal-example-header-white">
+    <button type="button" class="close close-white" onclick="$.fn.custombox('close');">Close <span>&times;</span></button>
+  </div>
+  <div class="modal-example-body modal-example-body-md">
+    <div class="title title2 move-20"><span>Upload an image</span></div>
+    <div class="clearfix"></div>
+    <form method="post" action="#">
+      <div class="login-block">
+        <div class="form">
+          <div class="row">
+            <div class="centered"><img src="images/thumb.jpg" alt=""></div>
+            <div class="align">
+              <input type="file" class="jfilestyle" data-input="false">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="login-block-md">
+        <div class="row">
+          <p>Note: The image should be less than 2000mb in size.<br>
+            The dimension should not exceed 1000px in height and 1000px in width.</p>
+        </div>
+        <div class="row auto">
+          <input type="submit" value="Upload" class="submit-btn">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div id="modal-<?php echo $this->getField()->getId(); ?>" style="display: none;" class="modal-example-content modal-example-content-xs">
+  <div class="modal-example-header modal-example-header-white">
+    <button type="button" class="closeme close close-white" >Close <span>&times;</span></button>
+  </div>
+  <div class="modal-example-body modal-example-body-xs">
+    <div class="title title2 move-20"><span>Preview</span></div>
+    <div class="clearfix"></div>
+    <form method="post" action="#">
+        <?php if($got_image &&  $this->getResult()->getThumbnail($this->getField()->getId(),$this->getCustomerValue(),500)):?>
+      <div class="form">
+        <div class="row"> <img src="<?php echo $this->getResult()->getThumbnail($this->getField()->getId(),$this->getCustomerValue(),500)?>" alt=""> </div>
+      </div>
+        <?php endif;?>
+     
+    </form>
+    
+  </div>
+</div>

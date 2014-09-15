@@ -1,0 +1,200 @@
+
+            <?php 
+                /*
+                    This shows how to load specific fields from a record in the database.
+                    1) Note the load(15), this corresponds to saying "select * from table where table_id = 15"
+                    2) You can then just use the get(fieldname) to pull specific data from the table.
+                    3) If you have a field named news_id, then it becomes getNewsId, etc.
+                */
+                /*
+                $news = Mage::getModel('lesson05/lesson05')->load(15);
+                echo $news->getNewsId();
+                echo $news->getTitle();
+                echo $news->getContent();
+                echo $news->getStatus();
+                */
+                
+                /*
+                    This shows an alternate way of loading datas from a record using the database the "Magento Way" (using blocks and controller).
+ 					Uncomment blocks in /app/code/local/Namespace/Module/controllers/IndexController.php if you want to use it.
+
+               */
+                /*
+                $object = $this->getLesson05();
+                echo 'id: '.$object['test_id'].'<br/>';
+				echo 'title: '.$object['title'].'<br/>';
+				echo 'content: '.$object['content'].'<br/>';
+				echo 'status: '.$object['status'].'<br/>';
+                */            
+            
+            
+                /*
+                    This shows how to load multiple rows in a collection and save a change to them.
+                    1) The setPageSize function will load only 5 records per page and you can set the current Page with the setCurPage function.
+                    2) The $collection->walk('save') allows you to save everything in the collection after all changes have been made.
+                */
+                /*
+                $i = 0;
+                
+                $collection = Mage::getModel('lesson05/lesson05')->getCollection();
+                $collection->setPageSize(5);
+                $collection->setCurPage(2);
+                $size = $collection->getSize();
+                $cnt = count($collection);
+                foreach ($collection as $item) {
+                    $i = $i+1;
+                    $item->setTitle($i);
+                    echo $item->getTitle();
+                }
+
+                $collection->walk('save');
+                */
+                
+                /*
+                    This shows how to load a single record and save a change.
+                    1) Note the setTitle, this corresponds to the table field name, title, and then you pass it the text to change.
+                    2) Call the save() function only on a single record.
+                */
+                /*
+                $object = Mage::getModel('lesson05/lesson05')->load(1);
+                $object->setTitle('This is a changed title');
+                $object->save();
+				*/
+                $ok_num_users=1;
+                $bad_num_users=1;
+            ?> 
+
+<html> 
+<head>
+    <style>
+        .chart_overall{
+            width: 260px;
+            margin: 0 auto;
+        }
+     
+        .chart_overall .legend_wrapper_overall{
+            width: 100%;
+            margin-top: 5px;
+        }
+        .chart_overall .legend_wrapper_overall li {
+            float: left;
+            margin: 3px;
+            width: 220px;
+            height: 12px;
+        }
+        .chart_overall .legend_wrapper_overall ul {
+            list-style: none;
+            padding: 0 0 0 5px;
+            margin: 0px;
+        }
+        .chart_overall .b1,  .legend_wrapper_overall .b1 {
+            background-color: #9FD6D1;
+        }
+        .chart_overall .b2,  .legend_wrapper_overall .b2 {
+            background-color: #FFEA84;
+        }
+        .chart_overall .b3,  .legend_wrapper_overall .b3 {
+            background-color: #FEC9C1;
+        }
+        .chart_overall .b4, .legend_wrapper_overall .b4 {
+            background-color: #C3EAA9;
+        }
+        .chart_overall .b5,  .legend_wrapper_overall .b5 {
+            background-color: #FD8C86;
+        }
+        .chart_overall .legend_wrapper_overall span {
+            display: inline-block;
+            margin-right: 3px;
+            font-size: 9px;
+            color: #8B7A5E;
+            float:left;
+        }
+        .chart_overall .legend {
+            width: 20px;
+            height: 10px;
+        }
+    </style>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Excellent', <?php echo $excellent_num_users=3; ?>],
+          ['Very Good', <?php echo $verygood_num_users=2; ?>],
+          ['Good', <?php echo $good_num_users=2; ?>],
+          ['Ok', <?php echo ($ok_num_users==0)?0:$ok_num_users; ?>],
+          ['Bad', <?php echo ($bad_num_users>=1)?$bad_num_users:0; ?>]
+        ]);
+
+        // Set chart options
+        var options = {
+                       'width':270,
+                        'height':300,fontSize:['11','15'],colors: ['#9FD6D1', '#FFEA84','#FEC9C1','#C3EAA9','#FD8C86'],
+                       legend: {position: 'bottom', textStyle: {color: '#58595B', fontSize: 12}},
+                       pieSliceTextStyle:{color: '#8B7A5E'},
+                        //legend: {position: 'none'},
+                       chartArea:{ width:'500'}
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('all_ranking'));
+        chart.draw(data, options);
+      }
+    </script>
+
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="all_ranking" ></div>
+<!--    <div class="chart_overall" style="display:none;">
+    <div class="legend_wrapper_overall">
+		<ul>
+			<li>
+				<span class="legend b1"></span>
+				<span class="legend_indicator"><?php //echo $excellent_num_users.'/'. $total; ?> Users thinks it's Excellent</span>
+				<span class="legend_label"><?php //echo $line1_percent; ?>%</span>
+			</li>
+			<li >
+				<span class="legend b2"></span>
+				<span class="legend_indicator"><?php //echo $verygood_num_users.'/'. $total; ?> Users thinks it's Very Good</span>
+				<span class="legend_label"><?php //echo $line2_percent; ?>%</span>
+			</li>
+			<li>
+				<span class="legend b3"></span>
+				<span class="legend_indicator"><?php //echo $good_num_users.'/'. $total; ?> Users thinks it's Good</span>
+				<span class="legend_label"><?php //echo $line3_percent; ?>%</span>
+			</li>
+                       
+			<li>
+				<span class="legend b4"></span>
+				<span class="legend_indicator"><?php //echo $ok_num_users.'/'. $total; ?> Users thinks it's Ok</span>
+				<span class="legend_label"><?php //echo $line4_percent; ?>%</span>
+			</li>
+			<li>
+				<span class="legend b5"></span>
+				<span class="legend_indicator"><?php //echo $bad_num_users.'/'. $total; ?> Users thinks it's Bad</span>
+				<span class="legend_label"><?php //echo $line5_percent; ?>%</span>
+			</li>
+			
+			<div style="clear: both;">
+		</ul>
+	</div>
+    </div>-->
+  </body>
+</html>

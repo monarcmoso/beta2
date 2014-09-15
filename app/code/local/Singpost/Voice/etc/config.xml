@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Singpost_Voice>
+            <version>0.1.0</version>
+        </Singpost_Voice>
+    </modules>
+    <frontend>
+        <routers>
+            <voice>
+                <use>standard</use>
+                <args>
+                    <module>Singpost_Voice</module>
+                    <frontName>voice</frontName>
+                </args>
+            </voice>
+        </routers>
+        <!-- <layout>
+            <updates>
+                <profile>
+                    <file>singpostprofile.xml</file>
+                </profile>
+            </updates>
+        </layout> -->
+    </frontend>
+    <global>
+        <models>
+            <voice>
+                <class>Singpost_Voice_Model</class>
+                <resourceModel>singpost_review_mysql4</resourceModel>
+            </voice>
+            
+            <voice_mysql4>
+                <class>Singpost_Voice_Model_Mysql4</class>
+                <entities>
+                    <action>
+                        <table>smsotp</table>
+                    </action>
+                </entities>
+            </voice_mysql4>
+        </models>
+        <resources>
+            <voice_setup>
+                <setup>
+                    <module>Singpost_Voice</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </voice_setup>
+            <voice_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </voice_write>
+            <voice_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </voice_read>
+        </resources>
+        <blocks>
+        	<!-- <adminhtml>
+				<rewrite>
+					<customer_edit>Singpost_Profile_Block_Adminhtml_Customer_Edit</customer_edit>
+				</rewrite>
+			</adminhtml> -->
+            <voice>
+                <class>Singpost_Voice_Block</class>
+            </voice>
+        </blocks>
+        <helpers>
+            <voice>
+                <class>Singpost_Voice_Helper</class>
+            </voice>
+        </helpers>
+    </global>
+</config>

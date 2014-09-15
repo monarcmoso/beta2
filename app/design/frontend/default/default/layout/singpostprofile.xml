@@ -1,0 +1,356 @@
+<layout version="0.1.0">
+	 <profile_index_index>
+	 	<reference name="head">
+	 		<action method="setTitle" translate="title" module="profile"><title>Sample Store</title></action>
+			<action method="addJs"><script>singpost/method/jquery.min.js</script></action>
+			<action method="addJs"><script>singpost/method/modernizr.custom.17475.js</script></action>
+		</reference>
+		<reference name="content">
+			<!-- <block type="profile/profile" name="profile" template="singpost/seeders.phtml"/> -->
+			<block type="profile/profile" name="profile" template="singpost/profile.phtml"/>
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+	</profile_index_index>
+	
+	<profile_index_account>
+		<remove name="global_messages" />
+		<remove name="messages" />
+		<reference name="head">
+			<block type="facebookfree/active" name="belvg.facebookfree.block">
+                <action method="setTemplate" ifconfig="facebookfree/settings/enabled" ifvalue="1">
+                    <template>facebookfree/block.phtml</template>
+                </action>
+            </block>
+			<!-- <action method="addJs"><script>jquery/jquery-1.9.0.min.js</script></action>
+			<action method="addJs"><script>fancy/source/jquery.fancybox.js</script></action> -->
+			<action method="setTitle" translate="title" module="profile"><title>Your Profile - Sample Store</title></action>
+			<action method="addJs"><script>jquery/validate/jquery.validate.js</script></action>
+			<action method="addJs"><script>singpost/account.js</script></action>
+		</reference>
+		<reference name="content">
+			<!-- <block type="avatar/header_avatar" name="avatar_customer_form" template="singpost/avatar/form.phtml"/> -->
+			<block type="profile/profile" name="profile" template="singpost/account.phtml"/>
+		</reference>
+		<reference name="left">
+			<!-- <block type="profile/profile"  name="profile_list" template="singpost/navigation.phtml">
+				<action method="addLink" translate="label" module="singpost"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
+                <action method="addLink" translate="label" module="singpost"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
+			</block> -->
+			<block type="customer/account_navigation" name="customer_account_navigation" before="-" template="singpost/navigation.phtml">
+              	<action method="addLink" translate="label" module="customer"><name>profile_account</name><path>profile/index/account/</path><label>Profile</label></action>
+				<action method="addLink" translate="label" module="customer"><name>profile_settings</name><path>profile/index/settings/</path><label>Settings</label></action>
+				<action method="addLink" translate="label" module="customer"><name>notification</name><path>profile/notifications/index</path><label>Notifications</label></action>
+				<action method="addLink" translate="label" module="customer"><name>seeders</name><path>profile/seeders/index/</path><label>Seeders Program</label></action>
+				<action method="addLink" translate="label" module="customer"><name>order_history</name><path>sales/order/history/</path><label>Order History</label></action>
+				<action method="addLink" translate="label" module="customer"><name>points_reward</name><path>points/reward/</path><label>Points</label></action>
+				<action method="addLink" translate="label" module="customer"><name>points_invitation</name><path>points/invitation/</path><label>Referal Centre</label></action>
+				<action method="addLink" translate="label" module="customer"><name>coupon_status</name><path>profile/coupon</path><label>Coupon Status</label></action>
+                <!-- <action method="addLink" translate="label" module="customer"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
+                <action method="addLink" translate="label" module="customer"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action> -->
+            </block>
+            <remove name="codnitive.sidenav.left"/>
+            <remove name="codnitive.sidenav.left.cart"/>
+            <remove name="codnitive.sidenav.left.layered"/>
+            <remove name="codnitive.sidenav.left.links"/>
+            <remove name="codnitive.sidenav.left"/>
+            <remove name="tags_popular"/>
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+		</reference>
+	</profile_index_account>
+	
+	<profile_index_settings>
+		<reference name="head">
+			<action method="setTitle" translate="title" module="profile"><title>Your Settings - Sample Store</title></action>
+			<action method="addJs"><script>jquery/validate/jquery.validate.js</script></action>
+			<action method="addJs"><script>singpost/settings.js</script></action>
+		</reference>
+		<reference name="content">
+			<block type="profile/profile" name="profile" template="singpost/settings.phtml"/>
+		</reference>
+		<reference name="left">
+			<block type="customer/account_navigation" name="customer_account_navigation" before="-" template="singpost/navigation.phtml">
+               	<action method="addLink" translate="label" module="customer"><name>profile_account</name><path>profile/index/account/</path><label>Profile</label></action>
+				<action method="addLink" translate="label" module="customer"><name>profile_settings</name><path>profile/index/settings/</path><label>Settings</label></action>
+				<action method="addLink" translate="label" module="customer"><name>notification</name><path>profile/notifications/index</path><label>Notifications</label></action>
+				<action method="addLink" translate="label" module="customer"><name>seeders</name><path>profile/seeders/index/</path><label>Seeders Program</label></action>
+				<action method="addLink" translate="label" module="customer"><name>order_history</name><path>sales/order/history/</path><label>Order History</label></action>
+				<action method="addLink" translate="label" module="customer"><name>points_reward</name><path>points/reward/</path><label>Points</label></action>
+				<action method="addLink" translate="label" module="customer"><name>points_invitation</name><path>points/invitation/</path><label>Referal Centre</label></action>
+				<action method="addLink" translate="label" module="customer"><name>coupon_status</name><path>profile/coupon</path><label>Coupon Status</label></action>
+            </block>
+            <remove name="codnitive.sidenav.left"/>
+            <remove name="codnitive.sidenav.left.cart"/>
+            <remove name="codnitive.sidenav.left.layered"/>
+            <remove name="codnitive.sidenav.left.links"/>
+            <remove name="codnitive.sidenav.left"/>
+            <remove name="tags_popular"/>
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+		</reference>
+	</profile_index_settings>
+	
+	<profile_settings_index>
+		<reference name="head">
+			<action method="setTitle" translate="title" module="profile"><title>Fill up your Sample Store profile form.</title></action>
+			<action method="removeItem"><type>js</type><name>singpost/method/jquery.min.js</name></action>
+		    <action method="removeItem"><type>js</type><name>singpost/method/modernizr.custom.17475.js</name></action>
+		    <action method="removeItem"><type>js</type><name>singpost/method/easytabs.js</name></action>
+		    <action method="removeItem"><type>js</type><name>singpost/method/jquery.custombox.js</name></action>
+		    <action method="removeItem"><type>js</type><name>singpost/method/jquery-filestyle.min.js</name></action>
+		    <action method="removeItem"><type>js</type><name>singpost/method/main.js</name></action>	
+		</reference>
+		<reference name="content">
+			<block type="profile/profile" name="profile" template="singpost/settings/settings.phtml"/>
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+	</profile_settings_index>
+	
+	<profile_settings_edit>
+		<!-- reference name = customer folder -> sub folder -> phtml file name-->
+		<!-- <reference name="content">
+			<block type="profile/profile" name="profile" template="singpost/settings/edit.phtml"/>
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference> -->
+		<!-- put my account link in magento 
+			<update handle="customer_account"/> -->
+		<reference name="head">
+			<action method="setTitle" translate="title" module="profile"><title>Your Settings - Sample Store</title></action>
+			<action method="removeItem"><type>js</type><name>jquery/jquery-1.9.0.min.js</name></action>
+			<action method="removeItem"><type>js</type><name>singpost/method/jquery.min.js</name></action>
+		    <action method="removeItem"><type>js</type><name>singpost/method/modernizr.custom.17475.js</name></action>
+		    <action method="removeItem"><type>js</type><name>singpost/method/easytabs.js</name></action>
+		    <action method="removeItem"><type>js</type><name>singpost/method/jquery.custombox.js</name></action>
+		    <action method="removeItem"><type>js</type><name>singpost/method/jquery-filestyle.min.js</name></action>
+		    <action method="removeItem"><type>js</type><name>singpost/method/main.js</name></action>	
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+		</reference>
+        <reference name="content">
+            <block type="webformscrf/widget_form" name="webformscrf.account" template="singpost/settings/edit.phtml"/>
+        </reference>
+        <reference name="left">
+			<block type="customer/account_navigation" name="customer_account_navigation" before="-" template="singpost/navigation.phtml">
+				<action method="addLink" translate="label" module="customer"><name>profile_account</name><path>profile/index/account/</path><label>Profile</label></action>
+				<action method="addLink" translate="label" module="customer"><name>profile_settings</name><path>profile/index/settings/</path><label>Settings</label></action>
+				<action method="addLink" translate="label" module="customer"><name>notification</name><path>profile/notifications/index</path><label>Notifications</label></action>
+				<action method="addLink" translate="label" module="customer"><name>seeders</name><path>profile/seeders/index/</path><label>Seeders Program</label></action>
+				<action method="addLink" translate="label" module="customer"><name>order_history</name><path>sales/order/history/</path><label>Order History</label></action>
+				<action method="addLink" translate="label" module="customer"><name>points_reward</name><path>points/reward/</path><label>Points</label></action>
+				<action method="addLink" translate="label" module="customer"><name>points_invitation</name><path>points/invitation/</path><label>Referal Centre</label></action>
+				<action method="addLink" translate="label" module="customer"><name>coupon_status</name><path>profile/coupon</path><label>Coupon Status</label></action>
+            </block>
+            <remove name="codnitive.sidenav.left"/>
+            <remove name="codnitive.sidenav.left.cart"/>
+            <remove name="codnitive.sidenav.left.layered"/>
+            <remove name="codnitive.sidenav.left.links"/>
+            <remove name="codnitive.sidenav.left"/>
+            <remove name="tags_popular"/>
+		</reference>
+	</profile_settings_edit>
+	
+	<profile_seeders_index>
+		<reference name="head">
+			
+
+			<action method="removeItem"><type>js</type><name>jquery/jquery-1.9.0.min.js</name></action>	
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+		</reference>
+		<reference name="content">
+            <block type="profile/profile" name="seeders" template="singpost/seeders/seeders.phtml"/>
+        </reference>
+        <reference name="left">
+			<block type="customer/account_navigation" name="customer_account_navigation" before="-" template="singpost/navigation.phtml">
+				<action method="addLink" translate="label" module="customer"><name>profile_account</name><path>profile/index/account/</path><label>Profile</label></action>
+				<action method="addLink" translate="label" module="customer"><name>profile_settings</name><path>profile/index/settings/</path><label>Settings</label></action>
+				<action method="addLink" translate="label" module="customer"><name>notification</name><path>profile/notifications/index</path><label>Notifications</label></action>
+				<action method="addLink" translate="label" module="customer"><name>seeders</name><path>profile/seeders/index/</path><label>Seeders Program</label></action>
+				<action method="addLink" translate="label" module="customer"><name>order_history</name><path>sales/order/history/</path><label>Order History</label></action>
+				<action method="addLink" translate="label" module="customer"><name>points_reward</name><path>points/reward/</path><label>Points</label></action>
+				<action method="addLink" translate="label" module="customer"><name>points_invitation</name><path>points/invitation/</path><label>Referal Centre</label></action>
+				<action method="addLink" translate="label" module="customer"><name>coupon_status</name><path>profile/coupon</path><label>Coupon Status</label></action>
+            </block>
+            <remove name="codnitive.sidenav.left"/>
+            <remove name="codnitive.sidenav.left.cart"/>
+            <remove name="codnitive.sidenav.left.layered"/>
+            <remove name="codnitive.sidenav.left.links"/>
+            <remove name="codnitive.sidenav.left"/>
+            <remove name="tags_popular"/>
+		</reference>
+	</profile_seeders_index>
+	
+	<profile_coupon_index>
+		<reference name="head">
+			<action method="setTitle" translate="title" module="profile"><title>Your Coupon Status - Sample Store</title></action>
+			<action method="removeItem"><type>js</type><name>jquery/jquery-1.9.0.min.js</name></action>	
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+		</reference>
+		<reference name="content">
+            <block type="profile/profile" name="seeders" template="singpost/coupon.phtml"/>
+        </reference>
+        <reference name="left">
+			<block type="customer/account_navigation" name="customer_account_navigation" before="-" template="singpost/navigation.phtml">
+				<action method="addLink" translate="label" module="customer"><name>profile_account</name><path>profile/index/account/</path><label>Profile</label></action>
+				<action method="addLink" translate="label" module="customer"><name>profile_settings</name><path>profile/index/settings/</path><label>Settings</label></action>
+				<action method="addLink" translate="label" module="customer"><name>notification</name><path>profile/notifications/index</path><label>Notifications</label></action>
+				<action method="addLink" translate="label" module="customer"><name>seeders</name><path>profile/seeders/index/</path><label>Seeders Program</label></action>
+				<action method="addLink" translate="label" module="customer"><name>order_history</name><path>sales/order/history/</path><label>Order History</label></action>
+				<action method="addLink" translate="label" module="customer"><name>points_reward</name><path>points/reward/</path><label>Points</label></action>
+				<action method="addLink" translate="label" module="customer"><name>points_invitation</name><path>points/invitation/</path><label>Referal Centre</label></action>
+				<action method="addLink" translate="label" module="customer"><name>coupon_status</name><path>profile/coupon</path><label>Coupon Status</label></action>
+            </block>
+            <remove name="codnitive.sidenav.left"/>
+            <remove name="codnitive.sidenav.left.cart"/>
+            <remove name="codnitive.sidenav.left.layered"/>
+            <remove name="codnitive.sidenav.left.links"/>
+            <remove name="codnitive.sidenav.left"/>
+            <remove name="tags_popular"/>
+		</reference>
+	</profile_coupon_index>
+	
+	<!-- <profile_index_welcome>
+		<reference name="head">
+			<action method="removeItem"><type>js</type><name>jquery/jquery-1.9.0.min.js</name></action>	
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+		<reference name="content">
+            <block type="profile/profile" name="message" template="singpost/welcome.phtml"/>
+        </reference>
+	</profile_index_welcome> -->
+	
+	<profile_index_welcome>
+		<reference name="head">
+			<action method="setTitle" translate="title" module="profile"><title>Welcome - Sample Store</title></action>
+			<action method="addJs"><script>jquery/jquery-1.9.0.min.js</script></action>
+			<action method="addJs"><script>jquery/validate/jquery.validate.js</script></action>
+			<action method="addJs"><script>singpost/account.js</script></action>
+		</reference>
+		<reference name="content">
+			<block type="profile/profile" name="profile" template="singpost/welcome.phtml"/>
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+	</profile_index_welcome>
+	
+	<profile_index_fbprofile>
+		<reference name="head">
+			<action method="setTitle" translate="title" module="profile"><title>Your Profile - Sample Store</title></action>
+			<action method="addJs"><script>jquery/jquery-1.9.0.min.js</script></action>
+			<action method="addJs"><script>jquery/validate/jquery.validate.js</script></action>
+			<action method="addJs"><script>singpost/fbProfile.js</script></action>
+		</reference>
+		<reference name="content">
+			<block type="profile/profile" name="profile" template="singpost/facebookprofiler.phtml"/>
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+	</profile_index_fbprofile>
+	
+	<profile_notifications_index>
+		<reference name="head">
+			<action method="setTitle" translate="title" module="profile"><title>Your Notifications - Sample Store</title></action>
+			<!-- <action method="addJs"><script>jquery/jquery-1.9.0.min.js</script></action>
+			<action method="addJs"><script>fancy/source/jquery.fancybox.js</script></action> -->
+			<!-- <action method="addJs"><script>jquery/validate/jquery.validate.js</script></action>
+			<action method="addJs"><script>singpost/account.js</script></action> -->
+		</reference>
+		<reference name="content">
+			<!-- <block type="avatar/header_avatar" name="avatar_customer_form" template="singpost/avatar/form.phtml"/> -->
+			<block type="profile/profile" name="profile" template="singpost/notifications.phtml"/>
+		</reference>
+		<reference name="left">
+			<!-- <block type="profile/profile"  name="profile_list" template="singpost/navigation.phtml">
+				<action method="addLink" translate="label" module="singpost"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
+                <action method="addLink" translate="label" module="singpost"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
+			</block> -->
+			<block type="customer/account_navigation" name="customer_account_navigation" before="-" template="singpost/navigation.phtml">
+              	<action method="addLink" translate="label" module="customer"><name>profile_account</name><path>profile/index/account/</path><label>Profile</label></action>
+				<action method="addLink" translate="label" module="customer"><name>profile_settings</name><path>profile/index/settings/</path><label>Settings</label></action>
+				<action method="addLink" translate="label" module="customer"><name>notification</name><path>profile/notifications/index</path><label>Notifications</label></action>
+				<action method="addLink" translate="label" module="customer"><name>seeders</name><path>profile/seeders/index/</path><label>Seeders Program</label></action>
+				<action method="addLink" translate="label" module="customer"><name>order_history</name><path>sales/order/history/</path><label>Order History</label></action>
+				<action method="addLink" translate="label" module="customer"><name>points_reward</name><path>points/reward/</path><label>Points</label></action>
+				<action method="addLink" translate="label" module="customer"><name>points_invitation</name><path>points/invitation/</path><label>Referal Centre</label></action>
+				<action method="addLink" translate="label" module="customer"><name>coupon_status</name><path>profile/coupon</path><label>Coupon Status</label></action>
+                <!-- <action method="addLink" translate="label" module="customer"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
+                <action method="addLink" translate="label" module="customer"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action> -->
+            </block>
+            <remove name="codnitive.sidenav.left"/>
+            <remove name="codnitive.sidenav.left.cart"/>
+            <remove name="codnitive.sidenav.left.layered"/>
+            <remove name="codnitive.sidenav.left.links"/>
+            <remove name="codnitive.sidenav.left"/>
+            <remove name="tags_popular"/>
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+		</reference>
+	</profile_notifications_index>
+	
+	<site_faq_index>
+		<reference name="head">
+			<action method="setTitle" translate="title" module="profile"><title>Frequently Ask Questions - Sample Store</title></action>
+		</reference>
+		<reference name="content">
+			<block type="profile/profile" name="profile" template="singpost/faq.phtml"/>
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+	</site_faq_index>
+
+	<site_about_index>
+		<reference name="head">
+			<action method="setTitle" translate="title" module="profile"><title>About Us: Find out more about Sample Store</title></action>
+		</reference>
+		<reference name="content">
+			<block type="profile/profile" name="profile" template="singpost/about.phtml"/>
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>]
+	</site_about_index>
+	
+	<site_contact_index>
+		<reference name="head">
+			<action method="setTitle" translate="title" module="profile"><title>Feel free to contact us - Sample Store</title></action>
+		</reference>
+		<reference name="content">
+			<block type="profile/profile" name="profile" template="singpost/contact.phtml"/>
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+	</site_contact_index>
+	
+	<site_beta_guidelines>
+		<reference name="head">
+			<action method="setTitle" translate="title" module="profile"><title>Beta Guidlines- Sample Store</title></action>
+		</reference>
+		<reference name="content">
+			<block type="profile/profile" name="profile" template="singpost/beta.phtml"/>
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+	</site_beta_guidelines>
+</layout>
+
+

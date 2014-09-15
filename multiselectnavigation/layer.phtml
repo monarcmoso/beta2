@@ -1,0 +1,45 @@
+<?php if($this->canShowBlock()): $state = $this->getStateInfo()?>
+    <div class="block block-layered-nav mmd-multinav">
+      <div class="block-title">
+        <strong><span>Shop By</span></strong>
+     </div>
+        <div class="block-content">		
+        <?php if($this->canShowOptions()): ?>
+            <div class="narrow-by">
+            <input type="hidden" id="mmd-multinav-url" value="<?php echo $this->htmlEscape($state[0])?>"/>
+            <input type="hidden" id="mmd-multinav-params" value="<?php echo $this->htmlEscape($state[1])?>"/> 
+            <input type="hidden" id="mmd-multinav-ajax" value="<?php echo $this->htmlEscape($state[2])?>"/> 
+           
+            <dl id="narrow-by-list">
+                <?php $_filters = $this->getFilters() ?>
+                <?php foreach ($_filters as $_filter): ?>
+                <?php if ($_filter->getItemsCount()): ?>
+                <dt class="mmd-multinav-dt">
+                    <?php /* if ($clearUrl = $_filter->getClearUrl()): ?>
+                    <a id="<?php echo $_filter->getVar()?>-clear"  <?php if(!$this->getIsRemoveLinks()): ?>href="<?php echo $this->htmlEscape($clearUrl)?>" <?php endif; ?>
+                        class="mmd-multinav-clear"><img src="<?php echo $this->getSkinUrl('images/list_remove_btn.gif')?>" /></a> 
+                    <?php endif */?>
+                    <?php echo $this->__($_filter->getName()) ?>
+                </dt>
+                <dd <?php echo $this->getHeightStyle()?> id="mmd-multinav-filter-<?php echo $_filter->getVar()?>"><?php echo $_filter->getHtml() ?></dd>
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </dl>
+             <?php if ($state[1]): ?>
+				<div class="currently">				
+				<ol><li>	
+				  <a href="<?php echo $this->htmlEscape($this->getClearAllUrl())?>"><?php echo $this->__('Clear All') ?></a>
+				</li></ol>
+				</div>
+               
+            <?php endif ?>
+            <script type="text/javascript">
+            decorateDataList('narrow-by-list');
+            adj_nav_init();
+            </script>
+            </div>
+            <?php endif; ?>
+        </div>
+        <div class="mmd-multinav-progress" style="display:none"></div>        
+    </div>
+<?php endif; ?>

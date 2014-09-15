@@ -1,0 +1,215 @@
+<?php $getStatus = Mage::getStoreConfig('silverbrand/silverbrand/enable'); ?>
+<?php $getshopByBrandId = Mage::getStoreConfig('silverbrand/silverbrand/categoryId'); ?>
+<?php $currentCategoryId = Mage::getModel('catalog/layer')->getCurrentCategory()->getId(); ?>
+<!--Check Shop By Brand is Enable or Disable and if Check Category Is Same as Admin Define-->
+<?php if (($getStatus == 1) && ($getshopByBrandId == $currentCategoryId)): ?>
+    <?php
+    $currentCategoryId = Mage::getModel('catalog/layer')->getCurrentCategory()->getId();
+    $store_cat = Mage::app()->getStore()->getRootCategoryId();
+    ?>
+    <?php
+    //get the current category
+    $_cat = new Mage_Catalog_Block_Navigation();
+    $currentCategoryId = $_cat->getCurrentCategory();
+
+    //get the children of the current category
+    $subCats = Mage::getModel('catalog/category')->load($currentCategoryId->getId())->getChildren();
+
+    //get sub category ids
+    $subCatIds = explode(',', $subCats);
+    ?>
+    <?php if (count($subCatIds) >= 1): ?>
+        <!--Get Category of Brands-->
+        <div class="silverBrand">
+            <ul class="silverBrandUl">
+                <?php foreach ($subCatIds as $subCatId): ?>
+                    <?php $subCat = Mage::getModel('catalog/category')->load($subCatId); ?>
+                    <?php if ($subCat->getIsActive()): ?>
+                        <li>
+                            <?php //display category image
+                            if ($subCat->getImageUrl()):
+                                ?>
+                                <div class="cat_img">
+                                    <a href="<?php echo $subCat->getUrl(); ?>"><img class="silverBrandListLogo" src="<?php echo $subCat->getImageUrl(); ?>" /></a>	
+                                </div>
+                                <div class="catname">
+                                    <a href="<?php echo $subCat->getUrl(); ?>"><?php echo $subCat->getName(); ?></a>
+                                </div>
+                            <?php else: ?>
+                                <div class="cat_img">
+                                    <a href="<?php echo $subCat->getUrl(); ?>"><img class="silverBrandListLogo" src="<?php echo $this->getSkinUrl('') ?>images/silverbrand/noImage.gif" /></a>	
+                                </div>
+                                <div class="catname">
+                                    <a href="<?php echo $subCat->getUrl(); ?>"><?php echo $subCat->getName(); ?></a>
+                                </div>
+                            <?php endif; ?>
+                        </li>
+                    <?php else: ?>
+                        <p class="note-msg" style="clear:both;"><?php echo $this->__('There are no brands matching the selection.') ?></p>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    <?php else: ?>
+        <p class="note-msg" style="clear:both;"><?php echo $this->__('There are no brands matching the selection.') ?></p>
+    <?php endif; ?>	
+<?php else: ?>
+    <!--Display Products of Category of Brand-->
+    <?php
+    $_productCollection = $this->getLoadedProductCollection();
+    $_helper = $this->helper('catalog/output');
+    $i = 0;
+    $brand = "";
+    ?>
+    <?php if (!$_productCollection->count()): ?>
+        <p class="note-msg" style="clear:both;"><?php echo $this->__('There are no products matching the selection.') ?></p>
+    <?php else: ?>
+        <div class="category-products">
+            <?php //echo $this->getToolbarHtml() ?>
+            <?php // List mode ?>
+            <?php if ($this->getMode() != 'grid'): ?>
+                <?php $_iterator = 0; ?>
+                <ol class="products-list" id="products-list">
+                    <?php foreach ($_productCollection as $_product): ?>
+                       
+
+                        <li class="item<?php if (++$_iterator == sizeof($_productCollection)): ?> last<?php endif; ?>">
+
+                            <?php // Product Image ?>
+                            <?php echo($free_delivery_bool == 'Yes') ? "<span class='free_tag'>FREE</span>" : "<span class='free_untag'></span>"; ?>
+                            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+                            <?php // Product description ?>
+                            <div class="product-shop">
+                                <div class="f-fix">
+                                    <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
+                                    <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $brand . " " . $_helper->productAttribute($_product, $_product->getName(), 'name'); ?></a></h2>
+                                    <?php if ($_product->getRatingSummary()): ?>
+                                        <?php echo $this->getReviewsSummaryHtml($_product) ?>
+                                    <?php endif; ?>
+                                    <?php echo $this->getPriceHtml($_product, true) ?>
+                                    <?php if ($_product->isSaleable()): ?>
+                                        <button type="button" title="<?php echo $this->__('Redeem') ?>" class="button btn-cart" style="border:1px solid #0099ff; background:#0099ff;" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Redeem') ?></span></span></button>
+                                    <?php else: ?>
+                                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                                    <?php endif; ?>
+                                    <div class="desc std">
+                                        <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a>
+                                    </div>
+                                    <ul class="add-to-links">
+                                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                            <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Interest') ?></a></li>
+                                        <?php endif; ?>
+                                        <?php if ($_compareUrl = $this->getAddToCompareUrl($_product)): ?>
+                                            <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
+                                        <?php endif; ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <?php $brand = ""; ?>
+                    <?php endforeach; ?>
+                </ol>
+                <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+
+            <?php else: ?>
+
+                <?php // Grid Mode ?>
+
+                <?php $_collectionSize = $_productCollection->count() ?>
+                <?php $_columnCount = $this->getColumnCount(); ?>
+                <?php $i = 0;
+                foreach ($_productCollection as $_product): ?>
+                    <?php
+                 
+                    $days = 5;
+                    
+                    
+                    $end_datetime = $_product->getResource()->getAttribute('expiry_date')->getFrontend()->getValue($_product);
+                    $current_date = date('Y-m-d');
+
+                    $expired = FALSE;
+                    if ($end_datetime) {
+                        $end_datetime = date('Y-m-d', strtotime($end_datetime));
+
+                        if (strtotime($end_datetime) >= strtotime($current_date1)) :
+                            $expired = FALSE;
+                        else:
+                            $expired = TRUE;
+                        endif;
+                    }
+
+                    $start_datetime = $_product->getResource()->getAttribute('launched_date')->getFrontend()->getValue($_product);
+                    $launch = FALSE;
+                    if ($start_datetime) {
+                        $start_datetime = date('Y-m-d', strtotime($start_datetime));
+                        if (strtotime($current_date) >= strtotime($start_datetime)) :
+                            $launch = FALSE;
+                        else:
+                            $launch = TRUE;
+                        endif;
+                    }
+                    
+                    ?> 
+                    <?php if ($currentCategoryId != "43"): ?>
+                    <?php    
+                    $free_delivery_bool = $_product->getResource()->getAttribute('free_delivery')->getFrontend()->getValue($_product);
+                    $categoryIds = $_product->getCategoryIds();
+                    $d = 1;
+                 
+                    foreach ($categoryIds as $catId) {
+                        $_category = Mage::getModel('catalog/category')->load($catId);
+                        if ($_category->getLevel() == '3' && $_category->getParentCategory()->getId() == '44') {
+                              $brand = $_category->getName();
+                        }
+                       
+                        if ($_category->getLevel() == '3' && $d == 1)
+                             $categoryname = $_category->getName();
+                        $d++;
+                    }?>
+                        <?php if (($expired) || ($launch) || !$_product->isSaleable()): ?>
+                        <?php else: ?>
+                                <?php if ($i++ % $_columnCount == 0): ?>
+                                <ul class="products-grid">
+                                <?php endif ?>
+                                    <?php $ctr++; ?>
+                                <li class="item<?php if (($i - 1) % $_columnCount == 0): ?> first<?php elseif ($i % $_columnCount == 0): ?> last<?php endif; ?>">
+                                 <?php echo($free_delivery_bool == 'Yes') ? "<span class='free_tag'>FREE</span>" : "<span class='free_untag'></span>"; ?>
+                                    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+                                    <span><?php  echo $categoryname; ?></span>
+                                    <p><h1><?php echo $brand; ?> </h1></p>
+                                    <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+
+                                        <?php if ($_product->getRatingSummary()): ?>
+                                            <?php //echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                                        <?php endif; ?>
+                                            <?php //echo $this->getPriceHtml($_product, true)  ?>
+                                        <div class="actions">
+                                            <?php if ($_product->isSaleable()): ?>
+                                                <button type="button" title="<?php echo $this->__('Redeem') ?>" class="button btn-cart" style="border:1px solid #0099ff; background:#0099ff;" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Redeem') ?></span></span></button>
+                                            <?php else: ?>
+                                                <p><button type="button" title="<?php echo $this->__('Request') ?>" class="button btn-cart"  style="border:1px solid #ccc; background:#ccc;" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" ><?php echo $this->__('Request') ?></a></span></span></button></p>
+                                                <?php endif; ?>
+                                        </div>
+                                </li>
+                            <?php if ($i % $_columnCount == 0 || $i == $_collectionSize): ?>
+                                </ul>
+                            <?php endif ?>
+
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <?php $brand = ""; ?>
+                    <?php 
+                    $categoryname = "";?>    
+                 
+                <?php endforeach ?>
+                <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+        <?php endif; ?>
+
+            <div class="toolbar-bottom">
+            <?php echo $this->getToolbarHtml() ?>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>	

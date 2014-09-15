@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<layout>
+    <!-- <samplestoreadmin_adminhtml_myform_index>
+        <update handle="samplestoreadmin_myform_index"/>
+        <reference name="content">
+            <block type="adminhtml/template" name="myform" template="samplestoreadmin/myform.phtml"/>
+        </reference>
+    </samplestoreadmin_adminhtml_myform_index> -->
+    
+  <samplestoreadmin_adminhtml_referral_index>
+        <update handle="samplestoreadmin_myform_index"/>
+        <reference name="content">
+            <block type="adminhtml/template" name="referral" template="samplestoreadmin/referral.phtml"/>
+        </reference>
+    </samplestoreadmin_adminhtml_referral_index>
+</layout>

@@ -1,0 +1,167 @@
+jQuery(document).ready(function($){
+	$(document).on('click','.edit_pop',function(){
+	    $.fn.custombox( this, {
+	        effect:         'blur',
+	        position:       'center',
+	        customClass:    'customslide',
+	        speed:          200
+	    });
+	    e.preventDefault();
+	});
+	
+	$(document).on('click','.close',function(){
+		//e.preventDefault();
+		$.fn.custombox('close');
+	});
+	
+	$(document).on('click','a.buttone_save',function(){
+		var rel = $(this).attr("rel");
+		var input;
+		//check the specific input type (full_nam,dob,gender)
+		//get the values of their own input
+		if(rel == 'full_name'){
+			input = $("#fullname").val();
+			if(input == ''){
+				//do the outline
+				//display error message
+				$(".accountError").remove();
+				$("input[name=fullname]").removeClass("errorBorder");
+				$("input[name=fullname]").addClass("errorBorder");
+				$(".row").eq(1).before($("<p class='accountError'>Please specify your fullname.</p>"));
+				
+				return false;
+			}
+		}
+		else if(rel == 'dob'){
+			//input = $("#bday").val();
+			var mm = $("#mm").val();
+			var dd = $("#dd").val();
+			var yy = $("#yy").val();
+			
+			$mm_num = (isNaN(mm)) ? "true" : "false";
+			$dd_num = (isNaN(dd)) ? "true" : "false";
+			$yy_num = (isNaN(yy)) ? "true" : "false";
+			//do validation here
+			$(".accountError").remove();
+			$(".dob2 input").each(function(){
+				$(this).removeClass("errorBorder");
+			});
+			if(dd == ''){
+				$(".row").eq(1).before($("<p class='accountError'>Please specify your Birth Day.</p>"));
+				$("#dd").addClass("errorBorder");
+				return false;
+			}
+			else if(dd.length > 2 || dd.length < 2){
+				$(".row").eq(1).before($("<p class='accountError'>Maximum of 2 characters for birth day.</p>"));
+				$("#dd").addClass("errorBorder");
+				return false;
+			}
+			else if($dd_num == 'true'){
+				$(".row").eq(1).before($("<p class='accountError'>Please enter numbers only.</p>"));
+				$("#dd").addClass("errorBorder");
+				return false;
+			}
+			else if(mm == ''){
+				$(".row").eq(1).before($("<p class='accountError'>Please specify your Birth Month.</p>"));
+				$("#mm").addClass("errorBorder");
+				return false;
+			}
+			else if(mm.length > 2 || mm.length < 2){
+				$(".row").eq(1).before($("<p class='accountError'>Maximum of 2 characters for birth month.</p>"));
+				$("#mm").addClass("errorBorder");
+				return false;
+			}
+			else if($mm_num == 'true'){
+				$(".row").eq(1).before($("<p class='accountError'>Please enter numbers only.</p>"));
+				$("#mm").addClass("errorBorder");
+				return false;
+			}
+			else if(yy == ''){
+				$(".row").eq(1).before($("<p class='accountError'>Please specify your Birth Year.</p>"));
+				$("#yy").addClass("errorBorder");
+				return false;
+			}
+			else if($yy_num == 'true'){
+				$(".row").eq(1).before($("<p class='accountError'>Please enter numbers only.</p>"));
+				$("#yy").addClass("errorBorder");
+				return false;
+			}
+			else if(yy.length > 4 || yy.length < 4){
+				$(".row").eq(1).before($("<p class='accountError'>Maximum of 4 characters for birth year.</p>"));
+				$("#yy").addClass("errorBorder");
+				return false;
+			}
+			else if(dd > 31 || dd < 01){
+				$(".row").eq(1).before($("<p class='accountError'>Please define your birth month from 01  - 31 only.</p>"));
+				$("#dd").addClass("errorBorder");
+				return false;
+			}
+			else if(mm > 12 || mm < 01){
+				$(".row").eq(1).before($("<p class='accountError'>Please define your birth month from 01  - 12 only.</p>"));
+				$("#mm").addClass("errorBorder");
+				return false;
+			}
+			else if(yy > 2004 || yy < 1900){
+				$(".row").eq(1).before($("<p class='accountError'>Please define your birth year from 1900  - 2004 only.</p>"));
+				$("#yy").addClass("errorBorder");
+				return false;
+			}
+			//pass value of the date in here
+			// input = mm+'-'+dd+'-'+yy;
+			input = yy+'-'+mm+'-'+dd;
+			$("#dob").val(input);
+		} 
+		else if(rel == 'gender'){
+			
+			input = $("input[name=gender]:checked").val();
+			var is_check = $('input[name=gender]').is(':checked'); 
+			if(is_check == false){
+				//do the outline
+				$("input[name=gender]").addClass('error');
+				//display error message
+				$(".accountError").remove();
+				$(".row").eq(1).before($("<p class='accountError'>Please specify your gender.</p>"));
+				return false;
+			}
+		}
+		//call an ajax function
+		//alert(input);
+		$.ajax({
+		    url: '/profile/index/editProfile',
+		    type: "post",
+		    data:{value:input,attr:rel},
+		    dataType: 'json',
+		    success: function(data) {
+				if(data.response == 'error'){
+					//alert("error");
+					var length = data.result.length;
+					var i;
+					for(i = 0; i<length; i++)
+					{
+						//alert(data.result[i]);
+						$("#error_msg").show().append("<p>"+data.result[i]+"</p>");
+						setTimeout(function() {
+							$.fn.custombox('close');
+						}, 2000);
+					}
+					//alert(data.result[0]);
+				}
+				else if(data.response == 'update')
+				{
+					if(data.result.submit == true)
+					{
+						$("#error_msg").show().text(data.result.message);
+						//close the form
+						setTimeout(function() {
+							$.fn.custombox('close');
+						}, 2000);
+					}
+				}
+				$(".right-content").load("profileAjaxLoad");
+		    }//end else
+		});//end of ajax
+	});//end of click
+	
+});//end of document ready
+
+   
