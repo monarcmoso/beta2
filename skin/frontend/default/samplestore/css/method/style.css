@@ -139,6 +139,7 @@ h1.logo {
 	color: #cdcdcd;
 	border: none;
 	outline: none;
+        height: 18px;
 }
 .searchbox input[type='submit'] {
 	background: #59595c url(../../images/search.png) 50% 50% no-repeat;
