@@ -1,0 +1,52 @@
+.modal-example-body {
+	padding: 30px 0px 30px 30px;
+	overflow: hidden;
+	width: 850px;
+	display: block;
+	height: 500px;
+	overflow-y: scroll;
+}
+.modal-example-body p {
+	padding-right: 10px;
+}
+.modal-example-body .verified {
+	right: 10px;
+	position: relative;
+	margin-bottom:30px;
+}
+
+/* Color fixes */
+
+.sidebar ul li ul li.color-baby a:hover {
+	color: #f75c78;
+}
+.sidebar ul li ul li.color-body a:hover {
+	color: #7eded4;
+}
+.sidebar ul li ul li.color-eye a:hover {
+	color: #30b8e6;
+}
+.sidebar ul li ul li.color-face a:hover {
+	color: #fa415a;
+}
+.sidebar ul li ul li.color-feminine-care a:hover {
+	color: #c49a82;
+}
+.sidebar ul li ul li.color-food a:hover {
+	color: #db5f00;
+}
+.sidebar ul li ul li.color-fragrance a:hover {
+	color: #f5ac02;
+}
+.sidebar ul li ul li.color-others a:hover {
+	color: #007d6a;
+}
+.sidebar ul li ul li.color-sports a:hover {
+	color: #e0c600;
+}
+.sidebar ul li ul li.color-toiletries a:hover {
+	color: #625bc2;
+}
+.sidebar ul li ul li.color-unisex a:hover {
+	color: #8d8f8e;
+}
