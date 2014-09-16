@@ -226,16 +226,17 @@ class Singpost_OneTimePassword_SendController extends Mage_Core_Controller_Front
 
 	protected function _generateOtpKey()
 	{
-		$aplha = 'abcdefghjkmnpqrstuvwxyz';
-		$numeric = '23456789';
+		//$aplha = 'abcdefghjkmnpqrstuvwxyz';
+		$numeric = '0123456789';
 		$letters = '';
 		$numbers = '';
-		for ($i = 0; $i < 3; $i++) {
-			$letters .= $aplha[rand(0, strlen($aplha) - 1)];
+		for ($i = 0; $i < 6; $i++) {
+			//$letters .= $aplha[rand(0, strlen($aplha) - 1)];
 			$numbers .= $numeric[rand(0, strlen($numeric) - 1)];
 		}
-		$shuffle = $letters.$numbers;
-		$otp = str_shuffle($shuffle);
+		//$shuffle = $letters.$numbers;
+		//$otp = str_shuffle($shuffle);
+		$otp = str_shuffle($numbers);
 		return $otp;
 	}
 	
