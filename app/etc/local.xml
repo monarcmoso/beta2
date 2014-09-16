@@ -40,7 +40,7 @@
             </db>
             <default_setup>
                 <connection>
-                    <host><![CDATA[localhost]]></host>
+                    <host><![CDATA[samplestore.com]]></host>
                     <username><![CDATA[samplest_magento]]></username>
                     <password><![CDATA[m@gento_ss]]></password>
                     <dbname><![CDATA[samplest_magento_git]]></dbname>
