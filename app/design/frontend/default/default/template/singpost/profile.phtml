@@ -39,7 +39,7 @@ if(!$this->getPopup() > 0){
 			<?=$this->getLayout()->createBlock('cms/block')->setBlockId('pop_up')->toHtml();?>
 	  </div>
 	</div>
-	
+<div id="popup"><img src="<?=$this->getSkinUrl('images/ajax-loader.gif');?>"> <p style="float:left;width:100%;text-align:center; color:#000;">Please wait while the page is loading...</p></div>	
 <script type="text/javascript">
 jQuery(document).ready(function($){
 	//$(document).on('click','#forever',function(){
@@ -51,9 +51,10 @@ jQuery(document).ready(function($){
         	if(!data > 0)  alert("Sorry, there is an error processing your request. Please try refreshing the page or contact us if the problem occur again.");
         }//end else
 	 });
-	// $(document).on('click','#forever',function(){
-		// window.location.href = "/all-samples.html";
-	// });
+	$(document).on('click','#forever',function(){
+		$("#popup").show();
+		$.fn.custombox('close');
+	});
 });
 </script>
 	<?php	
